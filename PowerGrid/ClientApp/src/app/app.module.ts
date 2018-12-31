@@ -12,6 +12,7 @@ import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { CardComponent } from './card/card.component';
 import { PlayerComponent } from './player/player.component';
 import { PlayerListComponent } from './player-list/player-list.component';
+import { CardListComponent } from './card-list/card-list.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { PlayerListComponent } from './player-list/player-list.component';
     FetchDataComponent,
     CardComponent,
     PlayerComponent,
-    PlayerListComponent
+    PlayerListComponent,
+    CardListComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
