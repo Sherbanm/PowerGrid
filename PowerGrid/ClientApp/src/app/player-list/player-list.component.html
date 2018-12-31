@@ -1,0 +1,6 @@
+<h2>My Players</h2>
+
+<div *ngFor="let player of players"
+  (click)="onSelect(hero)">
+  <app-player [player]='player'></app-player>
+</div>
