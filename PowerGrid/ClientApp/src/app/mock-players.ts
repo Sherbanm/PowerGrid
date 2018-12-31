@@ -12,5 +12,10 @@ export const PLAYERS: Player[] = [
     { value: 1, resource: "oil", power:  2, cost: 3},
     { value: 1, resource: "oil", power:  2, cost: 3},
     { value: 1, resource: "oil", power:  2, cost: 3}
+  ] },
+  { name: 'asdasd', cards: [
+    { value: 1, resource: "oil", power:  2, cost: 3},
+    { value: 1, resource: "oil", power:  2, cost: 3},
+    { value: 1, resource: "oil", power:  2, cost: 3}
   ] }
 ];

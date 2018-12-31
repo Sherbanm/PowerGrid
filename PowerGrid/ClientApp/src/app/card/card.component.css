@@ -1,5 +1,5 @@
 #rcorners1 {
-    float: left;
+    display: left;
     border-radius: 25px;
     background: rgb(114, 255, 133);
     padding: 10px; 

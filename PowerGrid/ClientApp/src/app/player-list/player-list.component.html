@@ -1,4 +1,6 @@
 <div *ngFor="let player of players"
-  (click)="onSelect(hero)">
+  (click)="onSelect(player)">
   <app-player [player]='player'></app-player>
 </div>
+<br clear="both">
+<app-card-list [cards]='selectedPlayer.cards'></app-card-list>

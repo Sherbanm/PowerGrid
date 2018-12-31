@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { CARDS} from '../mock-cards';
 import { Card} from '../domain/card';
 
@@ -8,8 +8,8 @@ import { Card} from '../domain/card';
   styleUrls: ['./card-list.component.css']
 })
 export class CardListComponent implements OnInit {
-
-  cards = CARDS;
+  @Input() cards: Card[];
+  
   constructor() { }
 
   ngOnInit() {
