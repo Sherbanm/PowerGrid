@@ -19,7 +19,6 @@ export class PlayerListComponent implements OnInit {
 
   ngOnInit() {
     this.getPlayers();
-    this.selectedPlayer = this.players[0];
   }
 
   onSelect(player: Player): void {
@@ -27,7 +26,10 @@ export class PlayerListComponent implements OnInit {
   }
 
   getPlayers(): void {
-    this.playerService.getPlayers().subscribe(players => this.players = players);
+    this.playerService.getPlayers().subscribe(players => {
+      this.players = players;
+      this.selectedPlayer = players[0];
+    });
   }
 
 }

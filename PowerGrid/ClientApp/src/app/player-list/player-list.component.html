@@ -1,6 +1,8 @@
-<div *ngFor="let player of players"
-  (click)="onSelect(player)">
-  <app-player [player]='player'></app-player>
+<div *ngIf="selectedPlayer">
+  <div *ngFor="let player of players"
+    (click)="onSelect(player)">
+    <app-player [player]='player'></app-player>
+  </div>
+  <br clear="both">
+  <app-card-list [cards]='selectedPlayer.cards'></app-card-list>
 </div>
-<br clear="both">
-<app-card-list [cards]='selectedPlayer.cards'></app-card-list>

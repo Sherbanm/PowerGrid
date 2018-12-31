@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using PowerGrid.Domain;
 
 namespace PowerGrid.Controllers
 {
@@ -13,34 +14,18 @@ namespace PowerGrid.Controllers
     {
         // GET: api/Player
         [HttpGet]
-        public IEnumerable<string> Get()
+        public IEnumerable<Player> GetPlayers()
         {
-            return new string[] { "value1", "value2" };
-        }
+            var cards = new Card[] { new Card { Cost = 1, Resource = "Iron", Value = 2, Power = 3 },
+                                new Card { Cost = 5, Resource = "Iron", Value = 6, Power = 7 }};
 
-        // GET: api/Player/5
-        [HttpGet("{id}", Name = "Get")]
-        public string Get(int id)
-        {
-            return "value";
-        }
-
-        // POST: api/Player
-        [HttpPost]
-        public void Post([FromBody] string value)
-        {
-        }
-
-        // PUT: api/Player/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
-        {
-        }
-
-        // DELETE: api/ApiWithActions/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
+            var cards2 = new Card[] { new Card { Cost = 11, Resource = "Meep", Value = 12, Power = 13 },
+                                new Card { Cost = 15, Resource = "Morp", Value = 16, Power = 17 },
+                                new Card { Cost = 5, Resource = "Iron", Value = 6, Power = 7 }};
+            
+            return new Player[] {
+                new Player { Name = "steve", Cards = cards},
+                new Player { Name = "stove", Cards = cards2}};
         }
     }
 }

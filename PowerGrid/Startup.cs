@@ -27,6 +27,8 @@ namespace PowerGrid
             {
                 configuration.RootPath = "ClientApp/dist";
             });
+
+            services.AddCors();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
