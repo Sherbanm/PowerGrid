@@ -10,7 +10,7 @@ import { PLAYERS} from './mock-players';
 })
 export class PlayerService {
 
-  private playerUrl = 'https://localhost:44344/api/Player'
+  private playerUrl = 'https://localhost:44344/api/Player';
 
   constructor(private http: HttpClient) { }
 

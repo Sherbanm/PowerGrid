@@ -9,7 +9,7 @@ namespace PowerGrid.Domain
     {
         public int Value { get; set; }
 
-        public string Resource { get; set; }
+        public ResourceType Resource { get; set; }
 
         public int Cost { get; set; }
 

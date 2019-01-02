@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { Player} from '../domain/player';
 import { PlayerService } from '../player.service';
+import { SocketService } from '../socket.service';
 
 @Component({
   selector: 'app-player-list',
@@ -13,8 +14,13 @@ export class PlayerListComponent implements OnInit {
   players: Player[];
   selectedPlayer: Player;
 
-  constructor(private playerService: PlayerService ) {
+  ioConnection: any;
+  messageFromServer: string;
 
+  constructor(private playerService: PlayerService, private socketService: SocketService) {
+    this.socketService.createObservableSocket( "wss://localhost:44344/ws").subscribe(data => {
+      this.messageFromServer = data;
+    })
   }
 
   ngOnInit() {
@@ -23,7 +29,17 @@ export class PlayerListComponent implements OnInit {
 
   onSelect(player: Player): void {
     this.selectedPlayer = player;
+    this.sendMessage("chacha");
   }
+
+  public sendMessage(message: string): void {
+    if (!message) {
+      return;
+    }
+
+    this.socketService.sendMessage(message);    
+  }
+
 
   getPlayers(): void {
     this.playerService.getPlayers().subscribe(players => {

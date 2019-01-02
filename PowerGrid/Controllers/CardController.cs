@@ -16,8 +16,7 @@ namespace PowerGrid.Controllers
         [HttpGet]
         public IEnumerable<Card> GetCard()
         {
-            return new Card[] { new Card { Cost = 1, Resource = "Iron", Value = 2, Power = 3 },
-                                new Card { Cost = 5, Resource = "Iron", Value = 6, Power = 7 }};
+            return new Card[] { null, null };
         }
     }
 }
