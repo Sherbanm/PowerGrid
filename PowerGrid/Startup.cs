@@ -49,6 +49,9 @@ namespace PowerGrid
             app.UseStaticFiles();
             app.UseSpaStaticFiles();
 
+            // Shows UseCors with CorsPolicyBuilder.
+            app.UseCors(builder => builder.AllowAnyOrigin());
+
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
