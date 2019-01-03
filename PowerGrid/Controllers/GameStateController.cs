@@ -10,13 +10,13 @@ namespace PowerGrid.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class CardController : ControllerBase
+    public class GameStateController : ControllerBase
     {
-        // GET: api/Card
+        // GET: api/GameState
         [HttpGet]
-        public IEnumerable<Card> GetCard()
+        public GameState Get()
         {
-            return MockGameState.GetMockCards();
+            return MockGameState.GetMockState();
         }
     }
 }
