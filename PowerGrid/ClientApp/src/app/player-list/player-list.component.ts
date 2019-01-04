@@ -18,9 +18,11 @@ export class PlayerListComponent implements OnInit {
   gameState: GameState;
 
   constructor(private playerService: PlayerService, private socketService: SocketService) {
+    let _self = this;
     this.socketService.createObservableSocket( "wss://localhost:44344/ws").subscribe(data => {
-      this.gameState = data;
-    })
+      _self.gameState = JSON.parse(data);
+      _self.players = _self.gameState.players;
+    });
   }
 
   ngOnInit() {

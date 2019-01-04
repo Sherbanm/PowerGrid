@@ -21,6 +21,7 @@ namespace PowerGrid
 
 
         public static GameState GetMockState() {
+            players[0].Cards[0].Cost++;
             return new GameState { Players = players };
         }
 
