@@ -29,7 +29,10 @@ namespace PowerGrid
 
         public static GameState GetMockState() {
             players[0].Cards[0].Cost++;
-            return new GameState { Players = players, ResourceMarket = resourceMarket };
+            return new GameState {
+                Players = players,
+                ResourceMarket = resourceMarket,
+                AuctionHouse = new AuctionHouse { AvailableCards = cards, DisplayedCards = cards2 } };
         }
 
         public static Player[] GetMockPlayers()

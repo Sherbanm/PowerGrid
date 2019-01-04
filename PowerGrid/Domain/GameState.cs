@@ -14,8 +14,8 @@ namespace PowerGrid.Domain
         [JsonProperty(PropertyName = "resourceMarket")]
         public ResourceMarket ResourceMarket { get; set; }
 
-        // TODO:
-        //public AuctionHouse AuctionHouse{get;set; }
+        [JsonProperty(PropertyName = "auctionHouse")]
+        public AuctionHouse AuctionHouse { get; set; }
 
         //public Board Board {get; set; }
 
