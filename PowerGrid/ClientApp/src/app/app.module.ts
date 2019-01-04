@@ -13,6 +13,7 @@ import { CardComponent } from './card/card.component';
 import { PlayerComponent } from './player/player.component';
 import { PlayerListComponent } from './player-list/player-list.component';
 import { CardListComponent } from './card-list/card-list.component';
+import { ResourceMarketComponent } from './resource-market/resource-market.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { CardListComponent } from './card-list/card-list.component';
     CardComponent,
     PlayerComponent,
     PlayerListComponent,
-    CardListComponent
+    CardListComponent,
+    ResourceMarketComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),

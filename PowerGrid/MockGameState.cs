@@ -19,10 +19,17 @@ namespace PowerGrid
                 new Player { Name = "steve", Cards = cards    },
                 new Player { Name = "stove", Cards = cards2   } };
 
+        public static ResourceMarket resourceMarket = new ResourceMarket
+        {
+            Oil = 10,
+            Gas = 12,
+            Coal = 15,
+            Nuclear = 5
+        };
 
         public static GameState GetMockState() {
             players[0].Cards[0].Cost++;
-            return new GameState { Players = players };
+            return new GameState { Players = players, ResourceMarket = resourceMarket };
         }
 
         public static Player[] GetMockPlayers()
