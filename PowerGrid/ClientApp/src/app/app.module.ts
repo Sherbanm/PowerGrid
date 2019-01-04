@@ -14,6 +14,8 @@ import { PlayerComponent } from './player/player.component';
 import { PlayerListComponent } from './player-list/player-list.component';
 import { CardListComponent } from './card-list/card-list.component';
 import { ResourceMarketComponent } from './resource-market/resource-market.component';
+import { AuctionHouseComponent } from './auction-house/auction-house.component';
+import { GamestateComponent } from './gamestate/gamestate.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { ResourceMarketComponent } from './resource-market/resource-market.compo
     PlayerComponent,
     PlayerListComponent,
     CardListComponent,
-    ResourceMarketComponent
+    ResourceMarketComponent,
+    AuctionHouseComponent,
+    GamestateComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),

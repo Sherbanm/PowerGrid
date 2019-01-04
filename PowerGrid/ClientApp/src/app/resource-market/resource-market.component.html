@@ -1,6 +1,10 @@
-<p>
-  Oil: {{market.oil}}<br>
-  Gas: {{market.gas}}<br>
-  Coal: {{market.coal}}<br>
-  Nuclear: {{market.nuclear}}<br>
-</p>
+<div *ngIf="market">
+  Resource market
+  <br>
+  <p>
+    Oil: {{market.oil}}<br>
+    Gas: {{market.gas}}<br>
+    Coal: {{market.coal}}<br>
+    Nuclear: {{market.nuclear}}<br>
+  </p>
+</div>

@@ -1,5 +1,4 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { CARDS} from '../mock-cards';
 import { Card} from '../domain/card';
 
 @Component({
