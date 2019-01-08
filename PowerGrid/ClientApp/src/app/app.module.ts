@@ -16,6 +16,7 @@ import { CardListComponent } from './card-list/card-list.component';
 import { ResourceMarketComponent } from './resource-market/resource-market.component';
 import { AuctionHouseComponent } from './auction-house/auction-house.component';
 import { GamestateComponent } from './gamestate/gamestate.component';
+import { MapComponent } from './map/map.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { GamestateComponent } from './gamestate/gamestate.component';
     CardListComponent,
     ResourceMarketComponent,
     AuctionHouseComponent,
-    GamestateComponent
+    GamestateComponent,
+    MapComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
