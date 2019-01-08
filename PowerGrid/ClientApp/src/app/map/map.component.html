@@ -1,3 +1,11 @@
-<p>
-  map works!
-</p>
+<div *ngIf="map">
+  Map
+  <br>
+  <div *ngFor="let city of map.cities" id="rcity" style="display: inline-block">
+    {{city.name}}
+    <br>
+    <div *ngFor="let slot of city.generators" id="rgenerator" style="display: inline-block">
+        
+    </div>
+  </div>
+</div>

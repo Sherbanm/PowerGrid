@@ -13,5 +13,8 @@ namespace PowerGrid.Domain
 
         [JsonProperty(PropertyName = "cityA")]
         public City CityB { get; set; }
+
+        [JsonProperty(PropertyName = "cost")]
+        public int Cost { get; set; }
     }
 }

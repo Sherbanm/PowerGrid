@@ -1,8 +1,12 @@
 import { Player } from "./player";
+import { ResourceMarket } from "./resourceMarket";
+import { AuctionHouse } from "./auctionHouse";
+import { Map } from "./map";
 
 export class GameState {
     players: Player[];
-
-    //TODO
-    // Auction, board and gamestate
+    resourceMarket: ResourceMarket;
+    auctionHouse: AuctionHouse;
+    map: Map;
+    
 }

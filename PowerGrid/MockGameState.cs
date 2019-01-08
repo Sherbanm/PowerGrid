@@ -27,12 +27,29 @@ namespace PowerGrid
             Nuclear = 5
         };
 
+        public static City Toronto = new City { Name = "Toronto", Generators = new Player[3] };
+        public static City Montreal = new City { Name = "Montreal", Generators = new Player[3] };
+        public static City Ottawa = new City { Name = "Ottawa", Generators = new Player[3] };
+
+        public static Map map = new Map
+        {
+            Cities = new City[] { Toronto, Montreal, Ottawa },
+            Connections = new Connection[]
+            {
+                new Connection { CityA = Toronto, CityB = Montreal, Cost = 5},
+                new Connection { CityA = Toronto, CityB = Ottawa, Cost = 4 },
+                new Connection { CityA = Montreal, CityB = Ottawa, Cost = 2 }
+            }
+        };
+
         public static GameState GetMockState() {
             players[0].Cards[0].Cost++;
             return new GameState {
                 Players = players,
                 ResourceMarket = resourceMarket,
-                AuctionHouse = new AuctionHouse { AvailableCards = cards, DisplayedCards = cards2 } };
+                AuctionHouse = new AuctionHouse { AvailableCards = cards, DisplayedCards = cards2 },
+                Map = map
+            };
         }
 
         public static Player[] GetMockPlayers()
@@ -44,5 +61,6 @@ namespace PowerGrid
         {
             return cards;
         }
+
     }
 }

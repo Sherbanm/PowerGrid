@@ -17,8 +17,7 @@ namespace PowerGrid.Domain
         [JsonProperty(PropertyName = "auctionHouse")]
         public AuctionHouse AuctionHouse { get; set; }
 
-        //public Board Board {get; set; }
-
-        // * current turn info *
+        [JsonProperty(PropertyName = "map")]
+        public Map Map {get; set; }
     }
 }
