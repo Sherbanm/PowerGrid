@@ -23,7 +23,7 @@ namespace PowerGrid.Controllers
 
         [Route("BuyResource")]
         [HttpPost]
-        public string BuyResources([FromBody] BuyResourceRequest buyRequest)
+        public string BuyResource([FromBody] BuyResourceRequest buyRequest)
         {
             Game.BuyResource(buyRequest.player, buyRequest.type, buyRequest.count);
             return "done";
