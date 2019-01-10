@@ -13,5 +13,11 @@ namespace PowerGrid.Domain
 
         [JsonProperty(PropertyName = "cards")]
         public Card[] Cards { get; set; }
+
+        [JsonProperty(PropertyName = "money")]
+        public int Money { get; set; }
+
+        [JsonProperty(PropertyName = "resources")]
+        public ResourceMarket Resources{ get; set; }
     }
 }
