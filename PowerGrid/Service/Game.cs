@@ -2,13 +2,40 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.WebSockets;
+using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace PowerGrid.Service
 {
     public static class Game
     {
+        public static List<WebSocket> listeners = new List<WebSocket>();
+        public static WebSocketReceiveResult result;
         private static GameState gameState = MockGameState.GetMockState();
+
+        public static async void AddListener(WebSocket listener)
+        {
+            listeners.Add(listener);
+        }
+
+        public static async void SaveResult(WebSocketReceiveResult result)
+        {
+            Game.result = result;
+        }
+
+        public static void SendUpdates()
+        {
+            foreach(WebSocket listener in listeners)
+            {
+                var json = Newtonsoft.Json.JsonConvert.SerializeObject(gameState);
+                var bytes = Encoding.GetEncoding(Encoding.UTF8.BodyName).GetBytes(json.ToCharArray());
+
+                listener.SendAsync(new ArraySegment<byte>(bytes, 0, bytes.Length), result.MessageType, result.EndOfMessage, CancellationToken.None);
+
+            }
+        }
 
         public static void BuyResource(Player buyer, ResourceType type, int count)
         {
@@ -24,6 +51,8 @@ namespace PowerGrid.Service
                     gameState.ResourceMarket.Oil--;
                 }
             }
+
+            SendUpdates();
         }
 
         public static void BuyCard(Player buyer, Card card)

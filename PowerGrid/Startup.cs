@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SpaServices.AngularCli;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using PowerGrid.Service;
 using System;
 using System.Net.WebSockets;
 using System.Text;
@@ -110,6 +111,8 @@ namespace PowerGrid
         {
             var buffer = new byte[1024 * 4];
             WebSocketReceiveResult result = await webSocket.ReceiveAsync(new ArraySegment<byte>(buffer), CancellationToken.None);
+            Game.AddListener(webSocket);
+            Game.SaveResult(result);
             while (!result.CloseStatus.HasValue)
             {
                 var json = Newtonsoft.Json.JsonConvert.SerializeObject(MockGameState.GetMockState());
