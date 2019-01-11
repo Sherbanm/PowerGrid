@@ -1,11 +1,11 @@
 import { Player } from "./player";
-import { ResourceMarket } from "./resourceMarket";
+import { Resources } from "./resources";
 import { AuctionHouse } from "./auctionHouse";
 import { Map } from "./map";
 
 export class GameState {
     players: Player[];
-    resourceMarket: ResourceMarket;
+    resourceMarket: Resources;
     auctionHouse: AuctionHouse;
     map: Map;
     

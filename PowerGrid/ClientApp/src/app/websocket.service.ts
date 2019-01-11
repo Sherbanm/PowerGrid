@@ -1,11 +1,10 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { GameState } from './domain/gamestate';
 
 @Injectable({
   providedIn: 'root'
 })
-export class SocketService {
+export class WebSocketService {
   ws: WebSocket;
 
   createObservableSocket(url:string):Observable<string> {

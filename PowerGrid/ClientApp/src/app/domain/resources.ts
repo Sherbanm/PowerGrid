@@ -1,4 +1,4 @@
-export class ResourceMarket {
+export class Resources {
     oil: number;
     gas: number;
     coal: number;

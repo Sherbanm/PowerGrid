@@ -18,6 +18,6 @@ namespace PowerGrid.Domain
         public int Money { get; set; }
 
         [JsonProperty(PropertyName = "resources")]
-        public ResourceMarket Resources{ get; set; }
+        public Resources Resources{ get; set; }
     }
 }

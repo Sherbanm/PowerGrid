@@ -5,7 +5,7 @@ import { Player } from './domain/player';
 @Injectable({
   providedIn: 'root'
 })
-export class CurrentPlayerServiceService {
+export class CurrentPlayerService {
 
   private messageSource = new BehaviorSubject<Player>(null);
   currentPlayer = this.messageSource.asObservable();

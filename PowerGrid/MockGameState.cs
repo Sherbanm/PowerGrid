@@ -16,11 +16,11 @@ namespace PowerGrid
                                 new Card { Cost = 5, Resource = ResourceType.Nuclear, Value = 6, Power = 7 }};
 
         public static Player[] players = new Player[] {
-                new Player { Name = "steve", Cards = cards, Money = 50, Resources = new ResourceMarket() },
-                new Player { Name = "stove", Cards = cards2, Money = 50, Resources = new ResourceMarket() }
+                new Player { Name = "steve", Cards = cards, Money = 50, Resources = new Resources() },
+                new Player { Name = "stove", Cards = cards2, Money = 50, Resources = new Resources() }
         };
 
-        public static ResourceMarket resourceMarket = new ResourceMarket
+        public static Resources resourceMarket = new Resources
         {
             Oil = 10,
             Gas = 12,

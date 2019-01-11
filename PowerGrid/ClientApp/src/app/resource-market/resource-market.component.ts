@@ -1,9 +1,10 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ResourceMarket } from '../domain/resourceMarket';
+import { CurrentPlayerService } from '../current-player.service';
+import { GamestateService } from '../gamestate.service';
+
+import { Resources } from '../domain/resources';
 import { ResourceType } from '../domain/resourceType';
-import { CurrentPlayerServiceService } from '../current-player-service.service';
 import { Player } from '../domain/player';
-import { PlayerService } from '../player.service';
 
 @Component({
   selector: 'app-resource-market',
@@ -11,18 +12,18 @@ import { PlayerService } from '../player.service';
   styleUrls: ['./resource-market.component.css']
 })
 export class ResourceMarketComponent implements OnInit {
-  @Input() market: ResourceMarket;
+  @Input() market: Resources;
   
   public selectedPlayer: Player;
 
-  constructor(private currentPlayerServiceService: CurrentPlayerServiceService, private playerSerivce: PlayerService) { }
+  constructor(private currentPlayerService: CurrentPlayerService, private gameStateService: GamestateService) { }
 
   ngOnInit() {
-    this.currentPlayerServiceService.currentPlayer.subscribe(player => this.selectedPlayer = player);
+    this.currentPlayerService.currentPlayer.subscribe(player => this.selectedPlayer = player);
   }
 
   onBuyResource(type: ResourceType): void {
-    this.playerSerivce.buyResource(this.selectedPlayer, type, 1).subscribe(data => {
+    this.gameStateService.buyResource(this.selectedPlayer, type, 1).subscribe(data => {
       let result = data;
     });
   }

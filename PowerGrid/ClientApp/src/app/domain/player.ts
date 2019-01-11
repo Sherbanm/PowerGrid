@@ -1,9 +1,9 @@
 import { Card } from "./card";
-import { ResourceMarket } from "./resourceMarket";
+import { Resources } from "./resources";
 
 export class Player {
   name: string;
   cards: Card[];
   money: number;
-  resources: ResourceMarket;
+  resources: Resources;
 }

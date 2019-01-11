@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PowerGrid.Domain
 {
-    public class ResourceMarket
+    public class Resources
     {
         [JsonProperty(PropertyName = "oil")]
         public int Oil { get; set; }
