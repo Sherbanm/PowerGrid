@@ -26,7 +26,7 @@ namespace PowerGrid.Controllers
         public string BuyResource([FromBody] BuyResourceRequest buyRequest)
         {
             Game.BuyResource(buyRequest.player, buyRequest.type, buyRequest.count);
-            return "done";
+            return "{ done }";
         }
 
         [Route("BuyCard")]
@@ -34,7 +34,7 @@ namespace PowerGrid.Controllers
         public string BuyCard([FromBody] BuyCardRequest buyRequest)
         {
             Game.BuyCard(buyRequest.player, buyRequest.card);
-            return "done";
+            return "{ done }";
         }
 
         [Route("BuyGenerator")]
@@ -42,7 +42,7 @@ namespace PowerGrid.Controllers
         public string BuyGenerator([FromBody] BuyGeneratorRequest buyRequest)
         {
             Game.BuyGenerator(buyRequest.player, buyRequest.city);
-            return "done";
+            return "{ done }";
         }
     }
 

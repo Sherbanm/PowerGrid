@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Map } from '../domain/Map';
+import { Map } from '../domain/map';
 
 @Component({
   selector: 'app-map',

@@ -61,7 +61,7 @@ namespace PowerGrid
                     if (context.WebSockets.IsWebSocketRequest)
                     {
                         WebSocket webSocket = await context.WebSockets.AcceptWebSocketAsync();
-                        await Echo(context, webSocket);
+                        await Game.Echo(context, webSocket);
                     }
                     else
                     {
@@ -101,28 +101,6 @@ namespace PowerGrid
                     spa.UseAngularCliServer(npmScript: "start");
                 }
             });
-
-            
-
-
-        }
-
-        private async Task Echo(HttpContext context, WebSocket webSocket)
-        {
-            var buffer = new byte[1024 * 4];
-            WebSocketReceiveResult result = await webSocket.ReceiveAsync(new ArraySegment<byte>(buffer), CancellationToken.None);
-            Game.AddListener(webSocket);
-            Game.SaveResult(result);
-            while (!result.CloseStatus.HasValue)
-            {
-                var json = Newtonsoft.Json.JsonConvert.SerializeObject(MockGameState.GetMockState());
-                var bytes = Encoding.GetEncoding(Encoding.UTF8.BodyName).GetBytes(json.ToCharArray());
-                
-                await webSocket.SendAsync(new ArraySegment<byte>(bytes, 0, bytes.Length), result.MessageType, result.EndOfMessage, CancellationToken.None);
-
-                result = await webSocket.ReceiveAsync(new ArraySegment<byte>(buffer), CancellationToken.None);
-            }
-            await webSocket.CloseAsync(result.CloseStatus.Value, result.CloseStatusDescription, CancellationToken.None);
         }
     }
 }

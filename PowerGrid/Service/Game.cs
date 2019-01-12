@@ -1,4 +1,5 @@
-﻿using PowerGrid.Domain;
+﻿using Microsoft.AspNetCore.Http;
+using PowerGrid.Domain;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,16 +26,22 @@ namespace PowerGrid.Service
             Game.result = result;
         }
 
-        public static void SendUpdates()
+        public static async Task Echo(HttpContext context, WebSocket webSocket)
         {
-            foreach(WebSocket listener in listeners)
+            var buffer = new byte[1024 * 4];
+            WebSocketReceiveResult result = await webSocket.ReceiveAsync(new ArraySegment<byte>(buffer), CancellationToken.None);
+            AddListener(webSocket);
+            SaveResult(result);
+            while (!result.CloseStatus.HasValue)
             {
-                var json = Newtonsoft.Json.JsonConvert.SerializeObject(gameState);
+                var json = Newtonsoft.Json.JsonConvert.SerializeObject(MockGameState.GetMockState());
                 var bytes = Encoding.GetEncoding(Encoding.UTF8.BodyName).GetBytes(json.ToCharArray());
 
-                listener.SendAsync(new ArraySegment<byte>(bytes, 0, bytes.Length), result.MessageType, result.EndOfMessage, CancellationToken.None);
+                await webSocket.SendAsync(new ArraySegment<byte>(bytes, 0, bytes.Length), result.MessageType, result.EndOfMessage, CancellationToken.None);
 
+                result = await webSocket.ReceiveAsync(new ArraySegment<byte>(buffer), CancellationToken.None);
             }
+            await webSocket.CloseAsync(result.CloseStatus.Value, result.CloseStatusDescription, CancellationToken.None);
         }
 
         public static void BuyResource(Player buyer, ResourceType type, int count)
@@ -46,9 +53,9 @@ namespace PowerGrid.Service
                 // everything costs 2 for now.
                 if (player.Money >= 2)
                 {
-                    player.Money-= 2;
-                    player.Resources.Oil++;
-                    gameState.ResourceMarket.Oil--;
+                    player.Money -= 2;
+                    player.Resources.Data[(int)type]++;
+                    gameState.ResourceMarket.Data[(int)type]--;
                 }
             }
 
@@ -63,6 +70,18 @@ namespace PowerGrid.Service
         public static void BuyGenerator(Player buyer, City city)
         {
 
+        }
+
+        public static void SendUpdates()
+        {
+            foreach (WebSocket listener in listeners)
+            {
+                var json = Newtonsoft.Json.JsonConvert.SerializeObject(gameState);
+                var bytes = Encoding.GetEncoding(Encoding.UTF8.BodyName).GetBytes(json.ToCharArray());
+
+                listener.SendAsync(new ArraySegment<byte>(bytes, 0, bytes.Length), result.MessageType, result.EndOfMessage, CancellationToken.None);
+
+            }
         }
 
         private static int GetPlayerIndex(Player player) 

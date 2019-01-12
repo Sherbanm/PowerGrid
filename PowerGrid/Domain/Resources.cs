@@ -8,17 +8,8 @@ namespace PowerGrid.Domain
 {
     public class Resources
     {
-        [JsonProperty(PropertyName = "oil")]
-        public int Oil { get; set; }
-
-        [JsonProperty(PropertyName = "gas")]
-        public int Gas { get; set; }
-
-        [JsonProperty(PropertyName = "coal")]
-        public int Coal { get; set; }
-
-        [JsonProperty(PropertyName = "nuclear")]
-        public int Nuclear { get; set; }
-
+        [JsonProperty(PropertyName = "data")]
+        public int[] Data { get; set; } = new int[4];
+              
     }
 }

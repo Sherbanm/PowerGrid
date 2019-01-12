@@ -22,10 +22,7 @@ namespace PowerGrid
 
         public static Resources resourceMarket = new Resources
         {
-            Oil = 10,
-            Gas = 12,
-            Coal = 15,
-            Nuclear = 5
+            Data = new int[] { 10, 12, 15, 5 }
         };
 
         public static City Toronto = new City { Name = "Toronto", Generators = new Player[3] };
@@ -44,7 +41,6 @@ namespace PowerGrid
         };
 
         public static GameState GetMockState() {
-            players[0].Cards[0].Cost++;
             return new GameState {
                 Players = players,
                 ResourceMarket = resourceMarket,

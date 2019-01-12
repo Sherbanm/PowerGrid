@@ -1,7 +1,13 @@
 <div id='rcornersPlayer'>
   <h2>{{player.name}}</h2>
+  {{player.money}}$<br>
+  Res:{{player.resources.data[0]}} | 
+  {{player.resources.data[1]}} | 
+  {{player.resources.data[2]}} | 
+  {{player.resources.data[3]}}<br>
   <div *ngFor="let card of player.cards">
     <div id='rcornersPlayerCard'>
     </div>
   </div>
+
 </div>
