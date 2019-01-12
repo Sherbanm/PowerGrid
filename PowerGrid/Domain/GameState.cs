@@ -12,7 +12,7 @@ namespace PowerGrid.Domain
         public Player[] Players { get; set; }
 
         [JsonProperty(PropertyName = "resourceMarket")]
-        public Resources ResourceMarket { get; set; }
+        public ResourceMarket ResourceMarket { get; set; }
 
         [JsonProperty(PropertyName = "auctionHouse")]
         public AuctionHouse AuctionHouse { get; set; }

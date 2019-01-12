@@ -50,12 +50,12 @@ namespace PowerGrid.Service
 
             for(int i = 0; i < count; i++)
             {
-                // everything costs 2 for now.
-                if (player.Money >= 2)
+                int cost = gameState.ResourceMarket.GetCost(type);
+                if (player.Money >= cost)
                 {
-                    player.Money -= 2;
+                    player.Money -= cost;
                     player.Resources.Data[(int)type]++;
-                    gameState.ResourceMarket.Data[(int)type]--;
+                    gameState.ResourceMarket.Resources.Data[(int)type]--;
                 }
             }
 

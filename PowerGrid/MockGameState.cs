@@ -20,9 +20,11 @@ namespace PowerGrid
                 new Player { Name = "stove", Cards = cards2, Money = 50, Resources = new Resources() }
         };
 
-        public static Resources resourceMarket = new Resources
+        public static ResourceMarket resourceMarket = new ResourceMarket
         {
-            Data = new int[] { 10, 12, 15, 5 }
+            Resources = new Resources {
+                Data = new int[] { 10, 12, 15, 5 }
+            }
         };
 
         public static City Toronto = new City { Name = "Toronto", Generators = new Player[3] };

@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.168
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PowerGrid", "PowerGrid\PowerGrid.csproj", "{7399AA91-480E-4048-BD34-DA02A0C24CBE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PowerGrid", "PowerGrid\PowerGrid.csproj", "{7399AA91-480E-4048-BD34-DA02A0C24CBE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PowerGrid.Tests", "PowerGrid.Tests\PowerGrid.Tests.csproj", "{18A8A02A-69B0-4E21-B7A5-C77016714227}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{7399AA91-480E-4048-BD34-DA02A0C24CBE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7399AA91-480E-4048-BD34-DA02A0C24CBE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7399AA91-480E-4048-BD34-DA02A0C24CBE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{18A8A02A-69B0-4E21-B7A5-C77016714227}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{18A8A02A-69B0-4E21-B7A5-C77016714227}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{18A8A02A-69B0-4E21-B7A5-C77016714227}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{18A8A02A-69B0-4E21-B7A5-C77016714227}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
