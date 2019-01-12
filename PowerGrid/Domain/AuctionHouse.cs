@@ -9,10 +9,10 @@ namespace PowerGrid.Domain
     public class AuctionHouse
     {
         [JsonProperty(PropertyName = "availableCards")]
-        public Card[] AvailableCards { get; set; }
+        public List<Card> AvailableCards { get; set; } = new List<Card>();
 
         [JsonProperty(PropertyName = "displayedCards")]
-        public Card[] DisplayedCards { get; set; }
+        public List<Card> DisplayedCards { get; set; } = new List<Card>();
 
     }
 }

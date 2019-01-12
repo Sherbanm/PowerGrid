@@ -9,7 +9,7 @@ namespace PowerGrid.Domain
     public class City
     {
         [JsonProperty(PropertyName = "generators")]
-        public Player[] Generators{ get; set; }
+        public List<Player> Generators { get; set; } = new List<Player>(3);
 
         [JsonProperty(PropertyName = "name")]
         public string Name { get; set; }

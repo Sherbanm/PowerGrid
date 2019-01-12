@@ -3,5 +3,5 @@ import { City } from "./city";
 
 export class Map {
     connections: Connection[];
-    cities: City[];
+    cities: Array<City>;
 }

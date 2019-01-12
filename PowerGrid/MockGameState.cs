@@ -8,16 +8,16 @@ namespace PowerGrid
 {
     public static class MockGameState
     {
-        public static Card[] cards = new Card[] { new Card { Cost = 1, Resource = ResourceType.Coal, Value = 2, Power = 3 },
+        public static List<Card> cards = new List<Card> { new Card { Cost = 1, Resource = ResourceType.Coal, Value = 2, Power = 3 },
                                 new Card { Cost = 5, Resource = ResourceType.Oil, Value = 6, Power = 7 }};
 
-        public static Card[] cards2 = new Card[] { new Card { Cost = 11, Resource = ResourceType.Green, Value = 12, Power = 13 },
+        public static List<Card> cards2 = new List<Card> { new Card { Cost = 11, Resource = ResourceType.Green, Value = 12, Power = 13 },
                                 new Card { Cost = 15, Resource = ResourceType.Mixed, Value = 16, Power = 17 },
                                 new Card { Cost = 5, Resource = ResourceType.Nuclear, Value = 6, Power = 7 }};
 
         public static Player[] players = new Player[] {
-                new Player { Name = "steve", Cards = cards, Money = 50, Resources = new Resources() },
-                new Player { Name = "stove", Cards = cards2, Money = 50, Resources = new Resources() }
+                new Player { Name = "steve", Money = 50 },
+                new Player { Name = "stove", Money = 50 }
         };
 
         public static ResourceMarket resourceMarket = new ResourceMarket
@@ -27,13 +27,13 @@ namespace PowerGrid
             }
         };
 
-        public static City Toronto = new City { Name = "Toronto", Generators = new Player[3] };
-        public static City Montreal = new City { Name = "Montreal", Generators = new Player[3] };
-        public static City Ottawa = new City { Name = "Ottawa", Generators = new Player[3] };
+        public static City Toronto = new City { Name = "Toronto"};
+        public static City Montreal = new City { Name = "Montreal"};
+        public static City Ottawa = new City { Name = "Ottawa"};
 
         public static Map map = new Map
         {
-            Cities = new City[] { Toronto, Montreal, Ottawa },
+            Cities = new List<City> { Toronto, Montreal, Ottawa },
             Connections = new Connection[]
             {
                 new Connection { CityA = Toronto, CityB = Montreal, Cost = 5},
@@ -56,7 +56,7 @@ namespace PowerGrid
             return players;
         }
 
-        public static Card[] GetMockCards()
+        public static List<Card> GetMockCards()
         {
             return cards;
         }

@@ -3,7 +3,7 @@ import { Resources } from "./resources";
 
 export class Player {
   name: string;
-  cards: Card[];
+  cards: Array<Card>;
   money: number;
   resources: Resources;
 }

@@ -1,6 +1,6 @@
 import { Card } from "./card";
 
 export class AuctionHouse {
-    availableCards: Card[];
-    displayedCards: Card[];
+    availableCards: Array<Card>;
+    displayedCards: Array<Card>;
 }

@@ -2,7 +2,7 @@
   Auction House
   <br>
   <div *ngFor="let card of auctionHouse.availableCards" style="display: inline-block">
-    <app-card [card]='card'></app-card>
+    <app-card (click)="onBuyCard(card)" [card]='card'></app-card>
   </div>
   
   <div *ngFor="let card of auctionHouse.displayedCards" style="display: inline-block">

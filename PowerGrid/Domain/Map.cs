@@ -12,6 +12,6 @@ namespace PowerGrid.Domain
         public Connection[] Connections{ get; set; }
 
         [JsonProperty(PropertyName = "cities")]
-        public City[] Cities { get; set; }
+        public List<City> Cities { get; set; }
     }
 }

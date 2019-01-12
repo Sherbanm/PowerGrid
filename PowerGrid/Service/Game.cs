@@ -64,12 +64,33 @@ namespace PowerGrid.Service
 
         public static void BuyCard(Player buyer, Card card)
         {
+            Player player = gameState.Players[GetPlayerIndex(buyer)];
+            int selectedCardIndex = gameState.AuctionHouse.AvailableCards.FindIndex((item) =>
+                {
+                    if (item.Cost == card.Cost && item.Power == card.Power && item.Resource == card.Resource && item.Value == card.Value)
+                    {
+                        return true;
+                    }
+                    return false;
+                });
+            
+            player.Cards.Add(gameState.AuctionHouse.AvailableCards[selectedCardIndex]);
+            gameState.AuctionHouse.AvailableCards.RemoveAt(selectedCardIndex);
 
+            SendUpdates();
         }
 
         public static void BuyGenerator(Player buyer, City city)
         {
+            Player player = gameState.Players[GetPlayerIndex(buyer)];
+            int selectedCityIndex = gameState.Map.Cities.FindIndex((item) =>
+            {
+                return (item.Name == city.Name);
+            });
 
+            gameState.Map.Cities[selectedCityIndex].Generators.Add(player);
+
+            SendUpdates();
         }
 
         public static void SendUpdates()
@@ -95,33 +116,5 @@ namespace PowerGrid.Service
             }
             return -1;
         }
-
-        private static int GetCardIndex(Card card)
-        {
-            for (int i = 0; i < gameState.AuctionHouse.AvailableCards.Length; i++)
-            {
-                if (gameState.AuctionHouse.AvailableCards[i].Cost == card.Cost &&
-                    gameState.AuctionHouse.AvailableCards[i].Power == card.Power &&
-                    gameState.AuctionHouse.AvailableCards[i].Resource == card.Resource &&
-                    gameState.AuctionHouse.AvailableCards[i].Value == card.Value)
-                {
-                    return i;
-                }
-            }
-            return -1;
-        }
-
-        private static int GetCityIndex(City city)
-        {
-            for (int i = 0; i < gameState.Map.Cities.Length; i++)
-            {
-                if (gameState.Map.Cities[i].Name == city.Name)
-                {
-                    return i;
-                }
-            }
-            return -1;
-        }
-
     }
 }
