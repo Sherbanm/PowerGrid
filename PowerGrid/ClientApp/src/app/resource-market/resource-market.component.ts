@@ -2,9 +2,9 @@ import { Component, OnInit, Input } from '@angular/core';
 import { CurrentPlayerService } from '../current-player.service';
 import { GamestateService } from '../gamestate.service';
 
-import { Resources } from '../domain/resources';
 import { ResourceType } from '../domain/resourceType';
 import { Player } from '../domain/player';
+import { ResourceMarket } from '../domain/resourceMarket';
 
 @Component({
   selector: 'app-resource-market',
@@ -12,7 +12,7 @@ import { Player } from '../domain/player';
   styleUrls: ['./resource-market.component.css']
 })
 export class ResourceMarketComponent implements OnInit {
-  @Input() market: Resources;
+  @Input() market: ResourceMarket;
   
   public selectedPlayer: Player;
 
