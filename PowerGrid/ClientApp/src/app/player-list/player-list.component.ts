@@ -17,7 +17,9 @@ export class PlayerListComponent  {
   }
 
   ngOnInit() {
-    this.currentPlayerService.currentPlayer.subscribe(player => this.selectedPlayer = player);
+    let _self = this;
+    this.currentPlayerService.currentPlayer.subscribe(player => _self.selectedPlayer = player);
+    this.selectedPlayer = this.players[0];
   }
 
   onSelect(player: Player): void {

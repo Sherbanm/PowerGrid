@@ -19,5 +19,11 @@ namespace PowerGrid.Domain
 
         [JsonProperty(PropertyName = "map")]
         public Map Map {get; set; }
+
+        [JsonProperty(PropertyName = "currentPlayer")]
+        public Player CurrentPlayer { get; set; }
+
+        [JsonProperty(PropertyName = "remainingSeconds")]
+        public int RemainingSeconds { get; set; }
     }
 }

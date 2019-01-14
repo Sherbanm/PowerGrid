@@ -12,10 +12,10 @@ namespace PowerGrid.Service
 {
     public static class Game
     {
-        public static List<WebSocket> listeners = new List<WebSocket>();
-        public static WebSocketReceiveResult result;
+        private static List<WebSocket> listeners = new List<WebSocket>();
+        private static WebSocketReceiveResult result;
         private static GameState gameState = MockGameState.GetMockState();
-
+            
         public static async void AddListener(WebSocket listener)
         {
             listeners.Add(listener);

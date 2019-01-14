@@ -8,5 +8,6 @@ export class GameState {
     resourceMarket: ResourceMarket;
     auctionHouse: AuctionHouse;
     map: Map;
-    
+    currentPlayer: Player;
+    remainingSeconds: number;
 }

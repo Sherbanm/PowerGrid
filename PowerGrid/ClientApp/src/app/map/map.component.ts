@@ -29,7 +29,7 @@ export class MapComponent implements OnInit {
   };
 
   getColor(player: Player) {
-    if (player === null) {
+    if (player === undefined) {
       return  "#1DBBE2";
     }
     return this.currentPlayerService.getColor(player);

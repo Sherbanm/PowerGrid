@@ -1,6 +1,7 @@
 <div >
   Players {{selectedPlayer.name}}
   <br>
+  
   <div *ngFor="let player of players" style="display: inline-block"
     (click)="onSelect(player)">
     <app-player [player]='player'></app-player>

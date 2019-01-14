@@ -1,0 +1,10 @@
+<div>
+    <div id='rcurrentplayer' style="display: inline-block">
+      <div *ngFor="let player of players">
+        {{player.name}} <span *ngIf="currentPlayer.name == player.name">*</span>
+      </div>
+      <div>
+          {{subscribeTimer}}
+      </div>
+    </div>
+</div>

@@ -51,7 +51,9 @@ namespace PowerGrid
                 Players = players,
                 ResourceMarket = resourceMarket,
                 AuctionHouse = new AuctionHouse { AvailableCards = cards, DisplayedCards = cards2 },
-                Map = map
+                Map = map,
+                CurrentPlayer = players[0],
+                RemainingSeconds = 30
             };
         }
 
