@@ -88,6 +88,7 @@ namespace PowerGrid.Service
                 return (item.Name == city.Name);
             });
 
+            player.Generators--;
             gameState.Map.Cities[selectedCityIndex].Generators.Add(player);
 
             SendUpdates();

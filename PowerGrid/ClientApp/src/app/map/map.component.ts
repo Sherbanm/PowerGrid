@@ -26,5 +26,12 @@ export class MapComponent implements OnInit {
     this.gameStateService.buyGenerator(this.selectedPlayer, city).subscribe(data => {
       let result = data;
     });
+  };
+
+  getColor(player: Player) {
+    if (player === null) {
+      return  "#1DBBE2";
+    }
+    return this.currentPlayerService.getColor(player);
   }
 }

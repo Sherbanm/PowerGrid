@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Player } from '../domain/player';
+import { CurrentPlayerService } from '../current-player.service';
 
 @Component({
   selector: 'app-player',
@@ -10,9 +11,13 @@ import { Player } from '../domain/player';
 export class PlayerComponent implements OnInit {
   @Input() player: Player;
   
-  constructor() { }
+  constructor(private currentPlayerService: CurrentPlayerService) { }
 
   ngOnInit() {
+  }
+
+  public getColor(player: Player) {
+    return this.currentPlayerService.getColor(player);
   }
 
 }

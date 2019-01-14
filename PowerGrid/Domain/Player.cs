@@ -20,5 +20,8 @@ namespace PowerGrid.Domain
         [JsonProperty(PropertyName = "resources")]
         public Resources Resources { get; set; } = new Resources();
 
+        [JsonProperty(PropertyName = "generators")]
+        public int Generators { get; set; } = 22;
+
     }
 }

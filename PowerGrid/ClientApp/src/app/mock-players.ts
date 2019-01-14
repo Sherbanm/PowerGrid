@@ -9,6 +9,7 @@ export const PLAYERS: Player[] = [
       { value: 1, resource: ResourceType.Oil, power:  2, cost: 3},
       { value: 1, resource: ResourceType.Oil, power:  2, cost: 3} ],
      money: 50, 
-     resources: null },
+     resources: null,
+     generators: 22 },
 
 ];

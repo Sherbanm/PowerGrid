@@ -6,4 +6,5 @@ export class Player {
   cards: Array<Card>;
   money: number;
   resources: Resources;
+  generators: number;
 }

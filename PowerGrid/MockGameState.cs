@@ -16,8 +16,12 @@ namespace PowerGrid
                                 new Card { Cost = 5, Resource = ResourceType.Nuclear, Value = 6, Power = 7 }};
 
         public static Player[] players = new Player[] {
-                new Player { Name = "steve", Money = 50 },
-                new Player { Name = "stove", Money = 50 }
+                new Player { Name = "Albert", Money = 50 },
+                new Player { Name = "Bruce", Money = 50 },
+                new Player { Name = "Charles", Money = 50 },
+                new Player { Name = "Dan", Money = 50 },
+                new Player { Name = "Eustache", Money = 50 },
+                new Player { Name = "Franz", Money = 50 },
         };
 
         public static ResourceMarket resourceMarket = new ResourceMarket

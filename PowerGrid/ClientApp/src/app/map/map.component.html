@@ -4,22 +4,13 @@
   <div (click)="onBuyGenerator(city)" *ngFor="let city of map.cities" id="rcity" style="display: inline-block">
     {{city.name}}
     <br>
-    <div id="rgenerator" style="display: inline-block">
-        <div *ngIf="city.generators[0]" >
-            {{city.generators[0].name}}
-        </div>
+    <div id="rgenerator" style="display: inline-block" [ngStyle]="{'background-color': getColor(city.generators[0])}">
     </div>
 
-    <div id="rgenerator" style="display: inline-block">
-        <div *ngIf="city.generators[1]" >
-            {{city.generators[1].name}}
-        </div>
+    <div id="rgenerator" style="display: inline-block" [ngStyle]="{'background-color': getColor(city.generators[1])}">
     </div>
 
-    <div id="rgenerator" style="display: inline-block">
-        <div *ngIf="city.generators[2]" >
-            {{city.generators[2].name}}
-        </div>
+    <div id="rgenerator" style="display: inline-block" [ngStyle]="{'background-color': getColor(city.generators[2])}">
     </div>
   </div>
 </div>
