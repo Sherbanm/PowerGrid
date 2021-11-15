@@ -38,11 +38,11 @@ namespace PowerGrid
         public static Map map = new Map
         {
             Cities = new List<City> { Toronto, Montreal, Ottawa },
-            Connections = new Connection[]
+            Connections = new List<Connection>
             {
-                new Connection { CityA = Toronto, CityB = Montreal, Cost = 5},
-                new Connection { CityA = Toronto, CityB = Ottawa, Cost = 4 },
-                new Connection { CityA = Montreal, CityB = Ottawa, Cost = 2 }
+                new Connection { CityA = Toronto, CityB = Montreal, Length = 5},
+                new Connection { CityA = Toronto, CityB = Ottawa, Length = 4 },
+                new Connection { CityA = Montreal, CityB = Ottawa, Length = 2 }
             }
         };
 
