@@ -64,7 +64,7 @@ namespace PowerGrid.Domain
             City tNewNode = new City()
             {
                 ID = m_nextNodeId.ToString(),
-                Label = label,
+                Name = label,
                 Region = region
             };
             m_nextNodeId++;
@@ -179,7 +179,7 @@ namespace PowerGrid.Domain
             City retNode = null;
             Cities.ForEach(delegate (City n)
             {
-                if (n.Label == label)
+                if (n.Name == label)
                 {
                     retNode = n;
                 }
@@ -208,11 +208,11 @@ namespace PowerGrid.Domain
             }
         }
 
-        public void CalculateCostToNetwork(City initialNode)
+        public Path CalculateCostToNetwork(City initialNode)
         {
             List<City> goalNodes = Cities.Where(x => x.Build).ToList();
             var shortestDistance = int.MaxValue;
-            List<Connection> shortestPath = new List<Connection>();
+            Path shortestPath = new Path();
 
             foreach (var goalNode in goalNodes)
             {
@@ -249,15 +249,10 @@ namespace PowerGrid.Domain
                 if (tentativeDistances[goalNode].Length < shortestDistance)
                 {
                     shortestDistance = tentativeDistances[goalNode].Length;
-                    shortestPath = tentativeDistances[goalNode].Edges;
+                    shortestPath = tentativeDistances[goalNode];
                 }
             }
-
-            initialNode.Cost = shortestDistance;
-            foreach (var edge in shortestPath)
-            {
-                edge.Highlight = true;
-            }
+            return shortestPath;
         }
 
         public List<City> GetNeighbours(City node)
@@ -277,9 +272,6 @@ namespace PowerGrid.Domain
     {
         public List<Connection> Edges = new List<Connection>();
 
-        public int Length
-        {
-            get; set;
-        }
+        public int Length { get; set; }
     }
 }

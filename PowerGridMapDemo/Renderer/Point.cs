@@ -4,6 +4,11 @@ namespace PowerGridMapDemo
 {
     public class Point
     {
+        public AbstractVector position { get; set; }
+        public City node { get; private set; }
+        public AbstractVector velocity { get; private set; }
+        public AbstractVector acceleration { get; private set; }
+
         public Point(AbstractVector iPosition, AbstractVector iVelocity, AbstractVector iAcceleration, City iNode)
         {
             position=iPosition;
@@ -72,23 +77,7 @@ namespace PowerGridMapDemo
 
         public void ApplyForce(AbstractVector force)
         {
-            acceleration.Add(force/mass);
+            acceleration.Add(force);
         }
-
-        public AbstractVector position { get; set; }
-        public City node { get; private set; }
-        public float mass
-        {
-            get
-            {
-                return node.Mass;
-            }
-            private set
-            {
-                node.Mass = value;
-            }
-        }
-        public AbstractVector velocity { get; private set; }
-        public AbstractVector acceleration { get; private set; }
      }
 }

@@ -5,16 +5,16 @@ namespace PowerGridMapDemo
 {
     public class PositionalGraph : Map
     {
-        public Dictionary<City, AbstractVector> NodesWithPosition { get; set; } = new Dictionary<City, AbstractVector>();
+        public Dictionary<City, GridBox> NodesWithGridBox { get; set; } = new Dictionary<City, GridBox>();
 
         public PositionalGraph()
         {
         }
 
-        public override City AddNode(City node)
+        public City CreateNode(string label, string region, GridBox gridBox)
         {
-            var newNode = base.AddNode(node);
-            NodesWithPosition.Add(newNode, FDGVector2.Random() as FDGVector2);
+            var newNode = base.CreateNode(label, region);
+            NodesWithGridBox.Add(newNode, gridBox);
             return newNode;
         }
     }

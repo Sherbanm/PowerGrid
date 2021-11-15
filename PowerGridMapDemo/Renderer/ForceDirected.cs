@@ -88,7 +88,7 @@ namespace PowerGridMapDemo
             Threadshold = 0.01f;
         }
 
-        public abstract Point GetPoint(KeyValuePair<City, AbstractVector> kvPair);
+        public abstract Point GetPoint(KeyValuePair<City, GridBox> kvPair);
 
 
 
@@ -134,8 +134,8 @@ namespace PowerGridMapDemo
                 {
                     return new Spring(existingSpring.point2, existingSpring.point1, 0.0f, 0.0f);
                 }
-                var source = graph.NodesWithPosition.First(x => x.Key.Equals(iEdge.CityA));
-                var target = graph.NodesWithPosition.First(x => x.Key.Equals(iEdge.CityB));
+                var source = graph.NodesWithGridBox.First(x => x.Key.Equals(iEdge.CityA));
+                var target = graph.NodesWithGridBox.First(x => x.Key.Equals(iEdge.CityB));
                 m_edgeSprings[iEdge.ID] = new Spring(GetPoint(source), GetPoint(target), length, Stiffness);
 
             }
@@ -145,10 +145,10 @@ namespace PowerGridMapDemo
         // TODO: change this for group only after node grouping
         protected void applyCoulombsLaw()
         {
-            foreach(KeyValuePair<City, AbstractVector> kv in graph.NodesWithPosition)
+            foreach(var kv in graph.NodesWithGridBox)
             {
                 Point point1 = GetPoint(kv);
-                foreach(var kv2 in graph.NodesWithPosition)
+                foreach(var kv2 in graph.NodesWithGridBox)
                 {
                     Point point2 = GetPoint(kv2);
                     if(point1!=point2)
@@ -156,18 +156,18 @@ namespace PowerGridMapDemo
                         AbstractVector d=point1.position-point2.position;
                         float distance = d.Magnitude() +0.1f;
                         AbstractVector direction = d.Normalize();
-                        if (kv.Key.Pinned && kv2.Key.Pinned)
+                        if (kv.Value.boxType == BoxType.Pinned && kv2.Value.boxType == BoxType.Pinned)
                         {
                             point1.ApplyForce(direction * 0.0f);
                             point2.ApplyForce(direction * 0.0f);
                         }
-                        else if (kv.Key.Pinned)
+                        else if (kv.Value.boxType == BoxType.Pinned)
                         {
                             point1.ApplyForce(direction*0.0f);
                             //point2.ApplyForce((direction * Repulsion) / (distance * distance * -1.0f));
                             point2.ApplyForce((direction * Repulsion) / (distance * -1.0f));
                         }
-                        else if (kv.Key.Pinned)
+                        else if (kv2.Value.boxType == BoxType.Pinned)
                         {
                             //point1.ApplyForce((direction * Repulsion) / (distance * distance));
                             point1.ApplyForce((direction * Repulsion) / (distance));
@@ -195,17 +195,20 @@ namespace PowerGridMapDemo
                 float displacement = spring.Length-d.Magnitude();
                 AbstractVector direction = d.Normalize();
 
-                if (spring.point1.node.Pinned && spring.point2.node.Pinned)
+                var pt1GridBox = graph.NodesWithGridBox[spring.point1.node];
+                var pt2GridBox = graph.NodesWithGridBox[spring.point2.node];
+
+                if (pt1GridBox.boxType == BoxType.Pinned && pt2GridBox.boxType == BoxType.Pinned)
                 {
                     spring.point1.ApplyForce(direction * 0.0f);
                     spring.point2.ApplyForce(direction * 0.0f);
                 }
-                else if (spring.point1.node.Pinned)
+                else if (pt1GridBox.boxType == BoxType.Pinned)
                 {
                     spring.point1.ApplyForce(direction * 0.0f);
                     spring.point2.ApplyForce(direction * (spring.K * displacement));
                 }
-                else if (spring.point2.node.Pinned)
+                else if (pt1GridBox.boxType == BoxType.Pinned)
                 {
                     spring.point1.ApplyForce(direction * (spring.K * displacement * -1.0f));
                     spring.point2.ApplyForce(direction * 0.0f);
@@ -222,10 +225,10 @@ namespace PowerGridMapDemo
 
         protected void attractToCentre()
         {
-            foreach(var kv in graph.NodesWithPosition)
+            foreach(var kv in graph.NodesWithGridBox)
             {
                 Point point = GetPoint(kv);
-                if (!point.node.Pinned)
+                if (kv.Value.boxType != BoxType.Pinned)
                 {
                     AbstractVector direction = point.position*-1.0f;
                     //point.ApplyForce(direction * ((float)Math.Sqrt((double)(Repulsion / 100.0f))));
@@ -240,7 +243,7 @@ namespace PowerGridMapDemo
 
         protected void updateVelocity(float iTimeStep)
         {
-            foreach(var kv in graph.NodesWithPosition)
+            foreach(var kv in graph.NodesWithGridBox)
             {
                 Point point = GetPoint(kv);
                 point.velocity.Add(point.acceleration*iTimeStep);
@@ -251,21 +254,24 @@ namespace PowerGridMapDemo
 
         protected void updatePosition(float iTimeStep)
         {
-            foreach(var kv in graph.NodesWithPosition)
+            foreach(var kv in graph.NodesWithGridBox)
             {
-                Point point = GetPoint(kv);
-                point.position.Add(point.velocity*iTimeStep);
+                if (kv.Value.boxType != BoxType.Pinned)
+                {
+                    Point point = GetPoint(kv);
+                    point.position.Add(point.velocity * iTimeStep);
+                }
             }
         }
 
         protected float getTotalEnergy()
         {
             float energy=0.0f;
-            foreach(var kv in graph.NodesWithPosition)
+            foreach(var kv in graph.NodesWithGridBox)
             {
                 Point point = GetPoint(kv);
                 float speed = point.velocity.Magnitude();
-                energy+=0.5f *point.mass *speed*speed;
+                energy+=0.5f *speed*speed;
             }
             return energy;
         }
@@ -296,7 +302,7 @@ namespace PowerGridMapDemo
 
         public void EachNode(NodeAction del)
         {
-            foreach (var kv in graph.NodesWithPosition)
+            foreach (var kv in graph.NodesWithGridBox)
             {
                 del(kv.Key, GetPoint(kv));
             }
@@ -305,7 +311,7 @@ namespace PowerGridMapDemo
         public NearestPoint Nearest(AbstractVector position)
         {
             NearestPoint min = new NearestPoint();
-            foreach(var kv in graph.NodesWithPosition)
+            foreach(var kv in graph.NodesWithGridBox)
             {
                 Point point = GetPoint(kv);
                 float distance = (point.position-position).Magnitude();
@@ -331,11 +337,11 @@ namespace PowerGridMapDemo
 
         }
 
-        public override Point GetPoint(KeyValuePair<City, AbstractVector> kvPair)
+        public override Point GetPoint(KeyValuePair<City, GridBox> kvPair)
         {
             if (!(m_nodePoints.ContainsKey(kvPair.Key.ID)))
             {
-                FDGVector2 iniPosition = kvPair.Value as FDGVector2;
+                FDGVector2 iniPosition = kvPair.Value.InitialPosition as FDGVector2;
                 if (iniPosition == null)
                     iniPosition = FDGVector2.Random() as FDGVector2;
                 m_nodePoints[kvPair.Key.ID] = new Point(iniPosition, FDGVector2.Zero(), FDGVector2.Zero(), kvPair.Key);
@@ -348,7 +354,7 @@ namespace PowerGridMapDemo
             BoundingBox boundingBox = new BoundingBox();
             FDGVector2 bottomLeft = FDGVector2.Identity().Multiply(BoundingBox.defaultBB * -1.0f) as FDGVector2;
             FDGVector2 topRight = FDGVector2.Identity().Multiply(BoundingBox.defaultBB) as FDGVector2;
-            foreach (var kv in graph.NodesWithPosition)
+            foreach (var kv in graph.NodesWithGridBox)
             {
                 FDGVector2 position = GetPoint(kv).position as FDGVector2;
 

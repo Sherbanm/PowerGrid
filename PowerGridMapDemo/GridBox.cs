@@ -4,16 +4,24 @@ using System.Drawing;
 
 namespace PowerGridMapDemo
 {
-    enum BoxType { Normal,Pinned};
+    public enum BoxType { Normal,Pinned};
 
-    class GridBox : IDisposable
+    public class GridBox : IDisposable
     {
         public int x, y, width, height;
+        
+        public string Label { get; set; } = string.Empty;
+
+        public int Cost { get; set; } = int.MaxValue;
+
+        public AbstractVector InitialPosition { get; set; }
+
         public SolidBrush brush;
         public Rectangle boxRec;
         public BoxType boxType;
-        public GridBox(int iX, int iY,BoxType iType)
+        public GridBox(int iX, int iY,BoxType iType, string label)
         {
+            InitialPosition = FDGVector2.Random() as FDGVector2;
             this.x = iX;
             this.y = iY;
             this.boxType = iType;
@@ -30,6 +38,7 @@ namespace PowerGridMapDemo
             width = 18;
             height = 18;
             boxRec = new Rectangle(x, y, width, height);
+            Label = label;
         }
 
         public void Set(int iX, int iY)
@@ -43,16 +52,16 @@ namespace PowerGridMapDemo
         {
             var label = string.Empty;
             var labelColor = Color.CadetBlue;
-            if (node.Label.Length > 0)
+            if (Label.Length > 0)
             {
-                label = node.Label.Substring(0, 1);
+                label = Label.Substring(0, 1);
             }
             // string name, string region, bool build
             if (boxType == BoxType.Pinned)
             {
                 boxRec.Width = 26;
                 boxRec.Height = 26;
-                label = node.Cost.ToString();
+                label = Cost.ToString();
                 labelColor = Color.IndianRed;
             }
             else
@@ -89,23 +98,6 @@ namespace PowerGridMapDemo
             this.brush = new SolidBrush(color);
         }
         
-        public void SetNormalBox()
-        {
-            if (this.brush != null)
-                this.brush.Dispose();
-           this.brush = new SolidBrush(Color.WhiteSmoke);
-           this.boxType = BoxType.Normal;
-        }
-
-        public void SetEndBox()
-        {
-            if (this.brush != null)
-                this.brush.Dispose();
-            this.brush = new SolidBrush(Color.Red);
-            this.boxType = BoxType.Pinned;
-        }
-
-
         public void Dispose()
         {
             if(this.brush!=null)

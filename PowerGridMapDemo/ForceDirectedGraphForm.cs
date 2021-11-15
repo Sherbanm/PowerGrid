@@ -137,8 +137,9 @@ namespace PowerGridMapDemo
             {
                 return false;
             }
-            City newNode = m_fdgGraph.CreateNode(nodeName, region);
-            m_fdgBoxes[newNode] = new GridBox(0, 0, BoxType.Normal);
+            GridBox gridBox = new GridBox(0, 0, BoxType.Normal, nodeName);
+            City newNode = m_fdgGraph.CreateNode(nodeName, region, gridBox);
+            m_fdgBoxes[newNode] = gridBox;
 
             cbbFromNode.Items.Add(nodeName);
             cbbToNode.Items.Add(nodeName);
@@ -270,9 +271,9 @@ namespace PowerGridMapDemo
             {
 
                 FDGVector2 vec = ScreenToGraph(new Tuple<int, int>(e.Location.X, e.Location.Y));
-                clickedNode.Pinned = true;
+                clickedGrid.boxType = BoxType.Pinned;
                 var fd = m_fdgRenderer.forceDirected as ForceDirected2D;
-                var clicked = fd.graph.NodesWithPosition.First(x => x.Key.Equals(clickedNode));
+                var clicked = fd.graph.NodesWithGridBox.First(x => x.Key.Equals(clickedNode));
                 m_fdgPhysics.GetPoint(clicked).position = vec;
             }
             else
@@ -283,7 +284,8 @@ namespace PowerGridMapDemo
                     {
                         keyPair.Value.boxType = BoxType.Pinned;
                         this.m_fdgGraph.CleanEdges();
-                        this.m_fdgGraph.CalculateCostToNetwork(keyPair.Key);
+                        var path = this.m_fdgGraph.CalculateCostToNetwork(keyPair.Key);
+                        keyPair.Value.Cost = path.Length;
                     }
                     else
                     {
@@ -300,7 +302,6 @@ namespace PowerGridMapDemo
             if (clickedNode != null)
             {
                 clickedGrid.boxType = BoxType.Normal;
-                clickedNode.Pinned = false;
                 clickedNode = null;
                 clickedGrid = null;
             }
