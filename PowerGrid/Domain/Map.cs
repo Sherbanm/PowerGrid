@@ -192,20 +192,12 @@ namespace PowerGrid.Domain
             Connection retEdge = null;
             Connections.ForEach(delegate (Connection e)
             {
-                if (e.Label == label)
+                if (e.CityA.Name + "-" + e.CityB.Name == label)
                 {
                     retEdge = e;
                 }
             });
             return retEdge;
-        }
-        
-        public void CleanEdges()
-        {
-            foreach (var edge in Connections)
-            {
-                edge.Highlight = false;
-            }
         }
 
         public Path CalculateCostToNetwork(City initialNode)

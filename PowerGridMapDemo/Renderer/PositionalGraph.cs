@@ -7,6 +7,8 @@ namespace PowerGridMapDemo
     {
         public Dictionary<City, GridBox> NodesWithGridBox { get; set; } = new Dictionary<City, GridBox>();
 
+        public Dictionary<Connection, GridLine> ConnectionsWithGridLines { get; set; } = new Dictionary<Connection, GridLine>();
+
         public PositionalGraph()
         {
         }
@@ -16,6 +18,13 @@ namespace PowerGridMapDemo
             var newNode = base.CreateNode(label, region);
             NodesWithGridBox.Add(newNode, gridBox);
             return newNode;
+        }
+
+        public Connection CreateEdge(City iSource, City iTarget, int length , string label, GridLine gridLine)
+        {
+            var connection = base.CreateEdge(iSource, iTarget, length, label);
+            ConnectionsWithGridLines.Add(connection, gridLine);
+            return connection;
         }
     }
 }

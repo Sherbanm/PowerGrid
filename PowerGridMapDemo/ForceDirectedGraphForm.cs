@@ -173,8 +173,9 @@ namespace PowerGridMapDemo
             
             string label = nodeName1 + "-" + nodeName2;
             
-            Connection newEdge = m_fdgGraph.CreateEdge(node1, node2, length, label);
-            m_fdgLines[newEdge] = new GridLine(0, 0, 0, 0);
+            var gridLine = new GridLine(0, 0, 0, 0);
+            Connection newEdge = m_fdgGraph.CreateEdge(node1, node2, length, label, gridLine);
+            m_fdgLines[newEdge] = gridLine;
 
             lbEdge.Items.Add(label);
             return true;
@@ -203,7 +204,7 @@ namespace PowerGridMapDemo
                 foreach(Connection edge in edgeList)
                 {
                     m_fdgLines.Remove(edge);
-                    int edgeIndex=lbEdge.FindString(edge.Label);
+                    int edgeIndex=lbEdge.FindString(edge.CityA.Name + "_" + edge.CityB.Name);
                     lbEdge.Items.RemoveAt(edgeIndex);
                 }
                 m_fdgGraph.RemoveNode(removeNode);
@@ -283,9 +284,17 @@ namespace PowerGridMapDemo
                     if(keyPair.Value.boxRec.IntersectsWith(new Rectangle(e.Location,new Size(1,1))))
                     {
                         keyPair.Value.boxType = BoxType.Pinned;
-                        this.m_fdgGraph.CleanEdges();
+                        foreach (var gridLine in m_fdgGraph.ConnectionsWithGridLines)
+                        {
+                            gridLine.Value.Highlight = false;
+                        }
+          
                         var path = this.m_fdgGraph.CalculateCostToNetwork(keyPair.Key);
                         keyPair.Value.Cost = path.Length;
+                        foreach (var edge in path.Edges)
+                        {
+                            m_fdgGraph.ConnectionsWithGridLines[edge].Highlight = true;
+                        }
                     }
                     else
                     {

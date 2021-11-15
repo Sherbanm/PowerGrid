@@ -3,8 +3,12 @@ using System.Drawing;
 
 namespace PowerGridMapDemo
 {
-    class GridLine
+    public class GridLine
     {
+        public string Label { get; set; }
+
+        public bool Highlight { get; set; }
+
         public int fromX, fromY, toX, toY;
         public Pen pen;
         
@@ -30,7 +34,7 @@ namespace PowerGridMapDemo
         {
             var color = Color.Yellow;
             var thickness = 2;
-            if (edge.Highlight)
+            if (Highlight)
             {
                 color = Color.BlueViolet;
                 thickness = 4;
