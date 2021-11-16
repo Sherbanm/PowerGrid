@@ -12,62 +12,18 @@ namespace PowerGrid.Domain
         [JsonProperty(PropertyName = "cities")]
         public List<City> Cities { get; set; } = new List<City>();
 
-
-        private Dictionary<string, City> m_nodeSet = new Dictionary<string, City>();
-        private Dictionary<string, Dictionary<string, List<Connection>>> m_adjacencySet = new Dictionary<string, Dictionary<string, List<Connection>>>();
-        private int m_nextNodeId = 0;
-        private int m_nextEdgeId = 0;
-
-        public void Clear()
-        {
-            Cities.Clear();
-            Connections.Clear();
-            m_adjacencySet.Clear();
-        }
-        public virtual City AddNode(City iNode)
-        {
-            if (!m_nodeSet.ContainsKey(iNode.ID))
-            {
-                Cities.Add(iNode);
-            }
-
-            m_nodeSet[iNode.ID] = iNode;
-            return iNode;
-        }
-
-        public Connection AddEdge(Connection iEdge)
-        {
-            if (!Connections.Contains(iEdge))
-                Connections.Add(iEdge);
-
-
-            if (!(m_adjacencySet.ContainsKey(iEdge.CityA.ID)))
-            {
-                m_adjacencySet[iEdge.CityA.ID] = new Dictionary<string, List<Connection>>();
-            }
-            if (!(m_adjacencySet[iEdge.CityA.ID].ContainsKey(iEdge.CityB.ID)))
-            {
-                m_adjacencySet[iEdge.CityA.ID][iEdge.CityB.ID] = new List<Connection>();
-            }
-
-
-            if (!m_adjacencySet[iEdge.CityA.ID][iEdge.CityB.ID].Contains(iEdge))
-            {
-                m_adjacencySet[iEdge.CityA.ID][iEdge.CityB.ID].Add(iEdge);
-            }
-
-            return iEdge;
-        }
+        private int nextNodeId = 0;
+        private int nextEdgeId = 0;
 
         public City CreateNode(string label, string region)
         {
             City tNewNode = new City()
             {
-                ID = m_nextNodeId.ToString(),
+                ID = nextNodeId.ToString(),
                 Name = label,
                 Region = region
             };
-            m_nextNodeId++;
+            nextNodeId++;
             AddNode(tNewNode);
             return tNewNode;
         }
@@ -79,127 +35,56 @@ namespace PowerGrid.Domain
 
             Connection tNewEdge = new Connection()
             {
-                ID = m_nextEdgeId.ToString(),
+                ID = nextEdgeId.ToString(),
                 CityA = iSource,
-                CityB = iTarget, 
-                Length= length
+                CityB = iTarget,
+                Length = length
             };
-            m_nextEdgeId++;
+            nextEdgeId++;
             AddEdge(tNewEdge);
             return tNewEdge;
         }
 
+        public City GetNode(string label)
+        {
+            return Cities.FirstOrDefault(x => x.Name.Equals(label));
+        }
+
+        public Connection GetEdge(string label)
+        {
+            return Connections.FirstOrDefault(x => (x.CityA.Name + "-" + x.CityB.Name).Equals(label));
+        }
+        
         public List<Connection> GetEdges(City iNode1, City iNode2)
         {
-            if (m_adjacencySet.ContainsKey(iNode1.ID) && m_adjacencySet[iNode1.ID].ContainsKey(iNode2.ID))
-            {
-                return m_adjacencySet[iNode1.ID][iNode2.ID];
-            }
-            return null;
+            return Connections.Where(x => ( x.CityA == iNode1 && x.CityB == iNode2 ) || (x.CityA == iNode2 && x.CityB == iNode1)).ToList();
         }
 
         public List<Connection> GetEdges(City iNode)
         {
-            List<Connection> retEdgeList = new List<Connection>();
-            if (m_adjacencySet.ContainsKey(iNode.ID))
-            {
-                foreach (KeyValuePair<string, List<Connection>> keyPair in m_adjacencySet[iNode.ID])
-                {
-                    foreach (Connection e in keyPair.Value)
-                    {
-                        retEdgeList.Add(e);
-                    }
-                }
-            }
-
-            foreach (KeyValuePair<string, Dictionary<string, List<Connection>>> keyValuePair in m_adjacencySet)
-            {
-                if (keyValuePair.Key != iNode.ID)
-                {
-                    foreach (KeyValuePair<string, List<Connection>> keyPair in m_adjacencySet[keyValuePair.Key])
-                    {
-                        foreach (Connection e in keyPair.Value)
-                        {
-                            retEdgeList.Add(e);
-                        }
-                    }
-
-                }
-            }
-            return retEdgeList;
+            return Connections.Where(x => x.CityA == iNode || x.CityB == iNode).ToList();
         }
 
         public void RemoveNode(City iNode)
         {
-            if (m_nodeSet.ContainsKey(iNode.ID))
+            if (Cities.Contains(iNode))
             {
-                m_nodeSet.Remove(iNode.ID);
+                Cities.Remove(iNode);
             }
-            Cities.Remove(iNode);
             DetachNode(iNode);
-
-        }
-        
-        public void DetachNode(City iNode)
-        {
-            Connections.ForEach(delegate (Connection e)
-            {
-                if (e.CityA.ID == iNode.ID || e.CityB.ID == iNode.ID)
-                {
-                    RemoveEdge(e);
-                }
-            });
         }
 
         public void RemoveEdge(Connection iEdge)
         {
             Connections.Remove(iEdge);
-            foreach (KeyValuePair<string, Dictionary<string, List<Connection>>> x in m_adjacencySet)
-            {
-                foreach (KeyValuePair<string, List<Connection>> y in x.Value)
-                {
-                    List<Connection> tEdges = y.Value;
-                    tEdges.Remove(iEdge);
-                    if (tEdges.Count == 0)
-                    {
-                        m_adjacencySet[x.Key].Remove(y.Key);
-                        break;
-                    }
-                }
-                if (x.Value.Count == 0)
-                {
-                    m_adjacencySet.Remove(x.Key);
-                    break;
-                }
-            }
         }
 
-        public City GetNode(string label)
+        public void Clear()
         {
-            City retNode = null;
-            Cities.ForEach(delegate (City n)
-            {
-                if (n.Name == label)
-                {
-                    retNode = n;
-                }
-            });
-            return retNode;
+            Cities.Clear();
+            Connections.Clear();
         }
-
-        public Connection GetEdge(string label)
-        {
-            Connection retEdge = null;
-            Connections.ForEach(delegate (Connection e)
-            {
-                if (e.CityA.Name + "-" + e.CityB.Name == label)
-                {
-                    retEdge = e;
-                }
-            });
-            return retEdge;
-        }
-
+        
         public Path CalculateCostToNetwork(City initialNode)
         {
             List<City> goalNodes = Cities.Where(x => x.Build).ToList();
@@ -225,9 +110,7 @@ namespace PowerGrid.Domain
                     var relevantNeighbourNodes = neighbourNodes.Where(x => !visitedNodes.Contains(x));
                     foreach (var neighbourNode in relevantNeighbourNodes)
                     {
-                        var relevantEdge = Connections.FirstOrDefault(x =>
-                        (x.CityA.Equals(initialState.Key) && x.CityB.Equals(neighbourNode)) ||
-                        (x.CityA.Equals(neighbourNode) && x.CityB.Equals(initialState.Key)));
+                        var relevantEdge = GetEdges(initialState.Key, neighbourNode).FirstOrDefault();
                         var edgeWeight = relevantEdge.Length;
                         if (edgeWeight + initialState.Value.Length < tentativeDistances[neighbourNode].Length)
                         {
@@ -246,11 +129,39 @@ namespace PowerGrid.Domain
             }
             return shortestPath;
         }
+        
+        
+        private City AddNode(City iNode)
+        {
+            if (!Cities.Contains(iNode))
+            {
+                Cities.Add(iNode);
+            }
+            return iNode;
+        }
 
-        public List<City> GetNeighbours(City node)
+        private Connection AddEdge(Connection iEdge)
+        {
+            if (!Connections.Contains(iEdge))
+                Connections.Add(iEdge);
+            return iEdge;
+        }
+        
+        private void DetachNode(City iNode)
+        {
+            Connections.ForEach(delegate (Connection e)
+            {
+                if (e.CityA.ID == iNode.ID || e.CityB.ID == iNode.ID)
+                {
+                    RemoveEdge(e);
+                }
+            });
+        }
+
+        private List<City> GetNeighbours(City node)
         {
             List<City> neighbours = new List<City>();
-            var relevantEdges = Connections.Where(x => x.CityA.Equals(node) || x.CityB.Equals(node));
+            var relevantEdges = GetEdges(node);
             foreach (var edge in relevantEdges)
             {
                 neighbours.Add(edge.CityA);
