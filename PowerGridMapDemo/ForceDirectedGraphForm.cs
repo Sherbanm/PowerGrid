@@ -16,15 +16,6 @@ namespace PowerGridMapDemo
         const int height = 32;
         Stopwatch stopwatch = new Stopwatch();
 
-        Graphics paper;
-        int panelTop;
-        int panelBottom;
-        int panelLeft;
-        int panelRight;
-
-
-        Dictionary<City, GridBox> m_fdgBoxes;
-        Dictionary<Connection, GridLine> m_fdgLines;
         PositionalGraph m_fdgGraph;
         ForceDirected2D m_fdgPhysics;
         Renderer m_fdgRenderer;
@@ -45,16 +36,10 @@ namespace PowerGridMapDemo
             tbStiffness.Text = "81.76";
             tbRepulsion.Text = "20000.0";
             tbDamping.Text = "0.5";
-            panelTop = 0;
-            panelBottom = pDrawPanel.Size.Height;
-            panelLeft = 0;
-            panelRight = pDrawPanel.Size.Width;
             
-            m_fdgBoxes = new Dictionary<City, GridBox>();
-            m_fdgLines = new Dictionary<Connection, GridLine>();
             m_fdgGraph = new PositionalGraph();
             m_fdgPhysics = new ForceDirected2D(m_fdgGraph, 81.76f,20000.0f, 0.5f);
-            m_fdgRenderer = new Renderer(this, m_fdgPhysics);
+            m_fdgRenderer = new Renderer(m_fdgPhysics, pDrawPanel.Size.Height, pDrawPanel.Size.Width);
            
 
             pDrawPanel.Paint += new PaintEventHandler(DrawPanel_Paint);
@@ -73,60 +58,20 @@ namespace PowerGridMapDemo
         private void DrawPanel_Paint(object sender, PaintEventArgs e)
         {
             stopwatch.Stop();
-            var p = sender as Panel;
-            paper = e.Graphics;
-
-            m_fdgRenderer.Draw(0.05f); // TODO: Check Time
+            
+            m_fdgRenderer.Draw(0.05f, e); // TODO: Check Time
 
             stopwatch.Reset();
             stopwatch.Start();
         }
 
-        private void ForceDirectedGraph_Paint(object sender, PaintEventArgs e)
-        {
- 
-         
-        }
-
-        public Tuple<int, int> GraphToScreen(FDGVector2 iPos)
-        {
-            var x = (int)(iPos.x + (((panelRight - panelLeft)) / 2.0f));
-            var y = (int)(iPos.y + (((panelBottom - panelTop)) / 2.0f));
-            Tuple<int, int> retPair = new Tuple<int, int>(x, y);
-            return retPair;
-        }
-
-        public FDGVector2 ScreenToGraph(Tuple<int, int> iScreenPos)
-        {
-            FDGVector2 retVec = new FDGVector2();
-            retVec.x= ((float)iScreenPos.Item1)-(((float)(panelRight-panelLeft))/2.0f);
-            retVec.y = ((float)iScreenPos.Item2) - (((float)(panelBottom - panelTop)) / 2.0f);
-            return retVec;
-        }
-
-        public void DrawLine(Connection iEdge, AbstractVector iPosition1, AbstractVector iPosition2)
-        {
-            Tuple<int, int> pos1 = GraphToScreen(iPosition1 as FDGVector2);
-            Tuple<int, int> pos2 = GraphToScreen(iPosition2 as FDGVector2);
-            m_fdgLines[iEdge].Set(pos1.Item1, pos1.Item2, pos2.Item1, pos2.Item2);
-            m_fdgLines[iEdge].DrawLine(paper, iEdge);
-            
-        }
-
-        public void DrawBox(City iNode, AbstractVector iPosition)
-        {
-            Tuple<int, int> pos = GraphToScreen(iPosition as FDGVector2);
-            m_fdgBoxes[iNode].Set(pos.Item1, pos.Item2);
-            m_fdgBoxes[iNode].DrawBox(paper, iNode);
-        }
-
         private void btnChangeProperties_Click(object sender, EventArgs e)
         {
-            float stiffNess = System.Convert.ToSingle(tbStiffness.Text);
+            float stiffNess = Convert.ToSingle(tbStiffness.Text);
             m_fdgPhysics.Stiffness = stiffNess;
-            float repulsion = System.Convert.ToSingle(tbRepulsion.Text);
+            float repulsion = Convert.ToSingle(tbRepulsion.Text);
             m_fdgPhysics.Repulsion = repulsion;
-            float damping = System.Convert.ToSingle(tbDamping.Text);
+            float damping = Convert.ToSingle(tbDamping.Text);
             m_fdgPhysics.Damping = damping;
         }
 
@@ -139,7 +84,7 @@ namespace PowerGridMapDemo
             }
             GridBox gridBox = new GridBox(0, 0, BoxType.Normal, nodeName);
             City newNode = m_fdgGraph.CreateNode(nodeName, region, gridBox);
-            m_fdgBoxes[newNode] = gridBox;
+            m_fdgRenderer.Boxes[newNode] = gridBox;
 
             cbbFromNode.Items.Add(nodeName);
             cbbToNode.Items.Add(nodeName);
@@ -175,7 +120,7 @@ namespace PowerGridMapDemo
             
             var gridLine = new GridLine(0, 0, 0, 0);
             Connection newEdge = m_fdgGraph.CreateEdge(node1, node2, length, label, gridLine);
-            m_fdgLines[newEdge] = gridLine;
+            m_fdgRenderer.Lines[newEdge] = gridLine;
 
             lbEdge.Items.Add(label);
             return true;
@@ -199,11 +144,11 @@ namespace PowerGridMapDemo
                 string nodeName=(string)lbNode.SelectedItem;
                 City removeNode=m_fdgGraph.GetNode(nodeName);
 
-                m_fdgBoxes.Remove(removeNode);
+                m_fdgRenderer.Boxes.Remove(removeNode);
                 List<Connection> edgeList = m_fdgGraph.GetEdges(removeNode);
                 foreach(Connection edge in edgeList)
                 {
-                    m_fdgLines.Remove(edge);
+                    m_fdgRenderer.Lines.Remove(edge);
                     int edgeIndex=lbEdge.FindString(edge.CityA.Name + "_" + edge.CityB.Name);
                     lbEdge.Items.RemoveAt(edgeIndex);
                 }
@@ -231,7 +176,7 @@ namespace PowerGridMapDemo
                 int selectedIdx = lbEdge.SelectedIndex;
                 string edgeName = (string)lbEdge.SelectedItem;
                 Connection removeEdge = m_fdgGraph.GetEdge(edgeName);
-                m_fdgLines.Remove(removeEdge);
+                m_fdgRenderer.Lines.Remove(removeEdge);
                 m_fdgGraph.RemoveEdge(removeEdge);
                 lbEdge.Items.RemoveAt(lbEdge.SelectedIndex);
                 if (selectedIdx != 0)
@@ -250,7 +195,7 @@ namespace PowerGridMapDemo
         GridBox clickedGrid;
         private void pDrawPanel_MouseDown(object sender, MouseEventArgs e)
         {
-            foreach (KeyValuePair<City, GridBox> keyPair in m_fdgBoxes)
+            foreach (KeyValuePair<City, GridBox> keyPair in m_fdgRenderer.Boxes)
             {
                 if(keyPair.Value.boxRec.IntersectsWith(new Rectangle(e.Location,new Size(1,1))))
                 {
@@ -271,7 +216,7 @@ namespace PowerGridMapDemo
             if (clickedNode != null)
             {
 
-                FDGVector2 vec = ScreenToGraph(new Tuple<int, int>(e.Location.X, e.Location.Y));
+                FDGVector2 vec = m_fdgRenderer.ScreenToGraph(new Tuple<int, int>(e.Location.X, e.Location.Y));
                 clickedGrid.boxType = BoxType.Pinned;
                 var fd = m_fdgRenderer.forceDirected as ForceDirected2D;
                 var clicked = fd.graph.NodesWithGridBox.First(x => x.Key.Equals(clickedNode));
@@ -279,7 +224,7 @@ namespace PowerGridMapDemo
             }
             else
             {
-                foreach (KeyValuePair<City, GridBox> keyPair in m_fdgBoxes)
+                foreach (KeyValuePair<City, GridBox> keyPair in m_fdgRenderer.Boxes)
                 {
                     if(keyPair.Value.boxRec.IntersectsWith(new Rectangle(e.Location,new Size(1,1))))
                     {
@@ -434,8 +379,8 @@ namespace PowerGridMapDemo
         {
             m_fdgPhysics.Clear();
             m_fdgGraph.Clear();
-            m_fdgBoxes.Clear();
-            m_fdgLines.Clear();
+            m_fdgRenderer.Boxes.Clear();
+            m_fdgRenderer.Lines.Clear();
             lbEdge.Items.Clear();
             lbNode.Items.Clear();
             cbbFromNode.Items.Clear();

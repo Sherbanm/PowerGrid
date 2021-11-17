@@ -1,9 +1,13 @@
 ﻿using PowerGrid.Domain;
+using System.Drawing;
+using System.Windows.Forms;
 
 namespace PowerGridMapDemo
 {
     public abstract class AbstractRenderer : IRenderer
     {
+        public Graphics Paper;
+
         public IForceDirected forceDirected;
         public AbstractRenderer(IForceDirected iForceDirected)
         {
@@ -11,8 +15,9 @@ namespace PowerGridMapDemo
         }
 
 
-        public void Draw(float iTimeStep)
+        public void Draw(float iTimeStep, PaintEventArgs e)
         {
+            Paper = e.Graphics; 
             forceDirected.Calculate(iTimeStep);
             Clear();
             forceDirected.EachEdge(delegate(Connection edge, Spring spring)

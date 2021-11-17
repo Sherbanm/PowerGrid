@@ -1,4 +1,6 @@
 ﻿
+using System.Windows.Forms;
+
 namespace PowerGridMapDemo
 {
 
@@ -6,6 +8,6 @@ namespace PowerGridMapDemo
     {
 
         void Clear();
-        void Draw(float iTimeStep);
+        void Draw(float iTimeStep, PaintEventArgs e);
     }
 }

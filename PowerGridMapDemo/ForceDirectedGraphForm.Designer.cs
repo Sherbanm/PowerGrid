@@ -285,7 +285,6 @@
             this.DoubleBuffered = true;
             this.Name = "ForceDirectedGraphForm";
             this.Text = "EpForceDirectedGraph.cs Demo";
-            this.Paint += new System.Windows.Forms.PaintEventHandler(this.ForceDirectedGraph_Paint);
             this.ResumeLayout(false);
             this.PerformLayout();
 
