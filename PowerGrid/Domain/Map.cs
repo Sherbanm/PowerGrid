@@ -24,7 +24,8 @@ namespace PowerGrid.Domain
                 Region = region
             };
             nextNodeId++;
-            AddNode(tNewNode);
+            if (!Cities.Contains(tNewNode))
+                Cities.Add(tNewNode);
             return tNewNode;
         }
 
@@ -41,7 +42,8 @@ namespace PowerGrid.Domain
                 Length = length
             };
             nextEdgeId++;
-            AddEdge(tNewEdge);
+            if (!Connections.Contains(tNewEdge))
+                Connections.Add(tNewEdge);
             return tNewEdge;
         }
 
@@ -129,23 +131,7 @@ namespace PowerGrid.Domain
             }
             return shortestPath;
         }
-        
-        
-        private City AddNode(City iNode)
-        {
-            if (!Cities.Contains(iNode))
-            {
-                Cities.Add(iNode);
-            }
-            return iNode;
-        }
 
-        private Connection AddEdge(Connection iEdge)
-        {
-            if (!Connections.Contains(iEdge))
-                Connections.Add(iEdge);
-            return iEdge;
-        }
         
         private void DetachNode(City iNode)
         {
