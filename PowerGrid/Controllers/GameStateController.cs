@@ -44,6 +44,14 @@ namespace PowerGrid.Controllers
             Game.BuyGenerator(buyRequest.player, buyRequest.city);
             return "{ done }";
         }
+
+        [Route("Advance")]
+        [HttpPost]
+        public string Advance()
+        {
+            Game.AdvanceGame();
+            return "{ done }";
+        }
     }
 
     public class BuyResourceRequest {

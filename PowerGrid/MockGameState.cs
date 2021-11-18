@@ -8,12 +8,12 @@ namespace PowerGrid
 {
     public static class MockGameState
     {
-        public static List<Card> cards = new List<Card> { new Card { Cost = 1, Resource = ResourceType.Coal, Value = 2, Power = 3 },
-                                new Card { Cost = 5, Resource = ResourceType.Oil, Value = 6, Power = 7 }};
+        public static List<Card> cards = new List<Card> { new Card { ResourceCost = 1, Resource = ResourceType.Coal, MinimumBid = 2, GeneratorsPowered = 3 },
+                                new Card { ResourceCost = 5, Resource = ResourceType.Oil, MinimumBid = 6, GeneratorsPowered = 7 }};
 
-        public static List<Card> cards2 = new List<Card> { new Card { Cost = 11, Resource = ResourceType.Green, Value = 12, Power = 13 },
-                                new Card { Cost = 15, Resource = ResourceType.Mixed, Value = 16, Power = 17 },
-                                new Card { Cost = 5, Resource = ResourceType.Nuclear, Value = 6, Power = 7 }};
+        public static List<Card> cards2 = new List<Card> { new Card { ResourceCost = 11, Resource = ResourceType.Green, MinimumBid = 12, GeneratorsPowered = 13 },
+                                new Card { ResourceCost = 15, Resource = ResourceType.Mixed, MinimumBid = 16, GeneratorsPowered = 17 },
+                                new Card { ResourceCost = 5, Resource = ResourceType.Nuclear, MinimumBid = 6, GeneratorsPowered = 7 }};
 
         public static Player[] players = new Player[] {
                 new Player { Name = "Albert", Money = 50 },

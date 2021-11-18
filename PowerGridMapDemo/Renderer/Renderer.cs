@@ -1,7 +1,6 @@
 ﻿using PowerGrid.Domain;
 using System;
 using System.Collections.Generic;
-using System.Drawing;
 
 namespace PowerGridMapDemo
 {
@@ -53,8 +52,8 @@ namespace PowerGridMapDemo
         public FDGVector2 ScreenToGraph(Tuple<int, int> iScreenPos)
         {
             FDGVector2 retVec = new FDGVector2();
-            retVec.x = ((float)iScreenPos.Item1) - (((float)(Width)) / 2.0f);
-            retVec.y = ((float)iScreenPos.Item2) - (((float)(Height)) / 2.0f);
+            retVec.x = (iScreenPos.Item1) - (((Width)) / 2.0f);
+            retVec.y = (iScreenPos.Item2) - (((Height)) / 2.0f);
             return retVec;
         }
     }

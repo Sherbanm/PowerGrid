@@ -1,8 +1,5 @@
 ﻿using Newtonsoft.Json;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace PowerGrid.Domain
 {
@@ -23,7 +20,16 @@ namespace PowerGrid.Domain
         [JsonProperty(PropertyName = "currentPlayer")]
         public Player CurrentPlayer { get; set; }
 
+        [JsonProperty(PropertyName = "currentPhase")]
+        public Phase CurrentPhase { get; set; }
+
+        [JsonProperty(PropertyName = "currentStep")]
+        public Step CurrentStep  { get; set; }
+
         [JsonProperty(PropertyName = "remainingSeconds")]
         public int RemainingSeconds { get; set; }
+
+        [JsonProperty(PropertyName = "playerOrder")]
+        public LinkedList<Player> PlayerOrder { get; set; } = new LinkedList<Player>();
     }
 }

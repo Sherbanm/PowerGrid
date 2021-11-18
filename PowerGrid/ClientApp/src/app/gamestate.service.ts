@@ -40,4 +40,9 @@ export class GamestateService {
     var options = { headers: new HttpHeaders({ 'Content-Type':  'application/json', 'Authorization': 'my-auth-token'})};
     return this.http.post<string>(this.url + "/BuyGenerator", parameter, options);
   }
+
+  onAdvance() {
+    var options = { headers: new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': 'my-auth-token' }) };
+    return this.http.post<string>(this.url + "/Advance", options);
+  }
 }

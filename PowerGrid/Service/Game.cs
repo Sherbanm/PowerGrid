@@ -2,6 +2,7 @@
 using PowerGrid.Domain;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Net.WebSockets;
 using System.Text;
 using System.Threading;
@@ -14,13 +15,13 @@ namespace PowerGrid.Service
         private static List<WebSocket> listeners = new List<WebSocket>();
         private static WebSocketReceiveResult result;
         private static GameState gameState = MockGameState.GetMockState();
-            
-        public static async void AddListener(WebSocket listener)
+
+        public static void AddListener(WebSocket listener)
         {
             listeners.Add(listener);
         }
 
-        public static async void SaveResult(WebSocketReceiveResult result)
+        public static void SaveResult(WebSocketReceiveResult result)
         {
             Game.result = result;
         }
@@ -41,6 +42,46 @@ namespace PowerGrid.Service
                 result = await webSocket.ReceiveAsync(new ArraySegment<byte>(buffer), CancellationToken.None);
             }
             await webSocket.CloseAsync(result.CloseStatus.Value, result.CloseStatusDescription, CancellationToken.None);
+        }
+
+        public static void AdvanceGame()
+        {
+            if (gameState.CurrentPhase == Phase.DeterminePlayerOrder)
+            {
+                // beginning of the game
+                if (gameState.PlayerOrder.Count == 0)
+                {
+                    var random = new Random();
+                    Dictionary<Player, int> playerRolls = new Dictionary<Player, int>();
+                    foreach(var player in gameState.Players)
+                    {
+                        playerRolls[player] = random.Next();
+                    }
+                    var orderedList = playerRolls.OrderBy(x => x.Value).Select(x => x.Key);
+                    gameState.PlayerOrder = new LinkedList<Player>(orderedList);
+                }
+                else
+                {
+                    var orderedList = gameState.Players.OrderByDescending(x => CountGenerator(gameState, x)).ThenByDescending(x => GetBiggestPowerPlant(x));
+                    gameState.PlayerOrder = new LinkedList<Player>(orderedList);
+                }
+                gameState.CurrentPlayer = gameState.PlayerOrder.First();
+                gameState.CurrentPhase = Phase.AuctionPowerPlants;
+            }
+            else if (gameState.CurrentPhase == Phase.AuctionPowerPlants)
+            {
+                gameState.CurrentPhase = Phase.BuyResources;
+            }
+            else if (gameState.CurrentPhase == Phase.BuyResources)
+            {
+                gameState.CurrentPhase = Phase.Bureaucracy;
+            }
+            else if (gameState.CurrentPhase == Phase.Bureaucracy)
+            {
+                gameState.CurrentPhase = Phase.DeterminePlayerOrder;
+            }
+            
+            SendUpdates();
         }
 
         public static void BuyResource(Player buyer, ResourceType type, int count)
@@ -66,7 +107,7 @@ namespace PowerGrid.Service
             Player player = gameState.Players[GetPlayerIndex(buyer)];
             int selectedCardIndex = gameState.AuctionHouse.AvailableCards.FindIndex((item) =>
                 {
-                    if (item.Cost == card.Cost && item.Power == card.Power && item.Resource == card.Resource && item.Value == card.Value)
+                    if (item.ResourceCost == card.ResourceCost && item.GeneratorsPowered == card.GeneratorsPowered && item.Resource == card.Resource && item.MinimumBid == card.MinimumBid)
                     {
                         return true;
                     }
@@ -116,5 +157,30 @@ namespace PowerGrid.Service
             }
             return -1;
         }
+
+        private static int CountGenerator(GameState gameState, Player player)
+        {
+            var counter = 0;
+            foreach (var city in gameState.Map.Cities)
+            {
+                if (city.Generators.Contains(player))
+                {
+                    counter++;
+                }
+            }
+            return counter;
+        }
+
+        private static int GetBiggestPowerPlant(Player player)
+        {
+            var highestValue = 0;
+            if (player.Cards.Count > 0)
+            {
+                highestValue = player.Cards.OrderByDescending(x => x.MinimumBid).First().MinimumBid;
+            }
+            return highestValue;
+        }
+
+
     }
 }
