@@ -1,11 +1,7 @@
 <div *ngIf="auctionHouse">
   Auction House
   <br>
-  <div *ngFor="let card of auctionHouse.availableCards" style="display: inline-block">
+  <div *ngFor="let card of auctionHouse.marketplace" style="display: inline-block">
     <app-card (click)="onBuyCard(card)" [card]='card'></app-card>
-  </div>
-  
-  <div *ngFor="let card of auctionHouse.displayedCards" style="display: inline-block">
-    <app-card [card]='card'></app-card>
   </div>
 </div>

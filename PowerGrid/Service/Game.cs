@@ -70,11 +70,43 @@ namespace PowerGrid.Service
             }
             else if (gameState.CurrentPhase == Phase.AuctionPowerPlants)
             {
-                gameState.CurrentPhase = Phase.BuyResources;
+                if (gameState.CurrentPlayer.Equals(gameState.PlayerOrder.Last.Value))
+                {
+                    gameState.CurrentPhase = Phase.BuyResources;
+                }
+                else
+                {
+                    var curPlayer = gameState.PlayerOrder.Find(gameState.CurrentPlayer);
+                    var nextPlayer = curPlayer.Next.Value;
+                    gameState.CurrentPlayer = nextPlayer;
+                }
             }
             else if (gameState.CurrentPhase == Phase.BuyResources)
             {
-                gameState.CurrentPhase = Phase.Bureaucracy;
+                if (gameState.CurrentPlayer.Equals(gameState.PlayerOrder.First.Value))
+                {
+                    gameState.CurrentPlayer = gameState.PlayerOrder.Last.Value;
+                    gameState.CurrentPhase = Phase.BuildGenerators;
+                }
+                else
+                {
+                    var curPlayer = gameState.PlayerOrder.Find(gameState.CurrentPlayer);
+                    var previousPlayer = curPlayer.Previous.Value;
+                    gameState.CurrentPlayer = previousPlayer;
+                }
+            }
+            else if (gameState.CurrentPhase == Phase.BuildGenerators)
+            {
+                if (gameState.CurrentPlayer.Equals(gameState.PlayerOrder.First.Value))
+                {
+                    gameState.CurrentPhase = Phase.Bureaucracy;
+                }
+                else
+                {
+                    var curPlayer = gameState.PlayerOrder.Find(gameState.CurrentPlayer);
+                    var previousPlayer = curPlayer.Previous.Value;
+                    gameState.CurrentPlayer = previousPlayer;
+                }
             }
             else if (gameState.CurrentPhase == Phase.Bureaucracy)
             {
@@ -105,7 +137,7 @@ namespace PowerGrid.Service
         public static void BuyCard(Player buyer, Card card)
         {
             Player player = gameState.Players[GetPlayerIndex(buyer)];
-            int selectedCardIndex = gameState.AuctionHouse.AvailableCards.FindIndex((item) =>
+            int selectedCardIndex = gameState.AuctionHouse.DrawPile.FindIndex((item) =>
                 {
                     if (item.ResourceCost == card.ResourceCost && item.GeneratorsPowered == card.GeneratorsPowered && item.Resource == card.Resource && item.MinimumBid == card.MinimumBid)
                     {
@@ -114,8 +146,8 @@ namespace PowerGrid.Service
                     return false;
                 });
             
-            player.Cards.Add(gameState.AuctionHouse.AvailableCards[selectedCardIndex]);
-            gameState.AuctionHouse.AvailableCards.RemoveAt(selectedCardIndex);
+            player.Cards.Add(gameState.AuctionHouse.DrawPile[selectedCardIndex]);
+            gameState.AuctionHouse.DrawPile.RemoveAt(selectedCardIndex);
 
             SendUpdates();
         }
