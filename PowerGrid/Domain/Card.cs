@@ -1,8 +1,9 @@
 ﻿using Newtonsoft.Json;
+using System;
 
 namespace PowerGrid.Domain
 {
-    public class Card
+    public class Card : IEquatable<Card>
     {
         [JsonProperty(PropertyName = "minimumBid")]
         public int MinimumBid { get; set; }
@@ -15,5 +16,10 @@ namespace PowerGrid.Domain
 
         [JsonProperty(PropertyName = "generatorsPowered")]
         public int GeneratorsPowered { get; set; }
+
+        public bool Equals(Card other)
+        {
+            return MinimumBid == other.MinimumBid;
+        }
     }
 }

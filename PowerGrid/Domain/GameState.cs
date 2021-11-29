@@ -6,7 +6,7 @@ namespace PowerGrid.Domain
     public class GameState
     {
         [JsonProperty(PropertyName = "players")]
-        public Player[] Players { get; set; }
+        public LinkedList<Player> Players { get; set; }
 
         [JsonProperty(PropertyName = "resourceMarket")]
         public ResourceMarket ResourceMarket { get; set; }
@@ -20,6 +20,9 @@ namespace PowerGrid.Domain
         [JsonProperty(PropertyName = "currentPlayer")]
         public Player CurrentPlayer { get; set; }
 
+        [JsonProperty(PropertyName = "currentBidder")]
+        public Player CurrentBidder { get; set; }
+
         [JsonProperty(PropertyName = "currentPhase")]
         public Phase CurrentPhase { get; set; }
 
@@ -31,5 +34,6 @@ namespace PowerGrid.Domain
 
         [JsonProperty(PropertyName = "playerOrder")]
         public LinkedList<Player> PlayerOrder { get; set; } = new LinkedList<Player>();
+
     }
 }

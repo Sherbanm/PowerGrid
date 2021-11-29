@@ -2,6 +2,6 @@
   Auction House
   <br>
   <div *ngFor="let card of auctionHouse.marketplace" style="display: inline-block">
-    <app-card (click)="onBuyCard(card)" [card]='card'></app-card>
+    <app-card (click)="onSetAuctionedCard(card)" [card]='card' [auctionHouse]="auctionHouse" (bidEvent)="bid($event)" (passEvent)="pass($event)"></app-card>
   </div>
 </div>

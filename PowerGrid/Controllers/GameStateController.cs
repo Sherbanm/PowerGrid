@@ -26,7 +26,7 @@ namespace PowerGrid.Controllers
         public string BuyResource([FromBody] BuyResourceRequest buyRequest)
         {
             Game.BuyResource(buyRequest.player, buyRequest.type, buyRequest.count);
-            return "{ done }";
+            return string.Empty;
         }
 
         [Route("BuyCard")]
@@ -34,7 +34,31 @@ namespace PowerGrid.Controllers
         public string BuyCard([FromBody] BuyCardRequest buyRequest)
         {
             Game.BuyCard(buyRequest.player, buyRequest.card);
-            return "{ done }";
+            return string.Empty;
+        }
+
+        [Route("Bid")]
+        [HttpPost]
+        public string Bid([FromBody] BidRequest bidRequest)
+        {
+            Game.Bid(bidRequest.player, bidRequest.amount);
+            return string.Empty;
+        }
+
+        [Route("Pass")]
+        [HttpPost]
+        public string Pass([FromBody] Player player)
+        {
+            Game.Pass(player);
+            return string.Empty;
+        }
+
+        [Route("SetAuctionedCard")]
+        [HttpPost]
+        public string SetAuctionedCard([FromBody] SetAuctionedCardRequest setAuctionedCardRequest)
+        {
+            Game.SetAuctionedCard(setAuctionedCardRequest.card, setAuctionedCardRequest.player);
+            return string.Empty;
         }
 
         [Route("BuyGenerator")]
@@ -42,7 +66,7 @@ namespace PowerGrid.Controllers
         public string BuyGenerator([FromBody] BuyGeneratorRequest buyRequest)
         {
             Game.BuyGenerator(buyRequest.player, buyRequest.city);
-            return "{ done }";
+            return string.Empty;
         }
 
         [Route("Advance")]
@@ -50,7 +74,7 @@ namespace PowerGrid.Controllers
         public string Advance()
         {
             Game.AdvanceGame();
-            return "{ done }";
+            return string.Empty;
         }
     }
 
@@ -77,5 +101,19 @@ namespace PowerGrid.Controllers
         public Player player { get; set; }
 
         public City city { get; set; }
+    }
+
+    public class BidRequest
+    {
+        public Player player { get; set; }
+
+        public int amount { get; set; }
+    }
+
+    public class SetAuctionedCardRequest
+    {
+        public Player player { get; set; }
+
+        public Card card { get; set; }
     }
 }

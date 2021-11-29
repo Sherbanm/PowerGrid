@@ -4,9 +4,9 @@
     <div *ngIf='gameState'>
         <button (click)="onAdvance()">Advance!</button>
         <p>{{gameState.currentPhase}}</p>
-        <app-player-order [players]='gameState.playerOrder' [currentPlayer]='gameState.currentPlayer' [remainingSeconds]='gameState.remainingSeconds'></app-player-order>
+        <app-player-order [players]='gameState.playerOrder' [gameState]='gameState' [remainingSeconds]='gameState.remainingSeconds'></app-player-order>
         <app-player-list [players]='gameState.players'></app-player-list>
-        <app-auction-house [auctionHouse]='gameState.auctionHouse'></app-auction-house>
+        <app-auction-house [auctionHouse]='gameState.auctionHouse' [currentBidder]='gameState.currentBidder'></app-auction-house>
         <app-resource-market [market]='gameState.resourceMarket'></app-resource-market>
         <app-map [map]='gameState.map'></app-map>
     </div>

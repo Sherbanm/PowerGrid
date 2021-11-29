@@ -13,19 +13,43 @@ import { Card } from '../domain/card';
 })
 export class AuctionHouseComponent implements OnInit {
   @Input() auctionHouse: AuctionHouse;
+  @Input() currentBidder: Player;
 
-  selectedPlayer: Player;
 
-  constructor(private currentPlayerService: CurrentPlayerService, private gameStateService: GamestateService) { }
+  constructor(private gameStateService: GamestateService) { }
 
   ngOnInit() {
-    this.currentPlayerService.currentPlayer.subscribe(player => this.selectedPlayer = player);
   }
-  
 
   public onBuyCard(card: Card): void {
-    this.gameStateService.buyCard(this.selectedPlayer, card).subscribe(data => {
+    this.gameStateService.buyCard(this.currentBidder, card).subscribe(data => {
       let result = data;
     });
   }
+
+  bid(event) {
+    this.gameStateService.bid(this.currentBidder, this.auctionHouse.currentbid + 1).subscribe(data => {
+      let result = data;
+    });
+  }
+
+  pass(event) {
+    this.gameStateService.pass(this.currentBidder).subscribe(data => {
+      let result = data;
+    });
+  }
+
+  public onSetAuctionedCard(card: Card): void {
+    if (this.auctionHouse.cardunderauction == null) {
+      this.gameStateService.setAuctionedCard(card, this.currentBidder).subscribe(data => {
+        let result = data;
+      });
+    }
+    else if (this.auctionHouse.cardunderauction.minimumBid != card.minimumBid) {
+      this.gameStateService.setAuctionedCard(card, this.currentBidder).subscribe(data => {
+        let result = data;
+      });
+    }
+  }
+
 }

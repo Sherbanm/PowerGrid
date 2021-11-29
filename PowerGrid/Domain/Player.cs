@@ -1,12 +1,10 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace PowerGrid.Domain
 {
-    public class Player
+    public class Player : IEquatable<Player>
     {
         [JsonProperty(PropertyName = "name")]
         public string Name { get; set; }
@@ -23,5 +21,9 @@ namespace PowerGrid.Domain
         [JsonProperty(PropertyName = "generators")]
         public int Generators { get; set; } = 22;
 
+        public bool Equals(Player other)
+        {
+            return Name.Equals(other.Name);
+        }
     }
 }

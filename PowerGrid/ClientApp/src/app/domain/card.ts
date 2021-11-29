@@ -1,8 +1,8 @@
 import { ResourceType } from "./resourceType";
 
 export class Card {
-  value: number;
+  minimumBid: number;
   resource: ResourceType;
-  cost: number;
-  power: number;
+  resourceCost: number;
+  generatorsPowered: number;
 }

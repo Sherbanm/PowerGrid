@@ -9,6 +9,7 @@ export class CurrentPlayerService {
 
   private messageSource = new BehaviorSubject<Player>(null);
   currentPlayer = this.messageSource.asObservable();
+  currentBidder = this.messageSource.asObservable();
 
   constructor() { }
 

@@ -17,22 +17,22 @@ namespace PowerGrid.Tests
             string preGameStateString = JsonConvert.SerializeObject(g);
             GameState preGameState = JsonConvert.DeserializeObject<GameState>(preGameStateString);
             
-            Game.BuyResource(preGameState.Players[0], ResourceType.Coal, 1);
+            Game.BuyResource(preGameState.Players.First.Value, ResourceType.Coal, 1);
             GameState postGameState = MockGameState.GetMockState();
-            Assert.Equal(preGameState.Players[0].Money, postGameState.Players[0].Money + cost);
+            Assert.Equal(preGameState.Players.First.Value.Money, postGameState.Players.First.Value.Money + cost);
         }
 
         [Fact]
         public void NoMoney()
         {
             GameState g = MockGameState.GetMockState();
-            g.Players[0].Money = 0;
+            g.Players.First.Value.Money = 0;
             string preGameStateString = JsonConvert.SerializeObject(g);
             GameState preGameState = JsonConvert.DeserializeObject<GameState>(preGameStateString);
 
-            Game.BuyResource(preGameState.Players[0], ResourceType.Coal, 1);
+            Game.BuyResource(preGameState.Players.First.Value, ResourceType.Coal, 1);
             GameState postGameState = MockGameState.GetMockState();
-            Assert.Equal(preGameState.Players[0].Money, postGameState.Players[0].Money);
+            Assert.Equal(preGameState.Players.First.Value.Money, postGameState.Players.First.Value.Money);
             Assert.Equal(JsonConvert.SerializeObject(preGameState.ResourceMarket), JsonConvert.SerializeObject(postGameState.ResourceMarket));
         }
 
@@ -46,9 +46,9 @@ namespace PowerGrid.Tests
                 string preGameStateString = JsonConvert.SerializeObject(g);
                 GameState preGameState = JsonConvert.DeserializeObject<GameState>(preGameStateString);
 
-                Game.BuyResource(preGameState.Players[0], (ResourceType)i, 1);
+                Game.BuyResource(preGameState.Players.First.Value, (ResourceType)i, 1);
                 GameState postGameState = MockGameState.GetMockState();
-                Assert.Equal(preGameState.Players[0].Money, postGameState.Players[0].Money);
+                Assert.Equal(preGameState.Players.First.Value.Money, postGameState.Players.First.Value.Money);
                 Assert.Equal(JsonConvert.SerializeObject(preGameState.ResourceMarket), JsonConvert.SerializeObject(postGameState.ResourceMarket)); Assert.Equal(JsonConvert.SerializeObject(preGameState.ResourceMarket), JsonConvert.SerializeObject(postGameState.ResourceMarket));
             } 
         }
@@ -57,7 +57,7 @@ namespace PowerGrid.Tests
         public void BuyAllResources()
         {
             GameState g = MockGameState.GetMockState();
-            g.Players[0].Money = int.MaxValue; // "infinite money"
+            g.Players.First.Value.Money = int.MaxValue; // "infinite money"
 
             for (int i = 0; i <= (int)ResourceType.Nuclear; i++)
             {
@@ -69,9 +69,9 @@ namespace PowerGrid.Tests
                     GameState preGameState = JsonConvert.DeserializeObject<GameState>(preGameStateString);
                     int cost = g.ResourceMarket.GetCost((ResourceType)i);
                     
-                    Game.BuyResource(preGameState.Players[0], (ResourceType)i, 1);
+                    Game.BuyResource(preGameState.Players.First.Value, (ResourceType)i, 1);
                     GameState postGameState = MockGameState.GetMockState();
-                    Assert.Equal(preGameState.Players[0].Money, postGameState.Players[0].Money + cost);
+                    Assert.Equal(preGameState.Players.First.Value.Money, postGameState.Players.First.Value.Money + cost);
                     Assert.Equal(preGameState.ResourceMarket.Resources.Data[i], postGameState.ResourceMarket.Resources.Data[i] + 1);
                 }
             }

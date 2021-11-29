@@ -13,9 +13,33 @@ namespace PowerGrid.Domain
         [JsonProperty(PropertyName = "marketplace")]
         public List<Card> Marketplace { get; set; }
 
+        [JsonProperty(PropertyName = "cardunderauction")]
+        public Card CardUnderAuction { get; set; }
+
+        [JsonProperty(PropertyName = "auctionPassedPlayers")]
+        public List<Player> AuctionPassedPlayers { get; set; } = new List<Player>();
+
+        [JsonProperty(PropertyName = "phasePassers")]
+        public List<Player> PhasePassers { get; set; } = new List<Player>();
+
+        [JsonProperty(PropertyName = "phaseBuyers")]
+        public List<Player> PhaseBuyers { get; set; } = new List<Player>();
+
+        [JsonProperty(PropertyName = "currentbid")]
+        public int CurrentBid { get; set; } = 0;
+
+        [JsonProperty(PropertyName = "currentbidplayer")]
+        public Player CurrentBidPlayer { get; set; }
+
+
+
         private int marketSize;
 
+        private int numberOfPlayers;
+        
         private static Random random = new Random();
+
+        
 
         public AuctionHouse(IEnumerable<Card> darkBackSideCards, IEnumerable<Card> lightBackSideCards, bool northAmerica, int numberOfPlayers)
         {
@@ -24,6 +48,8 @@ namespace PowerGrid.Domain
             
             // in north america the market consists of 8 spaces, in Europ, the market has 9 spaces.
             this.marketSize = northAmerica ? 8 : 9;
+
+            this.numberOfPlayers = numberOfPlayers;
 
             // Take the power plant cards with a dark backside (numbered 03 to 15) and shuffle this pile
             var shuffledDarkBackSideCards = darkBackSideCards.OrderBy(x => random.Next()).ToList();
@@ -52,7 +78,7 @@ namespace PowerGrid.Domain
             DrawPile = shuffledAllCards;
         }
 
-        public int GetPowerPlantDiscards(bool light, int numberOfPlayers)
+        private int GetPowerPlantDiscards(bool light, int numberOfPlayers)
         {
             if (light)
             {
@@ -79,5 +105,31 @@ namespace PowerGrid.Domain
             throw new Exception();
         }
 
+        public void SetAuctionedCard(Card card, Player player)
+        {
+            if (Marketplace.Take(4).Contains(card))
+            {
+                CardUnderAuction = card;
+                CurrentBid = card.MinimumBid;
+                CurrentBidPlayer = player;
+            }
+        }
+
+        public void Bid(Player player, int bid)
+        {
+            if (!AuctionPassedPlayers.Contains(player) && bid > CurrentBid)
+            {
+                CurrentBid = bid;
+                CurrentBidPlayer = player;
+            }
+        }
+
+        public void Pass(Player player)
+        {
+            if (!AuctionPassedPlayers.Contains(player))
+            {
+                AuctionPassedPlayers.Add(player);
+            }
+        }
     }
 }

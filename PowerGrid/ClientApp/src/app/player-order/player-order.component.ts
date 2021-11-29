@@ -3,6 +3,7 @@ import { Player } from '../domain/player';
 import { Time } from '@angular/common';
 import { CurrentPlayerService } from '../current-player.service';
 import { timer } from 'rxjs'
+import { GameState } from '../domain/gamestate';
 
 @Component({
   selector: 'app-player-order',
@@ -11,7 +12,7 @@ import { timer } from 'rxjs'
 })
 export class PlayerOrderComponent implements OnInit {
   @Input() players: Player[];
-  @Input() currentPlayer: Player;
+  @Input() gameState: GameState;
   @Input() remainingSeconds: number;
 
   subscribeTimer: number;

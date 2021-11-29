@@ -13,7 +13,7 @@ namespace PowerGrid
         //                        new Card { ResourceCost = 5, Resource = ResourceType.Oil, MinimumBid = 6, GeneratorsPowered = 7 }};
 
         private static List<Card> cards = null;
-        
+
         public static List<Card> Cards
         {
             get
@@ -65,7 +65,7 @@ namespace PowerGrid
                 if (iXmlReader.Name == "minimumBid")
                     card.MinimumBid = int.Parse(iXmlReader.Value);
                 if (iXmlReader.Name == "resource")
-                    card.Resource = (ResourceType) Enum.Parse(typeof(ResourceType),iXmlReader.Value);
+                    card.Resource = (ResourceType)Enum.Parse(typeof(ResourceType), iXmlReader.Value);
                 if (iXmlReader.Name == "resourceCost")
                     card.ResourceCost = int.Parse(iXmlReader.Value);
                 if (iXmlReader.Name == "generatorsPowered")
@@ -79,14 +79,14 @@ namespace PowerGrid
                                 new Card { ResourceCost = 15, Resource = ResourceType.Mixed, MinimumBid = 16, GeneratorsPowered = 17 },
                                 new Card { ResourceCost = 5, Resource = ResourceType.Nuclear, MinimumBid = 6, GeneratorsPowered = 7 }};
 
-        public static Player[] players = new Player[] {
+        public static LinkedList<Player> players = new LinkedList<Player>(new List<Player> {
                 new Player { Name = "Albert", Money = 50 },
                 new Player { Name = "Bruce", Money = 50 },
                 new Player { Name = "Charles", Money = 50 },
                 new Player { Name = "Dan", Money = 50 },
                 new Player { Name = "Eustache", Money = 50 },
                 new Player { Name = "Franz", Money = 50 },
-        };
+        });
 
         public static ResourceMarket resourceMarket = new ResourceMarket
         {
@@ -199,12 +199,11 @@ namespace PowerGrid
                 ResourceMarket = resourceMarket,
                 AuctionHouse = new AuctionHouse(Cards.Where(x => x.MinimumBid <= 15), Cards.Where(x => x.MinimumBid > 15), true, players.Count()),
                 Map = Map,
-                CurrentPlayer = players[0],
                 RemainingSeconds = 30
             };
         }
 
-        public static Player[] GetMockPlayers()
+        public static LinkedList<Player> GetMockPlayers()
         {
             return players;
         }

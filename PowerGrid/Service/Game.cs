@@ -66,19 +66,22 @@ namespace PowerGrid.Service
                     gameState.PlayerOrder = new LinkedList<Player>(orderedList);
                 }
                 gameState.CurrentPlayer = gameState.PlayerOrder.First();
+                gameState.CurrentBidder = gameState.PlayerOrder.First();
                 gameState.CurrentPhase = Phase.AuctionPowerPlants;
             }
             else if (gameState.CurrentPhase == Phase.AuctionPowerPlants)
             {
-                if (gameState.CurrentPlayer.Equals(gameState.PlayerOrder.Last.Value))
+                gameState.AuctionHouse.PhasePassers.Add(gameState.CurrentPlayer);
+                var curPlayer = gameState.PlayerOrder.Find(gameState.CurrentPlayer);
+                var nextPlayer = curPlayer.Next.Value;
+                gameState.CurrentPlayer = nextPlayer;
+                gameState.CurrentBidder = nextPlayer;
+
+                if (gameState.AuctionHouse.PhaseBuyers.Count + gameState.AuctionHouse.PhasePassers.Count == gameState.Players.Count)
                 {
                     gameState.CurrentPhase = Phase.BuyResources;
-                }
-                else
-                {
-                    var curPlayer = gameState.PlayerOrder.Find(gameState.CurrentPlayer);
-                    var nextPlayer = curPlayer.Next.Value;
-                    gameState.CurrentPlayer = nextPlayer;
+                    gameState.AuctionHouse.PhasePassers.Clear();
+                    gameState.AuctionHouse.PhaseBuyers.Clear();
                 }
             }
             else if (gameState.CurrentPhase == Phase.BuyResources)
@@ -118,7 +121,7 @@ namespace PowerGrid.Service
 
         public static void BuyResource(Player buyer, ResourceType type, int count)
         {
-            Player player = gameState.Players[GetPlayerIndex(buyer)];
+            Player player = gameState.Players.First(x => x.Name.Equals(buyer.Name));
 
             for(int i = 0; i < count; i++)
             {
@@ -136,8 +139,8 @@ namespace PowerGrid.Service
 
         public static void BuyCard(Player buyer, Card card)
         {
-            Player player = gameState.Players[GetPlayerIndex(buyer)];
-            int selectedCardIndex = gameState.AuctionHouse.DrawPile.FindIndex((item) =>
+            Player player = gameState.Players.First(x => x.Name.Equals(buyer.Name));
+            int selectedCardIndex = gameState.AuctionHouse.Marketplace.FindIndex((item) =>
                 {
                     if (item.ResourceCost == card.ResourceCost && item.GeneratorsPowered == card.GeneratorsPowered && item.Resource == card.Resource && item.MinimumBid == card.MinimumBid)
                     {
@@ -146,15 +149,58 @@ namespace PowerGrid.Service
                     return false;
                 });
             
-            player.Cards.Add(gameState.AuctionHouse.DrawPile[selectedCardIndex]);
-            gameState.AuctionHouse.DrawPile.RemoveAt(selectedCardIndex);
+            player.Cards.Add(gameState.AuctionHouse.Marketplace[selectedCardIndex]);
+            gameState.AuctionHouse.Marketplace.RemoveAt(selectedCardIndex);
+        
+            SendUpdates();
+        }
+
+        public static void SetAuctionedCard(Card card, Player player)
+        {
+            gameState.AuctionHouse.SetAuctionedCard(card, player);
+            SendUpdates();
+        }
+
+        public static void Bid(Player player, int amount)
+        {
+            gameState.AuctionHouse.Bid(player, amount);
+
+            gameState.CurrentBidder = GetNextBidder();
+
+            SendUpdates();
+        }
+
+        public static void Pass(Player player)
+        {
+            gameState.AuctionHouse.Pass(player);
+
+            if (gameState.AuctionHouse.PhaseBuyers.Count + gameState.AuctionHouse.PhasePassers.Count + gameState.AuctionHouse.AuctionPassedPlayers.Count == gameState.Players.Count - 1)
+            {
+                var winner = gameState.AuctionHouse.CurrentBidPlayer;
+                var wonCard = gameState.AuctionHouse.DrawPile.Find(x => gameState.AuctionHouse.CardUnderAuction.Equals(x));
+                winner.Cards.Add(wonCard);
+                gameState.AuctionHouse.DrawPile.Remove(wonCard);
+
+                // cleanup
+                gameState.AuctionHouse.AuctionPassedPlayers.Clear();
+                gameState.AuctionHouse.PhaseBuyers.Add(winner);
+                gameState.AuctionHouse.CurrentBid = 0;
+                gameState.AuctionHouse.CurrentBidPlayer = null;
+                gameState.AuctionHouse.CardUnderAuction = null;
+
+            }
+            else
+            {
+                gameState.CurrentBidder = GetNextBidder();
+            }
+            
 
             SendUpdates();
         }
 
         public static void BuyGenerator(Player buyer, City city)
         {
-            Player player = gameState.Players[GetPlayerIndex(buyer)];
+            Player player = gameState.Players.First(x => x.Name.Equals(buyer.Name));
             int selectedCityIndex = gameState.Map.Cities.FindIndex((item) =>
             {
                 return (item.Name == city.Name);
@@ -178,18 +224,6 @@ namespace PowerGrid.Service
             }
         }
 
-        private static int GetPlayerIndex(Player player) 
-        {
-            for(int i = 0; i < gameState.Players.Length; i++)
-            {
-                if (gameState.Players[i].Name == player.Name)
-                {
-                    return i;
-                }
-            }
-            return -1;
-        }
-
         private static int CountGenerator(GameState gameState, Player player)
         {
             var counter = 0;
@@ -211,6 +245,25 @@ namespace PowerGrid.Service
                 highestValue = player.Cards.OrderByDescending(x => x.MinimumBid).First().MinimumBid;
             }
             return highestValue;
+        }
+
+        private static Player GetNextBidder()
+        {
+            Player nextPlayer = gameState.Players.Find(gameState.CurrentBidder).Next?.Value ?? gameState.Players.First.Value; ;
+            bool found = false;
+            for (int i = 0; i < gameState.Players.Count; i++)
+            {
+                if (!gameState.AuctionHouse.AuctionPassedPlayers.Contains(nextPlayer) && !gameState.AuctionHouse.PhaseBuyers.Contains(nextPlayer) && !gameState.AuctionHouse.PhasePassers.Contains(nextPlayer))
+                {
+                    found = true;
+                    break;
+                }
+                else
+                {
+                    nextPlayer = gameState.Players.Find(nextPlayer).Next?.Value ?? gameState.Players.First.Value;
+                }
+            }
+            return found ? nextPlayer : null;
         }
 
 
