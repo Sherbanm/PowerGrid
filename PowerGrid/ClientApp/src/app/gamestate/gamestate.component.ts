@@ -4,6 +4,7 @@ import { WebSocketService } from '../websocket.service';
 import { GameState } from '../domain/gamestate';
 import { GamestateService } from '../gamestate.service';
 import { CurrentPlayerService } from '../current-player.service';
+import { Player } from '../domain/player';
 
 @Component({
   selector: 'app-gamestate',
@@ -14,6 +15,8 @@ export class GamestateComponent implements OnInit {
 
   gameState: GameState;
 
+  selectedPlayer: Player;
+
   constructor(private socketService: WebSocketService, private gameStateService: GamestateService, private currentPlayerService: CurrentPlayerService) {
     let _self = this;
     this.socketService.createObservableSocket( "wss://localhost:44344/ws").subscribe(data => {
@@ -21,19 +24,27 @@ export class GamestateComponent implements OnInit {
       currentPlayerService.changeCurrentPlayer(_self.gameState.currentPlayer)
     });
   }
+
+  ngOnInit() {
+    this.socketService.sendMessage("hello");
+  }
   
   onClickMe() {
     this.socketService.sendMessage("hello"); 
   }
 
   onAdvance() {
-    this.gameStateService.onAdvance().subscribe(data => {
-      let result = data;
-    });
+    if (this.gameState.currentPhase == 1) {
+      this.gameStateService.onPassAuction(this.gameState.currentPlayer).subscribe(data => {
+        let result = data;
+      });
+    }
+    else {
+      this.gameStateService.onAdvance().subscribe(data => {
+        let result = data;
+      });
+    }
   }
 
-  ngOnInit() {
-    this.socketService.sendMessage("hello"); 
-  }
 
 }

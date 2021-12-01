@@ -29,14 +29,6 @@ namespace PowerGrid.Controllers
             return string.Empty;
         }
 
-        [Route("BuyCard")]
-        [HttpPost]
-        public string BuyCard([FromBody] BuyCardRequest buyRequest)
-        {
-            Game.BuyCard(buyRequest.player, buyRequest.card);
-            return string.Empty;
-        }
-
         [Route("Bid")]
         [HttpPost]
         public string Bid([FromBody] BidRequest bidRequest)
@@ -58,6 +50,14 @@ namespace PowerGrid.Controllers
         public string SetAuctionedCard([FromBody] SetAuctionedCardRequest setAuctionedCardRequest)
         {
             Game.SetAuctionedCard(setAuctionedCardRequest.card, setAuctionedCardRequest.player);
+            return string.Empty;
+        }
+
+        [Route("PassAuctionPhase")]
+        [HttpPost]
+        public string PassAuctionPhase([FromBody] Player player)
+        {
+            Game.PassAuctionPhase(player);
             return string.Empty;
         }
 

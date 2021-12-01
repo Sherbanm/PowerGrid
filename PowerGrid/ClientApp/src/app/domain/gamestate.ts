@@ -11,4 +11,5 @@ export class GameState {
   currentPlayer: Player;
   currentBidder: Player;
   remainingSeconds: number;
+  currentPhase: number;
 }
