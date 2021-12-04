@@ -1,8 +1,7 @@
-﻿using PowerGrid.Domain;
+﻿using Newtonsoft.Json;
+using PowerGrid.Domain;
 using PowerGrid.Service;
-using System;
 using Xunit;
-using Newtonsoft.Json;
 
 namespace PowerGrid.Tests
 {
