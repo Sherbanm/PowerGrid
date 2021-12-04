@@ -187,6 +187,18 @@ namespace PowerGrid.Service
             AdvanceGame();
         }
         
+        public static void LoadResource(Card card, ResourceType resource)
+        {
+            var gameStateCard = gameState.Players.SelectMany(x => x.Cards).First(x => x.Equals(card));
+            var gameStatePlayer = gameState.Players.First(x => x.Cards.Contains(card));
+
+            if (gameStatePlayer.Resources.Data[(int)resource] > 0)
+            {
+                gameStatePlayer.Resources.Data[(int)resource]--;
+                gameStateCard.LoadResource(resource);
+            }
+        }
+
         public static void BuyGenerator(Player buyer, City city)
         {
             Player player = gameState.Players.First(x => x.Name.Equals(buyer.Name));
@@ -277,7 +289,7 @@ namespace PowerGrid.Service
         private static void BuyCard()
         {
             var winner = gameState.Players.First(x => x.Equals(gameState.AuctionHouse.CurrentBidPlayer));
-            var wonCard = gameState.AuctionHouse.DrawPile.Find(x => gameState.AuctionHouse.CardUnderAuction.Equals(x));
+            var wonCard = gameState.AuctionHouse.Marketplace.Find(x => gameState.AuctionHouse.CardUnderAuction.Equals(x));
             winner.Cards.Add(wonCard);
             winner.Money -= gameState.AuctionHouse.CurrentBid;
             gameState.AuctionHouse.DrawPile.Remove(wonCard);

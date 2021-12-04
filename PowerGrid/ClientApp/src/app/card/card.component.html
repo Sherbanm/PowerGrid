@@ -1,10 +1,16 @@
 <div id='rcornerscard'>
-  <span>Value: {{card.minimumBid}}</span><span *ngIf="auctionHouse.cardunderauction !== null && card.minimumBid == auctionHouse.cardunderauction.minimumBid ">({{auctionHouse.currentbid}})</span><br>
+  <span>Value: {{card.minimumBid}}</span>
+  <span *ngIf="card.minimumBid == auctionHouse?.cardunderauction?.minimumBid">({{auctionHouse.currentbid}})</span><br>
   <span>Resource: {{card.resource}}</span><br>
   <span>Cost: {{card.resourceCost}}</span><br>
   <span>Power: {{card.generatorsPowered}}</span><br>
-  <span *ngIf="auctionHouse.cardunderauction !== null && card.minimumBid == auctionHouse.cardunderauction.minimumBid ">
+  <span *ngIf="card.minimumBid == auctionHouse?.cardunderauction?.minimumBid ">
     <button (click)="onBid()">Bid</button>
     <button (click)="onPass()">Pass</button>
+  </span>
+  <span *ngIf="owned">
+    <button *ngIf="card.resource != 5" (click)="onLoadResource()">LoadResource</button>
+    <button *ngIf="card.resource == 5" (click)="onLoadGas()">Load Gas</button>
+    <button *ngIf="card.resource == 5" (click)="onLoadOil()">Load Oil</button>
   </span>
 </div>

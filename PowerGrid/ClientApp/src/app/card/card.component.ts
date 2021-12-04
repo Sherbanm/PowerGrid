@@ -11,6 +11,7 @@ import { Card} from '../domain/card';
 export class CardComponent implements OnInit {
   @Input() card: Card;
   @Input() auctionHouse: AuctionHouse;
+  @Input() owned: boolean;
 
   @Output() bidEvent = new EventEmitter<Card>();
   @Output() passEvent = new EventEmitter<Card>();

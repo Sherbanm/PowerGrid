@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using System;
+using System.Collections.Generic;
 
 namespace PowerGrid.Domain
 {
@@ -17,9 +18,29 @@ namespace PowerGrid.Domain
         [JsonProperty(PropertyName = "generatorsPowered")]
         public int GeneratorsPowered { get; set; }
 
+        [JsonProperty(PropertyName = "loadedResources")]
+        public List<ResourceType> LoadedResources { get; set; } = new List<ResourceType>();
         public bool Equals(Card other)
         {
             return MinimumBid == other.MinimumBid;
+        }
+
+        public void LoadResource(ResourceType resource)
+        {
+            if (Resource == ResourceType.Mixed)
+            {
+                if (resource == ResourceType.Gas || resource == ResourceType.Oil)
+                {
+                    LoadedResources.Add(resource);
+                }
+            }
+            else
+            {
+                if (resource == Resource)
+                {
+                    LoadedResources.Add(resource);
+                }
+            }
         }
     }
 }
