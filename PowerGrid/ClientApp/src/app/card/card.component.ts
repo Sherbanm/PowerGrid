@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { AuctionHouse } from '../domain/auctionHouse';
 import { Card} from '../domain/card';
+import { GamestateService } from '../gamestate.service';
 
 @Component({
   selector: 'app-card',
@@ -16,7 +17,7 @@ export class CardComponent implements OnInit {
   @Output() bidEvent = new EventEmitter<Card>();
   @Output() passEvent = new EventEmitter<Card>();
 
-  constructor() { }
+  constructor(private gameStateService: GamestateService) { }
 
   ngOnInit() {
   }
@@ -29,4 +30,21 @@ export class CardComponent implements OnInit {
     this.passEvent.emit(this.card)
   }
 
+  public onLoadResource(): void {
+    this.gameStateService.onLoadResource(this.card, this.card.resource).subscribe(data => {
+      let result = data;
+    });
+  }
+
+  public onLoadGas(): void {
+    this.gameStateService.onLoadResource(this.card, 2).subscribe(data => {
+      let result = data;
+    });
+  }
+
+  public onLoadOil(): void {
+    this.gameStateService.onLoadResource(this.card, 1).subscribe(data => {
+      let result = data;
+    });
+  }
 }

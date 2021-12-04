@@ -67,4 +67,10 @@ export class GamestateService {
     var options = { headers: new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': 'my-auth-token' }) };
     return this.http.post<string>(this.url + "/PassAuctionPhase", player, options);
   }
+
+  onLoadResource(card: Card, resourceType: number) {
+    var parameter = JSON.stringify({ card, resourceType });
+    var options = { headers: new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': 'my-auth-token' }) };
+    return this.http.post<string>(this.url + "/LoadResource", parameter, options);
+  }
 }

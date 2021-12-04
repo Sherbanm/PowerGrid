@@ -76,6 +76,14 @@ namespace PowerGrid.Controllers
             Game.AdvanceGame();
             return string.Empty;
         }
+
+        [Route("LoadResource")]
+        [HttpPost]
+        public string LoadResource([FromBody] LoadResourceRequest buyRequest)
+        {
+            Game.LoadResource(buyRequest.card, buyRequest.resourceType);
+            return string.Empty;
+        }
     }
 
     public class BuyResourceRequest {
@@ -115,5 +123,12 @@ namespace PowerGrid.Controllers
         public Player player { get; set; }
 
         public Card card { get; set; }
+    }
+
+    public class LoadResourceRequest
+    {
+        public Card card { get; set; }
+
+        public ResourceType resourceType { get; set;}
     }
 }

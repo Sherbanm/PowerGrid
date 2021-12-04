@@ -113,6 +113,20 @@ namespace PowerGrid.Service
             }
             else if (gameState.CurrentPhase == Phase.Bureaucracy)
             {
+                foreach(var player in gameState.Players)
+                {
+                    var loadedCards = player.Cards.Where(x => x.LoadedResources.Count.Equals(x.ResourceCost));
+                    var canPower = loadedCards.Sum(x => x.GeneratorsPowered);
+                    var generators = gameState.Map.Cities.Where(x => x.Generators.Contains(player)).Count();
+                    var generatorsPowered = Math.Min(canPower, generators);
+                    var income = GetIncome(generatorsPowered);
+
+                    player.Money += income;
+                    foreach(var card in loadedCards)
+                    {
+                        player.Cards.Find(x => x.Equals(card)).LoadedResources.Clear();
+                    }
+                }
                 gameState.CurrentPhase = Phase.DeterminePlayerOrder;
             }
             
@@ -197,6 +211,7 @@ namespace PowerGrid.Service
                 gameStatePlayer.Resources.Data[(int)resource]--;
                 gameStateCard.LoadResource(resource);
             }
+            SendUpdates();
         }
 
         public static void BuyGenerator(Player buyer, City city)
@@ -303,6 +318,58 @@ namespace PowerGrid.Service
             gameState.AuctionHouse.CurrentBid = 0;
             gameState.AuctionHouse.CurrentBidPlayer = null;
             gameState.AuctionHouse.CardUnderAuction = null;
+        }
+
+        private static int GetIncome(int poweredGenerators)
+        {
+            switch(poweredGenerators)
+            {
+                case 0:
+                    return 10;
+                case 1:
+                    return 22;
+                case 2:
+                    return 33;
+                case 3:
+                    return 44;
+                case 4:
+                    return 54;
+                case 5:
+                    return 64;
+                case 6:
+                    return 73;
+                case 7:
+                    return 82;
+                case 8:
+                    return 90;
+                case 9:
+                    return 98;
+                case 10:
+                    return 105;
+                case 11:
+                    return 112;
+                case 12:
+                    return 118;
+                case 13:
+                    return 124;
+                case 14:
+                    return 129;
+                case 15:
+                    return 134;
+                case 16:
+                    return 138;
+                case 17:
+                    return 142;
+                case 18:
+                    return 145;
+                case 19:
+                    return 148;
+                case 20:
+                    return 150;
+                default:
+                    return 150;
+                
+            }
         }
 
 
