@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using PowerGrid.Domain;
 using PowerGrid.Service;
+using System;
 
 namespace PowerGrid.Controllers
 {
@@ -8,76 +10,144 @@ namespace PowerGrid.Controllers
     [ApiController]
     public class GameStateController : ControllerBase
     {
-        // GET: api/GameState
         [HttpGet]
         public GameState Get()
         {
             return MockGameState.GetMockState();
         }
 
+        [Route("Advance")]
+        [HttpPost]
+        public string Advance()
+        {
+            try
+            {
+                Game.AdvanceGame();
+                return JsonConvert.SerializeObject(new { success = true , message = "no errors." });
+            }
+            catch (Exception e)
+            {
+                return JsonConvert.SerializeObject(new { success = false, message = e.Message });
+            }
+        }
+
+        [Route("AuctionSetCard")]
+        [HttpPost]
+        public string AuctionSetCard([FromBody] AuctionSetCardRequest setAuctionedCardRequest)
+        {
+            try
+            {
+                Game.AuctionSetCard(setAuctionedCardRequest.card, setAuctionedCardRequest.player);
+                return JsonConvert.SerializeObject(new { success = true , message = "no errors." });
+            }
+            catch (Exception e)
+            {
+                return JsonConvert.SerializeObject(new { success = false, message = e.Message });
+            }
+        }
+        
+        [Route("AuctionBid")]
+        [HttpPost]
+        public string AuctionBid([FromBody] AuctionBidRequest bidRequest)
+        {
+            try
+            {
+                Game.AuctionBid(bidRequest.player, bidRequest.amount);
+                return JsonConvert.SerializeObject(new { success = true , message = "no errors." });
+            }
+            catch (Exception e)
+            {
+                return JsonConvert.SerializeObject(new { success = false, message = e.Message });
+            }
+        }
+
+        [Route("AuctionPassCard")]
+        [HttpPost]
+        public string AuctionPassCard([FromBody] Player player)
+        {
+            try
+            {
+                Game.AuctionPassCard(player);
+                return JsonConvert.SerializeObject(new { success = true , message = "no errors." });
+            }
+            catch (Exception e)
+            {
+                return JsonConvert.SerializeObject(new { success = false, message = e.Message });
+            }
+        }
+
+        [Route("AuctionPassPhase")]
+        [HttpPost]
+        public string AuctionPassPhase([FromBody] Player player)
+        {
+            try
+            {
+                Game.AuctionPassPhase(player);
+                return JsonConvert.SerializeObject(new { success = true , message = "no errors." });
+            }
+            catch (Exception e)
+            {
+                return JsonConvert.SerializeObject(new { success = false, message = e.Message });
+            }
+        }
+
         [Route("BuyResource")]
         [HttpPost]
         public string BuyResource([FromBody] BuyResourceRequest buyRequest)
         {
-            Game.BuyResource(buyRequest.player, buyRequest.type, buyRequest.count);
-            return string.Empty;
-        }
-
-        [Route("Bid")]
-        [HttpPost]
-        public string Bid([FromBody] BidRequest bidRequest)
-        {
-            Game.Bid(bidRequest.player, bidRequest.amount);
-            return string.Empty;
-        }
-
-        [Route("Pass")]
-        [HttpPost]
-        public string Pass([FromBody] Player player)
-        {
-            Game.Pass(player);
-            return string.Empty;
-        }
-
-        [Route("SetAuctionedCard")]
-        [HttpPost]
-        public string SetAuctionedCard([FromBody] SetAuctionedCardRequest setAuctionedCardRequest)
-        {
-            Game.SetAuctionedCard(setAuctionedCardRequest.card, setAuctionedCardRequest.player);
-            return string.Empty;
-        }
-
-        [Route("PassAuctionPhase")]
-        [HttpPost]
-        public string PassAuctionPhase([FromBody] Player player)
-        {
-            Game.PassAuctionPhase(player);
-            return string.Empty;
+            try
+            {
+                Game.BuyResource(buyRequest.player, buyRequest.type, buyRequest.count);
+                return JsonConvert.SerializeObject(new { success = true , message = "no errors." });
+            }
+            catch (Exception e)
+            {
+                return JsonConvert.SerializeObject(new { success = false , message = e.Message });
+            }
         }
 
         [Route("BuyGenerator")]
         [HttpPost]
         public string BuyGenerator([FromBody] BuyGeneratorRequest buyRequest)
         {
-            Game.BuyGenerator(buyRequest.player, buyRequest.city);
-            return string.Empty;
-        }
-
-        [Route("Advance")]
-        [HttpPost]
-        public string Advance()
-        {
-            Game.AdvanceGame();
-            return string.Empty;
+            try
+            {
+                Game.BuyGenerator(buyRequest.player, buyRequest.city);
+                return JsonConvert.SerializeObject(new { success = true , message = "no errors." });
+            }
+            catch (Exception e)
+            {
+                return JsonConvert.SerializeObject(new { success = false, message = e.Message });
+            }
         }
 
         [Route("LoadResource")]
         [HttpPost]
         public string LoadResource([FromBody] LoadResourceRequest buyRequest)
         {
-            Game.LoadResource(buyRequest.card, buyRequest.resourceType);
-            return string.Empty;
+            try
+            {
+                Game.LoadResource(buyRequest.card, buyRequest.resourceType);
+                return JsonConvert.SerializeObject(new { success = true , message = "no errors." });
+            }
+            catch (Exception e)
+            {
+                return JsonConvert.SerializeObject(new { success = false, message = e.Message });
+            }
         }
+    }
+    public class AuctionBidRequest
+    {
+        public Player player { get; set; }
+
+        public int amount { get; set; }
+    }
+
+    public class AuctionSetCardRequest
+    {
+        public Player player { get; set; }
+
+        public Card card { get; set; }
     }
 
     public class BuyResourceRequest {
@@ -89,14 +159,6 @@ namespace PowerGrid.Controllers
         public int count { get; set; }
     }
 
-    public class BuyCardRequest
-    {
-
-        public Player player { get; set; }
-
-        public Card card { get; set; }
-    }
-
     public class BuyGeneratorRequest
     {
 
@@ -104,21 +166,7 @@ namespace PowerGrid.Controllers
 
         public City city { get; set; }
     }
-
-    public class BidRequest
-    {
-        public Player player { get; set; }
-
-        public int amount { get; set; }
-    }
-
-    public class SetAuctionedCardRequest
-    {
-        public Player player { get; set; }
-
-        public Card card { get; set; }
-    }
-
+    
     public class LoadResourceRequest
     {
         public Card card { get; set; }

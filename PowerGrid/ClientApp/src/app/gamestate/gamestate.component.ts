@@ -5,6 +5,7 @@ import { GameState } from '../domain/gamestate';
 import { GamestateService } from '../gamestate.service';
 import { CurrentPlayerService } from '../current-player.service';
 import { Player } from '../domain/player';
+import { ErrorHandlerService } from '../error-handler.service';
 
 @Component({
   selector: 'app-gamestate',
@@ -17,7 +18,7 @@ export class GamestateComponent implements OnInit {
 
   selectedPlayer: Player;
 
-  constructor(private socketService: WebSocketService, private gameStateService: GamestateService, private currentPlayerService: CurrentPlayerService) {
+  constructor(private socketService: WebSocketService, private gameStateService: GamestateService, currentPlayerService: CurrentPlayerService, private errorHandlerService: ErrorHandlerService) {
     let _self = this;
     this.socketService.createObservableSocket( "wss://localhost:44344/ws").subscribe(data => {
       _self.gameState = JSON.parse(data);
@@ -35,13 +36,14 @@ export class GamestateComponent implements OnInit {
 
   onAdvance() {
     if (this.gameState.currentPhase == 1) {
-      this.gameStateService.onPassAuction(this.gameState.currentPlayer).subscribe(data => {
-        let result = data;
+      this.gameStateService.auctionPassPhase(this.gameState.currentPlayer).subscribe(data =>
+      {
+        this.errorHandlerService.changeCurrentErrorFromResponse(data);
       });
     }
     else {
-      this.gameStateService.onAdvance().subscribe(data => {
-        let result = data;
+      this.gameStateService.advance().subscribe(data => {
+        this.errorHandlerService.changeCurrentErrorFromResponse(data);
       });
     }
   }

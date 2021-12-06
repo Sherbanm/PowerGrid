@@ -34,8 +34,6 @@ namespace PowerGrid.Domain
 
 
         private int marketSize;
-
-        private int numberOfPlayers;
         
         private static Random random = new Random();
 
@@ -48,8 +46,6 @@ namespace PowerGrid.Domain
             
             // in north america the market consists of 8 spaces, in Europ, the market has 9 spaces.
             this.marketSize = northAmerica ? 8 : 9;
-
-            this.numberOfPlayers = numberOfPlayers;
 
             // Take the power plant cards with a dark backside (numbered 03 to 15) and shuffle this pile
             var shuffledDarkBackSideCards = darkBackSideCards.OrderBy(x => random.Next()).ToList();
@@ -105,7 +101,7 @@ namespace PowerGrid.Domain
             throw new Exception();
         }
 
-        public void SetAuctionedCard(Card card, Player player)
+        public void SetCard(Card card, Player player)
         {
             if (Marketplace.Take(4).Contains(card))
             {
@@ -124,7 +120,7 @@ namespace PowerGrid.Domain
             }
         }
 
-        public void Pass(Player player)
+        public void PassCard(Player player)
         {
             if (!AuctionPassedPlayers.Contains(player))
             {

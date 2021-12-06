@@ -5,6 +5,7 @@ import { GamestateService } from '../gamestate.service';
 import { ResourceType } from '../domain/resourceType';
 import { Player } from '../domain/player';
 import { ResourceMarket } from '../domain/resourceMarket';
+import { ErrorHandlerService } from '../error-handler.service';
 
 @Component({
   selector: 'app-resource-market',
@@ -16,7 +17,7 @@ export class ResourceMarketComponent implements OnInit {
   
   public selectedPlayer: Player;
 
-  constructor(private currentPlayerService: CurrentPlayerService, private gameStateService: GamestateService) { }
+  constructor(private currentPlayerService: CurrentPlayerService, private gameStateService: GamestateService, private errorHandlerService: ErrorHandlerService) { }
 
   ngOnInit() {
     this.currentPlayerService.currentPlayer.subscribe(player => this.selectedPlayer = player);
@@ -24,7 +25,7 @@ export class ResourceMarketComponent implements OnInit {
 
   onBuyResource(type: ResourceType): void {
     this.gameStateService.buyResource(this.selectedPlayer, type, 1).subscribe(data => {
-      let result = data;
+      this.errorHandlerService.changeCurrentErrorFromResponse(data);
     });
   }
 }

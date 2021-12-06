@@ -133,27 +133,9 @@ namespace PowerGrid.Service
             SendUpdates();
         }
 
-        public static void BuyResource(Player buyer, ResourceType type, int count)
+        public static void AuctionSetCard(Card card, Player player)
         {
-            Player player = gameState.Players.First(x => x.Name.Equals(buyer.Name));
-
-            for(int i = 0; i < count; i++)
-            {
-                int cost = gameState.ResourceMarket.GetCost(type);
-                if (player.Money >= cost)
-                {
-                    player.Money -= cost;
-                    player.Resources.Data[(int)type]++;
-                    gameState.ResourceMarket.Resources.Data[(int)type]--;
-                }
-            }
-
-            SendUpdates();
-        }
-
-        public static void SetAuctionedCard(Card card, Player player)
-        {
-            gameState.AuctionHouse.SetAuctionedCard(card, player);
+            gameState.AuctionHouse.SetCard(card, player);
             gameState.AuctionHouse.Bid(player, card.MinimumBid);
             gameState.CurrentBidder = GetNextBidder();
             if (gameState.AuctionHouse.PhaseBuyers.Count + gameState.AuctionHouse.PhasePassers.Count + gameState.AuctionHouse.AuctionPassedPlayers.Count == gameState.Players.Count - 1)
@@ -165,7 +147,7 @@ namespace PowerGrid.Service
             SendUpdates();
         }
 
-        public static void Bid(Player player, int amount)
+        public static void AuctionBid(Player player, int amount)
         {
             gameState.AuctionHouse.Bid(player, amount);
 
@@ -174,9 +156,9 @@ namespace PowerGrid.Service
             SendUpdates();
         }
 
-        public static void Pass(Player player)
+        public static void AuctionPassCard(Player player)
         {
-            gameState.AuctionHouse.Pass(player);
+            gameState.AuctionHouse.PassCard(player);
 
             if (gameState.AuctionHouse.PhaseBuyers.Count + gameState.AuctionHouse.PhasePassers.Count + gameState.AuctionHouse.AuctionPassedPlayers.Count == gameState.Players.Count - 1)
             {
@@ -195,22 +177,29 @@ namespace PowerGrid.Service
             SendUpdates();
         }
 
-        public static void PassAuctionPhase(Player player)
+        public static void AuctionPassPhase(Player player)
         {
             gameState.AuctionHouse.PhasePassers.Add(player);
             AdvanceGame();
         }
-        
-        public static void LoadResource(Card card, ResourceType resource)
-        {
-            var gameStateCard = gameState.Players.SelectMany(x => x.Cards).First(x => x.Equals(card));
-            var gameStatePlayer = gameState.Players.First(x => x.Cards.Contains(card));
 
-            if (gameStatePlayer.Resources.Data[(int)resource] > 0)
+        public static void BuyResource(Player buyer, ResourceType type, int count)
+        {
+            Player player = gameState.Players.First(x => x.Name.Equals(buyer.Name));
+
+            for (int i = 0; i < count; i++)
             {
-                gameStatePlayer.Resources.Data[(int)resource]--;
-                gameStateCard.LoadResource(resource);
+                int cost = gameState.ResourceMarket.GetCost(type);
+                if (player.Money >= cost)
+                {
+                    player.Money -= cost;
+                    player.Resources.Data[(int)type]++;
+                    gameState.ResourceMarket.Resources.Data[(int)type]--;
+                }
             }
+
+
+            throw new Exception("abracadabra");
             SendUpdates();
         }
 
@@ -227,8 +216,21 @@ namespace PowerGrid.Service
 
             SendUpdates();
         }
+        
+        public static void LoadResource(Card card, ResourceType resource)
+        {
+            var gameStateCard = gameState.Players.SelectMany(x => x.Cards).First(x => x.Equals(card));
+            var gameStatePlayer = gameState.Players.First(x => x.Cards.Contains(card));
 
-        public static void SendUpdates()
+            if (gameStatePlayer.Resources.Data[(int)resource] > 0)
+            {
+                gameStatePlayer.Resources.Data[(int)resource]--;
+                gameStateCard.LoadResource(resource);
+            }
+            SendUpdates();
+        }
+
+        private static void SendUpdates()
         {
             foreach (WebSocket listener in listeners)
             {
@@ -307,7 +309,7 @@ namespace PowerGrid.Service
             var wonCard = gameState.AuctionHouse.Marketplace.Find(x => gameState.AuctionHouse.CardUnderAuction.Equals(x));
             winner.Cards.Add(wonCard);
             winner.Money -= gameState.AuctionHouse.CurrentBid;
-            gameState.AuctionHouse.DrawPile.Remove(wonCard);
+            gameState.AuctionHouse.Marketplace.Remove(wonCard);
         }
 
         private static void Cleanup()
@@ -371,7 +373,5 @@ namespace PowerGrid.Service
                 
             }
         }
-
-
     }
 }

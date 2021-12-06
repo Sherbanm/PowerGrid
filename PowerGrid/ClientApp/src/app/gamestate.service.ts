@@ -15,7 +15,6 @@ import { City } from './domain/city';
 export class GamestateService {
 
   private url = 'https://localhost:44344/api/GameState';
-  
 
   constructor(private http: HttpClient) { }
 
@@ -23,54 +22,48 @@ export class GamestateService {
     return this.http.get<GameState>(this.url);
   }
 
-  buyResource(player: Player, type: ResourceType, count: number): Observable<string> {
-    var parameter = JSON.stringify({ player, type, count});
-    var options = { headers: new HttpHeaders({ 'Content-Type':  'application/json', 'Authorization': 'my-auth-token'})};
-    return this.http.post<string>(this.url + "/BuyResource", parameter, options);
-  }
-
-  buyCard(player: Player, card: Card): Observable<string> {
-    var parameter = JSON.stringify({ player, card});
-    var options = { headers: new HttpHeaders({ 'Content-Type':  'application/json', 'Authorization': 'my-auth-token'})};
-    return this.http.post<string>(this.url + "/BuyCard", parameter, options);
-  }
-
-  bid(player: Player, amount: number): Observable<string> {
-    var parameter = JSON.stringify({ player, amount });
+  advance() {
     var options = { headers: new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': 'my-auth-token' }) };
-    return this.http.post<string>(this.url + "/Bid", parameter, options);
+    return this.http.post<object>(this.url + "/Advance", options);
   }
 
-  pass(player: Player): Observable<string> {
-    var options = { headers: new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': 'my-auth-token' }) };
-    return this.http.post<string>(this.url + "/Pass", player, options);
-  }
-
-  setAuctionedCard(card: Card, player : Player): Observable<string> {
+  auctionSetCard(card: Card, player: Player): Observable<object> {
     var parameter = JSON.stringify({ card, player });
     var options = { headers: new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': 'my-auth-token' }) };
-    return this.http.post<string>(this.url + "/SetAuctionedCard", parameter, options);
+    return this.http.post<object>(this.url + "/AuctionSetCard", parameter, options);
   }
 
-  buyGenerator(player: Player, city: City): Observable<string> {
+  auctionBid(player: Player, amount: number): Observable<object> {
+    var parameter = JSON.stringify({ player, amount });
+    var options = { headers: new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': 'my-auth-token' }) };
+    return this.http.post<object>(this.url + "/AuctionBid", parameter, options);
+  }
+
+  auctionPassCard(player: Player): Observable<object> {
+    var options = { headers: new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': 'my-auth-token' }) };
+    return this.http.post<object>(this.url + "/AuctionPassCard", player, options);
+  }
+
+  auctionPassPhase(player: Player): Observable<object>  {
+    var options = { headers: new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': 'my-auth-token' }) };
+    return this.http.post<object>(this.url + "/AuctionPassPhase", player, options);
+  }
+
+  buyResource(player: Player, type: ResourceType, count: number): Observable<object> {
+    var parameter = JSON.stringify({ player, type, count});
+    var options = { headers: new HttpHeaders({ 'Content-Type':  'application/json', 'Authorization': 'my-auth-token'})};
+    return this.http.post<object>(this.url + "/BuyResource", parameter, options);
+  }
+
+  buyGenerator(player: Player, city: City): Observable<object> {
     var parameter = JSON.stringify({ player, city});
     var options = { headers: new HttpHeaders({ 'Content-Type':  'application/json', 'Authorization': 'my-auth-token'})};
-    return this.http.post<string>(this.url + "/BuyGenerator", parameter, options);
+    return this.http.post<object>(this.url + "/BuyGenerator", parameter, options);
   }
 
-  onAdvance() {
-    var options = { headers: new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': 'my-auth-token' }) };
-    return this.http.post<string>(this.url + "/Advance", options);
-  }
-
-  onPassAuction(player: Player) {
-    var options = { headers: new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': 'my-auth-token' }) };
-    return this.http.post<string>(this.url + "/PassAuctionPhase", player, options);
-  }
-
-  onLoadResource(card: Card, resourceType: number) {
+  loadResource(card: Card, resourceType: number): Observable<object> {
     var parameter = JSON.stringify({ card, resourceType });
     var options = { headers: new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': 'my-auth-token' }) };
-    return this.http.post<string>(this.url + "/LoadResource", parameter, options);
+    return this.http.post<object>(this.url + "/LoadResource", parameter, options);
   }
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { AuctionHouse } from '../domain/auctionHouse';
 import { Card} from '../domain/card';
+import { ErrorHandlerService } from '../error-handler.service';
 import { GamestateService } from '../gamestate.service';
 
 @Component({
@@ -17,7 +18,7 @@ export class CardComponent implements OnInit {
   @Output() bidEvent = new EventEmitter<Card>();
   @Output() passEvent = new EventEmitter<Card>();
 
-  constructor(private gameStateService: GamestateService) { }
+  constructor(private gameStateService: GamestateService, private errorHandlerService: ErrorHandlerService) { }
 
   ngOnInit() {
   }
@@ -31,20 +32,20 @@ export class CardComponent implements OnInit {
   }
 
   public onLoadResource(): void {
-    this.gameStateService.onLoadResource(this.card, this.card.resource).subscribe(data => {
-      let result = data;
+    this.gameStateService.loadResource(this.card, this.card.resource).subscribe(data => {
+      this.errorHandlerService.changeCurrentErrorFromResponse(data);
     });
   }
 
   public onLoadGas(): void {
-    this.gameStateService.onLoadResource(this.card, 2).subscribe(data => {
-      let result = data;
+    this.gameStateService.loadResource(this.card, 2).subscribe(data => {
+      this.errorHandlerService.changeCurrentErrorFromResponse(data);
     });
   }
 
   public onLoadOil(): void {
-    this.gameStateService.onLoadResource(this.card, 1).subscribe(data => {
-      let result = data;
+    this.gameStateService.loadResource(this.card, 1).subscribe(data => {
+      this.errorHandlerService.changeCurrentErrorFromResponse(data);
     });
   }
 }

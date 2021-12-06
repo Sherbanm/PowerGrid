@@ -5,6 +5,7 @@ import { Player } from '../domain/player';
 import { CurrentPlayerService } from '../current-player.service';
 import { GamestateService } from '../gamestate.service';
 import { Card } from '../domain/card';
+import { ErrorHandlerService } from '../error-handler.service';
 
 @Component({
   selector: 'app-auction-house',
@@ -16,38 +17,32 @@ export class AuctionHouseComponent implements OnInit {
   @Input() currentBidder: Player;
 
 
-  constructor(private gameStateService: GamestateService) { }
+  constructor(private gameStateService: GamestateService, private errorHandlerService: ErrorHandlerService) { }
 
   ngOnInit() {
   }
 
-  public onBuyCard(card: Card): void {
-    this.gameStateService.buyCard(this.currentBidder, card).subscribe(data => {
-      let result = data;
-    });
-  }
-
   bid(event) {
-    this.gameStateService.bid(this.currentBidder, this.auctionHouse.currentbid + 1).subscribe(data => {
-      let result = data;
+    this.gameStateService.auctionBid(this.currentBidder, this.auctionHouse.currentbid + 1).subscribe(data => {
+      this.errorHandlerService.changeCurrentErrorFromResponse(data);
     });
   }
 
   pass(event) {
-    this.gameStateService.pass(this.currentBidder).subscribe(data => {
-      let result = data;
+    this.gameStateService.auctionPassCard(this.currentBidder).subscribe(data => {
+      this.errorHandlerService.changeCurrentErrorFromResponse(data);
     });
   }
 
   public onSetAuctionedCard(card: Card): void {
     if (this.auctionHouse.cardunderauction == null) {
-      this.gameStateService.setAuctionedCard(card, this.currentBidder).subscribe(data => {
-        let result = data;
+      this.gameStateService.auctionSetCard(card, this.currentBidder).subscribe(data => {
+        this.errorHandlerService.changeCurrentErrorFromResponse(data);
       });
     }
     else if (this.auctionHouse.cardunderauction.minimumBid != card.minimumBid) {
-      this.gameStateService.setAuctionedCard(card, this.currentBidder).subscribe(data => {
-        let result = data;
+      this.gameStateService.auctionSetCard(card, this.currentBidder).subscribe(data => {
+        this.errorHandlerService.changeCurrentErrorFromResponse(data);
       });
     }
   }

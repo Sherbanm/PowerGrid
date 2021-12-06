@@ -4,6 +4,7 @@ import { Player } from '../domain/player';
 import { CurrentPlayerService } from '../current-player.service';
 import { GamestateService } from '../gamestate.service';
 import { City } from '../domain/city';
+import { ErrorHandlerService } from '../error-handler.service';
 
 @Component({
   selector: 'app-map',
@@ -15,7 +16,7 @@ export class MapComponent implements OnInit {
 
   selectedPlayer: Player;
 
-  constructor(private currentPlayerService: CurrentPlayerService, private gameStateService: GamestateService) { }
+  constructor(private currentPlayerService: CurrentPlayerService, private gameStateService: GamestateService, private errorHandlerService: ErrorHandlerService) { }
 
   ngOnInit() {
     this.currentPlayerService.currentPlayer.subscribe(player => this.selectedPlayer = player);
@@ -24,7 +25,7 @@ export class MapComponent implements OnInit {
 
   public onBuyGenerator(city: City): void {
     this.gameStateService.buyGenerator(this.selectedPlayer, city).subscribe(data => {
-      let result = data;
+      this.errorHandlerService.changeCurrentErrorFromResponse(data);
     });
   };
 
