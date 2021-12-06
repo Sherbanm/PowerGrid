@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { Response } from '@angular/http';
 import { BehaviorSubject } from 'rxjs/internal/BehaviorSubject';
 
 @Injectable({
@@ -18,7 +17,7 @@ export class ErrorHandlerService {
       this.messageSource.next("success");
     }
     else {
-      this.messageSource.next(obj.message);
+      this.messageSource.next(todo.message);
     }
   }
 }

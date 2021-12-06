@@ -5,4 +5,5 @@ export class Card {
   resource: ResourceType;
   resourceCost: number;
   generatorsPowered: number;
+  loadedResources: ResourceType[];
 }
