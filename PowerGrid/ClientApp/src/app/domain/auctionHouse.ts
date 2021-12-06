@@ -4,8 +4,8 @@ import { Player } from "./player";
 export class AuctionHouse {
   drawpile: Array<Card>;
   marketplace: Array<Card>;
-  cardunderauction: Card;
-  auctionpassedplayers: Array<Player>;
+  playerswhopassedauction: Array<Player>;
+  currentauctioncard: Card;
   currentbid: number;
   currentbidPlayer: Player;
 }

@@ -123,11 +123,11 @@ namespace PowerGrid.Controllers
 
         [Route("LoadResource")]
         [HttpPost]
-        public string LoadResource([FromBody] LoadResourceRequest buyRequest)
+        public string LoadResource([FromBody] LoadResourceRequest loadResourceRequest)
         {
             try
             {
-                Game.LoadResource(buyRequest.card, buyRequest.resourceType);
+                Game.LoadResource(loadResourceRequest.player, loadResourceRequest.card, loadResourceRequest.resourceType);
                 return JsonConvert.SerializeObject(new { success = true , message = "no errors." });
             }
             catch (Exception e)
@@ -169,6 +169,8 @@ namespace PowerGrid.Controllers
     
     public class LoadResourceRequest
     {
+        public Player player { get; set; }
+
         public Card card { get; set; }
 
         public ResourceType resourceType { get; set;}

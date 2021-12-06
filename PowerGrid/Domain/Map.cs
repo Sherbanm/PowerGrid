@@ -87,9 +87,9 @@ namespace PowerGrid.Domain
             Connections.Clear();
         }
         
-        public Path CalculateCostToNetwork(City initialNode)
+        public Path CalculateCostToNetwork(City initialNode, Player player)
         {
-            List<City> goalNodes = Cities.Where(x => x.Build).ToList();
+            List<City> goalNodes = Cities.Where(x => x.Generators.Contains(player)).ToList();
             var shortestDistance = int.MaxValue;
             Path shortestPath = new Path();
 

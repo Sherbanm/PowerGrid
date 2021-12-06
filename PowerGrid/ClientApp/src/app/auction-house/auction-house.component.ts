@@ -35,12 +35,12 @@ export class AuctionHouseComponent implements OnInit {
   }
 
   public onSetAuctionedCard(card: Card): void {
-    if (this.auctionHouse.cardunderauction == null) {
+    if (this.auctionHouse.currentauctioncard == null) {
       this.gameStateService.auctionSetCard(card, this.currentBidder).subscribe(data => {
         this.errorHandlerService.changeCurrentErrorFromResponse(data);
       });
     }
-    else if (this.auctionHouse.cardunderauction.minimumBid != card.minimumBid) {
+    else if (this.auctionHouse.currentauctioncard.minimumBid != card.minimumBid) {
       this.gameStateService.auctionSetCard(card, this.currentBidder).subscribe(data => {
         this.errorHandlerService.changeCurrentErrorFromResponse(data);
       });

@@ -234,7 +234,7 @@ namespace PowerGridMapDemo
                             gridLine.Value.Highlight = false;
                         }
           
-                        var path = this.m_fdgGraph.CalculateCostToNetwork(keyPair.Key);
+                        var path = this.m_fdgGraph.CalculateCostToNetwork(keyPair.Key, null);
                         keyPair.Value.Cost = path.Length;
                         foreach (var edge in path.Edges)
                         {

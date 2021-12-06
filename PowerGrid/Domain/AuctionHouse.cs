@@ -13,23 +13,23 @@ namespace PowerGrid.Domain
         [JsonProperty(PropertyName = "marketplace")]
         public List<Card> Marketplace { get; set; }
 
-        [JsonProperty(PropertyName = "cardunderauction")]
-        public Card CardUnderAuction { get; set; }
+        [JsonProperty(PropertyName = "playerswhopassedauction")]
+        public List<Player> PlayersWhoPassedAuction { get; set; } = new List<Player>();
 
-        [JsonProperty(PropertyName = "auctionPassedPlayers")]
-        public List<Player> AuctionPassedPlayers { get; set; } = new List<Player>();
+        [JsonProperty(PropertyName = "playerswhopassedphase")]
+        public List<Player> PlayersWhoPassedPhase { get; set; } = new List<Player>();
 
-        [JsonProperty(PropertyName = "phasePassers")]
-        public List<Player> PhasePassers { get; set; } = new List<Player>();
-
-        [JsonProperty(PropertyName = "phaseBuyers")]
-        public List<Player> PhaseBuyers { get; set; } = new List<Player>();
+        [JsonProperty(PropertyName = "playerwhobought")]
+        public List<Player> PlayersWhoBought { get; set; } = new List<Player>();
 
         [JsonProperty(PropertyName = "currentbid")]
         public int CurrentBid { get; set; } = 0;
 
         [JsonProperty(PropertyName = "currentbidplayer")]
         public Player CurrentBidPlayer { get; set; }
+
+        [JsonProperty(PropertyName = "currentauctioncard")]
+        public Card CurrentAuctionCard { get; set; }
 
 
 
@@ -103,28 +103,22 @@ namespace PowerGrid.Domain
 
         public void SetCard(Card card, Player player)
         {
-            if (Marketplace.Take(4).Contains(card))
-            {
-                CardUnderAuction = card;
-                CurrentBid = card.MinimumBid;
-                CurrentBidPlayer = player;
-            }
+            CurrentAuctionCard = card;
+            CurrentBid = card.MinimumBid;
+            CurrentBidPlayer = player;
         }
 
         public void Bid(Player player, int bid)
         {
-            if (!AuctionPassedPlayers.Contains(player) && bid > CurrentBid)
-            {
-                CurrentBid = bid;
-                CurrentBidPlayer = player;
-            }
+            CurrentBid = bid;
+            CurrentBidPlayer = player;
         }
 
         public void PassCard(Player player)
         {
-            if (!AuctionPassedPlayers.Contains(player))
+            if (!PlayersWhoPassedAuction.Contains(player))
             {
-                AuctionPassedPlayers.Add(player);
+                PlayersWhoPassedAuction.Add(player);
             }
         }
     }
