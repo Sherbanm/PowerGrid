@@ -9,7 +9,7 @@ import { ErrorHandlerService } from './error-handler.service';
 export class AppComponent {
   title = 'app';
 
-  lastError;
+  lastError= '';
 
   constructor(private errorHandlerService: ErrorHandlerService) { }
 

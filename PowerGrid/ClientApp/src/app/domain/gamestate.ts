@@ -5,6 +5,7 @@ import { Map } from "./map";
 
 export class GameState {
   players: Player[];
+  playerOrder: Player[];
   resourceMarket: ResourceMarket;
   auctionHouse: AuctionHouse;
   map: Map;

@@ -2,7 +2,6 @@ import { Component, OnInit, Input } from '@angular/core';
 
 import { AuctionHouse } from '../domain/auctionHouse';
 import { Player } from '../domain/player';
-import { CurrentPlayerService } from '../current-player.service';
 import { GamestateService } from '../gamestate.service';
 import { Card } from '../domain/card';
 import { ErrorHandlerService } from '../error-handler.service';

@@ -7,7 +7,7 @@ import { Player } from './domain/player';
 })
 export class CurrentPlayerService {
 
-  private messageSource = new BehaviorSubject<Player>(null);
+  private messageSource = new BehaviorSubject<Player>(new Player);
   currentPlayer = this.messageSource.asObservable();
   currentBidder = this.messageSource.asObservable();
 
@@ -31,6 +31,8 @@ export class CurrentPlayerService {
         return "#e6ccff";
       case "Franz":
         return "#e0e0eb";
+      default:
+        return '#000000';
     }
   }
 }
