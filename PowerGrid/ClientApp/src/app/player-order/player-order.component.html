@@ -1,12 +1,8 @@
-<div>
-    <div id='rcurrentplayer' style="display: inline-block">
-      <div *ngFor="let player of players">
-        {{player.name}}
-        <span *ngIf="gameState.currentPlayer.name == player.name">*</span>
-        <span *ngIf="gameState.currentBidder !== null && gameState.currentBidder.name == player.name">&</span>
-      </div>
-      <!--><div>
-          {{subscribeTimer}}
-      </div>-->
-    </div>
+<div id='rcurrentplayer'>
+  <div *ngFor="let player of players">
+    {{player.name}}
+    <span *ngIf="gameState.currentPlayer.name == player.name">*</span>
+    <span *ngIf="gameState.currentBidder !== null && gameState.currentBidder.name == player.name">&</span>
+  </div>
 </div>
+

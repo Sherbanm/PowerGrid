@@ -1,13 +1,20 @@
 <div>
   <button (click)="onClickMe()">Click me!</button>
-  <br>
   <div *ngIf='gameState'>
     <button (click)="onAdvance()">Advance / Pass Auction</button>
     <p>{{gameState.currentPhase}}</p>
-    <app-player-order [players]='gameState.playerOrder' [gameState]='gameState' [remainingSeconds]='gameState.remainingSeconds'></app-player-order>
-    <app-player-list [players]='gameState.players'></app-player-list>
+    <div container>
+      <div class="row">
+        <div class="col-2">
+          <app-player-order [players]='gameState.playerOrder' [gameState]='gameState' [remainingSeconds]='gameState.remainingSeconds'></app-player-order>
+          <app-resource-market [market]='gameState.resourceMarket'></app-resource-market>
+        </div>
+        <div class="col-10">
+          <app-player-list [players]='gameState.players'></app-player-list>
+        </div>
+      </div>
+    </div>
     <app-auction-house [auctionHouse]='gameState.auctionHouse' [currentBidder]='gameState.currentBidder'></app-auction-house>
-    <app-resource-market [market]='gameState.resourceMarket'></app-resource-market>
     <app-map [map]='gameState.map'></app-map>
   </div>
 </div>

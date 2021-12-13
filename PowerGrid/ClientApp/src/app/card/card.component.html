@@ -1,4 +1,4 @@
-<div id='rcornerscard'>
+<div id='rcornerscard' [ngStyle]="{ 'background-color' : getStyle() }">
   <span>Value: {{card.minimumBid}}</span>
   <span *ngIf="card.minimumBid == auctionHouse?.currentauctioncard?.minimumBid">({{auctionHouse.currentbid}})</span><br>
   <span>Resource: {{card.resource}}</span><br>

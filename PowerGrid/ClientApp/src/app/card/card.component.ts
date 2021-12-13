@@ -48,4 +48,28 @@ export class CardComponent implements OnInit {
       this.errorHandlerService.changeCurrentErrorFromResponse(data);
     });
   }
+
+  public getStyle(): string{
+    var style = ""
+    if (this.card.resource == 0) {
+      style = "#cc9966";
+    }
+    else if (this.card.resource == 1) {
+      style = "#b3b3b3";
+    }
+    else if (this.card.resource == 2) {
+      style = "#80e5ff";
+    }
+    else if (this.card.resource == 3) {
+      style = "#00ff99";
+    }
+    else if (this.card.resource == 4) {
+      style = "#ffc2b3";
+    }
+    else if (this.card.resource == 5) {
+      style = "grey";
+    }
+    
+    return style;
+  }
 }
