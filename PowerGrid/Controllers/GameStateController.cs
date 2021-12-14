@@ -22,7 +22,7 @@ namespace PowerGrid.Controllers
         {
             try
             {
-                Game.AdvanceGame();
+                Game.AdvanceGame(true);
                 return JsonConvert.SerializeObject(new { success = true , message = "no errors." });
             }
             catch (Exception e)

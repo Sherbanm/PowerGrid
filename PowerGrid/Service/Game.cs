@@ -34,7 +34,7 @@ namespace PowerGrid.Service
             SaveResult(result);
             while (!result.CloseStatus.HasValue)
             {
-                var json = Newtonsoft.Json.JsonConvert.SerializeObject(MockGameState.GetMockState());
+                var json = Newtonsoft.Json.JsonConvert.SerializeObject(gameState);
                 var bytes = Encoding.GetEncoding(Encoding.UTF8.BodyName).GetBytes(json.ToCharArray());
 
                 await webSocket.SendAsync(new ArraySegment<byte>(bytes, 0, bytes.Length), result.MessageType, result.EndOfMessage, CancellationToken.None);
@@ -44,7 +44,7 @@ namespace PowerGrid.Service
             await webSocket.CloseAsync(result.CloseStatus.Value, result.CloseStatusDescription, CancellationToken.None);
         }
 
-        public static void AdvanceGame()
+        public static void AdvanceGame(bool fromClient = false)
         {
             if (gameState.CurrentPhase == Phase.DeterminePlayerOrder)
             {
@@ -71,18 +71,25 @@ namespace PowerGrid.Service
             }
             else if (gameState.CurrentPhase == Phase.AuctionPowerPlants)
             {
-                if (gameState.AuctionHouse.PlayersWhoBought.Count + gameState.AuctionHouse.PlayersWhoPassedPhase.Count == gameState.Players.Count)
+                if (!fromClient)
                 {
-                    gameState.CurrentPhase = Phase.BuyResources;
-                    gameState.CurrentBidder = null;
-                    gameState.AuctionHouse.PlayersWhoPassedPhase.Clear();
-                    gameState.AuctionHouse.PlayersWhoBought.Clear();
-                    return;
+                    if (gameState.AuctionHouse.PlayersWhoBought.Count + gameState.AuctionHouse.PlayersWhoPassedPhase.Count == gameState.Players.Count)
+                    {
+                        gameState.CurrentPhase = Phase.BuyResources;
+                        gameState.CurrentBidder = null;
+                        gameState.AuctionHouse.PlayersWhoPassedPhase.Clear();
+                        gameState.AuctionHouse.PlayersWhoBought.Clear();
+                        return;
+                    }
+                    var curPlayer = gameState.PlayerOrder.Find(gameState.CurrentPlayer);
+                    var nextPlayer = GetNextPlayer();
+                    gameState.CurrentPlayer = nextPlayer;
+                    gameState.CurrentBidder = nextPlayer;
                 }
-                var curPlayer = gameState.PlayerOrder.Find(gameState.CurrentPlayer);
-                var nextPlayer = GetNextPlayer();
-                gameState.CurrentPlayer = nextPlayer;
-                gameState.CurrentBidder = nextPlayer;
+                else
+                {
+                    throw new Exception("now allowed!");
+                }
             }
             else if (gameState.CurrentPhase == Phase.BuyResources)
             {
@@ -135,26 +142,34 @@ namespace PowerGrid.Service
 
         public static void AuctionSetCard(Card card, Player player)
         {
-            var validPlayer = player.Equals(gameState.CurrentPlayer);
-            var validCard = gameState.AuctionHouse.Marketplace.Take(4).Contains(card);
-            if (validPlayer && validCard)
+            var validPhase = gameState.CurrentPhase == Phase.AuctionPowerPlants;
+            if (validPhase)
             {
-                gameState.AuctionHouse.SetCard(card, player);
-                gameState.AuctionHouse.Bid(player, card.MinimumBid);
-                gameState.CurrentBidder = GetNextBidder();
-                if (gameState.AuctionHouse.PlayersWhoBought.Count + gameState.AuctionHouse.PlayersWhoPassedPhase.Count + gameState.AuctionHouse.PlayersWhoPassedAuction.Count == gameState.Players.Count - 1)
+                var validPlayer = player.Equals(gameState.CurrentPlayer);
+                var validCard = gameState.AuctionHouse.Marketplace.Take(4).Contains(card);
+                if (validPlayer && validCard)
                 {
-                    BuyCard();
-                    Cleanup();
-                    AdvanceGame();
+                    gameState.AuctionHouse.SetCard(card, player);
+                    gameState.AuctionHouse.Bid(player, card.MinimumBid);
+                    gameState.CurrentBidder = GetNextBidder();
+                    if (gameState.AuctionHouse.PlayersWhoBought.Count + gameState.AuctionHouse.PlayersWhoPassedPhase.Count + gameState.AuctionHouse.PlayersWhoPassedAuction.Count == gameState.Players.Count - 1)
+                    {
+                        BuyCard();
+                        Cleanup();
+                        AdvanceGame();
+                    }
+                }
+                else
+                {
+                    if (!validPlayer)
+                        throw new Exception("invalid player.");
+                    else
+                        throw new Exception("invalid card.");
                 }
             }
             else
             {
-                if (!validPlayer)
-                    throw new Exception("invalid player.");
-                else
-                    throw new Exception("invalid card.");
+                throw new Exception("invalid phase.");
             }
             SendUpdates();
         }
@@ -180,112 +195,145 @@ namespace PowerGrid.Service
 
         public static void AuctionPassCard(Player player)
         {
-            var validPlayer = gameState.CurrentBidder.Equals(player);
-            if (validPlayer)
+            var validPhase = gameState.CurrentPhase == Phase.AuctionPowerPlants;
+            if (validPhase)
             {
-                gameState.AuctionHouse.PassCard(player);
-
-                if (gameState.AuctionHouse.PlayersWhoBought.Count + gameState.AuctionHouse.PlayersWhoPassedPhase.Count + gameState.AuctionHouse.PlayersWhoPassedAuction.Count == gameState.Players.Count - 1)
+                var validPlayer = gameState.CurrentBidder.Equals(player);
+                if (validPlayer)
                 {
-                    bool currentPlayerWon = gameState.AuctionHouse.CurrentBidPlayer.Equals(gameState.CurrentPlayer);
-                    BuyCard();
-                    Cleanup();
-                    if (currentPlayerWon)
+                    gameState.AuctionHouse.PassCard(player);
+
+                    if (gameState.AuctionHouse.PlayersWhoBought.Count + gameState.AuctionHouse.PlayersWhoPassedPhase.Count + gameState.AuctionHouse.PlayersWhoPassedAuction.Count == gameState.Players.Count - 1)
                     {
-                        AdvanceGame();
+                        bool currentPlayerWon = gameState.AuctionHouse.CurrentBidPlayer.Equals(gameState.CurrentPlayer);
+                        BuyCard();
+                        Cleanup();
+                        if (currentPlayerWon)
+                        {
+                            AdvanceGame();
+                        }
+                    }
+                    else
+                    {
+                        gameState.CurrentBidder = GetNextBidder();
                     }
                 }
                 else
                 {
-                    gameState.CurrentBidder = GetNextBidder();
+                    throw new Exception("invalid player.");
                 }
             }
             else
             {
-                throw new Exception("invalid player.");
+                throw new Exception("invalid phase.");
             }
             SendUpdates();
         }
 
         public static void AuctionPassPhase(Player player)
         {
-            var validPlayer = gameState.CurrentPlayer.Equals(player);
-            if (validPlayer)
+            var validPhase = gameState.CurrentPhase == Phase.AuctionPowerPlants;
+            if (validPhase)
             {
-                gameState.AuctionHouse.PlayersWhoPassedPhase.Add(player);
-                AdvanceGame();
+                var validPlayer = gameState.CurrentPlayer.Equals(player);
+                if (validPlayer)
+                {
+                    gameState.AuctionHouse.PlayersWhoPassedPhase.Add(player);
+                    AdvanceGame();
+                }
+                else
+                {
+                    throw new Exception("invalid player.");
+                }
             }
             else
             {
-                throw new Exception("invalid player.");
+                throw new Exception("invalid phase.");
             }
         }
 
         public static void BuyResource(Player buyer, ResourceType type, int count)
         {
-            var validPlayer = gameState.CurrentPlayer.Equals(buyer);
-            var validType = !type.Equals(ResourceType.Mixed);
-            if (validPlayer && validType)
+            var validPhase = gameState.CurrentPhase == Phase.BuyResources;
+            if (validPhase)
             {
-                Player player = gameState.Players.First(x => x.Name.Equals(buyer.Name));
-
-                for (int i = 0; i < count; i++)
+                var validPlayer = gameState.CurrentPlayer.Equals(buyer);
+                var validType = !type.Equals(ResourceType.Mixed);
+                if (validPlayer && validType)
                 {
-                    int cost = gameState.ResourceMarket.GetCost(type);
-                    if (player.Money >= cost)
+                    Player player = gameState.Players.First(x => x.Name.Equals(buyer.Name));
+
+                    for (int i = 0; i < count; i++)
                     {
-                        player.Money -= cost;
-                        player.Resources.Data[(int)type]++;
-                        gameState.ResourceMarket.Resources.Data[(int)type]--;
+                        int cost = gameState.ResourceMarket.GetCost(type);
+                        if (player.Money >= cost)
+                        {
+                            player.Money -= cost;
+                            player.Resources.Data[(int)type]++;
+                            gameState.ResourceMarket.Resources.Data[(int)type]--;
+                        }
+                        else
+                        {
+                            throw new Exception("invalid count.");
+                        }
                     }
+                }
+                else
+                {
+                    if (!validPlayer)
+                        throw new Exception("invalid player.");
                     else
-                    {
-                        throw new Exception("invalid count.");
-                    }
+                        throw new Exception("invalid type.");
                 }
             }
             else
             {
-                if (!validPlayer)
-                    throw new Exception("invalid player.");
-                else
-                    throw new Exception("invalid type.");
+                throw new Exception("invalid phase.");
             }
             SendUpdates();
         }
 
         public static void BuyGenerator(Player buyer, City city)
         {
-            var validPlayer = gameState.CurrentPlayer.Equals(buyer);
-            if (validPlayer)
+            var validPhase = gameState.CurrentPhase == Phase.BuildGenerators;
+            if (validPhase)
             {
-                if (buyer.Generators > 0)
+                var validPlayer = gameState.CurrentPlayer.Equals(buyer);
+                if (validPlayer)
                 {
-                    Player player = gameState.Players.First(x => x.Name.Equals(buyer.Name));
-                    int selectedCityIndex = gameState.Map.Cities.FindIndex((item) =>
+                    if (buyer.Generators > 0)
                     {
-                        return (item.Name == city.Name);
-                    });
-                    var cost = gameState.Map.CalculateCostToNetwork(city, buyer);
-                    var validCity = !gameState.Map.Cities[selectedCityIndex].Generators.Contains(player) && cost.Length <= buyer.Money;
-                    if (validCity)
-                    {
-                        player.Generators--;
-                        gameState.Map.Cities[selectedCityIndex].Generators.Add(player);
+                        Player player = gameState.Players.First(x => x.Name.Equals(buyer.Name));
+                        int selectedCityIndex = gameState.Map.Cities.FindIndex((item) =>
+                        {
+                            return (item.Name == city.Name);
+                        });
+                        var cost = gameState.Map.CalculateCostToNetwork(city, buyer);
+                        var validCity = !gameState.Map.Cities[selectedCityIndex].Generators.Contains(player) && cost.Length <= buyer.Money;
+                        if (validCity)
+                        {
+                            player.Generators--;
+                            gameState.Map.Cities[selectedCityIndex].Generators.Add(player);
+                        }
+                        else
+                        {
+                            throw new Exception("invalid city.");
+                        }
                     }
                     else
                     {
-                        throw new Exception("invalid city.");
+                        throw new Exception("no generators left.");
                     }
                 }
+
                 else
                 {
-                    throw new Exception("no generators left.");
+                    throw new Exception("invalid player.");
                 }
             }
             else
             {
-                throw new Exception("invalid player.");
+                throw new Exception("invalid phase.");
             }
             SendUpdates();
         }
@@ -304,6 +352,10 @@ namespace PowerGrid.Service
                     gameStatePlayer.Resources.Data[(int)resource]--;
                     gameStateCard.LoadResource(resource);
                 }
+                else
+                {
+                    throw new Exception("no resources to load.");
+                }
             }
             else
             {
@@ -312,6 +364,11 @@ namespace PowerGrid.Service
                 else
                     throw new Exception("invalid resource.");
             }
+            SendUpdates();
+        }
+
+        public static void Start()
+        {
             SendUpdates();
         }
 
