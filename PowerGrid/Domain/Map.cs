@@ -12,6 +12,32 @@ namespace PowerGrid.Domain
         [JsonProperty(PropertyName = "cities")]
         public List<City> Cities { get; set; } = new List<City>();
 
+        public Dictionary<Player, List<City>> Grids
+        {
+            get
+            {
+                var grids = new Dictionary<Player, List<City>>();
+                foreach (var city in Cities)
+                {
+                    foreach(var player in city.Generators)
+                    {
+                        if (grids.ContainsKey(player))
+                        {
+                            var existingCities = grids[player];
+                            existingCities.Add(city);
+                            grids[player] = existingCities;
+                        }
+                        else
+                        {
+                            grids.Add(player, new List<City>() { city });
+                        }
+                    }
+                }
+                return grids;
+            }
+        }
+        
+        
         private int nextNodeId = 0;
         private int nextEdgeId = 0;
 

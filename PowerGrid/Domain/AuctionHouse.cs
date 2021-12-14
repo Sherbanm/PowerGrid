@@ -121,5 +121,31 @@ namespace PowerGrid.Domain
                 PlayersWhoPassedAuction.Add(player);
             }
         }
+
+        public void Cleanup()
+        {
+            var winner = CurrentBidPlayer;
+            PlayersWhoPassedAuction.Clear();
+            PlayersWhoBought.Add(winner);
+            CurrentBid = 0;
+            CurrentBidPlayer = null;
+            CurrentAuctionCard = null;
+
+            Draw();
+        }
+
+        public void RemoveFirst()
+        {
+            Marketplace.RemoveAt(0);
+            Draw();
+        }
+
+        private void Draw()
+        {
+            var newCard = DrawPile.First();
+            Marketplace.Add(newCard);
+            Marketplace = Marketplace.OrderBy(x => x.MinimumBid).ToList();
+            DrawPile.Remove(newCard);
+        }
     }
 }
