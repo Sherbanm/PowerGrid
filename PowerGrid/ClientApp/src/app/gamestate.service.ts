@@ -61,8 +61,8 @@ export class GamestateService {
     return this.http.post<object>(this.url + "/BuyGenerator", parameter, options);
   }
 
-  loadResource(card: Card, resourceType: number): Observable<object> {
-    var parameter = JSON.stringify({ card, resourceType });
+  loadResource(player: Player, card: Card, resourceType: number): Observable<object> {
+    var parameter = JSON.stringify({ player, card, resourceType });
     var options = { headers: new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': 'my-auth-token' }) };
     return this.http.post<object>(this.url + "/LoadResource", parameter, options);
   }

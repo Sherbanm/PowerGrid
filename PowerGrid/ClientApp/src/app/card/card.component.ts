@@ -1,6 +1,8 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { CurrentPlayerService } from '../current-player.service';
 import { AuctionHouse } from '../domain/auctionHouse';
 import { Card} from '../domain/card';
+import { Player } from '../domain/player';
 import { ErrorHandlerService } from '../error-handler.service';
 import { GamestateService } from '../gamestate.service';
 
@@ -18,9 +20,12 @@ export class CardComponent implements OnInit {
   @Output() bidEvent = new EventEmitter<Card>();
   @Output() passEvent = new EventEmitter<Card>();
 
-  constructor(private gameStateService: GamestateService, private errorHandlerService: ErrorHandlerService) { }
+  selectedPlayer: Player;
+
+  constructor(private gameStateService: GamestateService, private errorHandlerService: ErrorHandlerService, private currentPlayerService: CurrentPlayerService) { }
 
   ngOnInit() {
+    this.currentPlayerService.currentPlayer.subscribe(player => this.selectedPlayer = player);
   }
 
   public onBid(): void {
@@ -32,19 +37,19 @@ export class CardComponent implements OnInit {
   }
 
   public onLoadResource(): void {
-    this.gameStateService.loadResource(this.card, this.card.resource).subscribe(data => {
+    this.gameStateService.loadResource(this.selectedPlayer, this.card, this.card.resource).subscribe(data => {
       this.errorHandlerService.changeCurrentErrorFromResponse(data);
     });
   }
 
   public onLoadGas(): void {
-    this.gameStateService.loadResource(this.card, 2).subscribe(data => {
+    this.gameStateService.loadResource(this.selectedPlayer, this.card, 1).subscribe(data => {
       this.errorHandlerService.changeCurrentErrorFromResponse(data);
     });
   }
 
   public onLoadOil(): void {
-    this.gameStateService.loadResource(this.card, 1).subscribe(data => {
+    this.gameStateService.loadResource(this.selectedPlayer, this.card, 2).subscribe(data => {
       this.errorHandlerService.changeCurrentErrorFromResponse(data);
     });
   }
@@ -55,19 +60,19 @@ export class CardComponent implements OnInit {
       style = "#cc9966";
     }
     else if (this.card.resource == 1) {
-      style = "#b3b3b3";
-    }
-    else if (this.card.resource == 2) {
       style = "#80e5ff";
     }
-    else if (this.card.resource == 3) {
-      style = "#00ff99";
+    else if (this.card.resource == 2) {
+      style = "grey";
     }
-    else if (this.card.resource == 4) {
+    else if (this.card.resource == 3) {
       style = "#ffc2b3";
     }
+    else if (this.card.resource == 4) {
+      style = "#00ff99";
+    }
     else if (this.card.resource == 5) {
-      style = "grey";
+      style = "#b3b3b3";
     }
     
     return style;

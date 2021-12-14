@@ -1,7 +1,8 @@
 <div>
   <button (click)="onClickMe()">Click me!</button>
   <div *ngIf='gameState'>
-    <button (click)="onAdvance()">Advance / Pass Auction</button>
+    <button (click)="onAdvance()">Advance</button>
+    <button (click)="onPassAuction()">Pass Auction</button>
     <p>{{gameState.currentPhase}}</p>
     <div container>
       <div class="row">

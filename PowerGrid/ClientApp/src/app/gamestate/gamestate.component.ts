@@ -35,18 +35,14 @@ export class GamestateComponent implements OnInit {
   }
 
   onAdvance() {
-    if (this.gameState.currentPhase == 1) {
-      this.gameStateService.auctionPassPhase(this.gameState.currentPlayer).subscribe(data =>
-      {
-        this.errorHandlerService.changeCurrentErrorFromResponse(data);
-      });
-    }
-    else {
-      this.gameStateService.advance().subscribe(data => {
-        this.errorHandlerService.changeCurrentErrorFromResponse(data);
-      });
-    }
+    this.gameStateService.advance().subscribe(data => {
+      this.errorHandlerService.changeCurrentErrorFromResponse(data);
+    });
   }
 
-
+  onPassAuction() {
+    this.gameStateService.auctionPassPhase(this.gameState.currentPlayer).subscribe(data => {
+      this.errorHandlerService.changeCurrentErrorFromResponse(data);
+    });
+  }
 }
