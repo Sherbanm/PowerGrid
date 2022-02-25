@@ -130,22 +130,29 @@ namespace PowerGrid.Domain
             CurrentBid = 0;
             CurrentBidPlayer = null;
             CurrentAuctionCard = null;
-
-            Draw();
         }
 
-        public void RemoveFirst()
-        {
-            Marketplace.RemoveAt(0);
-            Draw();
-        }
-
-        private void Draw()
+        public void Draw()
         {
             var newCard = DrawPile.First();
             Marketplace.Add(newCard);
             Marketplace = Marketplace.OrderBy(x => x.MinimumBid).ToList();
             DrawPile.Remove(newCard);
         }
+
+        public void RemoveIndex(int index)
+        {
+            Marketplace.RemoveAt(index);
+            Draw();
+        }
+
+        public void PlaceHighestBackInDeck()
+        {
+            var card = Marketplace[marketSize - 1];
+            Marketplace.Remove(card);
+            DrawPile.Append(card);
+        }
+
+
     }
 }
