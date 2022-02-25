@@ -91,7 +91,7 @@ namespace PowerGrid
         public static ResourceMarket resourceMarket = new ResourceMarket
         {
             Resources = new Resources {
-                Data = new int[] { 10, 12, 15, 5 }
+                AvailableResources = new int[] { 23, 18, 14, 1 }
             }
         };
 
@@ -194,13 +194,16 @@ namespace PowerGrid
         }
 
         public static GameState GetMockState() {
-            return new GameState {
+            var gameState =  new GameState {
                 Players = players,
                 ResourceMarket = resourceMarket,
-                AuctionHouse = new AuctionHouse(Cards.Where(x => x.MinimumBid <= 15), Cards.Where(x => x.MinimumBid > 15), true, players.Count()),
+                AuctionHouse = new AuctionHouse(),
                 Map = Map,
                 RemainingSeconds = 30
             };
+            gameState.AuctionHouse.Prepare(Cards.Where(x => x.MinimumBid <= 15), Cards.Where(x => x.MinimumBid > 15), true, players.Count());
+            return gameState;
+
         }
 
         public static LinkedList<Player> GetMockPlayers()

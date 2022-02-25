@@ -1,7 +1,9 @@
 ﻿using Microsoft.AspNetCore.Http;
+using Newtonsoft.Json;
 using PowerGrid.Domain;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net.WebSockets;
 using System.Text;
@@ -14,8 +16,8 @@ namespace PowerGrid.Service
     {
         private static List<WebSocket> listeners = new List<WebSocket>();
         private static WebSocketReceiveResult result;
-        private static GameState gameState = MockGameState.GetMockState();
-
+        public static GameState gameState = MockGameState.GetMockState();
+        private static bool firstAuctionPhaseCompleted = false;
         public static void AddListener(WebSocket listener)
         {
             listeners.Add(listener);
@@ -73,15 +75,23 @@ namespace PowerGrid.Service
             {
                 if (!fromClient)
                 {
+                    // check done auctionining
                     if (gameState.AuctionHouse.PlayersWhoBought.Count + gameState.AuctionHouse.PlayersWhoPassedPhase.Count == gameState.Players.Count)
                     {
+                        // reorder first time
+                        if (!firstAuctionPhaseCompleted)
+                        {
+                            var orderedList = gameState.Players.OrderByDescending(x => CountGenerator(gameState, x)).ThenByDescending(x => GetBiggestPowerPlant(x));
+                            gameState.PlayerOrder = new LinkedList<Player>(orderedList);
+                            gameState.CurrentPlayer = gameState.PlayerOrder.Last();
+                            firstAuctionPhaseCompleted = true;
+                        }
                         gameState.CurrentPhase = Phase.BuyResources;
-                        gameState.CurrentBidder = null;
                         gameState.AuctionHouse.PlayersWhoPassedPhase.Clear();
                         gameState.AuctionHouse.PlayersWhoBought.Clear();
+                        gameState.CurrentBidder = null;
                         return;
                     }
-                    var curPlayer = gameState.PlayerOrder.Find(gameState.CurrentPlayer);
                     var nextPlayer = GetNextPlayer();
                     gameState.CurrentPlayer = nextPlayer;
                     gameState.CurrentBidder = nextPlayer;
@@ -134,6 +144,10 @@ namespace PowerGrid.Service
                         player.Cards.Find(x => x.Equals(card)).LoadedResources.Clear();
                     }
                 }
+                // resupply the resource market
+                gameState.ResourceMarket.Resupply(gameState.Players.ToList(), gameState.CurrentStep, true);
+
+                // update the power plant market
                 gameState.CurrentPhase = Phase.DeterminePlayerOrder;
             }
             
@@ -232,23 +246,31 @@ namespace PowerGrid.Service
 
         public static void AuctionPassPhase(Player player)
         {
-            var validPhase = gameState.CurrentPhase == Phase.AuctionPowerPlants;
-            if (validPhase)
+            var validState = player.Cards.Count() > 0;
+            if (validState)
             {
-                var validPlayer = gameState.CurrentPlayer.Equals(player);
-                if (validPlayer)
+                var validPhase = gameState.CurrentPhase == Phase.AuctionPowerPlants;
+                if (validPhase)
                 {
-                    gameState.AuctionHouse.PlayersWhoPassedPhase.Add(player);
-                    AdvanceGame();
+                    var validPlayer = gameState.CurrentPlayer.Equals(player);
+                    if (validPlayer)
+                    {
+                        gameState.AuctionHouse.PlayersWhoPassedPhase.Add(player);
+                        AdvanceGame();
+                    }
+                    else
+                    {
+                        throw new Exception("invalid player.");
+                    }
                 }
                 else
                 {
-                    throw new Exception("invalid player.");
+                    throw new Exception("invalid phase.");
                 }
             }
             else
             {
-                throw new Exception("invalid phase.");
+                throw new Exception("cannot pass first time.");
             }
         }
 
@@ -269,8 +291,8 @@ namespace PowerGrid.Service
                         if (player.Money >= cost)
                         {
                             player.Money -= cost;
-                            player.Resources.Data[(int)type]++;
-                            gameState.ResourceMarket.Resources.Data[(int)type]--;
+                            player.Resources.AvailableResources[(int)type]++;
+                            gameState.ResourceMarket.Resources.AvailableResources[(int)type]--;
                         }
                         else
                         {
@@ -348,9 +370,9 @@ namespace PowerGrid.Service
                 var gameStateCard = gameState.Players.SelectMany(x => x.Cards).First(x => x.Equals(card));
                 var gameStatePlayer = gameState.Players.First(x => x.Cards.Contains(card));
 
-                if (gameStatePlayer.Resources.Data[(int)resource] > 0)
+                if (gameStatePlayer.Resources.AvailableResources[(int)resource] > 0)
                 {
-                    gameStatePlayer.Resources.Data[(int)resource]--;
+                    gameStatePlayer.Resources.AvailableResources[(int)resource]--;
                     gameStateCard.LoadResource(resource);
                 }
                 else
@@ -372,6 +394,19 @@ namespace PowerGrid.Service
         {
             SendUpdates();
         }
+        
+        public static void ExportGameStateToJsonFile(string filePath)
+        {
+            string json = JsonConvert.SerializeObject(gameState, Formatting.Indented);
+            File.WriteAllText(filePath, json);
+        }
+
+        public static void ImportGameStateFromJsonFile(string filePath)
+        {
+            string json = File.ReadAllText(filePath);
+            gameState = JsonConvert.DeserializeObject<GameState>(json);
+        }
+         
 
         private static void SendUpdates()
         {
@@ -514,15 +549,19 @@ namespace PowerGrid.Service
 
         private static void CheckFirstCard()
         {
-            var smallestGridSize = gameState.Map.Grids.Select(x => x.Value.Count()).Min();
-            if (gameState.AuctionHouse.Marketplace.First().MinimumBid <= smallestGridSize)
+            var grids = gameState.Map.Grids;
+            if (grids.Any())
             {
-                bool done = false;
-                while (!done)
+                var smallestGridSize = grids.Select(x => x.Value.Count()).Min();
+                if (gameState.AuctionHouse.Marketplace.First().MinimumBid <= smallestGridSize)
                 {
-                    gameState.AuctionHouse.RemoveFirst();
-                    smallestGridSize = gameState.Map.Grids.Select(x => x.Value.Count()).Min();
-                    done = gameState.AuctionHouse.Marketplace.First().MinimumBid > smallestGridSize;
+                    bool done = false;
+                    while (!done)
+                    {
+                        gameState.AuctionHouse.RemoveFirst();
+                        smallestGridSize = gameState.Map.Grids.Select(x => x.Value.Count()).Min();
+                        done = gameState.AuctionHouse.Marketplace.First().MinimumBid > smallestGridSize;
+                    }
                 }
             }
         }

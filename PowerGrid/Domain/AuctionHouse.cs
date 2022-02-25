@@ -39,7 +39,7 @@ namespace PowerGrid.Domain
 
         
 
-        public AuctionHouse(IEnumerable<Card> darkBackSideCards, IEnumerable<Card> lightBackSideCards, bool northAmerica, int numberOfPlayers)
+        public void Prepare(IEnumerable<Card> darkBackSideCards, IEnumerable<Card> lightBackSideCards, bool northAmerica, int numberOfPlayers)
         {
             // northamerica
             Card faceDownTemporary = null;
