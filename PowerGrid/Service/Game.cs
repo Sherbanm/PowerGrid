@@ -86,6 +86,7 @@ namespace PowerGrid.Service
                             gameState.CurrentPlayer = gameState.PlayerOrder.Last();
                             firstAuctionPhaseCompleted = true;
                         }
+                        // TODO: remove the discounted card if still there
                         gameState.CurrentPhase = Phase.BuyResources;
                         gameState.AuctionHouse.PlayersWhoPassedPhase.Clear();
                         gameState.AuctionHouse.PlayersWhoBought.Clear();
@@ -130,7 +131,8 @@ namespace PowerGrid.Service
             }
             else if (gameState.CurrentPhase == Phase.Bureaucracy)
             {
-                foreach(var player in gameState.Players)
+                // earn cash
+                foreach (var player in gameState.Players)
                 {
                     var loadedCards = player.Cards.Where(x => x.LoadedResources.Count.Equals(x.ResourceCost));
                     var canPower = loadedCards.Sum(x => x.GeneratorsPowered);
@@ -139,15 +141,36 @@ namespace PowerGrid.Service
                     var income = GetIncome(generatorsPowered);
 
                     player.Money += income;
-                    foreach(var card in loadedCards)
+                    // consume
+                    var greenPower = loadedCards.Where(x => x.Resource == ResourceType.Green).Sum(x => x.GeneratorsPowered);
+                    var dirtyPowerNeeded = generatorsPowered - greenPower;
+                    if (dirtyPowerNeeded > 0)
                     {
-                        player.Cards.Find(x => x.Equals(card)).LoadedResources.Clear();
+                        foreach (var card in loadedCards.Where(x => x.Resource != ResourceType.Green))
+                        {
+                            player.Cards.Find(x => x.Equals(card)).LoadedResources.Clear();
+                            dirtyPowerNeeded -= card.GeneratorsPowered;
+                            if (dirtyPowerNeeded <= 0)
+                                break;
+                        }
                     }
                 }
                 // resupply the resource market
                 gameState.ResourceMarket.Resupply(gameState.Players.ToList(), gameState.CurrentStep, true);
 
                 // update the power plant market
+                if (gameState.CurrentStep == Step.Step1 || gameState.CurrentStep == Step.Step2)
+                {
+                    gameState.AuctionHouse.PlaceHighestBackInDeck();
+                    gameState.AuctionHouse.Draw();
+                    CheckAuctionHouse();
+                }
+                else
+                {
+                    gameState.AuctionHouse.RemoveIndex(0);
+                    gameState.AuctionHouse.Draw();
+                    CheckAuctionHouse();
+                }
                 gameState.CurrentPhase = Phase.DeterminePlayerOrder;
             }
             
@@ -330,13 +353,16 @@ namespace PowerGrid.Service
                         {
                             return (item.Name == city.Name);
                         });
-                        var cost = gameState.Map.CalculateCostToNetwork(city, buyer);
-                        var validCity = !gameState.Map.Cities[selectedCityIndex].Generators.Contains(player) && cost.Length <= buyer.Money;
+                        var cost = gameState.Map.CalculateCostToNetwork(city, buyer).Length + gameState.Map.NewGeneratorCost(city);
+                        var validCity = !gameState.Map.Cities[selectedCityIndex].Generators.Contains(player) &&
+                            IsNewGeneratorAllowedInStep(gameState.Map.Cities[selectedCityIndex], gameState.CurrentStep) &&
+                            cost <= buyer.Money;
                         if (validCity)
                         {
                             player.Generators--;
+                            player.Money -= cost;
                             gameState.Map.Cities[selectedCityIndex].Generators.Add(player);
-                            CheckFirstCard();
+                            CheckAuctionHouse();
                         }
                         else
                         {
@@ -359,6 +385,16 @@ namespace PowerGrid.Service
                 throw new Exception("invalid phase.");
             }
             SendUpdates();
+        }
+        
+        private static bool IsNewGeneratorAllowedInStep(City city, Step step)
+        {
+            if (step == Step.Step1)
+                return city.Generators.Count() == 0;
+            else if (step == Step.Step2)
+                return city.Generators.Count() <= 1;
+            else
+                return city.Generators.Count() <= 2;
         }
         
         public static void LoadResource(Player player, Card card, ResourceType resource)
@@ -490,9 +526,40 @@ namespace PowerGrid.Service
             gameState.AuctionHouse.Marketplace.Remove(wonCard);
         }
 
+        private static void CleanupAuctionHouse()
+        {
+            gameState.AuctionHouse.Cleanup();
+            gameState.AuctionHouse.Draw();
+            CheckAuctionHouse();
+        }
+
+        private static void CheckAuctionHouse()
+        {
+            if (IsCheapestCardSmallerThanSmallestGrid())
+            {
+                gameState.AuctionHouse.RemoveIndex(0);
+                gameState.AuctionHouse.Draw();
+                CheckAuctionHouse();
+            }
+        }
+
+        private static bool IsCheapestCardSmallerThanSmallestGrid()
+        {
+            var grids = gameState.Map.Grids;
+            if (grids.Any())
+            {
+                var smallestGridSize = grids.Select(x => x.Value.Count()).Min();
+                if (gameState.AuctionHouse.Marketplace.First().MinimumBid <= smallestGridSize)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
         private static int GetIncome(int poweredGenerators)
         {
-            switch(poweredGenerators)
+            switch (poweredGenerators)
             {
                 case 0:
                     return 10;
@@ -538,31 +605,7 @@ namespace PowerGrid.Service
                     return 150;
                 default:
                     return 150;
-                
-            }
-        }
-        private static void CleanupAuctionHouse()
-        {
-            gameState.AuctionHouse.Cleanup();
-            CheckFirstCard();
-        }
 
-        private static void CheckFirstCard()
-        {
-            var grids = gameState.Map.Grids;
-            if (grids.Any())
-            {
-                var smallestGridSize = grids.Select(x => x.Value.Count()).Min();
-                if (gameState.AuctionHouse.Marketplace.First().MinimumBid <= smallestGridSize)
-                {
-                    bool done = false;
-                    while (!done)
-                    {
-                        gameState.AuctionHouse.RemoveFirst();
-                        smallestGridSize = gameState.Map.Grids.Select(x => x.Value.Count()).Min();
-                        done = gameState.AuctionHouse.Marketplace.First().MinimumBid > smallestGridSize;
-                    }
-                }
             }
         }
     }
