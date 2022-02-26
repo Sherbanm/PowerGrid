@@ -400,7 +400,7 @@ namespace PowerGrid.Service
         public static void LoadResource(Player player, Card card, ResourceType resource)
         {
             var validCard = player.Cards.Contains(card) && card.LoadedResources.Count() < card.ResourceCost;
-            var validResource = !resource.Equals(ResourceType.Mixed);
+            var validResource = IsLoadableResouce(card, resource);
             if (validCard && validResource)
             {
                 var gameStateCard = gameState.Players.SelectMany(x => x.Cards).First(x => x.Equals(card));
@@ -426,6 +426,18 @@ namespace PowerGrid.Service
             SendUpdates();
         }
 
+        private static bool IsLoadableResouce(Card card, ResourceType resource)
+        {
+            if (resource != ResourceType.Mixed)
+            {
+                if (card.Resource == ResourceType.Mixed)
+                    return resource == ResourceType.Oil || resource == ResourceType.Gas;
+                else
+                    return resource == card.Resource;
+            }
+            return false;
+        }
+        
         public static void Start()
         {
             SendUpdates();
