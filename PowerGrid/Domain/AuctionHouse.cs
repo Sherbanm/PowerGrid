@@ -143,7 +143,6 @@ namespace PowerGrid.Domain
         public void RemoveIndex(int index)
         {
             Marketplace.RemoveAt(index);
-            Draw();
         }
 
         public void PlaceHighestBackInDeck()

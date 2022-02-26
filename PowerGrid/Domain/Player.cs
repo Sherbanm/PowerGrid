@@ -25,5 +25,21 @@ namespace PowerGrid.Domain
         {
             return Name.Equals(other.Name);
         }
+
+        public int LoadedAndAvailableResources(ResourceType resourceType)
+        {
+            var loaded = 0;
+            foreach(var card in Cards)
+            {
+                foreach(var loadedResource in card.LoadedResources)
+                {
+                    if (loadedResource == resourceType)
+                        loaded++;
+                }
+            }
+            var available = Resources.AvailableResources[(int)resourceType];
+            return loaded + available;
+        }
+
     }
 }

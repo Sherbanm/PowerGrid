@@ -131,6 +131,18 @@ namespace PowerGrid.Service
             }
             else if (gameState.CurrentPhase == Phase.Bureaucracy)
             {
+                // check step 2
+                var biggestGrid = gameState.Map.Grids.Select(x => x.Value.Count()).Max();
+                if ((gameState.Players.Count() == 6 && biggestGrid >= 6) || biggestGrid >= 7)
+                {
+                    gameState.CurrentStep = Step.Step2;
+
+                    // north america only
+                    gameState.AuctionHouse.RemoveIndex(0);
+                    gameState.AuctionHouse.Draw();
+                    CheckAuctionHouse();
+                }
+
                 // earn cash
                 foreach (var player in gameState.Players)
                 {
@@ -547,7 +559,7 @@ namespace PowerGrid.Service
 
         private static void CheckAuctionHouse()
         {
-            if (IsCheapestCardSmallerThanSmallestGrid())
+            if (IsCheapestCardSmallerThanBiggestGrid())
             {
                 gameState.AuctionHouse.RemoveIndex(0);
                 gameState.AuctionHouse.Draw();
@@ -555,13 +567,13 @@ namespace PowerGrid.Service
             }
         }
 
-        private static bool IsCheapestCardSmallerThanSmallestGrid()
+        private static bool IsCheapestCardSmallerThanBiggestGrid()
         {
             var grids = gameState.Map.Grids;
             if (grids.Any())
             {
-                var smallestGridSize = grids.Select(x => x.Value.Count()).Min();
-                if (gameState.AuctionHouse.Marketplace.First().MinimumBid <= smallestGridSize)
+                var BiggestGridSize = grids.Select(x => x.Value.Count()).Max();
+                if (gameState.AuctionHouse.Marketplace.First().MinimumBid <= BiggestGridSize)
                 {
                     return true;
                 }
