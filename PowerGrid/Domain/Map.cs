@@ -158,7 +158,15 @@ namespace PowerGrid.Domain
             return shortestPath;
         }
 
-        
+        public int NewGeneratorCost(City city)
+        {
+            if (city.Generators.Count == 0)
+                return 10;
+            else if (city.Generators.Count == 1)
+                return 15;
+            else
+                return 20;
+        }
         private void DetachNode(City iNode)
         {
             Connections.ForEach(delegate (Connection e)
