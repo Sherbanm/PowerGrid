@@ -117,17 +117,17 @@ namespace PowerGrid.Domain
             }
             
             var availableCoal = GetMaxSuppy(ResourceType.Coal) - 
-                players.Sum(x => x.Resources.AvailableResources[(int)ResourceType.Coal] - 
-                Resources.AvailableResources[(int)ResourceType.Coal]);
+                players.Sum(x => x.Resources.AvailableResources[(int)ResourceType.Coal]) - 
+                Resources.AvailableResources[(int)ResourceType.Coal];
             var availableGas = GetMaxSuppy(ResourceType.Gas) - 
-                players.Sum(x => x.Resources.AvailableResources[(int)ResourceType.Gas] - 
-                Resources.AvailableResources[(int)ResourceType.Gas]);
+                players.Sum(x => x.Resources.AvailableResources[(int)ResourceType.Gas]) - 
+                Resources.AvailableResources[(int)ResourceType.Gas];
             var availableOil = GetMaxSuppy(ResourceType.Oil) - 
-                players.Sum(x => x.Resources.AvailableResources[(int)ResourceType.Oil] - 
-                Resources.AvailableResources[(int)ResourceType.Nuclear]);
+                players.Sum(x => x.Resources.AvailableResources[(int)ResourceType.Oil]) - 
+                Resources.AvailableResources[(int)ResourceType.Oil];
             var availableNuclear = GetMaxSuppy(ResourceType.Nuclear) - 
-                players.Sum(x => x.Resources.AvailableResources[(int)ResourceType.Nuclear] - 
-                Resources.AvailableResources[(int)ResourceType.Oil]);
+                players.Sum(x => x.Resources.AvailableResources[(int)ResourceType.Nuclear]) - 
+                Resources.AvailableResources[(int)ResourceType.Nuclear];
 
             var resupplyCoal = Math.Min(maximumResupply[(int)ResourceType.Coal], availableCoal);
             var resupplyGas = Math.Min(maximumResupply[(int)ResourceType.Gas], availableGas);
