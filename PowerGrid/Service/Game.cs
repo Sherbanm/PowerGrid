@@ -91,6 +91,7 @@ namespace PowerGrid.Service
                         gameState.AuctionHouse.PlayersWhoPassedPhase.Clear();
                         gameState.AuctionHouse.PlayersWhoBought.Clear();
                         gameState.CurrentBidder = null;
+                        gameState.CurrentPlayer = gameState.PlayerOrder.Last();
                         return;
                     }
                     var nextPlayer = GetNextPlayer();
@@ -135,12 +136,15 @@ namespace PowerGrid.Service
                 var biggestGrid = gameState.Map.Grids.Select(x => x.Value.Count()).Max();
                 if ((gameState.Players.Count() == 6 && biggestGrid >= 6) || biggestGrid >= 7)
                 {
-                    gameState.CurrentStep = Step.Step2;
+                    if (gameState.CurrentStep == Step.Step1)
+                    {
+                        gameState.CurrentStep = Step.Step2;
 
-                    // north america only
-                    gameState.AuctionHouse.RemoveIndex(0);
-                    gameState.AuctionHouse.Draw();
-                    CheckAuctionHouse();
+                        // north america only
+                        gameState.AuctionHouse.RemoveIndex(0);
+                        gameState.AuctionHouse.Draw(gameState.CurrentStep);
+                        CheckAuctionHouse();
+                    }
                 }
 
                 // earn cash
@@ -158,7 +162,7 @@ namespace PowerGrid.Service
                     var dirtyPowerNeeded = generatorsPowered - greenPower;
                     if (dirtyPowerNeeded > 0)
                     {
-                        foreach (var card in loadedCards.Where(x => x.Resource != ResourceType.Green))
+                        foreach (var card in loadedCards.Where(x => x.Resource != ResourceType.Green).OrderByDescending(x => x.GeneratorsPowered))
                         {
                             player.Cards.Find(x => x.Equals(card)).LoadedResources.Clear();
                             dirtyPowerNeeded -= card.GeneratorsPowered;
@@ -174,13 +178,13 @@ namespace PowerGrid.Service
                 if (gameState.CurrentStep == Step.Step1 || gameState.CurrentStep == Step.Step2)
                 {
                     gameState.AuctionHouse.PlaceHighestBackInDeck();
-                    gameState.AuctionHouse.Draw();
+                    gameState.AuctionHouse.Draw(gameState.CurrentStep);
                     CheckAuctionHouse();
                 }
                 else
                 {
                     gameState.AuctionHouse.RemoveIndex(0);
-                    gameState.AuctionHouse.Draw();
+                    gameState.AuctionHouse.Draw(gameState.CurrentStep);
                     CheckAuctionHouse();
                 }
                 gameState.CurrentPhase = Phase.DeterminePlayerOrder;
@@ -195,7 +199,8 @@ namespace PowerGrid.Service
             if (validPhase)
             {
                 var validPlayer = player.Equals(gameState.CurrentPlayer);
-                var validCard = gameState.AuctionHouse.Marketplace.Take(4).Contains(card);
+                var marketSize = gameState.CurrentStep != Step.Step3 ? 4 : 8;
+                var validCard = gameState.AuctionHouse.Marketplace.Take(marketSize).Contains(card);
                 if (validPlayer && validCard)
                 {
                     gameState.AuctionHouse.SetCard(card, player);
@@ -260,6 +265,10 @@ namespace PowerGrid.Service
                         if (currentPlayerWon)
                         {
                             AdvanceGame();
+                        }
+                        else
+                        {
+                            gameState.CurrentBidder = gameState.CurrentPlayer;
                         }
                     }
                     else
@@ -553,16 +562,23 @@ namespace PowerGrid.Service
         private static void CleanupAuctionHouse()
         {
             gameState.AuctionHouse.Cleanup();
-            gameState.AuctionHouse.Draw();
+            gameState.AuctionHouse.Draw(gameState.CurrentStep);
             CheckAuctionHouse();
         }
 
         private static void CheckAuctionHouse()
         {
+            if (gameState.AuctionHouse.DrawPile.Count() == 0)
+            {
+                if (gameState.CurrentStep != Step.Step3)
+                {
+                    gameState.CurrentStep = Step.Step3;
+                }
+            }
             if (IsCheapestCardSmallerThanBiggestGrid())
             {
                 gameState.AuctionHouse.RemoveIndex(0);
-                gameState.AuctionHouse.Draw();
+                gameState.AuctionHouse.Draw(gameState.CurrentStep);
                 CheckAuctionHouse();
             }
         }
