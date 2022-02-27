@@ -10,6 +10,9 @@ namespace PowerGrid.Domain
         [JsonProperty(PropertyName = "drawpile")]
         public List<Card> DrawPile { get; set; } = new List<Card>();
 
+        [JsonProperty(PropertyName = "step3drawpile")]
+        public List<Card> Step3DrawPile { get; set; } = new List<Card>();
+
         [JsonProperty(PropertyName = "marketplace")]
         public List<Card> Marketplace { get; set; }
 
@@ -132,12 +135,13 @@ namespace PowerGrid.Domain
             CurrentAuctionCard = null;
         }
 
-        public void Draw()
+        public void Draw(Step step)
         {
-            var newCard = DrawPile.First();
+            var drawPile = step != Step.Step3 ? DrawPile : Step3DrawPile;
+            var newCard = drawPile.First();
             Marketplace.Add(newCard);
             Marketplace = Marketplace.OrderBy(x => x.MinimumBid).ToList();
-            DrawPile.Remove(newCard);
+            drawPile.Remove(newCard);
         }
 
         public void RemoveIndex(int index)
@@ -149,7 +153,7 @@ namespace PowerGrid.Domain
         {
             var card = Marketplace[marketSize - 1];
             Marketplace.Remove(card);
-            DrawPile.Append(card);
+            Step3DrawPile.Add(card);
         }
 
 
