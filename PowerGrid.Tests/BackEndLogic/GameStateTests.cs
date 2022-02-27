@@ -2,6 +2,7 @@
 using PowerGrid.Domain;
 using PowerGrid.Service;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using Xunit;
 
@@ -23,17 +24,30 @@ namespace PowerGrid.Tests.BackEndLogic
             var purple = gameState.Players.ToList()[4];
             var white = gameState.Players.ToList()[5];
 
+            var dataPath = "D:\\Workspace\\PowerGrid\\PowerGrid.Tests\\data\\";
+
             Setup(gameState, cards, red, blue, green, yellow, purple, white);
             Round1(gameState, cards, red, blue, green, yellow, purple, white);
+            Game.ExportGameStateToJsonFile($"{dataPath}endofround1.json");
+            Assert.True(File.ReadLines($"{dataPath}endofround1.json").SequenceEqual(File.ReadLines($"{dataPath}endofround1expected.json")));
             Round2(gameState, cards, red, blue, green, yellow, purple, white);
+            Game.ExportGameStateToJsonFile("D:\\Workspace\\PowerGrid\\PowerGrid.Tests\\data\\endofround2.json");
+            Assert.True(File.ReadLines($"{dataPath}endofround2.json").SequenceEqual(File.ReadLines($"{dataPath}endofround2expected.json")));
             Round3(gameState, cards, red, blue, green, yellow, purple, white);
+            Game.ExportGameStateToJsonFile("D:\\Workspace\\PowerGrid\\PowerGrid.Tests\\data\\endofround3.json");
+            Assert.True(File.ReadLines($"{dataPath}endofround3.json").SequenceEqual(File.ReadLines($"{dataPath}endofround3expected.json"))); 
             Round4(gameState, cards, red, blue, green, yellow, purple, white);
+            Game.ExportGameStateToJsonFile("D:\\Workspace\\PowerGrid\\PowerGrid.Tests\\data\\endofround4.json");
+            Assert.True(File.ReadLines($"{dataPath}endofround4.json").SequenceEqual(File.ReadLines($"{dataPath}endofround4expected.json"))); 
             Round5(gameState, cards, red, blue, green, yellow, purple, white);
+            Game.ExportGameStateToJsonFile("D:\\Workspace\\PowerGrid\\PowerGrid.Tests\\data\\endofround5.json");
+            Assert.True(File.ReadLines($"{dataPath}endofround5.json").SequenceEqual(File.ReadLines($"{dataPath}endofround5expected.json"))); 
             Round6(gameState, cards, red, blue, green, yellow, purple, white);
+            Game.ExportGameStateToJsonFile("D:\\Workspace\\PowerGrid\\PowerGrid.Tests\\data\\endofround6.json");
+            Assert.True(File.ReadLines($"{dataPath}endofround6.json").SequenceEqual(File.ReadLines($"{dataPath}endofround6expected.json"))); 
             Round7(gameState, cards, red, blue, green, yellow, purple, white);
-
-            Game.ExportGameStateToJsonFile("D:\\Workspace\\PowerGrid\\PowerGrid.Tests\\data\\endofround1.json");
-            
+            Game.ExportGameStateToJsonFile("D:\\Workspace\\PowerGrid\\PowerGrid.Tests\\data\\endofround7.json");
+            Assert.True(File.ReadLines($"{dataPath}endofround7.json").SequenceEqual(File.ReadLines($"{dataPath}endofround7expected.json")));
         }
     
         private void Setup(GameState gameState, List<Card> cards, Player red, Player blue, Player green, Player yellow, Player purple, Player white)
@@ -91,7 +105,6 @@ namespace PowerGrid.Tests.BackEndLogic
             gameState.AuctionHouse.DrawPile.Add(cards.First(x => x.MinimumBid == 20));
             gameState.AuctionHouse.DrawPile.Add(cards.First(x => x.MinimumBid == 21));
             gameState.AuctionHouse.DrawPile.Add(cards.First(x => x.MinimumBid == 18));
-            gameState.AuctionHouse.DrawPile.Add(cards.First(x => x.MinimumBid == 36));
 
             Game.AdvanceGame();
             var order = new List<Player>();
@@ -490,22 +503,36 @@ namespace PowerGrid.Tests.BackEndLogic
 
             // resources
 
-            //Game.LoadResource(yellow, yellow.Cards[0], ResourceType.Coal);
-
             Game.BuyResource(yellow, ResourceType.Coal, 3);
+            Game.LoadResource(yellow, yellow.Cards[0], ResourceType.Coal);
+            Game.LoadResource(yellow, yellow.Cards[0], ResourceType.Coal);
+            Game.LoadResource(yellow, yellow.Cards[0], ResourceType.Coal);
             Game.AdvanceGame();
             // white passed
             Game.AdvanceGame();
             Game.BuyResource(purple, ResourceType.Gas, 1);
             Game.BuyResource(purple, ResourceType.Nuclear, 1);
+            Game.LoadResource(purple, purple.Cards[0], ResourceType.Gas);
+            Game.LoadResource(purple, purple.Cards[1], ResourceType.Nuclear);
             Game.AdvanceGame();
             Game.BuyResource(green, ResourceType.Oil, 2);
             Game.BuyResource(green, ResourceType.Gas, 1);
+            Game.LoadResource(green, green.Cards[1], ResourceType.Oil);
+            Game.LoadResource(green, green.Cards[1], ResourceType.Oil);
             Game.AdvanceGame();
             Game.BuyResource(blue, ResourceType.Gas, 5);
+            Game.LoadResource(blue, blue.Cards[0], ResourceType.Gas);
+            Game.LoadResource(blue, blue.Cards[0], ResourceType.Gas);
+            Game.LoadResource(blue, blue.Cards[2], ResourceType.Gas);
+            Game.LoadResource(blue, blue.Cards[2], ResourceType.Gas);
+            Game.LoadResource(blue, blue.Cards[2], ResourceType.Gas);
             Game.AdvanceGame();
             Game.BuyResource(red, ResourceType.Coal, 2);
             Game.BuyResource(red, ResourceType.Oil, 2);
+            Game.LoadResource(red, red.Cards[1], ResourceType.Oil);
+            Game.LoadResource(red, red.Cards[1], ResourceType.Oil);
+            Game.LoadResource(red, red.Cards[2], ResourceType.Coal);
+            Game.LoadResource(red, red.Cards[2], ResourceType.Coal);
             Game.AdvanceGame();
 
             // cities
@@ -533,7 +560,206 @@ namespace PowerGrid.Tests.BackEndLogic
             // Bureaucracy
             Game.AdvanceGame();
         }
-        private void Round6(GameState gameState, List<Card> cards, Player red, Player blue, Player green, Player yellow, Player purple, Player white) { }
-        private void Round7(GameState gameState, List<Card> cards, Player red, Player blue, Player green, Player yellow, Player purple, Player white) { }
+        private void Round6(GameState gameState, List<Card> cards, Player red, Player blue, Player green, Player yellow, Player purple, Player white) 
+        {
+            // determine player order
+
+            Game.AdvanceGame();
+
+            // cards
+            Game.AuctionPassPhase(blue);
+
+            Game.AuctionSetCard(cards.First(x => x.MinimumBid == 29), red);
+            Game.AuctionPassCard(purple);
+            Game.AuctionPassCard(green);
+            Game.AuctionPassCard(yellow);
+            Game.AuctionBid(white, 30);
+            Game.AuctionBid(red, 31);
+            Game.AuctionPassCard(white);
+
+            Game.AuctionPassPhase(green);
+
+            Game.AuctionSetCard(cards.First(x => x.MinimumBid == 17), purple);
+            Game.AuctionPassCard(yellow);
+            Game.AuctionPassCard(white);
+
+            Game.AuctionPassPhase(white);
+
+            Game.AuctionPassPhase(yellow);
+
+            
+            // discard
+            var the5 = red.Cards.First(x => x.MinimumBid == 5);
+            var the13 = purple.Cards.First(x => x.MinimumBid == 13);
+            red.Cards.Remove(the5);
+            purple.Cards.Remove(the13);
+
+            // ops forgot to subtract again
+            red.Money += 31;
+            purple.Money += 17;
+
+            // resources
+
+            Game.BuyResource(yellow, ResourceType.Nuclear, 2);
+            Game.LoadResource(yellow, yellow.Cards[1], ResourceType.Nuclear);
+            Game.LoadResource(yellow, yellow.Cards[1], ResourceType.Nuclear);
+            Game.AdvanceGame();
+            Game.BuyResource(white, ResourceType.Coal, 2);
+            Game.BuyResource(white, ResourceType.Oil, 2);
+            Game.LoadResource(white, white.Cards[0], ResourceType.Coal);
+            Game.LoadResource(white, white.Cards[0], ResourceType.Coal);
+            Game.LoadResource(white, white.Cards[2], ResourceType.Oil);
+            Game.LoadResource(white, white.Cards[2], ResourceType.Oil);
+            Game.AdvanceGame();
+            Game.BuyResource(purple, ResourceType.Gas, 1);
+            Game.LoadResource(purple, purple.Cards[0], ResourceType.Gas);
+            Game.AdvanceGame();
+            Game.BuyResource(green, ResourceType.Coal, 1);
+            Game.BuyResource(green, ResourceType.Oil, 2);
+            Game.LoadResource(green, green.Cards[0], ResourceType.Coal);
+            Game.LoadResource(green, green.Cards[1], ResourceType.Oil);
+            Game.LoadResource(green, green.Cards[1], ResourceType.Oil);
+            Game.LoadResource(green, green.Cards[2], ResourceType.Gas);
+            Game.AdvanceGame();
+            Game.BuyResource(red, ResourceType.Coal, 4);
+            Game.BuyResource(red, ResourceType.Oil, 2);
+            Game.LoadResource(red, red.Cards[0], ResourceType.Oil);
+            Game.LoadResource(red, red.Cards[0], ResourceType.Oil);
+            Game.LoadResource(red, red.Cards[1], ResourceType.Coal);
+            Game.LoadResource(red, red.Cards[1], ResourceType.Coal);
+            Game.LoadResource(red, red.Cards[2], ResourceType.Coal);
+            Game.LoadResource(red, red.Cards[2], ResourceType.Coal);
+            Game.AdvanceGame();
+            Game.BuyResource(blue, ResourceType.Gas, 6);
+            Game.LoadResource(blue, blue.Cards[0], ResourceType.Gas);
+            Game.LoadResource(blue, blue.Cards[0], ResourceType.Gas);
+            Game.LoadResource(blue, blue.Cards[1], ResourceType.Gas);
+            Game.LoadResource(blue, blue.Cards[2], ResourceType.Gas);
+            Game.LoadResource(blue, blue.Cards[2], ResourceType.Gas);
+            Game.LoadResource(blue, blue.Cards[2], ResourceType.Gas);
+            Game.AdvanceGame();
+
+            // cities
+
+            var cities = gameState.Map.Cities;
+            Game.BuyGenerator(yellow, cities.First(x => x.Name.Equals("Monterrey")));
+            Game.AdvanceGame();
+            Game.BuyGenerator(white, cities.First(x => x.Name.Equals("San_Antonio")));
+            Game.BuyGenerator(white, cities.First(x => x.Name.Equals("Fort_Worth")));
+            Game.BuyGenerator(white, cities.First(x => x.Name.Equals("Oklahoma_City")));
+            Game.AdvanceGame();
+            // purple passes
+            Game.AdvanceGame();
+            Game.BuyGenerator(green, cities.First(x => x.Name.Equals("Minneapolis")));
+            Game.BuyGenerator(green, cities.First(x => x.Name.Equals("Milwaukee")));
+            Game.BuyGenerator(green, cities.First(x => x.Name.Equals("Chicago")));
+            Game.AdvanceGame();
+            Game.BuyGenerator(red, cities.First(x => x.Name.Equals("Memphis")));
+            Game.BuyGenerator(red, cities.First(x => x.Name.Equals("New_Orleans")));
+            Game.BuyGenerator(red, cities.First(x => x.Name.Equals("Atlanta")));
+            Game.AdvanceGame();
+            Game.BuyGenerator(blue, cities.First(x => x.Name.Equals("Portland")));
+            Game.BuyGenerator(blue, cities.First(x => x.Name.Equals("Seattle")));
+            Game.BuyGenerator(blue, cities.First(x => x.Name.Equals("Vancouver")));
+            Game.AdvanceGame();
+            
+            // Bureaucracy
+            Game.AdvanceGame();
+        }
+        private void Round7(GameState gameState, List<Card> cards, Player red, Player blue, Player green, Player yellow, Player purple, Player white) 
+        {
+            // determine player order
+
+            Game.AdvanceGame();
+
+            // cards
+            Game.AuctionSetCard(cards.First(x => x.MinimumBid == 33), blue);
+            Game.AuctionPassCard(red);
+            Game.AuctionPassCard(purple);
+            Game.AuctionPassCard(green);
+            Game.AuctionPassCard(yellow);
+            Game.AuctionPassCard(white);
+
+            Game.AuctionPassPhase(red);
+
+            Game.AuctionSetCard(cards.First(x => x.MinimumBid == 28), green);
+            Game.AuctionPassCard(yellow);
+            Game.AuctionPassCard(white);
+            Game.AuctionPassCard(purple);
+
+            Game.AuctionSetCard(cards.First(x => x.MinimumBid == 20), white);
+            Game.AuctionBid(purple, 21);
+            Game.AuctionBid(yellow, 22);
+            Game.AuctionPassCard(white);
+            Game.AuctionPassCard(purple);
+
+            Game.AuctionSetCard(cards.First(x => x.MinimumBid == 36), white);
+            Game.AuctionPassCard(purple);
+
+            Game.AuctionSetCard(cards.First(x => x.MinimumBid == 35), purple);
+            
+            // discard
+            var the9 = yellow.Cards.First(x => x.MinimumBid == 9);
+            var the10 = white.Cards.First(x => x.MinimumBid == 10);
+            var the15 = green.Cards.First(x => x.MinimumBid == 15);
+            var the16 = blue.Cards.First(x => x.MinimumBid == 16);
+            var the17 = purple.Cards.First(x => x.MinimumBid == 17);
+            yellow.Cards.Remove(the9);
+            white.Cards.Remove(the10);
+            green.Cards.Remove(the15);
+            blue.Cards.Remove(the16);
+            purple.Cards.Remove(the17);
+
+            // ops forgot to subtract again
+            blue.Money += 33;
+            green.Money += 28;
+            white.Money += 36;
+            yellow.Money += 22;
+            purple.Money += 35;
+
+            // resources
+
+            Game.BuyResource(yellow, ResourceType.Nuclear, 2);
+            Game.AdvanceGame();
+            Game.BuyResource(purple, ResourceType.Oil, 2);
+            Game.AdvanceGame();
+            Game.BuyResource(white, ResourceType.Oil, 2);
+            Game.BuyResource(white, ResourceType.Coal, 2);
+            Game.AdvanceGame();
+            Game.BuyResource(green, ResourceType.Oil, 2);
+            Game.AdvanceGame();
+            // red passed
+            Game.AdvanceGame();
+            Game.BuyResource(blue, ResourceType.Gas, 4);
+            Game.BuyResource(blue, ResourceType.Coal, 3);
+            Game.LoadResource(blue, blue.Cards[0], ResourceType.Gas);
+            Game.LoadResource(blue, blue.Cards[1], ResourceType.Gas);
+            Game.LoadResource(blue, blue.Cards[1], ResourceType.Gas);
+            Game.LoadResource(blue, blue.Cards[1], ResourceType.Gas);
+            Game.LoadResource(blue, blue.Cards[2], ResourceType.Coal);
+            Game.LoadResource(blue, blue.Cards[2], ResourceType.Coal);
+            Game.LoadResource(blue, blue.Cards[2], ResourceType.Coal);
+            Game.AdvanceGame();
+
+            // cities
+
+            var cities = gameState.Map.Cities;
+            // yellow passes
+            Game.AdvanceGame();
+            // purple passes
+            Game.AdvanceGame();
+            // white passes
+            Game.AdvanceGame();
+            // green passes
+            Game.AdvanceGame();
+            // red passes
+            Game.AdvanceGame();
+            Game.BuyGenerator(blue, cities.First(x => x.Name.Equals("Calgary")));
+            Game.BuyGenerator(blue, cities.First(x => x.Name.Equals("Edmonton")));
+            Game.AdvanceGame();
+
+            // Bureaucracy
+            Game.AdvanceGame();
+        }
     }
 }
