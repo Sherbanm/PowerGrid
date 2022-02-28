@@ -4,7 +4,7 @@ namespace PowerGrid.Domain
 {
     public class Resources
     {
-        [JsonProperty(PropertyName = "availableResources")]
+        [JsonProperty(PropertyName = "availableresources")]
         public int[] AvailableResources { get; set; } = new int[4];
               
     }

@@ -29,8 +29,8 @@ namespace PowerGrid.Domain
         [JsonProperty(PropertyName = "currentStep")]
         public Step CurrentStep  { get; set; }
 
-        [JsonProperty(PropertyName = "remainingSeconds")]
-        public int RemainingSeconds { get; set; }
+        [JsonProperty(PropertyName = "remainingTime")]
+        public int RemainingTime{ get; set; }
 
         [JsonProperty(PropertyName = "playerOrder")]
         public LinkedList<Player> PlayerOrder { get; set; } = new LinkedList<Player>();
