@@ -1,10 +1,10 @@
-<div [ngStyle]="{'background-color': getColor(player)}" id='rcornersPlayer' >
+<div [ngStyle]="{'background-color': getColor(player)}" id='rcornersPlayer'>
   <h6>{{player.name}}</h6>
   {{player.money}}$<br>
-  Res:{{player.resources.data[0]}} | 
-  {{player.resources.data[1]}} | 
-  {{player.resources.data[2]}} | 
-  {{player.resources.data[3]}}<br>
+  Res:{{player.resources.availableresources[0]}} |
+  {{player.resources.availableresources[1]}} |
+  {{player.resources.availableresources[2]}} |
+  {{player.resources.availableresources[3]}}<br>
   {{player.generators}}<br>
   <div *ngFor="let card of player.cards">
     <div id='rcornersPlayerCard'>

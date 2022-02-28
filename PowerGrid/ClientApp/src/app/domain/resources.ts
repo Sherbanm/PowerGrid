@@ -1,3 +1,3 @@
 export class Resources {
-    data: number[];
+    availableresources: number[];
 }

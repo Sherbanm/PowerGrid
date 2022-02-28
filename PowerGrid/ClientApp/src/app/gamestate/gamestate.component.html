@@ -1,13 +1,20 @@
 <div>
   <button (click)="onClickMe()">Click me!</button>
   <div *ngIf='gameState'>
-    <button (click)="onAdvance()">Advance</button>
-    <button (click)="onPassAuction()">Pass Auction</button>
-    <p>{{gameState.currentPhase}}</p>
     <div container>
       <div class="row">
         <div class="col-2">
-          <app-player-order [players]='gameState.playerOrder' [gameState]='gameState' [remainingSeconds]='gameState.remainingSeconds'></app-player-order>
+          <!-- gamestate block-->
+          <div id='rgamestate'>
+            Seconds Left: {{timeLeft | number : '1.1-1'}}<br>
+            Phase: {{gameState.currentPhase}}<br>
+            Step: {{gameState.currentStep}}<br>
+            CurrentPlayer: {{gameState.currentPlayer.name}}<br>
+            CurrentBidder: {{gameState.currentBidder.name}}<br>
+            <button (click)="onAdvance()">Advance</button>
+            <button (click)="onPassAuction()">Pass Auction</button>
+          </div>
+          <app-player-order [players]='gameState.playerOrder' [gameState]='gameState'></app-player-order>
           <app-resource-market [market]='gameState.resourceMarket'></app-resource-market>
         </div>
         <div class="col-10">

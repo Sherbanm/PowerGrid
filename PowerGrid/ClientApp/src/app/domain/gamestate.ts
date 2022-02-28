@@ -11,6 +11,7 @@ export class GameState {
   map: Map;
   currentPlayer: Player;
   currentBidder: Player;
-  remainingSeconds: number;
+  remainingTime: number;
   currentPhase: number;
+  currentStep: number;
 }

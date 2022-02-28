@@ -18,18 +18,36 @@ export class GamestateComponent implements OnInit {
 
   selectedPlayer: Player;
 
+  timeLeft: number;
+  interval;
+
   constructor(private socketService: WebSocketService, private gameStateService: GamestateService, currentPlayerService: CurrentPlayerService, private errorHandlerService: ErrorHandlerService) {
     let _self = this;
     this.socketService.createObservableSocket( "wss://localhost:44344/ws").subscribe(data => {
       _self.gameState = JSON.parse(data);
+
       currentPlayerService.changeCurrentPlayer(_self.gameState.currentPlayer)
+      this.timeLeft = _self.gameState.remainingTime;
+      this.startTimer();
     });
   }
 
   ngOnInit() {
     this.socketService.sendMessage("hello");
   }
-  
+
+  startTimer() {
+    this.interval = setInterval(() => {
+      if (this.timeLeft > .1) {
+        this.timeLeft -= .1;
+      }
+      else {
+        this.timeLeft = 0;
+        clearInterval(this.interval);
+      }
+    }, 100);
+  }
+
   onClickMe() {
     this.socketService.sendMessage("hello"); 
   }
