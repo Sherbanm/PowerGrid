@@ -191,13 +191,50 @@ namespace PowerGrid.Service
                 gameState.CurrentPhase = Phase.DeterminePlayerOrder;
             }
 
-            gameState.RemainingTime = 10;
+            gameState.RemainingTime = 60;
             SendUpdates();
             Console.WriteLine(DateTime.Now);
             // give them 2 seconds for leeway
-            timer = new Timer( (_) =>AdvanceGame(false), null, (gameState.RemainingTime + 2) * 1000, Timeout.Infinite);
+            timer = new Timer( (_) => {
+                AutoResolve();
+                AdvanceGame(false);
+            }, null, (gameState.RemainingTime + 2) * 1000, Timeout.Infinite);
         }
 
+        private static void AutoResolve()
+        {
+            if (gameState.CurrentPhase == Phase.DeterminePlayerOrder)
+            {
+            }
+            else if (gameState.CurrentPhase == Phase.AuctionPowerPlants)
+            {
+                if (gameState.CurrentBidder == gameState.CurrentPlayer)
+                {
+                    if (!firstAuctionPhaseCompleted)
+                    {
+                        var cheapestCard = gameState.AuctionHouse.Marketplace.First();
+                        AuctionSetCard(cheapestCard, gameState.CurrentPlayer);
+                    }
+                    else
+                    {
+                        AuctionPassPhase(gameState.CurrentPlayer);
+                    }
+                }
+                else
+                {
+                    AuctionPassCard(gameState.CurrentBidder);
+                }
+            }
+            else if (gameState.CurrentPhase == Phase.BuyResources)
+            {
+            }
+            else if (gameState.CurrentPhase == Phase.BuildGenerators)
+            {
+            }
+            else if (gameState.CurrentPhase == Phase.Bureaucracy)
+            {
+            }
+        }
         public static void AuctionSetCard(Card card, Player player)
         {
             var validPhase = gameState.CurrentPhase == Phase.AuctionPowerPlants;
@@ -413,16 +450,6 @@ namespace PowerGrid.Service
             SendUpdates();
         }
         
-        private static bool IsNewGeneratorAllowedInStep(City city, Step step)
-        {
-            if (step == Step.Step1)
-                return city.Generators.Count() == 0;
-            else if (step == Step.Step2)
-                return city.Generators.Count() <= 1;
-            else
-                return city.Generators.Count() <= 2;
-        }
-        
         public static void LoadResource(Player player, Card card, ResourceType resource)
         {
             var validCard = player.Cards.Contains(card) && card.LoadedResources.Count() < card.ResourceCost;
@@ -451,18 +478,6 @@ namespace PowerGrid.Service
             }
             SendUpdates();
         }
-
-        private static bool IsLoadableResouce(Card card, ResourceType resource)
-        {
-            if (resource != ResourceType.Mixed)
-            {
-                if (card.Resource == ResourceType.Mixed)
-                    return resource == ResourceType.Oil || resource == ResourceType.Gas;
-                else
-                    return resource == card.Resource;
-            }
-            return false;
-        }
         
         public static void Start()
         {
@@ -484,13 +499,13 @@ namespace PowerGrid.Service
 
         private static void SendUpdates()
         {
+            timer?.Dispose();
             foreach (WebSocket listener in listeners)
             {
                 var json = Newtonsoft.Json.JsonConvert.SerializeObject(gameState);
                 var bytes = Encoding.GetEncoding(Encoding.UTF8.BodyName).GetBytes(json.ToCharArray());
 
                 listener.SendAsync(new ArraySegment<byte>(bytes, 0, bytes.Length), result.MessageType, result.EndOfMessage, CancellationToken.None);
-
             }
         }
 
@@ -652,6 +667,28 @@ namespace PowerGrid.Service
                     return 150;
 
             }
+        }
+
+        private static bool IsNewGeneratorAllowedInStep(City city, Step step)
+        {
+            if (step == Step.Step1)
+                return city.Generators.Count() == 0;
+            else if (step == Step.Step2)
+                return city.Generators.Count() <= 1;
+            else
+                return city.Generators.Count() <= 2;
+        }
+
+        private static bool IsLoadableResouce(Card card, ResourceType resource)
+        {
+            if (resource != ResourceType.Mixed)
+            {
+                if (card.Resource == ResourceType.Mixed)
+                    return resource == ResourceType.Oil || resource == ResourceType.Gas;
+                else
+                    return resource == card.Resource;
+            }
+            return false;
         }
     }
 }

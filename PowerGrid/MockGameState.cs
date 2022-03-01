@@ -9,9 +9,6 @@ namespace PowerGrid
 {
     public static class MockGameState
     {
-        //public static List<Card> cards = new List<Card> { new Card { ResourceCost = 1, Resource = ResourceType.Coal, MinimumBid = 2, GeneratorsPowered = 3 },
-        //                        new Card { ResourceCost = 5, Resource = ResourceType.Oil, MinimumBid = 6, GeneratorsPowered = 7 }};
-
         private static List<Card> cards = null;
 
         public static List<Card> Cards
@@ -82,10 +79,6 @@ namespace PowerGrid
         public static LinkedList<Player> players = new LinkedList<Player>(new List<Player> {
                 new Player { Name = "Albert", Money = 50 },
                 new Player { Name = "Bruce", Money = 50 },
-                new Player { Name = "Charles", Money = 50 },
-                new Player { Name = "Dan", Money = 50 },
-                new Player { Name = "Eustache", Money = 50 },
-                new Player { Name = "Franz", Money = 50 },
         });
 
         public static ResourceMarket resourceMarket = new ResourceMarket
@@ -94,21 +87,6 @@ namespace PowerGrid
                 AvailableResources = new int[] { 23, 18, 14, 1 }
             }
         };
-
-        public static City Toronto = new City { Name = "Toronto"};
-        public static City Montreal = new City { Name = "Montreal"};
-        public static City Ottawa = new City { Name = "Ottawa"};
-
-        // public static Map map = new Map
-        // {
-        //     Cities = new List<City> { Toronto, Montreal, Ottawa },
-        //     Connections = new List<Connection>
-        //     {
-        //         new Connection { CityA = Toronto, CityB = Montreal, Length = 5},
-        //         new Connection { CityA = Toronto, CityB = Ottawa, Length = 4 },
-        //         new Connection { CityA = Montreal, CityB = Ottawa, Length = 2 }
-        //     }
-        // };
 
         private static Map map = null;
 
@@ -199,7 +177,7 @@ namespace PowerGrid
                 ResourceMarket = resourceMarket,
                 AuctionHouse = new AuctionHouse(),
                 Map = Map,
-                RemainingTime = 30
+                RemainingTime = 10
             };
             gameState.AuctionHouse.Prepare(Cards.Where(x => x.MinimumBid <= 15), Cards.Where(x => x.MinimumBid > 15), true, players.Count());
             return gameState;
