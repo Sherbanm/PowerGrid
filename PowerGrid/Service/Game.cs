@@ -18,6 +18,7 @@ namespace PowerGrid.Service
         private static WebSocketReceiveResult result;
         public static GameState gameState = MockGameState.GetMockState();
         private static bool firstAuctionPhaseCompleted = false;
+        private static Timer timer;
         public static void AddListener(WebSocket listener)
         {
             listeners.Add(listener);
@@ -189,8 +190,12 @@ namespace PowerGrid.Service
                 }
                 gameState.CurrentPhase = Phase.DeterminePlayerOrder;
             }
-            
+
+            gameState.RemainingTime = 10;
             SendUpdates();
+            Console.WriteLine(DateTime.Now);
+            // give them 2 seconds for leeway
+            timer = new Timer( (_) =>AdvanceGame(false), null, (gameState.RemainingTime + 2) * 1000, Timeout.Infinite);
         }
 
         public static void AuctionSetCard(Card card, Player player)

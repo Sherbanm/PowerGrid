@@ -199,7 +199,7 @@ namespace PowerGrid
                 ResourceMarket = resourceMarket,
                 AuctionHouse = new AuctionHouse(),
                 Map = Map,
-                RemainingSeconds = 30
+                RemainingTime = 30
             };
             gameState.AuctionHouse.Prepare(Cards.Where(x => x.MinimumBid <= 15), Cards.Where(x => x.MinimumBid > 15), true, players.Count());
             return gameState;

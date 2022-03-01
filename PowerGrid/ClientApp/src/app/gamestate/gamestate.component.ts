@@ -37,6 +37,7 @@ export class GamestateComponent implements OnInit {
   }
 
   startTimer() {
+    clearInterval(this.interval);
     this.interval = setInterval(() => {
       if (this.timeLeft > .1) {
         this.timeLeft -= .1;
