@@ -13,7 +13,7 @@
       ],
       "money": 52,
       "resources": {
-        "availableResources": [
+        "availableresources": [
           0,
           0,
           0,
@@ -35,7 +35,7 @@
       ],
       "money": 49,
       "resources": {
-        "availableResources": [
+        "availableresources": [
           0,
           0,
           0,
@@ -57,7 +57,7 @@
       ],
       "money": 43,
       "resources": {
-        "availableResources": [
+        "availableresources": [
           0,
           0,
           0,
@@ -79,7 +79,7 @@
       ],
       "money": 44,
       "resources": {
-        "availableResources": [
+        "availableresources": [
           0,
           0,
           0,
@@ -101,7 +101,7 @@
       ],
       "money": 47,
       "resources": {
-        "availableResources": [
+        "availableresources": [
           0,
           0,
           0,
@@ -123,7 +123,7 @@
       ],
       "money": 42,
       "resources": {
-        "availableResources": [
+        "availableresources": [
           1,
           0,
           0,
@@ -135,7 +135,7 @@
   ],
   "resourceMarket": {
     "resources": {
-      "availableResources": [
+      "availableresources": [
         21,
         19,
         18,
@@ -429,7 +429,7 @@
               ],
               "money": 44,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -470,7 +470,7 @@
               ],
               "money": 44,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -511,7 +511,7 @@
               ],
               "money": 44,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -703,7 +703,7 @@
               ],
               "money": 49,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -1032,7 +1032,7 @@
               ],
               "money": 52,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -1084,7 +1084,7 @@
               ],
               "money": 52,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -1294,7 +1294,7 @@
               ],
               "money": 47,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -1353,7 +1353,7 @@
               ],
               "money": 47,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -1664,7 +1664,7 @@
               ],
               "money": 42,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   1,
                   0,
                   0,
@@ -1741,7 +1741,7 @@
               ],
               "money": 43,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -1818,7 +1818,7 @@
               ],
               "money": 43,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -1870,7 +1870,7 @@
               ],
               "money": 43,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -1911,7 +1911,7 @@
               ],
               "money": 43,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -1952,7 +1952,7 @@
               ],
               "money": 43,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -2054,7 +2054,7 @@
               ],
               "money": 49,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -2682,7 +2682,7 @@
               ],
               "money": 47,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -2723,7 +2723,7 @@
             ],
             "money": 44,
             "resources": {
-              "availableResources": [
+              "availableresources": [
                 0,
                 0,
                 0,
@@ -2809,7 +2809,7 @@
             ],
             "money": 52,
             "resources": {
-              "availableResources": [
+              "availableresources": [
                 0,
                 0,
                 0,
@@ -2902,7 +2902,7 @@
             ],
             "money": 47,
             "resources": {
-              "availableResources": [
+              "availableresources": [
                 0,
                 0,
                 0,
@@ -2981,7 +2981,7 @@
             ],
             "money": 42,
             "resources": {
-              "availableResources": [
+              "availableresources": [
                 1,
                 0,
                 0,
@@ -3109,7 +3109,7 @@
             ],
             "money": 49,
             "resources": {
-              "availableResources": [
+              "availableresources": [
                 0,
                 0,
                 0,
@@ -3153,7 +3153,7 @@
             ],
             "money": 43,
             "resources": {
-              "availableResources": [
+              "availableresources": [
                 0,
                 0,
                 0,
@@ -3207,7 +3207,7 @@
               ],
               "money": 44,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -3239,7 +3239,7 @@
               ],
               "money": 52,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -3271,7 +3271,7 @@
               ],
               "money": 47,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -3303,7 +3303,7 @@
               ],
               "money": 42,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   1,
                   0,
                   0,
@@ -3335,7 +3335,7 @@
               ],
               "money": 49,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -3367,7 +3367,7 @@
               ],
               "money": 43,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -3397,7 +3397,7 @@
     ],
     "money": 44,
     "resources": {
-      "availableResources": [
+      "availableresources": [
         0,
         0,
         0,
@@ -3409,7 +3409,7 @@
   "currentBidder": null,
   "currentPhase": 0,
   "currentStep": 0,
-  "remainingSeconds": 30,
+  "remainingTime": 60,
   "playerOrder": [
     {
       "name": "Green",
@@ -3424,7 +3424,7 @@
       ],
       "money": 44,
       "resources": {
-        "availableResources": [
+        "availableresources": [
           0,
           0,
           0,
@@ -3446,7 +3446,7 @@
       ],
       "money": 43,
       "resources": {
-        "availableResources": [
+        "availableresources": [
           0,
           0,
           0,
@@ -3468,7 +3468,7 @@
       ],
       "money": 42,
       "resources": {
-        "availableResources": [
+        "availableresources": [
           1,
           0,
           0,
@@ -3490,7 +3490,7 @@
       ],
       "money": 47,
       "resources": {
-        "availableResources": [
+        "availableresources": [
           0,
           0,
           0,
@@ -3512,7 +3512,7 @@
       ],
       "money": 52,
       "resources": {
-        "availableResources": [
+        "availableresources": [
           0,
           0,
           0,
@@ -3534,7 +3534,7 @@
       ],
       "money": 49,
       "resources": {
-        "availableResources": [
+        "availableresources": [
           0,
           0,
           0,

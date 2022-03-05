@@ -27,7 +27,7 @@
       ],
       "money": 129,
       "resources": {
-        "availableResources": [
+        "availableresources": [
           0,
           0,
           0,
@@ -63,7 +63,7 @@
       ],
       "money": 126,
       "resources": {
-        "availableResources": [
+        "availableresources": [
           0,
           0,
           0,
@@ -99,7 +99,7 @@
       ],
       "money": 192,
       "resources": {
-        "availableResources": [
+        "availableresources": [
           0,
           0,
           0,
@@ -135,7 +135,7 @@
       ],
       "money": 113,
       "resources": {
-        "availableResources": [
+        "availableresources": [
           0,
           0,
           0,
@@ -171,7 +171,7 @@
       ],
       "money": 57,
       "resources": {
-        "availableResources": [
+        "availableresources": [
           0,
           0,
           0,
@@ -207,7 +207,7 @@
       ],
       "money": 99,
       "resources": {
-        "availableResources": [
+        "availableresources": [
           0,
           0,
           0,
@@ -219,7 +219,7 @@
   ],
   "resourceMarket": {
     "resources": {
-      "availableResources": [
+      "availableresources": [
         27,
         15,
         14,
@@ -387,7 +387,7 @@
               ],
               "money": 113,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -423,7 +423,7 @@
               ],
               "money": 129,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -467,7 +467,7 @@
               ],
               "money": 113,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -515,7 +515,7 @@
               ],
               "money": 113,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -551,7 +551,7 @@
               ],
               "money": 129,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -595,7 +595,7 @@
               ],
               "money": 113,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -631,7 +631,7 @@
               ],
               "money": 129,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -679,7 +679,7 @@
               ],
               "money": 113,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -715,7 +715,7 @@
               ],
               "money": 129,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -759,7 +759,7 @@
               ],
               "money": 126,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -795,7 +795,7 @@
               ],
               "money": 113,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -843,7 +843,7 @@
               ],
               "money": 113,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -887,7 +887,7 @@
               ],
               "money": 113,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -935,7 +935,7 @@
               ],
               "money": 113,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -979,7 +979,7 @@
               ],
               "money": 126,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -1015,7 +1015,7 @@
               ],
               "money": 113,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -1063,7 +1063,7 @@
               ],
               "money": 113,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -1107,7 +1107,7 @@
               ],
               "money": 126,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -1143,7 +1143,7 @@
               ],
               "money": 113,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -1191,7 +1191,7 @@
               ],
               "money": 126,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -1227,7 +1227,7 @@
               ],
               "money": 113,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -1271,7 +1271,7 @@
               ],
               "money": 129,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -1319,7 +1319,7 @@
               ],
               "money": 126,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -1355,7 +1355,7 @@
               ],
               "money": 113,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -1399,7 +1399,7 @@
               ],
               "money": 129,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -1447,7 +1447,7 @@
               ],
               "money": 126,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -1483,7 +1483,7 @@
               ],
               "money": 113,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -1527,7 +1527,7 @@
               ],
               "money": 126,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -1563,7 +1563,7 @@
               ],
               "money": 113,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -1611,7 +1611,7 @@
               ],
               "money": 126,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -1647,7 +1647,7 @@
               ],
               "money": 113,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -1691,7 +1691,7 @@
               ],
               "money": 129,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -1739,7 +1739,7 @@
               ],
               "money": 126,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -1775,7 +1775,7 @@
               ],
               "money": 113,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -1819,7 +1819,7 @@
               ],
               "money": 126,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -1855,7 +1855,7 @@
               ],
               "money": 113,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -1903,7 +1903,7 @@
               ],
               "money": 126,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -1939,7 +1939,7 @@
               ],
               "money": 113,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -1983,7 +1983,7 @@
               ],
               "money": 126,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -2019,7 +2019,7 @@
               ],
               "money": 113,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -2067,7 +2067,7 @@
               ],
               "money": 126,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -2103,7 +2103,7 @@
               ],
               "money": 113,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -2147,7 +2147,7 @@
               ],
               "money": 192,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -2183,7 +2183,7 @@
               ],
               "money": 126,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -2231,7 +2231,7 @@
               ],
               "money": 126,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -2267,7 +2267,7 @@
               ],
               "money": 113,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -2311,7 +2311,7 @@
               ],
               "money": 129,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -2359,7 +2359,7 @@
               ],
               "money": 113,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -2395,7 +2395,7 @@
               ],
               "money": 129,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -2439,7 +2439,7 @@
               ],
               "money": 113,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -2475,7 +2475,7 @@
               ],
               "money": 129,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -2523,7 +2523,7 @@
               ],
               "money": 113,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -2559,7 +2559,7 @@
               ],
               "money": 129,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -2603,7 +2603,7 @@
               ],
               "money": 129,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -2651,7 +2651,7 @@
               ],
               "money": 113,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -2687,7 +2687,7 @@
               ],
               "money": 129,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -2731,7 +2731,7 @@
               ],
               "money": 129,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -2779,7 +2779,7 @@
               ],
               "money": 129,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -2823,7 +2823,7 @@
               ],
               "money": 129,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -2871,7 +2871,7 @@
               ],
               "money": 129,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -2915,7 +2915,7 @@
               ],
               "money": 129,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -2963,7 +2963,7 @@
               ],
               "money": 129,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -3007,7 +3007,7 @@
               ],
               "money": 129,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -3055,7 +3055,7 @@
               ],
               "money": 129,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -3099,7 +3099,7 @@
               ],
               "money": 192,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -3135,7 +3135,7 @@
               ],
               "money": 126,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -3183,7 +3183,7 @@
               ],
               "money": 129,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -3227,7 +3227,7 @@
               ],
               "money": 192,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -3263,7 +3263,7 @@
               ],
               "money": 99,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -3311,7 +3311,7 @@
               ],
               "money": 129,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -3355,7 +3355,7 @@
               ],
               "money": 129,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -3403,7 +3403,7 @@
               ],
               "money": 129,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -3447,7 +3447,7 @@
               ],
               "money": 129,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -3495,7 +3495,7 @@
               ],
               "money": 129,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -3539,7 +3539,7 @@
               ],
               "money": 129,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -3587,7 +3587,7 @@
               ],
               "money": 129,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -3631,7 +3631,7 @@
               ],
               "money": 129,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -3679,7 +3679,7 @@
               ],
               "money": 129,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -3723,7 +3723,7 @@
               ],
               "money": 129,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -3771,7 +3771,7 @@
               ],
               "money": 129,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -3815,7 +3815,7 @@
               ],
               "money": 129,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -3863,7 +3863,7 @@
               ],
               "money": 129,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -3907,7 +3907,7 @@
               ],
               "money": 129,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -3955,7 +3955,7 @@
               ],
               "money": 129,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -3999,7 +3999,7 @@
               ],
               "money": 129,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -4047,7 +4047,7 @@
               ],
               "money": 129,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -4091,7 +4091,7 @@
               ],
               "money": 129,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -4139,7 +4139,7 @@
               ],
               "money": 129,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -4183,7 +4183,7 @@
               ],
               "money": 129,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -4231,7 +4231,7 @@
               ],
               "money": 129,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -4275,7 +4275,7 @@
               ],
               "money": 192,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -4311,7 +4311,7 @@
               ],
               "money": 99,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -4359,7 +4359,7 @@
               ],
               "money": 129,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -4403,7 +4403,7 @@
               ],
               "money": 192,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -4439,7 +4439,7 @@
               ],
               "money": 99,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -4487,7 +4487,7 @@
               ],
               "money": 129,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -4531,7 +4531,7 @@
               ],
               "money": 192,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -4567,7 +4567,7 @@
               ],
               "money": 99,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -4615,7 +4615,7 @@
               ],
               "money": 129,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -4659,7 +4659,7 @@
               ],
               "money": 129,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -4707,7 +4707,7 @@
               ],
               "money": 129,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -4751,7 +4751,7 @@
               ],
               "money": 192,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -4787,7 +4787,7 @@
               ],
               "money": 99,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -4835,7 +4835,7 @@
               ],
               "money": 129,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -4879,7 +4879,7 @@
               ],
               "money": 57,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -4927,7 +4927,7 @@
               ],
               "money": 129,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -4971,7 +4971,7 @@
               ],
               "money": 57,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -5019,7 +5019,7 @@
               ],
               "money": 57,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -5063,7 +5063,7 @@
               ],
               "money": 57,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -5111,7 +5111,7 @@
               ],
               "money": 57,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -5155,7 +5155,7 @@
               ],
               "money": 57,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -5203,7 +5203,7 @@
               ],
               "money": 57,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -5247,7 +5247,7 @@
               ],
               "money": 192,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -5283,7 +5283,7 @@
               ],
               "money": 99,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -5331,7 +5331,7 @@
               ],
               "money": 57,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -5375,7 +5375,7 @@
               ],
               "money": 57,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -5423,7 +5423,7 @@
               ],
               "money": 192,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -5459,7 +5459,7 @@
               ],
               "money": 99,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -5503,7 +5503,7 @@
               ],
               "money": 192,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -5539,7 +5539,7 @@
               ],
               "money": 99,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -5587,7 +5587,7 @@
               ],
               "money": 192,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -5623,7 +5623,7 @@
               ],
               "money": 99,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -5667,7 +5667,7 @@
               ],
               "money": 99,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -5703,7 +5703,7 @@
               ],
               "money": 192,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -5751,7 +5751,7 @@
               ],
               "money": 192,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -5787,7 +5787,7 @@
               ],
               "money": 99,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -5831,7 +5831,7 @@
               ],
               "money": 99,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -5867,7 +5867,7 @@
               ],
               "money": 192,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -5915,7 +5915,7 @@
               ],
               "money": 192,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -5951,7 +5951,7 @@
               ],
               "money": 99,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -5995,7 +5995,7 @@
               ],
               "money": 192,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -6031,7 +6031,7 @@
               ],
               "money": 99,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -6079,7 +6079,7 @@
               ],
               "money": 192,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -6115,7 +6115,7 @@
               ],
               "money": 99,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -6159,7 +6159,7 @@
               ],
               "money": 192,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -6195,7 +6195,7 @@
               ],
               "money": 126,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -6243,7 +6243,7 @@
               ],
               "money": 192,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -6279,7 +6279,7 @@
               ],
               "money": 99,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -6323,7 +6323,7 @@
               ],
               "money": 99,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -6359,7 +6359,7 @@
               ],
               "money": 126,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -6407,7 +6407,7 @@
               ],
               "money": 99,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -6443,7 +6443,7 @@
               ],
               "money": 192,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -6487,7 +6487,7 @@
               ],
               "money": 99,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -6523,7 +6523,7 @@
               ],
               "money": 126,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -6571,7 +6571,7 @@
               ],
               "money": 99,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -6607,7 +6607,7 @@
               ],
               "money": 126,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -6651,7 +6651,7 @@
               ],
               "money": 99,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -6699,7 +6699,7 @@
               ],
               "money": 99,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -6735,7 +6735,7 @@
               ],
               "money": 126,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -6779,7 +6779,7 @@
               ],
               "money": 192,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -6815,7 +6815,7 @@
               ],
               "money": 126,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -6863,7 +6863,7 @@
               ],
               "money": 99,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -6899,7 +6899,7 @@
               ],
               "money": 126,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -6943,7 +6943,7 @@
               ],
               "money": 99,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -6979,7 +6979,7 @@
               ],
               "money": 126,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -7027,7 +7027,7 @@
               ],
               "money": 99,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -7063,7 +7063,7 @@
               ],
               "money": 126,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -7107,7 +7107,7 @@
               ],
               "money": 99,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -7155,7 +7155,7 @@
               ],
               "money": 99,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -7191,7 +7191,7 @@
               ],
               "money": 126,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -7235,7 +7235,7 @@
               ],
               "money": 192,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -7271,7 +7271,7 @@
               ],
               "money": 126,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -7319,7 +7319,7 @@
               ],
               "money": 99,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -7355,7 +7355,7 @@
               ],
               "money": 126,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -7410,7 +7410,7 @@
               ],
               "money": 99,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -7446,7 +7446,7 @@
               ],
               "money": 126,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -7501,7 +7501,7 @@
               ],
               "money": 99,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -7556,7 +7556,7 @@
               ],
               "money": 99,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -7600,7 +7600,7 @@
               ],
               "money": 99,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -7648,7 +7648,7 @@
               ],
               "money": 192,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -7684,7 +7684,7 @@
               ],
               "money": 99,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -7728,7 +7728,7 @@
               ],
               "money": 192,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -7764,7 +7764,7 @@
               ],
               "money": 126,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -7812,7 +7812,7 @@
               ],
               "money": 192,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -7848,7 +7848,7 @@
               ],
               "money": 99,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -7892,7 +7892,7 @@
               ],
               "money": 192,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -7928,7 +7928,7 @@
               ],
               "money": 126,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -7976,7 +7976,7 @@
               ],
               "money": 192,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -8012,7 +8012,7 @@
               ],
               "money": 126,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -8056,7 +8056,7 @@
               ],
               "money": 192,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -8092,7 +8092,7 @@
               ],
               "money": 126,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -8140,7 +8140,7 @@
               ],
               "money": 192,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -8176,7 +8176,7 @@
               ],
               "money": 126,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -8220,7 +8220,7 @@
               ],
               "money": 126,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -8256,7 +8256,7 @@
               ],
               "money": 113,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -8304,7 +8304,7 @@
               ],
               "money": 192,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -8340,7 +8340,7 @@
               ],
               "money": 126,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -8384,7 +8384,7 @@
               ],
               "money": 192,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -8420,7 +8420,7 @@
               ],
               "money": 126,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -8468,7 +8468,7 @@
               ],
               "money": 192,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -8504,7 +8504,7 @@
               ],
               "money": 126,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -8548,7 +8548,7 @@
               ],
               "money": 192,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -8584,7 +8584,7 @@
               ],
               "money": 126,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -8632,7 +8632,7 @@
               ],
               "money": 192,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -8668,7 +8668,7 @@
               ],
               "money": 126,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -8723,7 +8723,7 @@
               ],
               "money": 192,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -8759,7 +8759,7 @@
               ],
               "money": 126,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -8803,7 +8803,7 @@
               ],
               "money": 126,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -8839,7 +8839,7 @@
               ],
               "money": 113,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -8887,7 +8887,7 @@
               ],
               "money": 192,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -8923,7 +8923,7 @@
               ],
               "money": 126,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -8967,7 +8967,7 @@
               ],
               "money": 126,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -9015,7 +9015,7 @@
               ],
               "money": 192,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -9051,7 +9051,7 @@
               ],
               "money": 126,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -9106,7 +9106,7 @@
               ],
               "money": 126,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -9150,7 +9150,7 @@
               ],
               "money": 126,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -9186,7 +9186,7 @@
               ],
               "money": 113,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -9234,7 +9234,7 @@
               ],
               "money": 126,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -9289,7 +9289,7 @@
               ],
               "money": 126,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -9344,7 +9344,7 @@
               ],
               "money": 126,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -9380,7 +9380,7 @@
               ],
               "money": 113,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -9424,7 +9424,7 @@
               ],
               "money": 126,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -9460,7 +9460,7 @@
               ],
               "money": 113,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -9508,7 +9508,7 @@
               ],
               "money": 126,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -9544,7 +9544,7 @@
               ],
               "money": 113,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -9599,7 +9599,7 @@
               ],
               "money": 126,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -9635,7 +9635,7 @@
               ],
               "money": 113,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -10212,7 +10212,7 @@
               ],
               "money": 57,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -10267,7 +10267,7 @@
               ],
               "money": 57,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -10322,7 +10322,7 @@
               ],
               "money": 57,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -10377,7 +10377,7 @@
             ],
             "money": 113,
             "resources": {
-              "availableResources": [
+              "availableresources": [
                 0,
                 0,
                 0,
@@ -10413,7 +10413,7 @@
             ],
             "money": 129,
             "resources": {
-              "availableResources": [
+              "availableresources": [
                 0,
                 0,
                 0,
@@ -10457,7 +10457,7 @@
             ],
             "money": 113,
             "resources": {
-              "availableResources": [
+              "availableresources": [
                 0,
                 0,
                 0,
@@ -10501,7 +10501,7 @@
             ],
             "money": 113,
             "resources": {
-              "availableResources": [
+              "availableresources": [
                 0,
                 0,
                 0,
@@ -10545,7 +10545,7 @@
             ],
             "money": 126,
             "resources": {
-              "availableResources": [
+              "availableresources": [
                 0,
                 0,
                 0,
@@ -10581,7 +10581,7 @@
             ],
             "money": 113,
             "resources": {
-              "availableResources": [
+              "availableresources": [
                 0,
                 0,
                 0,
@@ -10625,7 +10625,7 @@
             ],
             "money": 113,
             "resources": {
-              "availableResources": [
+              "availableresources": [
                 0,
                 0,
                 0,
@@ -10661,7 +10661,7 @@
             ],
             "money": 129,
             "resources": {
-              "availableResources": [
+              "availableresources": [
                 0,
                 0,
                 0,
@@ -10705,7 +10705,7 @@
             ],
             "money": 126,
             "resources": {
-              "availableResources": [
+              "availableresources": [
                 0,
                 0,
                 0,
@@ -10741,7 +10741,7 @@
             ],
             "money": 113,
             "resources": {
-              "availableResources": [
+              "availableresources": [
                 0,
                 0,
                 0,
@@ -10785,7 +10785,7 @@
             ],
             "money": 126,
             "resources": {
-              "availableResources": [
+              "availableresources": [
                 0,
                 0,
                 0,
@@ -10821,7 +10821,7 @@
             ],
             "money": 113,
             "resources": {
-              "availableResources": [
+              "availableresources": [
                 0,
                 0,
                 0,
@@ -10865,7 +10865,7 @@
             ],
             "money": 113,
             "resources": {
-              "availableResources": [
+              "availableresources": [
                 0,
                 0,
                 0,
@@ -10901,7 +10901,7 @@
             ],
             "money": 129,
             "resources": {
-              "availableResources": [
+              "availableresources": [
                 0,
                 0,
                 0,
@@ -10945,7 +10945,7 @@
             ],
             "money": 129,
             "resources": {
-              "availableResources": [
+              "availableresources": [
                 0,
                 0,
                 0,
@@ -10989,7 +10989,7 @@
             ],
             "money": 129,
             "resources": {
-              "availableResources": [
+              "availableresources": [
                 0,
                 0,
                 0,
@@ -11033,7 +11033,7 @@
             ],
             "money": 129,
             "resources": {
-              "availableResources": [
+              "availableresources": [
                 0,
                 0,
                 0,
@@ -11077,7 +11077,7 @@
             ],
             "money": 129,
             "resources": {
-              "availableResources": [
+              "availableresources": [
                 0,
                 0,
                 0,
@@ -11121,7 +11121,7 @@
             ],
             "money": 129,
             "resources": {
-              "availableResources": [
+              "availableresources": [
                 0,
                 0,
                 0,
@@ -11165,7 +11165,7 @@
             ],
             "money": 129,
             "resources": {
-              "availableResources": [
+              "availableresources": [
                 0,
                 0,
                 0,
@@ -11209,7 +11209,7 @@
             ],
             "money": 129,
             "resources": {
-              "availableResources": [
+              "availableresources": [
                 0,
                 0,
                 0,
@@ -11253,7 +11253,7 @@
             ],
             "money": 129,
             "resources": {
-              "availableResources": [
+              "availableresources": [
                 0,
                 0,
                 0,
@@ -11297,7 +11297,7 @@
             ],
             "money": 129,
             "resources": {
-              "availableResources": [
+              "availableresources": [
                 0,
                 0,
                 0,
@@ -11341,7 +11341,7 @@
             ],
             "money": 57,
             "resources": {
-              "availableResources": [
+              "availableresources": [
                 0,
                 0,
                 0,
@@ -11385,7 +11385,7 @@
             ],
             "money": 57,
             "resources": {
-              "availableResources": [
+              "availableresources": [
                 0,
                 0,
                 0,
@@ -11429,7 +11429,7 @@
             ],
             "money": 57,
             "resources": {
-              "availableResources": [
+              "availableresources": [
                 0,
                 0,
                 0,
@@ -11480,7 +11480,7 @@
             ],
             "money": 192,
             "resources": {
-              "availableResources": [
+              "availableresources": [
                 0,
                 0,
                 0,
@@ -11516,7 +11516,7 @@
             ],
             "money": 99,
             "resources": {
-              "availableResources": [
+              "availableresources": [
                 0,
                 0,
                 0,
@@ -11560,7 +11560,7 @@
             ],
             "money": 192,
             "resources": {
-              "availableResources": [
+              "availableresources": [
                 0,
                 0,
                 0,
@@ -11596,7 +11596,7 @@
             ],
             "money": 99,
             "resources": {
-              "availableResources": [
+              "availableresources": [
                 0,
                 0,
                 0,
@@ -11640,7 +11640,7 @@
             ],
             "money": 99,
             "resources": {
-              "availableResources": [
+              "availableresources": [
                 0,
                 0,
                 0,
@@ -11676,7 +11676,7 @@
             ],
             "money": 192,
             "resources": {
-              "availableResources": [
+              "availableresources": [
                 0,
                 0,
                 0,
@@ -11720,7 +11720,7 @@
             ],
             "money": 99,
             "resources": {
-              "availableResources": [
+              "availableresources": [
                 0,
                 0,
                 0,
@@ -11756,7 +11756,7 @@
             ],
             "money": 126,
             "resources": {
-              "availableResources": [
+              "availableresources": [
                 0,
                 0,
                 0,
@@ -11800,7 +11800,7 @@
             ],
             "money": 99,
             "resources": {
-              "availableResources": [
+              "availableresources": [
                 0,
                 0,
                 0,
@@ -11836,7 +11836,7 @@
             ],
             "money": 126,
             "resources": {
-              "availableResources": [
+              "availableresources": [
                 0,
                 0,
                 0,
@@ -11880,7 +11880,7 @@
             ],
             "money": 99,
             "resources": {
-              "availableResources": [
+              "availableresources": [
                 0,
                 0,
                 0,
@@ -11924,7 +11924,7 @@
             ],
             "money": 99,
             "resources": {
-              "availableResources": [
+              "availableresources": [
                 0,
                 0,
                 0,
@@ -12066,7 +12066,7 @@
             ],
             "money": 126,
             "resources": {
-              "availableResources": [
+              "availableresources": [
                 0,
                 0,
                 0,
@@ -12102,7 +12102,7 @@
             ],
             "money": 113,
             "resources": {
-              "availableResources": [
+              "availableresources": [
                 0,
                 0,
                 0,
@@ -12146,7 +12146,7 @@
             ],
             "money": 126,
             "resources": {
-              "availableResources": [
+              "availableresources": [
                 0,
                 0,
                 0,
@@ -12182,7 +12182,7 @@
             ],
             "money": 113,
             "resources": {
-              "availableResources": [
+              "availableresources": [
                 0,
                 0,
                 0,
@@ -12226,7 +12226,7 @@
             ],
             "money": 126,
             "resources": {
-              "availableResources": [
+              "availableresources": [
                 0,
                 0,
                 0,
@@ -12270,7 +12270,7 @@
             ],
             "money": 192,
             "resources": {
-              "availableResources": [
+              "availableresources": [
                 0,
                 0,
                 0,
@@ -12306,7 +12306,7 @@
             ],
             "money": 126,
             "resources": {
-              "availableResources": [
+              "availableresources": [
                 0,
                 0,
                 0,
@@ -12350,7 +12350,7 @@
             ],
             "money": 192,
             "resources": {
-              "availableResources": [
+              "availableresources": [
                 0,
                 0,
                 0,
@@ -12386,7 +12386,7 @@
             ],
             "money": 126,
             "resources": {
-              "availableResources": [
+              "availableresources": [
                 0,
                 0,
                 0,
@@ -12430,7 +12430,7 @@
             ],
             "money": 192,
             "resources": {
-              "availableResources": [
+              "availableresources": [
                 0,
                 0,
                 0,
@@ -12466,7 +12466,7 @@
             ],
             "money": 99,
             "resources": {
-              "availableResources": [
+              "availableresources": [
                 0,
                 0,
                 0,
@@ -12510,7 +12510,7 @@
             ],
             "money": 192,
             "resources": {
-              "availableResources": [
+              "availableresources": [
                 0,
                 0,
                 0,
@@ -12546,7 +12546,7 @@
             ],
             "money": 126,
             "resources": {
-              "availableResources": [
+              "availableresources": [
                 0,
                 0,
                 0,
@@ -12593,7 +12593,7 @@
               ],
               "money": 113,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -12629,7 +12629,7 @@
               ],
               "money": 129,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -12673,7 +12673,7 @@
               ],
               "money": 113,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -12717,7 +12717,7 @@
               ],
               "money": 113,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -12761,7 +12761,7 @@
               ],
               "money": 126,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -12797,7 +12797,7 @@
               ],
               "money": 113,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -12841,7 +12841,7 @@
               ],
               "money": 113,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -12877,7 +12877,7 @@
               ],
               "money": 129,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -12921,7 +12921,7 @@
               ],
               "money": 126,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -12957,7 +12957,7 @@
               ],
               "money": 113,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -13001,7 +13001,7 @@
               ],
               "money": 126,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -13037,7 +13037,7 @@
               ],
               "money": 113,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -13081,7 +13081,7 @@
               ],
               "money": 113,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -13117,7 +13117,7 @@
               ],
               "money": 129,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -13161,7 +13161,7 @@
               ],
               "money": 126,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -13197,7 +13197,7 @@
               ],
               "money": 113,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -13241,7 +13241,7 @@
               ],
               "money": 126,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -13277,7 +13277,7 @@
               ],
               "money": 113,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -13323,7 +13323,7 @@
               ],
               "money": 113,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -13359,7 +13359,7 @@
               ],
               "money": 129,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -13403,7 +13403,7 @@
               ],
               "money": 113,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -13439,7 +13439,7 @@
               ],
               "money": 129,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -13483,7 +13483,7 @@
               ],
               "money": 113,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -13519,7 +13519,7 @@
               ],
               "money": 129,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -13563,7 +13563,7 @@
               ],
               "money": 129,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -13607,7 +13607,7 @@
               ],
               "money": 129,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -13651,7 +13651,7 @@
               ],
               "money": 129,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -13695,7 +13695,7 @@
               ],
               "money": 129,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -13739,7 +13739,7 @@
               ],
               "money": 129,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -13783,7 +13783,7 @@
               ],
               "money": 129,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -13827,7 +13827,7 @@
               ],
               "money": 129,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -13871,7 +13871,7 @@
               ],
               "money": 129,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -13915,7 +13915,7 @@
               ],
               "money": 129,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -13961,7 +13961,7 @@
               ],
               "money": 126,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -13997,7 +13997,7 @@
               ],
               "money": 113,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -14041,7 +14041,7 @@
               ],
               "money": 126,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -14077,7 +14077,7 @@
               ],
               "money": 113,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -14121,7 +14121,7 @@
               ],
               "money": 126,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -14157,7 +14157,7 @@
               ],
               "money": 113,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -14201,7 +14201,7 @@
               ],
               "money": 99,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -14237,7 +14237,7 @@
               ],
               "money": 126,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -14281,7 +14281,7 @@
               ],
               "money": 99,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -14317,7 +14317,7 @@
               ],
               "money": 126,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -14361,7 +14361,7 @@
               ],
               "money": 126,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -14397,7 +14397,7 @@
               ],
               "money": 113,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -14441,7 +14441,7 @@
               ],
               "money": 126,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -14477,7 +14477,7 @@
               ],
               "money": 113,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -14521,7 +14521,7 @@
               ],
               "money": 126,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -14565,7 +14565,7 @@
               ],
               "money": 192,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -14601,7 +14601,7 @@
               ],
               "money": 126,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -14645,7 +14645,7 @@
               ],
               "money": 192,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -14681,7 +14681,7 @@
               ],
               "money": 126,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -14725,7 +14725,7 @@
               ],
               "money": 192,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -14761,7 +14761,7 @@
               ],
               "money": 126,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -14807,7 +14807,7 @@
               ],
               "money": 57,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -14851,7 +14851,7 @@
               ],
               "money": 57,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -14895,7 +14895,7 @@
               ],
               "money": 57,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -14941,7 +14941,7 @@
               ],
               "money": 192,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -14977,7 +14977,7 @@
               ],
               "money": 99,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -15021,7 +15021,7 @@
               ],
               "money": 192,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -15057,7 +15057,7 @@
               ],
               "money": 99,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -15101,7 +15101,7 @@
               ],
               "money": 99,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -15137,7 +15137,7 @@
               ],
               "money": 192,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -15181,7 +15181,7 @@
               ],
               "money": 192,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -15217,7 +15217,7 @@
               ],
               "money": 126,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -15261,7 +15261,7 @@
               ],
               "money": 192,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -15297,7 +15297,7 @@
               ],
               "money": 126,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -15341,7 +15341,7 @@
               ],
               "money": 192,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -15377,7 +15377,7 @@
               ],
               "money": 99,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -15421,7 +15421,7 @@
               ],
               "money": 192,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -15457,7 +15457,7 @@
               ],
               "money": 126,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -15503,7 +15503,7 @@
               ],
               "money": 192,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -15539,7 +15539,7 @@
               ],
               "money": 99,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -15583,7 +15583,7 @@
               ],
               "money": 192,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -15619,7 +15619,7 @@
               ],
               "money": 99,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -15663,7 +15663,7 @@
               ],
               "money": 99,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -15699,7 +15699,7 @@
               ],
               "money": 192,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -15743,7 +15743,7 @@
               ],
               "money": 99,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -15779,7 +15779,7 @@
               ],
               "money": 126,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -15823,7 +15823,7 @@
               ],
               "money": 99,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -15859,7 +15859,7 @@
               ],
               "money": 126,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -15903,7 +15903,7 @@
               ],
               "money": 99,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -15947,7 +15947,7 @@
               ],
               "money": 99,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -15991,7 +15991,7 @@
               ],
               "money": 192,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -16027,7 +16027,7 @@
               ],
               "money": 99,
               "resources": {
-                "availableResources": [
+                "availableresources": [
                   0,
                   0,
                   0,
@@ -16071,7 +16071,7 @@
     ],
     "money": 129,
     "resources": {
-      "availableResources": [
+      "availableresources": [
         0,
         0,
         0,
@@ -16083,7 +16083,7 @@
   "currentBidder": null,
   "currentPhase": 0,
   "currentStep": 1,
-  "remainingSeconds": 30,
+  "remainingTime": 60,
   "playerOrder": [
     {
       "name": "Blue",
@@ -16112,7 +16112,7 @@
       ],
       "money": 129,
       "resources": {
-        "availableResources": [
+        "availableresources": [
           0,
           0,
           0,
@@ -16148,7 +16148,7 @@
       ],
       "money": 126,
       "resources": {
-        "availableResources": [
+        "availableresources": [
           0,
           0,
           0,
@@ -16184,7 +16184,7 @@
       ],
       "money": 113,
       "resources": {
-        "availableResources": [
+        "availableresources": [
           0,
           0,
           0,
@@ -16220,7 +16220,7 @@
       ],
       "money": 192,
       "resources": {
-        "availableResources": [
+        "availableresources": [
           0,
           0,
           0,
@@ -16256,7 +16256,7 @@
       ],
       "money": 99,
       "resources": {
-        "availableResources": [
+        "availableresources": [
           0,
           0,
           0,
@@ -16292,7 +16292,7 @@
       ],
       "money": 57,
       "resources": {
-        "availableResources": [
+        "availableresources": [
           0,
           0,
           0,

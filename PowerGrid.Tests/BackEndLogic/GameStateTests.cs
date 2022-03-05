@@ -13,8 +13,7 @@ namespace PowerGrid.Tests.BackEndLogic
         [Fact]
         public void TestFullGame()
         {
-            Game.Start();
-            var gameState = Game.gameState;
+            var gameState = MockGameState.GetMockState();
             var cards = MockGameState.Cards.ToList();
 
             var red = gameState.Players.ToList()[0];
@@ -24,30 +23,31 @@ namespace PowerGrid.Tests.BackEndLogic
             var purple = gameState.Players.ToList()[4];
             var white = gameState.Players.ToList()[5];
 
-            var dataPath = "D:\\Workspace\\PowerGrid\\PowerGrid.Tests\\data\\";
+            var actualPath = "D:\\Workspace\\PowerGrid\\PowerGrid.Tests\\data\\actual\\";
+            var expectedPath = "D:\\Workspace\\PowerGrid\\PowerGrid.Tests\\data\\expected\\";
 
             Setup(gameState, cards, red, blue, green, yellow, purple, white);
             Round1(gameState, cards, red, blue, green, yellow, purple, white);
-            Game.ExportGameStateToJsonFile($"{dataPath}endofround1.json");
-            Assert.True(File.ReadLines($"{dataPath}endofround1.json").SequenceEqual(File.ReadLines($"{dataPath}endofround1expected.json")));
+            Game.ExportGameStateToJsonFile($"{actualPath}endofround1.json");
+            Assert.True(File.ReadLines($"{actualPath}endofround1.json").SequenceEqual(File.ReadLines($"{expectedPath}endofround1.json")));
             Round2(gameState, cards, red, blue, green, yellow, purple, white);
-            Game.ExportGameStateToJsonFile("D:\\Workspace\\PowerGrid\\PowerGrid.Tests\\data\\endofround2.json");
-            Assert.True(File.ReadLines($"{dataPath}endofround2.json").SequenceEqual(File.ReadLines($"{dataPath}endofround2expected.json")));
+            Game.ExportGameStateToJsonFile($"{actualPath}endofround2.json");
+            Assert.True(File.ReadLines($"{actualPath}endofround2.json").SequenceEqual(File.ReadLines($"{expectedPath}endofround2.json")));
             Round3(gameState, cards, red, blue, green, yellow, purple, white);
-            Game.ExportGameStateToJsonFile("D:\\Workspace\\PowerGrid\\PowerGrid.Tests\\data\\endofround3.json");
-            Assert.True(File.ReadLines($"{dataPath}endofround3.json").SequenceEqual(File.ReadLines($"{dataPath}endofround3expected.json"))); 
+            Game.ExportGameStateToJsonFile($"{actualPath}endofround3.json");
+            Assert.True(File.ReadLines($"{actualPath}endofround3.json").SequenceEqual(File.ReadLines($"{expectedPath}endofround3.json"))); 
             Round4(gameState, cards, red, blue, green, yellow, purple, white);
-            Game.ExportGameStateToJsonFile("D:\\Workspace\\PowerGrid\\PowerGrid.Tests\\data\\endofround4.json");
-            Assert.True(File.ReadLines($"{dataPath}endofround4.json").SequenceEqual(File.ReadLines($"{dataPath}endofround4expected.json"))); 
+            Game.ExportGameStateToJsonFile($"{actualPath}endofround4.json");
+            Assert.True(File.ReadLines($"{actualPath}endofround4.json").SequenceEqual(File.ReadLines($"{expectedPath}endofround4.json"))); 
             Round5(gameState, cards, red, blue, green, yellow, purple, white);
-            Game.ExportGameStateToJsonFile("D:\\Workspace\\PowerGrid\\PowerGrid.Tests\\data\\endofround5.json");
-            Assert.True(File.ReadLines($"{dataPath}endofround5.json").SequenceEqual(File.ReadLines($"{dataPath}endofround5expected.json"))); 
+            Game.ExportGameStateToJsonFile($"{actualPath}endofround5.json");
+            Assert.True(File.ReadLines($"{actualPath}endofround5.json").SequenceEqual(File.ReadLines($"{expectedPath}endofround5.json"))); 
             Round6(gameState, cards, red, blue, green, yellow, purple, white);
-            Game.ExportGameStateToJsonFile("D:\\Workspace\\PowerGrid\\PowerGrid.Tests\\data\\endofround6.json");
-            Assert.True(File.ReadLines($"{dataPath}endofround6.json").SequenceEqual(File.ReadLines($"{dataPath}endofround6expected.json"))); 
+            Game.ExportGameStateToJsonFile($"{actualPath}endofround6.json");
+            Assert.True(File.ReadLines($"{actualPath}endofround6.json").SequenceEqual(File.ReadLines($"{expectedPath}endofround6.json"))); 
             Round7(gameState, cards, red, blue, green, yellow, purple, white);
-            Game.ExportGameStateToJsonFile("D:\\Workspace\\PowerGrid\\PowerGrid.Tests\\data\\endofround7.json");
-            Assert.True(File.ReadLines($"{dataPath}endofround7.json").SequenceEqual(File.ReadLines($"{dataPath}endofround7expected.json")));
+            Game.ExportGameStateToJsonFile($"{actualPath}endofround7.json");
+            Assert.True(File.ReadLines($"{actualPath}endofround7.json").SequenceEqual(File.ReadLines($"{expectedPath}endofround7.json")));
         }
     
         private void Setup(GameState gameState, List<Card> cards, Player red, Player blue, Player green, Player yellow, Player purple, Player white)
@@ -106,6 +106,7 @@ namespace PowerGrid.Tests.BackEndLogic
             gameState.AuctionHouse.DrawPile.Add(cards.First(x => x.MinimumBid == 21));
             gameState.AuctionHouse.DrawPile.Add(cards.First(x => x.MinimumBid == 18));
 
+            Game.gameState = gameState;
             Game.AdvanceGame();
             var order = new List<Player>();
             var players = new List<Player>();

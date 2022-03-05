@@ -79,6 +79,10 @@ namespace PowerGrid
         public static LinkedList<Player> players = new LinkedList<Player>(new List<Player> {
                 new Player { Name = "Albert", Money = 50 },
                 new Player { Name = "Bruce", Money = 50 },
+                new Player { Name = "Charles", Money = 50 },
+                new Player { Name = "Dan", Money = 50 },
+                new Player { Name = "Eustache", Money = 50 },
+                new Player { Name = "Franz", Money = 50 },
         });
 
         public static ResourceMarket resourceMarket = new ResourceMarket

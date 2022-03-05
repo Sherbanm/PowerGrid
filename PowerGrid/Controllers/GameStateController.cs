@@ -10,12 +10,6 @@ namespace PowerGrid.Controllers
     [ApiController]
     public class GameStateController : ControllerBase
     {
-        [HttpGet]
-        public GameState Get()
-        {
-            return MockGameState.GetMockState();
-        }
-
         [Route("Advance")]
         [HttpPost]
         public string Advance()

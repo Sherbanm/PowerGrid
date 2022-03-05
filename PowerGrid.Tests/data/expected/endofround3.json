@@ -1,0 +1,6328 @@
+{
+  "players": [
+    {
+      "name": "Blue",
+      "cards": [
+        {
+          "minimumBid": 6,
+          "resource": 2,
+          "resourceCost": 1,
+          "generatorsPowered": 1,
+          "loadedResources": []
+        },
+        {
+          "minimumBid": 16,
+          "resource": 1,
+          "resourceCost": 2,
+          "generatorsPowered": 3,
+          "loadedResources": []
+        }
+      ],
+      "money": 68,
+      "resources": {
+        "availableresources": [
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "generators": 18
+    },
+    {
+      "name": "Red",
+      "cards": [
+        {
+          "minimumBid": 5,
+          "resource": 1,
+          "resourceCost": 2,
+          "generatorsPowered": 1,
+          "loadedResources": []
+        },
+        {
+          "minimumBid": 23,
+          "resource": 2,
+          "resourceCost": 2,
+          "generatorsPowered": 4,
+          "loadedResources": []
+        }
+      ],
+      "money": 56,
+      "resources": {
+        "availableresources": [
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "generators": 18
+    },
+    {
+      "name": "Purple",
+      "cards": [
+        {
+          "minimumBid": 14,
+          "resource": 1,
+          "resourceCost": 1,
+          "generatorsPowered": 2,
+          "loadedResources": []
+        },
+        {
+          "minimumBid": 11,
+          "resource": 4,
+          "resourceCost": 0,
+          "generatorsPowered": 1,
+          "loadedResources": []
+        },
+        {
+          "minimumBid": 13,
+          "resource": 3,
+          "resourceCost": 1,
+          "generatorsPowered": 2,
+          "loadedResources": []
+        }
+      ],
+      "money": 52,
+      "resources": {
+        "availableresources": [
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "generators": 19
+    },
+    {
+      "name": "Green",
+      "cards": [
+        {
+          "minimumBid": 15,
+          "resource": 0,
+          "resourceCost": 1,
+          "generatorsPowered": 2,
+          "loadedResources": []
+        },
+        {
+          "minimumBid": 7,
+          "resource": 0,
+          "resourceCost": 1,
+          "generatorsPowered": 1,
+          "loadedResources": []
+        },
+        {
+          "minimumBid": 30,
+          "resource": 2,
+          "resourceCost": 2,
+          "generatorsPowered": 5,
+          "loadedResources": []
+        }
+      ],
+      "money": 45,
+      "resources": {
+        "availableresources": [
+          1,
+          0,
+          0,
+          0
+        ]
+      },
+      "generators": 19
+    },
+    {
+      "name": "Yellow",
+      "cards": [
+        {
+          "minimumBid": 9,
+          "resource": 0,
+          "resourceCost": 3,
+          "generatorsPowered": 2,
+          "loadedResources": [
+            0,
+            0
+          ]
+        },
+        {
+          "minimumBid": 32,
+          "resource": 3,
+          "resourceCost": 2,
+          "generatorsPowered": 5,
+          "loadedResources": []
+        },
+        {
+          "minimumBid": 22,
+          "resource": 5,
+          "resourceCost": 3,
+          "generatorsPowered": 5,
+          "loadedResources": []
+        }
+      ],
+      "money": 14,
+      "resources": {
+        "availableresources": [
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "generators": 21
+    },
+    {
+      "name": "White",
+      "cards": [
+        {
+          "minimumBid": 12,
+          "resource": 0,
+          "resourceCost": 2,
+          "generatorsPowered": 2,
+          "loadedResources": []
+        },
+        {
+          "minimumBid": 31,
+          "resource": 4,
+          "resourceCost": 0,
+          "generatorsPowered": 4,
+          "loadedResources": []
+        }
+      ],
+      "money": 44,
+      "resources": {
+        "availableresources": [
+          1,
+          0,
+          0,
+          0
+        ]
+      },
+      "generators": 20
+    }
+  ],
+  "resourceMarket": {
+    "resources": {
+      "availableresources": [
+        23,
+        21,
+        20,
+        10
+      ]
+    }
+  },
+  "auctionHouse": {
+    "drawpile": [
+      {
+        "minimumBid": 28,
+        "resource": 4,
+        "resourceCost": 0,
+        "generatorsPowered": 3,
+        "loadedResources": []
+      },
+      {
+        "minimumBid": 38,
+        "resource": 2,
+        "resourceCost": 3,
+        "generatorsPowered": 6,
+        "loadedResources": []
+      },
+      {
+        "minimumBid": 44,
+        "resource": 4,
+        "resourceCost": 0,
+        "generatorsPowered": 6,
+        "loadedResources": []
+      },
+      {
+        "minimumBid": 36,
+        "resource": 4,
+        "resourceCost": 0,
+        "generatorsPowered": 5,
+        "loadedResources": []
+      },
+      {
+        "minimumBid": 24,
+        "resource": 4,
+        "resourceCost": 0,
+        "generatorsPowered": 3,
+        "loadedResources": []
+      },
+      {
+        "minimumBid": 26,
+        "resource": 1,
+        "resourceCost": 1,
+        "generatorsPowered": 4,
+        "loadedResources": []
+      },
+      {
+        "minimumBid": 29,
+        "resource": 0,
+        "resourceCost": 2,
+        "generatorsPowered": 5,
+        "loadedResources": []
+      },
+      {
+        "minimumBid": 50,
+        "resource": 3,
+        "resourceCost": 2,
+        "generatorsPowered": 7,
+        "loadedResources": []
+      },
+      {
+        "minimumBid": 17,
+        "resource": 4,
+        "resourceCost": 0,
+        "generatorsPowered": 2,
+        "loadedResources": []
+      },
+      {
+        "minimumBid": 33,
+        "resource": 0,
+        "resourceCost": 3,
+        "generatorsPowered": 6,
+        "loadedResources": []
+      },
+      {
+        "minimumBid": 27,
+        "resource": 0,
+        "resourceCost": 1,
+        "generatorsPowered": 4,
+        "loadedResources": []
+      },
+      {
+        "minimumBid": 20,
+        "resource": 0,
+        "resourceCost": 3,
+        "generatorsPowered": 4,
+        "loadedResources": []
+      },
+      {
+        "minimumBid": 21,
+        "resource": 3,
+        "resourceCost": 1,
+        "generatorsPowered": 3,
+        "loadedResources": []
+      },
+      {
+        "minimumBid": 18,
+        "resource": 2,
+        "resourceCost": 2,
+        "generatorsPowered": 3,
+        "loadedResources": []
+      }
+    ],
+    "step3drawpile": [
+      {
+        "minimumBid": 40,
+        "resource": 0,
+        "resourceCost": 2,
+        "generatorsPowered": 6,
+        "loadedResources": []
+      },
+      {
+        "minimumBid": 46,
+        "resource": 1,
+        "resourceCost": 2,
+        "generatorsPowered": 7,
+        "loadedResources": []
+      },
+      {
+        "minimumBid": 42,
+        "resource": 2,
+        "resourceCost": 2,
+        "generatorsPowered": 6,
+        "loadedResources": []
+      }
+    ],
+    "marketplace": [
+      {
+        "minimumBid": 8,
+        "resource": 5,
+        "resourceCost": 3,
+        "generatorsPowered": 2,
+        "loadedResources": []
+      },
+      {
+        "minimumBid": 10,
+        "resource": 2,
+        "resourceCost": 2,
+        "generatorsPowered": 2,
+        "loadedResources": []
+      },
+      {
+        "minimumBid": 19,
+        "resource": 1,
+        "resourceCost": 1,
+        "generatorsPowered": 3,
+        "loadedResources": []
+      },
+      {
+        "minimumBid": 25,
+        "resource": 0,
+        "resourceCost": 2,
+        "generatorsPowered": 5,
+        "loadedResources": []
+      },
+      {
+        "minimumBid": 34,
+        "resource": 1,
+        "resourceCost": 3,
+        "generatorsPowered": 6,
+        "loadedResources": []
+      },
+      {
+        "minimumBid": 35,
+        "resource": 5,
+        "resourceCost": 2,
+        "generatorsPowered": 5,
+        "loadedResources": []
+      },
+      {
+        "minimumBid": 37,
+        "resource": 3,
+        "resourceCost": 2,
+        "generatorsPowered": 6,
+        "loadedResources": []
+      },
+      {
+        "minimumBid": 39,
+        "resource": 1,
+        "resourceCost": 2,
+        "generatorsPowered": 6,
+        "loadedResources": []
+      }
+    ],
+    "playerswhopassedauction": [],
+    "playerswhopassedphase": [],
+    "playerwhobought": [],
+    "currentbid": 0,
+    "currentbidplayer": null,
+    "currentauctioncard": null
+  },
+  "map": {
+    "connections": [
+      {
+        "id": "0",
+        "cityB": {
+          "id": "0",
+          "generators": [
+            {
+              "name": "Green",
+              "cards": [
+                {
+                  "minimumBid": 15,
+                  "resource": 0,
+                  "resourceCost": 1,
+                  "generatorsPowered": 2,
+                  "loadedResources": []
+                },
+                {
+                  "minimumBid": 7,
+                  "resource": 0,
+                  "resourceCost": 1,
+                  "generatorsPowered": 1,
+                  "loadedResources": []
+                },
+                {
+                  "minimumBid": 30,
+                  "resource": 2,
+                  "resourceCost": 2,
+                  "generatorsPowered": 5,
+                  "loadedResources": []
+                }
+              ],
+              "money": 45,
+              "resources": {
+                "availableresources": [
+                  1,
+                  0,
+                  0,
+                  0
+                ]
+              },
+              "generators": 19
+            }
+          ],
+          "name": "Vancouver",
+          "region": "yellow",
+          "build": false
+        },
+        "cityA": {
+          "id": "1",
+          "generators": [],
+          "name": "Calgary",
+          "region": "yellow",
+          "build": false
+        },
+        "cost": 16
+      },
+      {
+        "id": "1",
+        "cityB": {
+          "id": "0",
+          "generators": [
+            {
+              "name": "Green",
+              "cards": [
+                {
+                  "minimumBid": 15,
+                  "resource": 0,
+                  "resourceCost": 1,
+                  "generatorsPowered": 2,
+                  "loadedResources": []
+                },
+                {
+                  "minimumBid": 7,
+                  "resource": 0,
+                  "resourceCost": 1,
+                  "generatorsPowered": 1,
+                  "loadedResources": []
+                },
+                {
+                  "minimumBid": 30,
+                  "resource": 2,
+                  "resourceCost": 2,
+                  "generatorsPowered": 5,
+                  "loadedResources": []
+                }
+              ],
+              "money": 45,
+              "resources": {
+                "availableresources": [
+                  1,
+                  0,
+                  0,
+                  0
+                ]
+              },
+              "generators": 19
+            }
+          ],
+          "name": "Vancouver",
+          "region": "yellow",
+          "build": false
+        },
+        "cityA": {
+          "id": "4",
+          "generators": [
+            {
+              "name": "Green",
+              "cards": [
+                {
+                  "minimumBid": 15,
+                  "resource": 0,
+                  "resourceCost": 1,
+                  "generatorsPowered": 2,
+                  "loadedResources": []
+                },
+                {
+                  "minimumBid": 7,
+                  "resource": 0,
+                  "resourceCost": 1,
+                  "generatorsPowered": 1,
+                  "loadedResources": []
+                },
+                {
+                  "minimumBid": 30,
+                  "resource": 2,
+                  "resourceCost": 2,
+                  "generatorsPowered": 5,
+                  "loadedResources": []
+                }
+              ],
+              "money": 45,
+              "resources": {
+                "availableresources": [
+                  1,
+                  0,
+                  0,
+                  0
+                ]
+              },
+              "generators": 19
+            }
+          ],
+          "name": "Seattle",
+          "region": "yellow",
+          "build": false
+        },
+        "cost": 4
+      },
+      {
+        "id": "2",
+        "cityB": {
+          "id": "0",
+          "generators": [
+            {
+              "name": "Green",
+              "cards": [
+                {
+                  "minimumBid": 15,
+                  "resource": 0,
+                  "resourceCost": 1,
+                  "generatorsPowered": 2,
+                  "loadedResources": []
+                },
+                {
+                  "minimumBid": 7,
+                  "resource": 0,
+                  "resourceCost": 1,
+                  "generatorsPowered": 1,
+                  "loadedResources": []
+                },
+                {
+                  "minimumBid": 30,
+                  "resource": 2,
+                  "resourceCost": 2,
+                  "generatorsPowered": 5,
+                  "loadedResources": []
+                }
+              ],
+              "money": 45,
+              "resources": {
+                "availableresources": [
+                  1,
+                  0,
+                  0,
+                  0
+                ]
+              },
+              "generators": 19
+            }
+          ],
+          "name": "Vancouver",
+          "region": "yellow",
+          "build": false
+        },
+        "cityA": {
+          "id": "3",
+          "generators": [],
+          "name": "Regina",
+          "region": "yellow",
+          "build": false
+        },
+        "cost": 28
+      },
+      {
+        "id": "3",
+        "cityB": {
+          "id": "1",
+          "generators": [],
+          "name": "Calgary",
+          "region": "yellow",
+          "build": false
+        },
+        "cityA": {
+          "id": "2",
+          "generators": [],
+          "name": "Edmonton",
+          "region": "yellow",
+          "build": false
+        },
+        "cost": 5
+      },
+      {
+        "id": "4",
+        "cityB": {
+          "id": "1",
+          "generators": [],
+          "name": "Calgary",
+          "region": "yellow",
+          "build": false
+        },
+        "cityA": {
+          "id": "3",
+          "generators": [],
+          "name": "Regina",
+          "region": "yellow",
+          "build": false
+        },
+        "cost": 14
+      },
+      {
+        "id": "5",
+        "cityB": {
+          "id": "2",
+          "generators": [],
+          "name": "Edmonton",
+          "region": "yellow",
+          "build": false
+        },
+        "cityA": {
+          "id": "3",
+          "generators": [],
+          "name": "Regina",
+          "region": "yellow",
+          "build": false
+        },
+        "cost": 15
+      },
+      {
+        "id": "6",
+        "cityB": {
+          "id": "3",
+          "generators": [],
+          "name": "Regina",
+          "region": "yellow",
+          "build": false
+        },
+        "cityA": {
+          "id": "12",
+          "generators": [],
+          "name": "Salt_Lake_City",
+          "region": "blue",
+          "build": false
+        },
+        "cost": 29
+      },
+      {
+        "id": "7",
+        "cityB": {
+          "id": "3",
+          "generators": [],
+          "name": "Regina",
+          "region": "yellow",
+          "build": false
+        },
+        "cityA": {
+          "id": "13",
+          "generators": [],
+          "name": "Denver",
+          "region": "blue",
+          "build": false
+        },
+        "cost": 24
+      },
+      {
+        "id": "8",
+        "cityB": {
+          "id": "3",
+          "generators": [],
+          "name": "Regina",
+          "region": "yellow",
+          "build": false
+        },
+        "cityA": {
+          "id": "5",
+          "generators": [],
+          "name": "Winnipeg",
+          "region": "yellow",
+          "build": false
+        },
+        "cost": 11
+      },
+      {
+        "id": "9",
+        "cityB": {
+          "id": "5",
+          "generators": [],
+          "name": "Winnipeg",
+          "region": "yellow",
+          "build": false
+        },
+        "cityA": {
+          "id": "13",
+          "generators": [],
+          "name": "Denver",
+          "region": "blue",
+          "build": false
+        },
+        "cost": 26
+      },
+      {
+        "id": "10",
+        "cityB": {
+          "id": "5",
+          "generators": [],
+          "name": "Winnipeg",
+          "region": "yellow",
+          "build": false
+        },
+        "cityA": {
+          "id": "6",
+          "generators": [
+            {
+              "name": "Red",
+              "cards": [
+                {
+                  "minimumBid": 5,
+                  "resource": 1,
+                  "resourceCost": 2,
+                  "generatorsPowered": 1,
+                  "loadedResources": []
+                },
+                {
+                  "minimumBid": 23,
+                  "resource": 2,
+                  "resourceCost": 2,
+                  "generatorsPowered": 4,
+                  "loadedResources": []
+                }
+              ],
+              "money": 56,
+              "resources": {
+                "availableresources": [
+                  0,
+                  0,
+                  0,
+                  0
+                ]
+              },
+              "generators": 18
+            }
+          ],
+          "name": "Minneapolis",
+          "region": "yellow",
+          "build": false
+        },
+        "cost": 13
+      },
+      {
+        "id": "11",
+        "cityB": {
+          "id": "6",
+          "generators": [
+            {
+              "name": "Red",
+              "cards": [
+                {
+                  "minimumBid": 5,
+                  "resource": 1,
+                  "resourceCost": 2,
+                  "generatorsPowered": 1,
+                  "loadedResources": []
+                },
+                {
+                  "minimumBid": 23,
+                  "resource": 2,
+                  "resourceCost": 2,
+                  "generatorsPowered": 4,
+                  "loadedResources": []
+                }
+              ],
+              "money": 56,
+              "resources": {
+                "availableresources": [
+                  0,
+                  0,
+                  0,
+                  0
+                ]
+              },
+              "generators": 18
+            }
+          ],
+          "name": "Minneapolis",
+          "region": "yellow",
+          "build": false
+        },
+        "cityA": {
+          "id": "42",
+          "generators": [
+            {
+              "name": "Red",
+              "cards": [
+                {
+                  "minimumBid": 5,
+                  "resource": 1,
+                  "resourceCost": 2,
+                  "generatorsPowered": 1,
+                  "loadedResources": []
+                },
+                {
+                  "minimumBid": 23,
+                  "resource": 2,
+                  "resourceCost": 2,
+                  "generatorsPowered": 4,
+                  "loadedResources": []
+                }
+              ],
+              "money": 56,
+              "resources": {
+                "availableresources": [
+                  0,
+                  0,
+                  0,
+                  0
+                ]
+              },
+              "generators": 18
+            }
+          ],
+          "name": "Milwaukee",
+          "region": "olive",
+          "build": false
+        },
+        "cost": 10
+      },
+      {
+        "id": "12",
+        "cityB": {
+          "id": "6",
+          "generators": [
+            {
+              "name": "Red",
+              "cards": [
+                {
+                  "minimumBid": 5,
+                  "resource": 1,
+                  "resourceCost": 2,
+                  "generatorsPowered": 1,
+                  "loadedResources": []
+                },
+                {
+                  "minimumBid": 23,
+                  "resource": 2,
+                  "resourceCost": 2,
+                  "generatorsPowered": 4,
+                  "loadedResources": []
+                }
+              ],
+              "money": 56,
+              "resources": {
+                "availableresources": [
+                  0,
+                  0,
+                  0,
+                  0
+                ]
+              },
+              "generators": 18
+            }
+          ],
+          "name": "Minneapolis",
+          "region": "yellow",
+          "build": false
+        },
+        "cityA": {
+          "id": "48",
+          "generators": [
+            {
+              "name": "Purple",
+              "cards": [
+                {
+                  "minimumBid": 14,
+                  "resource": 1,
+                  "resourceCost": 1,
+                  "generatorsPowered": 2,
+                  "loadedResources": []
+                },
+                {
+                  "minimumBid": 11,
+                  "resource": 4,
+                  "resourceCost": 0,
+                  "generatorsPowered": 1,
+                  "loadedResources": []
+                },
+                {
+                  "minimumBid": 13,
+                  "resource": 3,
+                  "resourceCost": 1,
+                  "generatorsPowered": 2,
+                  "loadedResources": []
+                }
+              ],
+              "money": 52,
+              "resources": {
+                "availableresources": [
+                  0,
+                  0,
+                  0,
+                  0
+                ]
+              },
+              "generators": 19
+            }
+          ],
+          "name": "Kansas_City",
+          "region": "olive",
+          "build": false
+        },
+        "cost": 14
+      },
+      {
+        "id": "13",
+        "cityB": {
+          "id": "6",
+          "generators": [
+            {
+              "name": "Red",
+              "cards": [
+                {
+                  "minimumBid": 5,
+                  "resource": 1,
+                  "resourceCost": 2,
+                  "generatorsPowered": 1,
+                  "loadedResources": []
+                },
+                {
+                  "minimumBid": 23,
+                  "resource": 2,
+                  "resourceCost": 2,
+                  "generatorsPowered": 4,
+                  "loadedResources": []
+                }
+              ],
+              "money": 56,
+              "resources": {
+                "availableresources": [
+                  0,
+                  0,
+                  0,
+                  0
+                ]
+              },
+              "generators": 18
+            }
+          ],
+          "name": "Minneapolis",
+          "region": "yellow",
+          "build": false
+        },
+        "cityA": {
+          "id": "13",
+          "generators": [],
+          "name": "Denver",
+          "region": "blue",
+          "build": false
+        },
+        "cost": 23
+      },
+      {
+        "id": "14",
+        "cityB": {
+          "id": "4",
+          "generators": [
+            {
+              "name": "Green",
+              "cards": [
+                {
+                  "minimumBid": 15,
+                  "resource": 0,
+                  "resourceCost": 1,
+                  "generatorsPowered": 2,
+                  "loadedResources": []
+                },
+                {
+                  "minimumBid": 7,
+                  "resource": 0,
+                  "resourceCost": 1,
+                  "generatorsPowered": 1,
+                  "loadedResources": []
+                },
+                {
+                  "minimumBid": 30,
+                  "resource": 2,
+                  "resourceCost": 2,
+                  "generatorsPowered": 5,
+                  "loadedResources": []
+                }
+              ],
+              "money": 45,
+              "resources": {
+                "availableresources": [
+                  1,
+                  0,
+                  0,
+                  0
+                ]
+              },
+              "generators": 19
+            }
+          ],
+          "name": "Seattle",
+          "region": "yellow",
+          "build": false
+        },
+        "cityA": {
+          "id": "7",
+          "generators": [
+            {
+              "name": "Green",
+              "cards": [
+                {
+                  "minimumBid": 15,
+                  "resource": 0,
+                  "resourceCost": 1,
+                  "generatorsPowered": 2,
+                  "loadedResources": []
+                },
+                {
+                  "minimumBid": 7,
+                  "resource": 0,
+                  "resourceCost": 1,
+                  "generatorsPowered": 1,
+                  "loadedResources": []
+                },
+                {
+                  "minimumBid": 30,
+                  "resource": 2,
+                  "resourceCost": 2,
+                  "generatorsPowered": 5,
+                  "loadedResources": []
+                }
+              ],
+              "money": 45,
+              "resources": {
+                "availableresources": [
+                  1,
+                  0,
+                  0,
+                  0
+                ]
+              },
+              "generators": 19
+            }
+          ],
+          "name": "Portland",
+          "region": "blue",
+          "build": false
+        },
+        "cost": 5
+      },
+      {
+        "id": "15",
+        "cityB": {
+          "id": "7",
+          "generators": [
+            {
+              "name": "Green",
+              "cards": [
+                {
+                  "minimumBid": 15,
+                  "resource": 0,
+                  "resourceCost": 1,
+                  "generatorsPowered": 2,
+                  "loadedResources": []
+                },
+                {
+                  "minimumBid": 7,
+                  "resource": 0,
+                  "resourceCost": 1,
+                  "generatorsPowered": 1,
+                  "loadedResources": []
+                },
+                {
+                  "minimumBid": 30,
+                  "resource": 2,
+                  "resourceCost": 2,
+                  "generatorsPowered": 5,
+                  "loadedResources": []
+                }
+              ],
+              "money": 45,
+              "resources": {
+                "availableresources": [
+                  1,
+                  0,
+                  0,
+                  0
+                ]
+              },
+              "generators": 19
+            }
+          ],
+          "name": "Portland",
+          "region": "blue",
+          "build": false
+        },
+        "cityA": {
+          "id": "12",
+          "generators": [],
+          "name": "Salt_Lake_City",
+          "region": "blue",
+          "build": false
+        },
+        "cost": 22
+      },
+      {
+        "id": "16",
+        "cityB": {
+          "id": "7",
+          "generators": [
+            {
+              "name": "Green",
+              "cards": [
+                {
+                  "minimumBid": 15,
+                  "resource": 0,
+                  "resourceCost": 1,
+                  "generatorsPowered": 2,
+                  "loadedResources": []
+                },
+                {
+                  "minimumBid": 7,
+                  "resource": 0,
+                  "resourceCost": 1,
+                  "generatorsPowered": 1,
+                  "loadedResources": []
+                },
+                {
+                  "minimumBid": 30,
+                  "resource": 2,
+                  "resourceCost": 2,
+                  "generatorsPowered": 5,
+                  "loadedResources": []
+                }
+              ],
+              "money": 45,
+              "resources": {
+                "availableresources": [
+                  1,
+                  0,
+                  0,
+                  0
+                ]
+              },
+              "generators": 19
+            }
+          ],
+          "name": "Portland",
+          "region": "blue",
+          "build": false
+        },
+        "cityA": {
+          "id": "8",
+          "generators": [
+            {
+              "name": "Blue",
+              "cards": [
+                {
+                  "minimumBid": 6,
+                  "resource": 2,
+                  "resourceCost": 1,
+                  "generatorsPowered": 1,
+                  "loadedResources": []
+                },
+                {
+                  "minimumBid": 16,
+                  "resource": 1,
+                  "resourceCost": 2,
+                  "generatorsPowered": 3,
+                  "loadedResources": []
+                }
+              ],
+              "money": 68,
+              "resources": {
+                "availableresources": [
+                  0,
+                  0,
+                  0,
+                  0
+                ]
+              },
+              "generators": 18
+            }
+          ],
+          "name": "San_Francisco",
+          "region": "blue",
+          "build": false
+        },
+        "cost": 20
+      },
+      {
+        "id": "17",
+        "cityB": {
+          "id": "12",
+          "generators": [],
+          "name": "Salt_Lake_City",
+          "region": "blue",
+          "build": false
+        },
+        "cityA": {
+          "id": "13",
+          "generators": [],
+          "name": "Denver",
+          "region": "blue",
+          "build": false
+        },
+        "cost": 14
+      },
+      {
+        "id": "18",
+        "cityB": {
+          "id": "12",
+          "generators": [],
+          "name": "Salt_Lake_City",
+          "region": "blue",
+          "build": false
+        },
+        "cityA": {
+          "id": "11",
+          "generators": [
+            {
+              "name": "Blue",
+              "cards": [
+                {
+                  "minimumBid": 6,
+                  "resource": 2,
+                  "resourceCost": 1,
+                  "generatorsPowered": 1,
+                  "loadedResources": []
+                },
+                {
+                  "minimumBid": 16,
+                  "resource": 1,
+                  "resourceCost": 2,
+                  "generatorsPowered": 3,
+                  "loadedResources": []
+                }
+              ],
+              "money": 68,
+              "resources": {
+                "availableresources": [
+                  0,
+                  0,
+                  0,
+                  0
+                ]
+              },
+              "generators": 18
+            }
+          ],
+          "name": "Las_Vegas",
+          "region": "blue",
+          "build": false
+        },
+        "cost": 14
+      },
+      {
+        "id": "19",
+        "cityB": {
+          "id": "12",
+          "generators": [],
+          "name": "Salt_Lake_City",
+          "region": "blue",
+          "build": false
+        },
+        "cityA": {
+          "id": "8",
+          "generators": [
+            {
+              "name": "Blue",
+              "cards": [
+                {
+                  "minimumBid": 6,
+                  "resource": 2,
+                  "resourceCost": 1,
+                  "generatorsPowered": 1,
+                  "loadedResources": []
+                },
+                {
+                  "minimumBid": 16,
+                  "resource": 1,
+                  "resourceCost": 2,
+                  "generatorsPowered": 3,
+                  "loadedResources": []
+                }
+              ],
+              "money": 68,
+              "resources": {
+                "availableresources": [
+                  0,
+                  0,
+                  0,
+                  0
+                ]
+              },
+              "generators": 18
+            }
+          ],
+          "name": "San_Francisco",
+          "region": "blue",
+          "build": false
+        },
+        "cost": 22
+      },
+      {
+        "id": "20",
+        "cityB": {
+          "id": "13",
+          "generators": [],
+          "name": "Denver",
+          "region": "blue",
+          "build": false
+        },
+        "cityA": {
+          "id": "48",
+          "generators": [
+            {
+              "name": "Purple",
+              "cards": [
+                {
+                  "minimumBid": 14,
+                  "resource": 1,
+                  "resourceCost": 1,
+                  "generatorsPowered": 2,
+                  "loadedResources": []
+                },
+                {
+                  "minimumBid": 11,
+                  "resource": 4,
+                  "resourceCost": 0,
+                  "generatorsPowered": 1,
+                  "loadedResources": []
+                },
+                {
+                  "minimumBid": 13,
+                  "resource": 3,
+                  "resourceCost": 1,
+                  "generatorsPowered": 2,
+                  "loadedResources": []
+                }
+              ],
+              "money": 52,
+              "resources": {
+                "availableresources": [
+                  0,
+                  0,
+                  0,
+                  0
+                ]
+              },
+              "generators": 19
+            }
+          ],
+          "name": "Kansas_City",
+          "region": "olive",
+          "build": false
+        },
+        "cost": 19
+      },
+      {
+        "id": "21",
+        "cityB": {
+          "id": "13",
+          "generators": [],
+          "name": "Denver",
+          "region": "blue",
+          "build": false
+        },
+        "cityA": {
+          "id": "47",
+          "generators": [],
+          "name": "Oklahoma_City",
+          "region": "olive",
+          "build": false
+        },
+        "cost": 17
+      },
+      {
+        "id": "22",
+        "cityB": {
+          "id": "13",
+          "generators": [],
+          "name": "Denver",
+          "region": "blue",
+          "build": false
+        },
+        "cityA": {
+          "id": "14",
+          "generators": [],
+          "name": "Albuquerque",
+          "region": "purple",
+          "build": false
+        },
+        "cost": 12
+      },
+      {
+        "id": "23",
+        "cityB": {
+          "id": "13",
+          "generators": [],
+          "name": "Denver",
+          "region": "blue",
+          "build": false
+        },
+        "cityA": {
+          "id": "11",
+          "generators": [
+            {
+              "name": "Blue",
+              "cards": [
+                {
+                  "minimumBid": 6,
+                  "resource": 2,
+                  "resourceCost": 1,
+                  "generatorsPowered": 1,
+                  "loadedResources": []
+                },
+                {
+                  "minimumBid": 16,
+                  "resource": 1,
+                  "resourceCost": 2,
+                  "generatorsPowered": 3,
+                  "loadedResources": []
+                }
+              ],
+              "money": 68,
+              "resources": {
+                "availableresources": [
+                  0,
+                  0,
+                  0,
+                  0
+                ]
+              },
+              "generators": 18
+            }
+          ],
+          "name": "Las_Vegas",
+          "region": "blue",
+          "build": false
+        },
+        "cost": 25
+      },
+      {
+        "id": "24",
+        "cityB": {
+          "id": "11",
+          "generators": [
+            {
+              "name": "Blue",
+              "cards": [
+                {
+                  "minimumBid": 6,
+                  "resource": 2,
+                  "resourceCost": 1,
+                  "generatorsPowered": 1,
+                  "loadedResources": []
+                },
+                {
+                  "minimumBid": 16,
+                  "resource": 1,
+                  "resourceCost": 2,
+                  "generatorsPowered": 3,
+                  "loadedResources": []
+                }
+              ],
+              "money": 68,
+              "resources": {
+                "availableresources": [
+                  0,
+                  0,
+                  0,
+                  0
+                ]
+              },
+              "generators": 18
+            }
+          ],
+          "name": "Las_Vegas",
+          "region": "blue",
+          "build": false
+        },
+        "cityA": {
+          "id": "10",
+          "generators": [
+            {
+              "name": "Blue",
+              "cards": [
+                {
+                  "minimumBid": 6,
+                  "resource": 2,
+                  "resourceCost": 1,
+                  "generatorsPowered": 1,
+                  "loadedResources": []
+                },
+                {
+                  "minimumBid": 16,
+                  "resource": 1,
+                  "resourceCost": 2,
+                  "generatorsPowered": 3,
+                  "loadedResources": []
+                }
+              ],
+              "money": 68,
+              "resources": {
+                "availableresources": [
+                  0,
+                  0,
+                  0,
+                  0
+                ]
+              },
+              "generators": 18
+            }
+          ],
+          "name": "Los_Angeles",
+          "region": "blue",
+          "build": false
+        },
+        "cost": 8
+      },
+      {
+        "id": "25",
+        "cityB": {
+          "id": "11",
+          "generators": [
+            {
+              "name": "Blue",
+              "cards": [
+                {
+                  "minimumBid": 6,
+                  "resource": 2,
+                  "resourceCost": 1,
+                  "generatorsPowered": 1,
+                  "loadedResources": []
+                },
+                {
+                  "minimumBid": 16,
+                  "resource": 1,
+                  "resourceCost": 2,
+                  "generatorsPowered": 3,
+                  "loadedResources": []
+                }
+              ],
+              "money": 68,
+              "resources": {
+                "availableresources": [
+                  0,
+                  0,
+                  0,
+                  0
+                ]
+              },
+              "generators": 18
+            }
+          ],
+          "name": "Las_Vegas",
+          "region": "blue",
+          "build": false
+        },
+        "cityA": {
+          "id": "8",
+          "generators": [
+            {
+              "name": "Blue",
+              "cards": [
+                {
+                  "minimumBid": 6,
+                  "resource": 2,
+                  "resourceCost": 1,
+                  "generatorsPowered": 1,
+                  "loadedResources": []
+                },
+                {
+                  "minimumBid": 16,
+                  "resource": 1,
+                  "resourceCost": 2,
+                  "generatorsPowered": 3,
+                  "loadedResources": []
+                }
+              ],
+              "money": 68,
+              "resources": {
+                "availableresources": [
+                  0,
+                  0,
+                  0,
+                  0
+                ]
+              },
+              "generators": 18
+            }
+          ],
+          "name": "San_Francisco",
+          "region": "blue",
+          "build": false
+        },
+        "cost": 12
+      },
+      {
+        "id": "26",
+        "cityB": {
+          "id": "11",
+          "generators": [
+            {
+              "name": "Blue",
+              "cards": [
+                {
+                  "minimumBid": 6,
+                  "resource": 2,
+                  "resourceCost": 1,
+                  "generatorsPowered": 1,
+                  "loadedResources": []
+                },
+                {
+                  "minimumBid": 16,
+                  "resource": 1,
+                  "resourceCost": 2,
+                  "generatorsPowered": 3,
+                  "loadedResources": []
+                }
+              ],
+              "money": 68,
+              "resources": {
+                "availableresources": [
+                  0,
+                  0,
+                  0,
+                  0
+                ]
+              },
+              "generators": 18
+            }
+          ],
+          "name": "Las_Vegas",
+          "region": "blue",
+          "build": false
+        },
+        "cityA": {
+          "id": "14",
+          "generators": [],
+          "name": "Albuquerque",
+          "region": "purple",
+          "build": false
+        },
+        "cost": 18
+      },
+      {
+        "id": "27",
+        "cityB": {
+          "id": "8",
+          "generators": [
+            {
+              "name": "Blue",
+              "cards": [
+                {
+                  "minimumBid": 6,
+                  "resource": 2,
+                  "resourceCost": 1,
+                  "generatorsPowered": 1,
+                  "loadedResources": []
+                },
+                {
+                  "minimumBid": 16,
+                  "resource": 1,
+                  "resourceCost": 2,
+                  "generatorsPowered": 3,
+                  "loadedResources": []
+                }
+              ],
+              "money": 68,
+              "resources": {
+                "availableresources": [
+                  0,
+                  0,
+                  0,
+                  0
+                ]
+              },
+              "generators": 18
+            }
+          ],
+          "name": "San_Francisco",
+          "region": "blue",
+          "build": false
+        },
+        "cityA": {
+          "id": "10",
+          "generators": [
+            {
+              "name": "Blue",
+              "cards": [
+                {
+                  "minimumBid": 6,
+                  "resource": 2,
+                  "resourceCost": 1,
+                  "generatorsPowered": 1,
+                  "loadedResources": []
+                },
+                {
+                  "minimumBid": 16,
+                  "resource": 1,
+                  "resourceCost": 2,
+                  "generatorsPowered": 3,
+                  "loadedResources": []
+                }
+              ],
+              "money": 68,
+              "resources": {
+                "availableresources": [
+                  0,
+                  0,
+                  0,
+                  0
+                ]
+              },
+              "generators": 18
+            }
+          ],
+          "name": "Los_Angeles",
+          "region": "blue",
+          "build": false
+        },
+        "cost": 12
+      },
+      {
+        "id": "28",
+        "cityB": {
+          "id": "10",
+          "generators": [
+            {
+              "name": "Blue",
+              "cards": [
+                {
+                  "minimumBid": 6,
+                  "resource": 2,
+                  "resourceCost": 1,
+                  "generatorsPowered": 1,
+                  "loadedResources": []
+                },
+                {
+                  "minimumBid": 16,
+                  "resource": 1,
+                  "resourceCost": 2,
+                  "generatorsPowered": 3,
+                  "loadedResources": []
+                }
+              ],
+              "money": 68,
+              "resources": {
+                "availableresources": [
+                  0,
+                  0,
+                  0,
+                  0
+                ]
+              },
+              "generators": 18
+            }
+          ],
+          "name": "Los_Angeles",
+          "region": "blue",
+          "build": false
+        },
+        "cityA": {
+          "id": "9",
+          "generators": [
+            {
+              "name": "Blue",
+              "cards": [
+                {
+                  "minimumBid": 6,
+                  "resource": 2,
+                  "resourceCost": 1,
+                  "generatorsPowered": 1,
+                  "loadedResources": []
+                },
+                {
+                  "minimumBid": 16,
+                  "resource": 1,
+                  "resourceCost": 2,
+                  "generatorsPowered": 3,
+                  "loadedResources": []
+                }
+              ],
+              "money": 68,
+              "resources": {
+                "availableresources": [
+                  0,
+                  0,
+                  0,
+                  0
+                ]
+              },
+              "generators": 18
+            }
+          ],
+          "name": "San_Diego",
+          "region": "blue",
+          "build": false
+        },
+        "cost": 3
+      },
+      {
+        "id": "29",
+        "cityB": {
+          "id": "10",
+          "generators": [
+            {
+              "name": "Blue",
+              "cards": [
+                {
+                  "minimumBid": 6,
+                  "resource": 2,
+                  "resourceCost": 1,
+                  "generatorsPowered": 1,
+                  "loadedResources": []
+                },
+                {
+                  "minimumBid": 16,
+                  "resource": 1,
+                  "resourceCost": 2,
+                  "generatorsPowered": 3,
+                  "loadedResources": []
+                }
+              ],
+              "money": 68,
+              "resources": {
+                "availableresources": [
+                  0,
+                  0,
+                  0,
+                  0
+                ]
+              },
+              "generators": 18
+            }
+          ],
+          "name": "Los_Angeles",
+          "region": "blue",
+          "build": false
+        },
+        "cityA": {
+          "id": "14",
+          "generators": [],
+          "name": "Albuquerque",
+          "region": "purple",
+          "build": false
+        },
+        "cost": 25
+      },
+      {
+        "id": "30",
+        "cityB": {
+          "id": "9",
+          "generators": [
+            {
+              "name": "Blue",
+              "cards": [
+                {
+                  "minimumBid": 6,
+                  "resource": 2,
+                  "resourceCost": 1,
+                  "generatorsPowered": 1,
+                  "loadedResources": []
+                },
+                {
+                  "minimumBid": 16,
+                  "resource": 1,
+                  "resourceCost": 2,
+                  "generatorsPowered": 3,
+                  "loadedResources": []
+                }
+              ],
+              "money": 68,
+              "resources": {
+                "availableresources": [
+                  0,
+                  0,
+                  0,
+                  0
+                ]
+              },
+              "generators": 18
+            }
+          ],
+          "name": "San_Diego",
+          "region": "blue",
+          "build": false
+        },
+        "cityA": {
+          "id": "15",
+          "generators": [],
+          "name": "Juarez",
+          "region": "purple",
+          "build": false
+        },
+        "cost": 22
+      },
+      {
+        "id": "31",
+        "cityB": {
+          "id": "14",
+          "generators": [],
+          "name": "Albuquerque",
+          "region": "purple",
+          "build": false
+        },
+        "cityA": {
+          "id": "15",
+          "generators": [],
+          "name": "Juarez",
+          "region": "purple",
+          "build": false
+        },
+        "cost": 9
+      },
+      {
+        "id": "32",
+        "cityB": {
+          "id": "14",
+          "generators": [],
+          "name": "Albuquerque",
+          "region": "purple",
+          "build": false
+        },
+        "cityA": {
+          "id": "47",
+          "generators": [],
+          "name": "Oklahoma_City",
+          "region": "olive",
+          "build": false
+        },
+        "cost": 18
+      },
+      {
+        "id": "33",
+        "cityB": {
+          "id": "15",
+          "generators": [],
+          "name": "Juarez",
+          "region": "purple",
+          "build": false
+        },
+        "cityA": {
+          "id": "21",
+          "generators": [],
+          "name": "Fort_Worth",
+          "region": "orange",
+          "build": false
+        },
+        "cost": 19
+      },
+      {
+        "id": "34",
+        "cityB": {
+          "id": "15",
+          "generators": [],
+          "name": "Juarez",
+          "region": "purple",
+          "build": false
+        },
+        "cityA": {
+          "id": "22",
+          "generators": [],
+          "name": "San_Antonio",
+          "region": "orange",
+          "build": false
+        },
+        "cost": 18
+      },
+      {
+        "id": "35",
+        "cityB": {
+          "id": "15",
+          "generators": [],
+          "name": "Juarez",
+          "region": "purple",
+          "build": false
+        },
+        "cityA": {
+          "id": "16",
+          "generators": [],
+          "name": "Chihuahua",
+          "region": "purple",
+          "build": false
+        },
+        "cost": 8
+      },
+      {
+        "id": "36",
+        "cityB": {
+          "id": "16",
+          "generators": [],
+          "name": "Chihuahua",
+          "region": "purple",
+          "build": false
+        },
+        "cityA": {
+          "id": "22",
+          "generators": [],
+          "name": "San_Antonio",
+          "region": "orange",
+          "build": false
+        },
+        "cost": 16
+      },
+      {
+        "id": "37",
+        "cityB": {
+          "id": "16",
+          "generators": [],
+          "name": "Chihuahua",
+          "region": "purple",
+          "build": false
+        },
+        "cityA": {
+          "id": "17",
+          "generators": [],
+          "name": "Monterrey",
+          "region": "purple",
+          "build": false
+        },
+        "cost": 14
+      },
+      {
+        "id": "38",
+        "cityB": {
+          "id": "16",
+          "generators": [],
+          "name": "Chihuahua",
+          "region": "purple",
+          "build": false
+        },
+        "cityA": {
+          "id": "18",
+          "generators": [],
+          "name": "Guadalajara",
+          "region": "purple",
+          "build": false
+        },
+        "cost": 23
+      },
+      {
+        "id": "39",
+        "cityB": {
+          "id": "18",
+          "generators": [],
+          "name": "Guadalajara",
+          "region": "purple",
+          "build": false
+        },
+        "cityA": {
+          "id": "17",
+          "generators": [],
+          "name": "Monterrey",
+          "region": "purple",
+          "build": false
+        },
+        "cost": 16
+      },
+      {
+        "id": "40",
+        "cityB": {
+          "id": "18",
+          "generators": [],
+          "name": "Guadalajara",
+          "region": "purple",
+          "build": false
+        },
+        "cityA": {
+          "id": "19",
+          "generators": [
+            {
+              "name": "Yellow",
+              "cards": [
+                {
+                  "minimumBid": 9,
+                  "resource": 0,
+                  "resourceCost": 3,
+                  "generatorsPowered": 2,
+                  "loadedResources": [
+                    0,
+                    0
+                  ]
+                },
+                {
+                  "minimumBid": 32,
+                  "resource": 3,
+                  "resourceCost": 2,
+                  "generatorsPowered": 5,
+                  "loadedResources": []
+                },
+                {
+                  "minimumBid": 22,
+                  "resource": 5,
+                  "resourceCost": 3,
+                  "generatorsPowered": 5,
+                  "loadedResources": []
+                }
+              ],
+              "money": 14,
+              "resources": {
+                "availableresources": [
+                  0,
+                  0,
+                  0,
+                  0
+                ]
+              },
+              "generators": 21
+            }
+          ],
+          "name": "Mexico_City",
+          "region": "purple",
+          "build": false
+        },
+        "cost": 10
+      },
+      {
+        "id": "41",
+        "cityB": {
+          "id": "17",
+          "generators": [],
+          "name": "Monterrey",
+          "region": "purple",
+          "build": false
+        },
+        "cityA": {
+          "id": "22",
+          "generators": [],
+          "name": "San_Antonio",
+          "region": "orange",
+          "build": false
+        },
+        "cost": 10
+      },
+      {
+        "id": "42",
+        "cityB": {
+          "id": "17",
+          "generators": [],
+          "name": "Monterrey",
+          "region": "purple",
+          "build": false
+        },
+        "cityA": {
+          "id": "19",
+          "generators": [
+            {
+              "name": "Yellow",
+              "cards": [
+                {
+                  "minimumBid": 9,
+                  "resource": 0,
+                  "resourceCost": 3,
+                  "generatorsPowered": 2,
+                  "loadedResources": [
+                    0,
+                    0
+                  ]
+                },
+                {
+                  "minimumBid": 32,
+                  "resource": 3,
+                  "resourceCost": 2,
+                  "generatorsPowered": 5,
+                  "loadedResources": []
+                },
+                {
+                  "minimumBid": 22,
+                  "resource": 5,
+                  "resourceCost": 3,
+                  "generatorsPowered": 5,
+                  "loadedResources": []
+                }
+              ],
+              "money": 14,
+              "resources": {
+                "availableresources": [
+                  0,
+                  0,
+                  0,
+                  0
+                ]
+              },
+              "generators": 21
+            }
+          ],
+          "name": "Mexico_City",
+          "region": "purple",
+          "build": false
+        },
+        "cost": 17
+      },
+      {
+        "id": "43",
+        "cityB": {
+          "id": "22",
+          "generators": [],
+          "name": "San_Antonio",
+          "region": "orange",
+          "build": false
+        },
+        "cityA": {
+          "id": "21",
+          "generators": [],
+          "name": "Fort_Worth",
+          "region": "orange",
+          "build": false
+        },
+        "cost": 9
+      },
+      {
+        "id": "44",
+        "cityB": {
+          "id": "22",
+          "generators": [],
+          "name": "San_Antonio",
+          "region": "orange",
+          "build": false
+        },
+        "cityA": {
+          "id": "23",
+          "generators": [],
+          "name": "Houston",
+          "region": "orange",
+          "build": false
+        },
+        "cost": 6
+      },
+      {
+        "id": "45",
+        "cityB": {
+          "id": "21",
+          "generators": [],
+          "name": "Fort_Worth",
+          "region": "orange",
+          "build": false
+        },
+        "cityA": {
+          "id": "23",
+          "generators": [],
+          "name": "Houston",
+          "region": "orange",
+          "build": false
+        },
+        "cost": 8
+      },
+      {
+        "id": "46",
+        "cityB": {
+          "id": "21",
+          "generators": [],
+          "name": "Fort_Worth",
+          "region": "orange",
+          "build": false
+        },
+        "cityA": {
+          "id": "47",
+          "generators": [],
+          "name": "Oklahoma_City",
+          "region": "olive",
+          "build": false
+        },
+        "cost": 7
+      },
+      {
+        "id": "47",
+        "cityB": {
+          "id": "21",
+          "generators": [],
+          "name": "Fort_Worth",
+          "region": "orange",
+          "build": false
+        },
+        "cityA": {
+          "id": "46",
+          "generators": [
+            {
+              "name": "Purple",
+              "cards": [
+                {
+                  "minimumBid": 14,
+                  "resource": 1,
+                  "resourceCost": 1,
+                  "generatorsPowered": 2,
+                  "loadedResources": []
+                },
+                {
+                  "minimumBid": 11,
+                  "resource": 4,
+                  "resourceCost": 0,
+                  "generatorsPowered": 1,
+                  "loadedResources": []
+                },
+                {
+                  "minimumBid": 13,
+                  "resource": 3,
+                  "resourceCost": 1,
+                  "generatorsPowered": 2,
+                  "loadedResources": []
+                }
+              ],
+              "money": 52,
+              "resources": {
+                "availableresources": [
+                  0,
+                  0,
+                  0,
+                  0
+                ]
+              },
+              "generators": 19
+            }
+          ],
+          "name": "Memphis",
+          "region": "olive",
+          "build": false
+        },
+        "cost": 15
+      },
+      {
+        "id": "48",
+        "cityB": {
+          "id": "21",
+          "generators": [],
+          "name": "Fort_Worth",
+          "region": "orange",
+          "build": false
+        },
+        "cityA": {
+          "id": "24",
+          "generators": [],
+          "name": "New_Orleans",
+          "region": "orange",
+          "build": false
+        },
+        "cost": 16
+      },
+      {
+        "id": "49",
+        "cityB": {
+          "id": "23",
+          "generators": [],
+          "name": "Houston",
+          "region": "orange",
+          "build": false
+        },
+        "cityA": {
+          "id": "24",
+          "generators": [],
+          "name": "New_Orleans",
+          "region": "orange",
+          "build": false
+        },
+        "cost": 12
+      },
+      {
+        "id": "50",
+        "cityB": {
+          "id": "24",
+          "generators": [],
+          "name": "New_Orleans",
+          "region": "orange",
+          "build": false
+        },
+        "cityA": {
+          "id": "26",
+          "generators": [
+            {
+              "name": "White",
+              "cards": [
+                {
+                  "minimumBid": 12,
+                  "resource": 0,
+                  "resourceCost": 2,
+                  "generatorsPowered": 2,
+                  "loadedResources": []
+                },
+                {
+                  "minimumBid": 31,
+                  "resource": 4,
+                  "resourceCost": 0,
+                  "generatorsPowered": 4,
+                  "loadedResources": []
+                }
+              ],
+              "money": 44,
+              "resources": {
+                "availableresources": [
+                  1,
+                  0,
+                  0,
+                  0
+                ]
+              },
+              "generators": 20
+            }
+          ],
+          "name": "Jacksonville",
+          "region": "orange",
+          "build": false
+        },
+        "cost": 20
+      },
+      {
+        "id": "51",
+        "cityB": {
+          "id": "24",
+          "generators": [],
+          "name": "New_Orleans",
+          "region": "orange",
+          "build": false
+        },
+        "cityA": {
+          "id": "46",
+          "generators": [
+            {
+              "name": "Purple",
+              "cards": [
+                {
+                  "minimumBid": 14,
+                  "resource": 1,
+                  "resourceCost": 1,
+                  "generatorsPowered": 2,
+                  "loadedResources": []
+                },
+                {
+                  "minimumBid": 11,
+                  "resource": 4,
+                  "resourceCost": 0,
+                  "generatorsPowered": 1,
+                  "loadedResources": []
+                },
+                {
+                  "minimumBid": 13,
+                  "resource": 3,
+                  "resourceCost": 1,
+                  "generatorsPowered": 2,
+                  "loadedResources": []
+                }
+              ],
+              "money": 52,
+              "resources": {
+                "availableresources": [
+                  0,
+                  0,
+                  0,
+                  0
+                ]
+              },
+              "generators": 19
+            }
+          ],
+          "name": "Memphis",
+          "region": "olive",
+          "build": false
+        },
+        "cost": 14
+      },
+      {
+        "id": "52",
+        "cityB": {
+          "id": "24",
+          "generators": [],
+          "name": "New_Orleans",
+          "region": "orange",
+          "build": false
+        },
+        "cityA": {
+          "id": "25",
+          "generators": [],
+          "name": "Atlanta",
+          "region": "orange",
+          "build": false
+        },
+        "cost": 16
+      },
+      {
+        "id": "53",
+        "cityB": {
+          "id": "25",
+          "generators": [],
+          "name": "Atlanta",
+          "region": "orange",
+          "build": false
+        },
+        "cityA": {
+          "id": "26",
+          "generators": [
+            {
+              "name": "White",
+              "cards": [
+                {
+                  "minimumBid": 12,
+                  "resource": 0,
+                  "resourceCost": 2,
+                  "generatorsPowered": 2,
+                  "loadedResources": []
+                },
+                {
+                  "minimumBid": 31,
+                  "resource": 4,
+                  "resourceCost": 0,
+                  "generatorsPowered": 4,
+                  "loadedResources": []
+                }
+              ],
+              "money": 44,
+              "resources": {
+                "availableresources": [
+                  1,
+                  0,
+                  0,
+                  0
+                ]
+              },
+              "generators": 20
+            }
+          ],
+          "name": "Jacksonville",
+          "region": "orange",
+          "build": false
+        },
+        "cost": 10
+      },
+      {
+        "id": "54",
+        "cityB": {
+          "id": "25",
+          "generators": [],
+          "name": "Atlanta",
+          "region": "orange",
+          "build": false
+        },
+        "cityA": {
+          "id": "46",
+          "generators": [
+            {
+              "name": "Purple",
+              "cards": [
+                {
+                  "minimumBid": 14,
+                  "resource": 1,
+                  "resourceCost": 1,
+                  "generatorsPowered": 2,
+                  "loadedResources": []
+                },
+                {
+                  "minimumBid": 11,
+                  "resource": 4,
+                  "resourceCost": 0,
+                  "generatorsPowered": 1,
+                  "loadedResources": []
+                },
+                {
+                  "minimumBid": 13,
+                  "resource": 3,
+                  "resourceCost": 1,
+                  "generatorsPowered": 2,
+                  "loadedResources": []
+                }
+              ],
+              "money": 52,
+              "resources": {
+                "availableresources": [
+                  0,
+                  0,
+                  0,
+                  0
+                ]
+              },
+              "generators": 19
+            }
+          ],
+          "name": "Memphis",
+          "region": "olive",
+          "build": false
+        },
+        "cost": 12
+      },
+      {
+        "id": "55",
+        "cityB": {
+          "id": "25",
+          "generators": [],
+          "name": "Atlanta",
+          "region": "orange",
+          "build": false
+        },
+        "cityA": {
+          "id": "30",
+          "generators": [],
+          "name": "Nashville",
+          "region": "red",
+          "build": false
+        },
+        "cost": 8
+      },
+      {
+        "id": "56",
+        "cityB": {
+          "id": "25",
+          "generators": [],
+          "name": "Atlanta",
+          "region": "orange",
+          "build": false
+        },
+        "cityA": {
+          "id": "28",
+          "generators": [],
+          "name": "Charlotte",
+          "region": "red",
+          "build": false
+        },
+        "cost": 8
+      },
+      {
+        "id": "57",
+        "cityB": {
+          "id": "26",
+          "generators": [
+            {
+              "name": "White",
+              "cards": [
+                {
+                  "minimumBid": 12,
+                  "resource": 0,
+                  "resourceCost": 2,
+                  "generatorsPowered": 2,
+                  "loadedResources": []
+                },
+                {
+                  "minimumBid": 31,
+                  "resource": 4,
+                  "resourceCost": 0,
+                  "generatorsPowered": 4,
+                  "loadedResources": []
+                }
+              ],
+              "money": 44,
+              "resources": {
+                "availableresources": [
+                  1,
+                  0,
+                  0,
+                  0
+                ]
+              },
+              "generators": 20
+            }
+          ],
+          "name": "Jacksonville",
+          "region": "orange",
+          "build": false
+        },
+        "cityA": {
+          "id": "28",
+          "generators": [],
+          "name": "Charlotte",
+          "region": "red",
+          "build": false
+        },
+        "cost": 12
+      },
+      {
+        "id": "58",
+        "cityB": {
+          "id": "26",
+          "generators": [
+            {
+              "name": "White",
+              "cards": [
+                {
+                  "minimumBid": 12,
+                  "resource": 0,
+                  "resourceCost": 2,
+                  "generatorsPowered": 2,
+                  "loadedResources": []
+                },
+                {
+                  "minimumBid": 31,
+                  "resource": 4,
+                  "resourceCost": 0,
+                  "generatorsPowered": 4,
+                  "loadedResources": []
+                }
+              ],
+              "money": 44,
+              "resources": {
+                "availableresources": [
+                  1,
+                  0,
+                  0,
+                  0
+                ]
+              },
+              "generators": 20
+            }
+          ],
+          "name": "Jacksonville",
+          "region": "orange",
+          "build": false
+        },
+        "cityA": {
+          "id": "27",
+          "generators": [
+            {
+              "name": "White",
+              "cards": [
+                {
+                  "minimumBid": 12,
+                  "resource": 0,
+                  "resourceCost": 2,
+                  "generatorsPowered": 2,
+                  "loadedResources": []
+                },
+                {
+                  "minimumBid": 31,
+                  "resource": 4,
+                  "resourceCost": 0,
+                  "generatorsPowered": 4,
+                  "loadedResources": []
+                }
+              ],
+              "money": 44,
+              "resources": {
+                "availableresources": [
+                  1,
+                  0,
+                  0,
+                  0
+                ]
+              },
+              "generators": 20
+            }
+          ],
+          "name": "Miami",
+          "region": "orange",
+          "build": false
+        },
+        "cost": 12
+      },
+      {
+        "id": "59",
+        "cityB": {
+          "id": "47",
+          "generators": [],
+          "name": "Oklahoma_City",
+          "region": "olive",
+          "build": false
+        },
+        "cityA": {
+          "id": "48",
+          "generators": [
+            {
+              "name": "Purple",
+              "cards": [
+                {
+                  "minimumBid": 14,
+                  "resource": 1,
+                  "resourceCost": 1,
+                  "generatorsPowered": 2,
+                  "loadedResources": []
+                },
+                {
+                  "minimumBid": 11,
+                  "resource": 4,
+                  "resourceCost": 0,
+                  "generatorsPowered": 1,
+                  "loadedResources": []
+                },
+                {
+                  "minimumBid": 13,
+                  "resource": 3,
+                  "resourceCost": 1,
+                  "generatorsPowered": 2,
+                  "loadedResources": []
+                }
+              ],
+              "money": 52,
+              "resources": {
+                "availableresources": [
+                  0,
+                  0,
+                  0,
+                  0
+                ]
+              },
+              "generators": 19
+            }
+          ],
+          "name": "Kansas_City",
+          "region": "olive",
+          "build": false
+        },
+        "cost": 10
+      },
+      {
+        "id": "60",
+        "cityB": {
+          "id": "47",
+          "generators": [],
+          "name": "Oklahoma_City",
+          "region": "olive",
+          "build": false
+        },
+        "cityA": {
+          "id": "46",
+          "generators": [
+            {
+              "name": "Purple",
+              "cards": [
+                {
+                  "minimumBid": 14,
+                  "resource": 1,
+                  "resourceCost": 1,
+                  "generatorsPowered": 2,
+                  "loadedResources": []
+                },
+                {
+                  "minimumBid": 11,
+                  "resource": 4,
+                  "resourceCost": 0,
+                  "generatorsPowered": 1,
+                  "loadedResources": []
+                },
+                {
+                  "minimumBid": 13,
+                  "resource": 3,
+                  "resourceCost": 1,
+                  "generatorsPowered": 2,
+                  "loadedResources": []
+                }
+              ],
+              "money": 52,
+              "resources": {
+                "availableresources": [
+                  0,
+                  0,
+                  0,
+                  0
+                ]
+              },
+              "generators": 19
+            }
+          ],
+          "name": "Memphis",
+          "region": "olive",
+          "build": false
+        },
+        "cost": 15
+      },
+      {
+        "id": "61",
+        "cityB": {
+          "id": "48",
+          "generators": [
+            {
+              "name": "Purple",
+              "cards": [
+                {
+                  "minimumBid": 14,
+                  "resource": 1,
+                  "resourceCost": 1,
+                  "generatorsPowered": 2,
+                  "loadedResources": []
+                },
+                {
+                  "minimumBid": 11,
+                  "resource": 4,
+                  "resourceCost": 0,
+                  "generatorsPowered": 1,
+                  "loadedResources": []
+                },
+                {
+                  "minimumBid": 13,
+                  "resource": 3,
+                  "resourceCost": 1,
+                  "generatorsPowered": 2,
+                  "loadedResources": []
+                }
+              ],
+              "money": 52,
+              "resources": {
+                "availableresources": [
+                  0,
+                  0,
+                  0,
+                  0
+                ]
+              },
+              "generators": 19
+            }
+          ],
+          "name": "Kansas_City",
+          "region": "olive",
+          "build": false
+        },
+        "cityA": {
+          "id": "45",
+          "generators": [
+            {
+              "name": "Purple",
+              "cards": [
+                {
+                  "minimumBid": 14,
+                  "resource": 1,
+                  "resourceCost": 1,
+                  "generatorsPowered": 2,
+                  "loadedResources": []
+                },
+                {
+                  "minimumBid": 11,
+                  "resource": 4,
+                  "resourceCost": 0,
+                  "generatorsPowered": 1,
+                  "loadedResources": []
+                },
+                {
+                  "minimumBid": 13,
+                  "resource": 3,
+                  "resourceCost": 1,
+                  "generatorsPowered": 2,
+                  "loadedResources": []
+                }
+              ],
+              "money": 52,
+              "resources": {
+                "availableresources": [
+                  0,
+                  0,
+                  0,
+                  0
+                ]
+              },
+              "generators": 19
+            }
+          ],
+          "name": "St_Louis",
+          "region": "olive",
+          "build": false
+        },
+        "cost": 8
+      },
+      {
+        "id": "62",
+        "cityB": {
+          "id": "48",
+          "generators": [
+            {
+              "name": "Purple",
+              "cards": [
+                {
+                  "minimumBid": 14,
+                  "resource": 1,
+                  "resourceCost": 1,
+                  "generatorsPowered": 2,
+                  "loadedResources": []
+                },
+                {
+                  "minimumBid": 11,
+                  "resource": 4,
+                  "resourceCost": 0,
+                  "generatorsPowered": 1,
+                  "loadedResources": []
+                },
+                {
+                  "minimumBid": 13,
+                  "resource": 3,
+                  "resourceCost": 1,
+                  "generatorsPowered": 2,
+                  "loadedResources": []
+                }
+              ],
+              "money": 52,
+              "resources": {
+                "availableresources": [
+                  0,
+                  0,
+                  0,
+                  0
+                ]
+              },
+              "generators": 19
+            }
+          ],
+          "name": "Kansas_City",
+          "region": "olive",
+          "build": false
+        },
+        "cityA": {
+          "id": "43",
+          "generators": [
+            {
+              "name": "Red",
+              "cards": [
+                {
+                  "minimumBid": 5,
+                  "resource": 1,
+                  "resourceCost": 2,
+                  "generatorsPowered": 1,
+                  "loadedResources": []
+                },
+                {
+                  "minimumBid": 23,
+                  "resource": 2,
+                  "resourceCost": 2,
+                  "generatorsPowered": 4,
+                  "loadedResources": []
+                }
+              ],
+              "money": 56,
+              "resources": {
+                "availableresources": [
+                  0,
+                  0,
+                  0,
+                  0
+                ]
+              },
+              "generators": 18
+            }
+          ],
+          "name": "Chicago",
+          "region": "olive",
+          "build": false
+        },
+        "cost": 16
+      },
+      {
+        "id": "63",
+        "cityB": {
+          "id": "48",
+          "generators": [
+            {
+              "name": "Purple",
+              "cards": [
+                {
+                  "minimumBid": 14,
+                  "resource": 1,
+                  "resourceCost": 1,
+                  "generatorsPowered": 2,
+                  "loadedResources": []
+                },
+                {
+                  "minimumBid": 11,
+                  "resource": 4,
+                  "resourceCost": 0,
+                  "generatorsPowered": 1,
+                  "loadedResources": []
+                },
+                {
+                  "minimumBid": 13,
+                  "resource": 3,
+                  "resourceCost": 1,
+                  "generatorsPowered": 2,
+                  "loadedResources": []
+                }
+              ],
+              "money": 52,
+              "resources": {
+                "availableresources": [
+                  0,
+                  0,
+                  0,
+                  0
+                ]
+              },
+              "generators": 19
+            }
+          ],
+          "name": "Kansas_City",
+          "region": "olive",
+          "build": false
+        },
+        "cityA": {
+          "id": "46",
+          "generators": [
+            {
+              "name": "Purple",
+              "cards": [
+                {
+                  "minimumBid": 14,
+                  "resource": 1,
+                  "resourceCost": 1,
+                  "generatorsPowered": 2,
+                  "loadedResources": []
+                },
+                {
+                  "minimumBid": 11,
+                  "resource": 4,
+                  "resourceCost": 0,
+                  "generatorsPowered": 1,
+                  "loadedResources": []
+                },
+                {
+                  "minimumBid": 13,
+                  "resource": 3,
+                  "resourceCost": 1,
+                  "generatorsPowered": 2,
+                  "loadedResources": []
+                }
+              ],
+              "money": 52,
+              "resources": {
+                "availableresources": [
+                  0,
+                  0,
+                  0,
+                  0
+                ]
+              },
+              "generators": 19
+            }
+          ],
+          "name": "Memphis",
+          "region": "olive",
+          "build": false
+        },
+        "cost": 14
+      },
+      {
+        "id": "64",
+        "cityB": {
+          "id": "46",
+          "generators": [
+            {
+              "name": "Purple",
+              "cards": [
+                {
+                  "minimumBid": 14,
+                  "resource": 1,
+                  "resourceCost": 1,
+                  "generatorsPowered": 2,
+                  "loadedResources": []
+                },
+                {
+                  "minimumBid": 11,
+                  "resource": 4,
+                  "resourceCost": 0,
+                  "generatorsPowered": 1,
+                  "loadedResources": []
+                },
+                {
+                  "minimumBid": 13,
+                  "resource": 3,
+                  "resourceCost": 1,
+                  "generatorsPowered": 2,
+                  "loadedResources": []
+                }
+              ],
+              "money": 52,
+              "resources": {
+                "availableresources": [
+                  0,
+                  0,
+                  0,
+                  0
+                ]
+              },
+              "generators": 19
+            }
+          ],
+          "name": "Memphis",
+          "region": "olive",
+          "build": false
+        },
+        "cityA": {
+          "id": "45",
+          "generators": [
+            {
+              "name": "Purple",
+              "cards": [
+                {
+                  "minimumBid": 14,
+                  "resource": 1,
+                  "resourceCost": 1,
+                  "generatorsPowered": 2,
+                  "loadedResources": []
+                },
+                {
+                  "minimumBid": 11,
+                  "resource": 4,
+                  "resourceCost": 0,
+                  "generatorsPowered": 1,
+                  "loadedResources": []
+                },
+                {
+                  "minimumBid": 13,
+                  "resource": 3,
+                  "resourceCost": 1,
+                  "generatorsPowered": 2,
+                  "loadedResources": []
+                }
+              ],
+              "money": 52,
+              "resources": {
+                "availableresources": [
+                  0,
+                  0,
+                  0,
+                  0
+                ]
+              },
+              "generators": 19
+            }
+          ],
+          "name": "St_Louis",
+          "region": "olive",
+          "build": false
+        },
+        "cost": 9
+      },
+      {
+        "id": "65",
+        "cityB": {
+          "id": "46",
+          "generators": [
+            {
+              "name": "Purple",
+              "cards": [
+                {
+                  "minimumBid": 14,
+                  "resource": 1,
+                  "resourceCost": 1,
+                  "generatorsPowered": 2,
+                  "loadedResources": []
+                },
+                {
+                  "minimumBid": 11,
+                  "resource": 4,
+                  "resourceCost": 0,
+                  "generatorsPowered": 1,
+                  "loadedResources": []
+                },
+                {
+                  "minimumBid": 13,
+                  "resource": 3,
+                  "resourceCost": 1,
+                  "generatorsPowered": 2,
+                  "loadedResources": []
+                }
+              ],
+              "money": 52,
+              "resources": {
+                "availableresources": [
+                  0,
+                  0,
+                  0,
+                  0
+                ]
+              },
+              "generators": 19
+            }
+          ],
+          "name": "Memphis",
+          "region": "olive",
+          "build": false
+        },
+        "cityA": {
+          "id": "30",
+          "generators": [],
+          "name": "Nashville",
+          "region": "red",
+          "build": false
+        },
+        "cost": 7
+      },
+      {
+        "id": "66",
+        "cityB": {
+          "id": "45",
+          "generators": [
+            {
+              "name": "Purple",
+              "cards": [
+                {
+                  "minimumBid": 14,
+                  "resource": 1,
+                  "resourceCost": 1,
+                  "generatorsPowered": 2,
+                  "loadedResources": []
+                },
+                {
+                  "minimumBid": 11,
+                  "resource": 4,
+                  "resourceCost": 0,
+                  "generatorsPowered": 1,
+                  "loadedResources": []
+                },
+                {
+                  "minimumBid": 13,
+                  "resource": 3,
+                  "resourceCost": 1,
+                  "generatorsPowered": 2,
+                  "loadedResources": []
+                }
+              ],
+              "money": 52,
+              "resources": {
+                "availableresources": [
+                  0,
+                  0,
+                  0,
+                  0
+                ]
+              },
+              "generators": 19
+            }
+          ],
+          "name": "St_Louis",
+          "region": "olive",
+          "build": false
+        },
+        "cityA": {
+          "id": "43",
+          "generators": [
+            {
+              "name": "Red",
+              "cards": [
+                {
+                  "minimumBid": 5,
+                  "resource": 1,
+                  "resourceCost": 2,
+                  "generatorsPowered": 1,
+                  "loadedResources": []
+                },
+                {
+                  "minimumBid": 23,
+                  "resource": 2,
+                  "resourceCost": 2,
+                  "generatorsPowered": 4,
+                  "loadedResources": []
+                }
+              ],
+              "money": 56,
+              "resources": {
+                "availableresources": [
+                  0,
+                  0,
+                  0,
+                  0
+                ]
+              },
+              "generators": 18
+            }
+          ],
+          "name": "Chicago",
+          "region": "olive",
+          "build": false
+        },
+        "cost": 9
+      },
+      {
+        "id": "67",
+        "cityB": {
+          "id": "45",
+          "generators": [
+            {
+              "name": "Purple",
+              "cards": [
+                {
+                  "minimumBid": 14,
+                  "resource": 1,
+                  "resourceCost": 1,
+                  "generatorsPowered": 2,
+                  "loadedResources": []
+                },
+                {
+                  "minimumBid": 11,
+                  "resource": 4,
+                  "resourceCost": 0,
+                  "generatorsPowered": 1,
+                  "loadedResources": []
+                },
+                {
+                  "minimumBid": 13,
+                  "resource": 3,
+                  "resourceCost": 1,
+                  "generatorsPowered": 2,
+                  "loadedResources": []
+                }
+              ],
+              "money": 52,
+              "resources": {
+                "availableresources": [
+                  0,
+                  0,
+                  0,
+                  0
+                ]
+              },
+              "generators": 19
+            }
+          ],
+          "name": "St_Louis",
+          "region": "olive",
+          "build": false
+        },
+        "cityA": {
+          "id": "44",
+          "generators": [
+            {
+              "name": "Red",
+              "cards": [
+                {
+                  "minimumBid": 5,
+                  "resource": 1,
+                  "resourceCost": 2,
+                  "generatorsPowered": 1,
+                  "loadedResources": []
+                },
+                {
+                  "minimumBid": 23,
+                  "resource": 2,
+                  "resourceCost": 2,
+                  "generatorsPowered": 4,
+                  "loadedResources": []
+                }
+              ],
+              "money": 56,
+              "resources": {
+                "availableresources": [
+                  0,
+                  0,
+                  0,
+                  0
+                ]
+              },
+              "generators": 18
+            }
+          ],
+          "name": "Indianapolis",
+          "region": "olive",
+          "build": false
+        },
+        "cost": 8
+      },
+      {
+        "id": "68",
+        "cityB": {
+          "id": "45",
+          "generators": [
+            {
+              "name": "Purple",
+              "cards": [
+                {
+                  "minimumBid": 14,
+                  "resource": 1,
+                  "resourceCost": 1,
+                  "generatorsPowered": 2,
+                  "loadedResources": []
+                },
+                {
+                  "minimumBid": 11,
+                  "resource": 4,
+                  "resourceCost": 0,
+                  "generatorsPowered": 1,
+                  "loadedResources": []
+                },
+                {
+                  "minimumBid": 13,
+                  "resource": 3,
+                  "resourceCost": 1,
+                  "generatorsPowered": 2,
+                  "loadedResources": []
+                }
+              ],
+              "money": 52,
+              "resources": {
+                "availableresources": [
+                  0,
+                  0,
+                  0,
+                  0
+                ]
+              },
+              "generators": 19
+            }
+          ],
+          "name": "St_Louis",
+          "region": "olive",
+          "build": false
+        },
+        "cityA": {
+          "id": "30",
+          "generators": [],
+          "name": "Nashville",
+          "region": "red",
+          "build": false
+        },
+        "cost": 9
+      },
+      {
+        "id": "69",
+        "cityB": {
+          "id": "44",
+          "generators": [
+            {
+              "name": "Red",
+              "cards": [
+                {
+                  "minimumBid": 5,
+                  "resource": 1,
+                  "resourceCost": 2,
+                  "generatorsPowered": 1,
+                  "loadedResources": []
+                },
+                {
+                  "minimumBid": 23,
+                  "resource": 2,
+                  "resourceCost": 2,
+                  "generatorsPowered": 4,
+                  "loadedResources": []
+                }
+              ],
+              "money": 56,
+              "resources": {
+                "availableresources": [
+                  0,
+                  0,
+                  0,
+                  0
+                ]
+              },
+              "generators": 18
+            }
+          ],
+          "name": "Indianapolis",
+          "region": "olive",
+          "build": false
+        },
+        "cityA": {
+          "id": "43",
+          "generators": [
+            {
+              "name": "Red",
+              "cards": [
+                {
+                  "minimumBid": 5,
+                  "resource": 1,
+                  "resourceCost": 2,
+                  "generatorsPowered": 1,
+                  "loadedResources": []
+                },
+                {
+                  "minimumBid": 23,
+                  "resource": 2,
+                  "resourceCost": 2,
+                  "generatorsPowered": 4,
+                  "loadedResources": []
+                }
+              ],
+              "money": 56,
+              "resources": {
+                "availableresources": [
+                  0,
+                  0,
+                  0,
+                  0
+                ]
+              },
+              "generators": 18
+            }
+          ],
+          "name": "Chicago",
+          "region": "olive",
+          "build": false
+        },
+        "cost": 6
+      },
+      {
+        "id": "70",
+        "cityB": {
+          "id": "44",
+          "generators": [
+            {
+              "name": "Red",
+              "cards": [
+                {
+                  "minimumBid": 5,
+                  "resource": 1,
+                  "resourceCost": 2,
+                  "generatorsPowered": 1,
+                  "loadedResources": []
+                },
+                {
+                  "minimumBid": 23,
+                  "resource": 2,
+                  "resourceCost": 2,
+                  "generatorsPowered": 4,
+                  "loadedResources": []
+                }
+              ],
+              "money": 56,
+              "resources": {
+                "availableresources": [
+                  0,
+                  0,
+                  0,
+                  0
+                ]
+              },
+              "generators": 18
+            }
+          ],
+          "name": "Indianapolis",
+          "region": "olive",
+          "build": false
+        },
+        "cityA": {
+          "id": "31",
+          "generators": [],
+          "name": "Columbus",
+          "region": "red",
+          "build": false
+        },
+        "cost": 7
+      },
+      {
+        "id": "71",
+        "cityB": {
+          "id": "44",
+          "generators": [
+            {
+              "name": "Red",
+              "cards": [
+                {
+                  "minimumBid": 5,
+                  "resource": 1,
+                  "resourceCost": 2,
+                  "generatorsPowered": 1,
+                  "loadedResources": []
+                },
+                {
+                  "minimumBid": 23,
+                  "resource": 2,
+                  "resourceCost": 2,
+                  "generatorsPowered": 4,
+                  "loadedResources": []
+                }
+              ],
+              "money": 56,
+              "resources": {
+                "availableresources": [
+                  0,
+                  0,
+                  0,
+                  0
+                ]
+              },
+              "generators": 18
+            }
+          ],
+          "name": "Indianapolis",
+          "region": "olive",
+          "build": false
+        },
+        "cityA": {
+          "id": "30",
+          "generators": [],
+          "name": "Nashville",
+          "region": "red",
+          "build": false
+        },
+        "cost": 9
+      },
+      {
+        "id": "72",
+        "cityB": {
+          "id": "43",
+          "generators": [
+            {
+              "name": "Red",
+              "cards": [
+                {
+                  "minimumBid": 5,
+                  "resource": 1,
+                  "resourceCost": 2,
+                  "generatorsPowered": 1,
+                  "loadedResources": []
+                },
+                {
+                  "minimumBid": 23,
+                  "resource": 2,
+                  "resourceCost": 2,
+                  "generatorsPowered": 4,
+                  "loadedResources": []
+                }
+              ],
+              "money": 56,
+              "resources": {
+                "availableresources": [
+                  0,
+                  0,
+                  0,
+                  0
+                ]
+              },
+              "generators": 18
+            }
+          ],
+          "name": "Chicago",
+          "region": "olive",
+          "build": false
+        },
+        "cityA": {
+          "id": "42",
+          "generators": [
+            {
+              "name": "Red",
+              "cards": [
+                {
+                  "minimumBid": 5,
+                  "resource": 1,
+                  "resourceCost": 2,
+                  "generatorsPowered": 1,
+                  "loadedResources": []
+                },
+                {
+                  "minimumBid": 23,
+                  "resource": 2,
+                  "resourceCost": 2,
+                  "generatorsPowered": 4,
+                  "loadedResources": []
+                }
+              ],
+              "money": 56,
+              "resources": {
+                "availableresources": [
+                  0,
+                  0,
+                  0,
+                  0
+                ]
+              },
+              "generators": 18
+            }
+          ],
+          "name": "Milwaukee",
+          "region": "olive",
+          "build": false
+        },
+        "cost": 3
+      },
+      {
+        "id": "73",
+        "cityB": {
+          "id": "43",
+          "generators": [
+            {
+              "name": "Red",
+              "cards": [
+                {
+                  "minimumBid": 5,
+                  "resource": 1,
+                  "resourceCost": 2,
+                  "generatorsPowered": 1,
+                  "loadedResources": []
+                },
+                {
+                  "minimumBid": 23,
+                  "resource": 2,
+                  "resourceCost": 2,
+                  "generatorsPowered": 4,
+                  "loadedResources": []
+                }
+              ],
+              "money": 56,
+              "resources": {
+                "availableresources": [
+                  0,
+                  0,
+                  0,
+                  0
+                ]
+              },
+              "generators": 18
+            }
+          ],
+          "name": "Chicago",
+          "region": "olive",
+          "build": false
+        },
+        "cityA": {
+          "id": "33",
+          "generators": [],
+          "name": "Detroit",
+          "region": "red",
+          "build": false
+        },
+        "cost": 10
+      },
+      {
+        "id": "74",
+        "cityB": {
+          "id": "43",
+          "generators": [
+            {
+              "name": "Red",
+              "cards": [
+                {
+                  "minimumBid": 5,
+                  "resource": 1,
+                  "resourceCost": 2,
+                  "generatorsPowered": 1,
+                  "loadedResources": []
+                },
+                {
+                  "minimumBid": 23,
+                  "resource": 2,
+                  "resourceCost": 2,
+                  "generatorsPowered": 4,
+                  "loadedResources": []
+                }
+              ],
+              "money": 56,
+              "resources": {
+                "availableresources": [
+                  0,
+                  0,
+                  0,
+                  0
+                ]
+              },
+              "generators": 18
+            }
+          ],
+          "name": "Chicago",
+          "region": "olive",
+          "build": false
+        },
+        "cityA": {
+          "id": "31",
+          "generators": [],
+          "name": "Columbus",
+          "region": "red",
+          "build": false
+        },
+        "cost": 10
+      },
+      {
+        "id": "75",
+        "cityB": {
+          "id": "30",
+          "generators": [],
+          "name": "Nashville",
+          "region": "red",
+          "build": false
+        },
+        "cityA": {
+          "id": "28",
+          "generators": [],
+          "name": "Charlotte",
+          "region": "red",
+          "build": false
+        },
+        "cost": 12
+      },
+      {
+        "id": "76",
+        "cityB": {
+          "id": "30",
+          "generators": [],
+          "name": "Nashville",
+          "region": "red",
+          "build": false
+        },
+        "cityA": {
+          "id": "29",
+          "generators": [],
+          "name": "Washington",
+          "region": "red",
+          "build": false
+        },
+        "cost": 22
+      },
+      {
+        "id": "77",
+        "cityB": {
+          "id": "30",
+          "generators": [],
+          "name": "Nashville",
+          "region": "red",
+          "build": false
+        },
+        "cityA": {
+          "id": "31",
+          "generators": [],
+          "name": "Columbus",
+          "region": "red",
+          "build": false
+        },
+        "cost": 15
+      },
+      {
+        "id": "78",
+        "cityB": {
+          "id": "28",
+          "generators": [],
+          "name": "Charlotte",
+          "region": "red",
+          "build": false
+        },
+        "cityA": {
+          "id": "29",
+          "generators": [],
+          "name": "Washington",
+          "region": "red",
+          "build": false
+        },
+        "cost": 12
+      },
+      {
+        "id": "79",
+        "cityB": {
+          "id": "29",
+          "generators": [],
+          "name": "Washington",
+          "region": "red",
+          "build": false
+        },
+        "cityA": {
+          "id": "32",
+          "generators": [],
+          "name": "Pittsburgh",
+          "region": "red",
+          "build": false
+        },
+        "cost": 7
+      },
+      {
+        "id": "80",
+        "cityB": {
+          "id": "29",
+          "generators": [],
+          "name": "Washington",
+          "region": "red",
+          "build": false
+        },
+        "cityA": {
+          "id": "35",
+          "generators": [],
+          "name": "Philadelphia",
+          "region": "green",
+          "build": false
+        },
+        "cost": 5
+      },
+      {
+        "id": "81",
+        "cityB": {
+          "id": "29",
+          "generators": [],
+          "name": "Washington",
+          "region": "red",
+          "build": false
+        },
+        "cityA": {
+          "id": "31",
+          "generators": [],
+          "name": "Columbus",
+          "region": "red",
+          "build": false
+        },
+        "cost": 12
+      },
+      {
+        "id": "82",
+        "cityB": {
+          "id": "31",
+          "generators": [],
+          "name": "Columbus",
+          "region": "red",
+          "build": false
+        },
+        "cityA": {
+          "id": "33",
+          "generators": [],
+          "name": "Detroit",
+          "region": "red",
+          "build": false
+        },
+        "cost": 7
+      },
+      {
+        "id": "83",
+        "cityB": {
+          "id": "31",
+          "generators": [],
+          "name": "Columbus",
+          "region": "red",
+          "build": false
+        },
+        "cityA": {
+          "id": "32",
+          "generators": [],
+          "name": "Pittsburgh",
+          "region": "red",
+          "build": false
+        },
+        "cost": 6
+      },
+      {
+        "id": "84",
+        "cityB": {
+          "id": "32",
+          "generators": [],
+          "name": "Pittsburgh",
+          "region": "red",
+          "build": false
+        },
+        "cityA": {
+          "id": "34",
+          "generators": [],
+          "name": "Toronto",
+          "region": "red",
+          "build": false
+        },
+        "cost": 11
+      },
+      {
+        "id": "85",
+        "cityB": {
+          "id": "32",
+          "generators": [],
+          "name": "Pittsburgh",
+          "region": "red",
+          "build": false
+        },
+        "cityA": {
+          "id": "35",
+          "generators": [],
+          "name": "Philadelphia",
+          "region": "green",
+          "build": false
+        },
+        "cost": 9
+      },
+      {
+        "id": "86",
+        "cityB": {
+          "id": "32",
+          "generators": [],
+          "name": "Pittsburgh",
+          "region": "red",
+          "build": false
+        },
+        "cityA": {
+          "id": "40",
+          "generators": [],
+          "name": "New_York",
+          "region": "green",
+          "build": false
+        },
+        "cost": 11
+      },
+      {
+        "id": "87",
+        "cityB": {
+          "id": "33",
+          "generators": [],
+          "name": "Detroit",
+          "region": "red",
+          "build": false
+        },
+        "cityA": {
+          "id": "34",
+          "generators": [],
+          "name": "Toronto",
+          "region": "red",
+          "build": false
+        },
+        "cost": 8
+      },
+      {
+        "id": "88",
+        "cityB": {
+          "id": "34",
+          "generators": [],
+          "name": "Toronto",
+          "region": "red",
+          "build": false
+        },
+        "cityA": {
+          "id": "39",
+          "generators": [],
+          "name": "Ottawa",
+          "region": "green",
+          "build": false
+        },
+        "cost": 8
+      },
+      {
+        "id": "89",
+        "cityB": {
+          "id": "34",
+          "generators": [],
+          "name": "Toronto",
+          "region": "red",
+          "build": false
+        },
+        "cityA": {
+          "id": "40",
+          "generators": [],
+          "name": "New_York",
+          "region": "green",
+          "build": false
+        },
+        "cost": 14
+      },
+      {
+        "id": "90",
+        "cityB": {
+          "id": "35",
+          "generators": [],
+          "name": "Philadelphia",
+          "region": "green",
+          "build": false
+        },
+        "cityA": {
+          "id": "40",
+          "generators": [],
+          "name": "New_York",
+          "region": "green",
+          "build": false
+        },
+        "cost": 3
+      },
+      {
+        "id": "91",
+        "cityB": {
+          "id": "40",
+          "generators": [],
+          "name": "New_York",
+          "region": "green",
+          "build": false
+        },
+        "cityA": {
+          "id": "36",
+          "generators": [],
+          "name": "Boston",
+          "region": "green",
+          "build": false
+        },
+        "cost": 7
+      },
+      {
+        "id": "92",
+        "cityB": {
+          "id": "40",
+          "generators": [],
+          "name": "New_York",
+          "region": "green",
+          "build": false
+        },
+        "cityA": {
+          "id": "37",
+          "generators": [],
+          "name": "Montreal",
+          "region": "green",
+          "build": false
+        },
+        "cost": 12
+      },
+      {
+        "id": "93",
+        "cityB": {
+          "id": "40",
+          "generators": [],
+          "name": "New_York",
+          "region": "green",
+          "build": false
+        },
+        "cityA": {
+          "id": "39",
+          "generators": [],
+          "name": "Ottawa",
+          "region": "green",
+          "build": false
+        },
+        "cost": 13
+      },
+      {
+        "id": "94",
+        "cityB": {
+          "id": "39",
+          "generators": [],
+          "name": "Ottawa",
+          "region": "green",
+          "build": false
+        },
+        "cityA": {
+          "id": "37",
+          "generators": [],
+          "name": "Montreal",
+          "region": "green",
+          "build": false
+        },
+        "cost": 3
+      },
+      {
+        "id": "95",
+        "cityB": {
+          "id": "37",
+          "generators": [],
+          "name": "Montreal",
+          "region": "green",
+          "build": false
+        },
+        "cityA": {
+          "id": "36",
+          "generators": [],
+          "name": "Boston",
+          "region": "green",
+          "build": false
+        },
+        "cost": 9
+      },
+      {
+        "id": "96",
+        "cityB": {
+          "id": "37",
+          "generators": [],
+          "name": "Montreal",
+          "region": "green",
+          "build": false
+        },
+        "cityA": {
+          "id": "38",
+          "generators": [],
+          "name": "Quebec",
+          "region": "green",
+          "build": false
+        },
+        "cost": 5
+      },
+      {
+        "id": "97",
+        "cityB": {
+          "id": "32",
+          "generators": [],
+          "name": "Pittsburgh",
+          "region": "red",
+          "build": false
+        },
+        "cityA": {
+          "id": "41",
+          "generators": [],
+          "name": "New_York_2",
+          "region": "green",
+          "build": false
+        },
+        "cost": 11
+      },
+      {
+        "id": "98",
+        "cityB": {
+          "id": "34",
+          "generators": [],
+          "name": "Toronto",
+          "region": "red",
+          "build": false
+        },
+        "cityA": {
+          "id": "41",
+          "generators": [],
+          "name": "New_York_2",
+          "region": "green",
+          "build": false
+        },
+        "cost": 14
+      },
+      {
+        "id": "99",
+        "cityB": {
+          "id": "35",
+          "generators": [],
+          "name": "Philadelphia",
+          "region": "green",
+          "build": false
+        },
+        "cityA": {
+          "id": "41",
+          "generators": [],
+          "name": "New_York_2",
+          "region": "green",
+          "build": false
+        },
+        "cost": 3
+      },
+      {
+        "id": "100",
+        "cityB": {
+          "id": "41",
+          "generators": [],
+          "name": "New_York_2",
+          "region": "green",
+          "build": false
+        },
+        "cityA": {
+          "id": "36",
+          "generators": [],
+          "name": "Boston",
+          "region": "green",
+          "build": false
+        },
+        "cost": 7
+      },
+      {
+        "id": "101",
+        "cityB": {
+          "id": "41",
+          "generators": [],
+          "name": "New_York_2",
+          "region": "green",
+          "build": false
+        },
+        "cityA": {
+          "id": "37",
+          "generators": [],
+          "name": "Montreal",
+          "region": "green",
+          "build": false
+        },
+        "cost": 12
+      },
+      {
+        "id": "102",
+        "cityB": {
+          "id": "41",
+          "generators": [],
+          "name": "New_York_2",
+          "region": "green",
+          "build": false
+        },
+        "cityA": {
+          "id": "39",
+          "generators": [],
+          "name": "Ottawa",
+          "region": "green",
+          "build": false
+        },
+        "cost": 13
+      },
+      {
+        "id": "103",
+        "cityB": {
+          "id": "40",
+          "generators": [],
+          "name": "New_York",
+          "region": "green",
+          "build": false
+        },
+        "cityA": {
+          "id": "41",
+          "generators": [],
+          "name": "New_York_2",
+          "region": "green",
+          "build": false
+        },
+        "cost": 0
+      },
+      {
+        "id": "104",
+        "cityB": {
+          "id": "18",
+          "generators": [],
+          "name": "Guadalajara",
+          "region": "purple",
+          "build": false
+        },
+        "cityA": {
+          "id": "20",
+          "generators": [],
+          "name": "Mexico_City_2",
+          "region": "purple",
+          "build": false
+        },
+        "cost": 10
+      },
+      {
+        "id": "105",
+        "cityB": {
+          "id": "17",
+          "generators": [],
+          "name": "Monterrey",
+          "region": "purple",
+          "build": false
+        },
+        "cityA": {
+          "id": "20",
+          "generators": [],
+          "name": "Mexico_City_2",
+          "region": "purple",
+          "build": false
+        },
+        "cost": 17
+      },
+      {
+        "id": "106",
+        "cityB": {
+          "id": "19",
+          "generators": [
+            {
+              "name": "Yellow",
+              "cards": [
+                {
+                  "minimumBid": 9,
+                  "resource": 0,
+                  "resourceCost": 3,
+                  "generatorsPowered": 2,
+                  "loadedResources": [
+                    0,
+                    0
+                  ]
+                },
+                {
+                  "minimumBid": 32,
+                  "resource": 3,
+                  "resourceCost": 2,
+                  "generatorsPowered": 5,
+                  "loadedResources": []
+                },
+                {
+                  "minimumBid": 22,
+                  "resource": 5,
+                  "resourceCost": 3,
+                  "generatorsPowered": 5,
+                  "loadedResources": []
+                }
+              ],
+              "money": 14,
+              "resources": {
+                "availableresources": [
+                  0,
+                  0,
+                  0,
+                  0
+                ]
+              },
+              "generators": 21
+            }
+          ],
+          "name": "Mexico_City",
+          "region": "purple",
+          "build": false
+        },
+        "cityA": {
+          "id": "20",
+          "generators": [],
+          "name": "Mexico_City_2",
+          "region": "purple",
+          "build": false
+        },
+        "cost": 0
+      }
+    ],
+    "cities": [
+      {
+        "id": "0",
+        "generators": [
+          {
+            "name": "Green",
+            "cards": [
+              {
+                "minimumBid": 15,
+                "resource": 0,
+                "resourceCost": 1,
+                "generatorsPowered": 2,
+                "loadedResources": []
+              },
+              {
+                "minimumBid": 7,
+                "resource": 0,
+                "resourceCost": 1,
+                "generatorsPowered": 1,
+                "loadedResources": []
+              },
+              {
+                "minimumBid": 30,
+                "resource": 2,
+                "resourceCost": 2,
+                "generatorsPowered": 5,
+                "loadedResources": []
+              }
+            ],
+            "money": 45,
+            "resources": {
+              "availableresources": [
+                1,
+                0,
+                0,
+                0
+              ]
+            },
+            "generators": 19
+          }
+        ],
+        "name": "Vancouver",
+        "region": "yellow",
+        "build": false
+      },
+      {
+        "id": "1",
+        "generators": [],
+        "name": "Calgary",
+        "region": "yellow",
+        "build": false
+      },
+      {
+        "id": "2",
+        "generators": [],
+        "name": "Edmonton",
+        "region": "yellow",
+        "build": false
+      },
+      {
+        "id": "3",
+        "generators": [],
+        "name": "Regina",
+        "region": "yellow",
+        "build": false
+      },
+      {
+        "id": "4",
+        "generators": [
+          {
+            "name": "Green",
+            "cards": [
+              {
+                "minimumBid": 15,
+                "resource": 0,
+                "resourceCost": 1,
+                "generatorsPowered": 2,
+                "loadedResources": []
+              },
+              {
+                "minimumBid": 7,
+                "resource": 0,
+                "resourceCost": 1,
+                "generatorsPowered": 1,
+                "loadedResources": []
+              },
+              {
+                "minimumBid": 30,
+                "resource": 2,
+                "resourceCost": 2,
+                "generatorsPowered": 5,
+                "loadedResources": []
+              }
+            ],
+            "money": 45,
+            "resources": {
+              "availableresources": [
+                1,
+                0,
+                0,
+                0
+              ]
+            },
+            "generators": 19
+          }
+        ],
+        "name": "Seattle",
+        "region": "yellow",
+        "build": false
+      },
+      {
+        "id": "5",
+        "generators": [],
+        "name": "Winnipeg",
+        "region": "yellow",
+        "build": false
+      },
+      {
+        "id": "6",
+        "generators": [
+          {
+            "name": "Red",
+            "cards": [
+              {
+                "minimumBid": 5,
+                "resource": 1,
+                "resourceCost": 2,
+                "generatorsPowered": 1,
+                "loadedResources": []
+              },
+              {
+                "minimumBid": 23,
+                "resource": 2,
+                "resourceCost": 2,
+                "generatorsPowered": 4,
+                "loadedResources": []
+              }
+            ],
+            "money": 56,
+            "resources": {
+              "availableresources": [
+                0,
+                0,
+                0,
+                0
+              ]
+            },
+            "generators": 18
+          }
+        ],
+        "name": "Minneapolis",
+        "region": "yellow",
+        "build": false
+      },
+      {
+        "id": "7",
+        "generators": [
+          {
+            "name": "Green",
+            "cards": [
+              {
+                "minimumBid": 15,
+                "resource": 0,
+                "resourceCost": 1,
+                "generatorsPowered": 2,
+                "loadedResources": []
+              },
+              {
+                "minimumBid": 7,
+                "resource": 0,
+                "resourceCost": 1,
+                "generatorsPowered": 1,
+                "loadedResources": []
+              },
+              {
+                "minimumBid": 30,
+                "resource": 2,
+                "resourceCost": 2,
+                "generatorsPowered": 5,
+                "loadedResources": []
+              }
+            ],
+            "money": 45,
+            "resources": {
+              "availableresources": [
+                1,
+                0,
+                0,
+                0
+              ]
+            },
+            "generators": 19
+          }
+        ],
+        "name": "Portland",
+        "region": "blue",
+        "build": false
+      },
+      {
+        "id": "8",
+        "generators": [
+          {
+            "name": "Blue",
+            "cards": [
+              {
+                "minimumBid": 6,
+                "resource": 2,
+                "resourceCost": 1,
+                "generatorsPowered": 1,
+                "loadedResources": []
+              },
+              {
+                "minimumBid": 16,
+                "resource": 1,
+                "resourceCost": 2,
+                "generatorsPowered": 3,
+                "loadedResources": []
+              }
+            ],
+            "money": 68,
+            "resources": {
+              "availableresources": [
+                0,
+                0,
+                0,
+                0
+              ]
+            },
+            "generators": 18
+          }
+        ],
+        "name": "San_Francisco",
+        "region": "blue",
+        "build": false
+      },
+      {
+        "id": "9",
+        "generators": [
+          {
+            "name": "Blue",
+            "cards": [
+              {
+                "minimumBid": 6,
+                "resource": 2,
+                "resourceCost": 1,
+                "generatorsPowered": 1,
+                "loadedResources": []
+              },
+              {
+                "minimumBid": 16,
+                "resource": 1,
+                "resourceCost": 2,
+                "generatorsPowered": 3,
+                "loadedResources": []
+              }
+            ],
+            "money": 68,
+            "resources": {
+              "availableresources": [
+                0,
+                0,
+                0,
+                0
+              ]
+            },
+            "generators": 18
+          }
+        ],
+        "name": "San_Diego",
+        "region": "blue",
+        "build": false
+      },
+      {
+        "id": "10",
+        "generators": [
+          {
+            "name": "Blue",
+            "cards": [
+              {
+                "minimumBid": 6,
+                "resource": 2,
+                "resourceCost": 1,
+                "generatorsPowered": 1,
+                "loadedResources": []
+              },
+              {
+                "minimumBid": 16,
+                "resource": 1,
+                "resourceCost": 2,
+                "generatorsPowered": 3,
+                "loadedResources": []
+              }
+            ],
+            "money": 68,
+            "resources": {
+              "availableresources": [
+                0,
+                0,
+                0,
+                0
+              ]
+            },
+            "generators": 18
+          }
+        ],
+        "name": "Los_Angeles",
+        "region": "blue",
+        "build": false
+      },
+      {
+        "id": "11",
+        "generators": [
+          {
+            "name": "Blue",
+            "cards": [
+              {
+                "minimumBid": 6,
+                "resource": 2,
+                "resourceCost": 1,
+                "generatorsPowered": 1,
+                "loadedResources": []
+              },
+              {
+                "minimumBid": 16,
+                "resource": 1,
+                "resourceCost": 2,
+                "generatorsPowered": 3,
+                "loadedResources": []
+              }
+            ],
+            "money": 68,
+            "resources": {
+              "availableresources": [
+                0,
+                0,
+                0,
+                0
+              ]
+            },
+            "generators": 18
+          }
+        ],
+        "name": "Las_Vegas",
+        "region": "blue",
+        "build": false
+      },
+      {
+        "id": "12",
+        "generators": [],
+        "name": "Salt_Lake_City",
+        "region": "blue",
+        "build": false
+      },
+      {
+        "id": "13",
+        "generators": [],
+        "name": "Denver",
+        "region": "blue",
+        "build": false
+      },
+      {
+        "id": "14",
+        "generators": [],
+        "name": "Albuquerque",
+        "region": "purple",
+        "build": false
+      },
+      {
+        "id": "15",
+        "generators": [],
+        "name": "Juarez",
+        "region": "purple",
+        "build": false
+      },
+      {
+        "id": "16",
+        "generators": [],
+        "name": "Chihuahua",
+        "region": "purple",
+        "build": false
+      },
+      {
+        "id": "17",
+        "generators": [],
+        "name": "Monterrey",
+        "region": "purple",
+        "build": false
+      },
+      {
+        "id": "18",
+        "generators": [],
+        "name": "Guadalajara",
+        "region": "purple",
+        "build": false
+      },
+      {
+        "id": "19",
+        "generators": [
+          {
+            "name": "Yellow",
+            "cards": [
+              {
+                "minimumBid": 9,
+                "resource": 0,
+                "resourceCost": 3,
+                "generatorsPowered": 2,
+                "loadedResources": [
+                  0,
+                  0
+                ]
+              },
+              {
+                "minimumBid": 32,
+                "resource": 3,
+                "resourceCost": 2,
+                "generatorsPowered": 5,
+                "loadedResources": []
+              },
+              {
+                "minimumBid": 22,
+                "resource": 5,
+                "resourceCost": 3,
+                "generatorsPowered": 5,
+                "loadedResources": []
+              }
+            ],
+            "money": 14,
+            "resources": {
+              "availableresources": [
+                0,
+                0,
+                0,
+                0
+              ]
+            },
+            "generators": 21
+          }
+        ],
+        "name": "Mexico_City",
+        "region": "purple",
+        "build": false
+      },
+      {
+        "id": "20",
+        "generators": [],
+        "name": "Mexico_City_2",
+        "region": "purple",
+        "build": false
+      },
+      {
+        "id": "21",
+        "generators": [],
+        "name": "Fort_Worth",
+        "region": "orange",
+        "build": false
+      },
+      {
+        "id": "22",
+        "generators": [],
+        "name": "San_Antonio",
+        "region": "orange",
+        "build": false
+      },
+      {
+        "id": "23",
+        "generators": [],
+        "name": "Houston",
+        "region": "orange",
+        "build": false
+      },
+      {
+        "id": "24",
+        "generators": [],
+        "name": "New_Orleans",
+        "region": "orange",
+        "build": false
+      },
+      {
+        "id": "25",
+        "generators": [],
+        "name": "Atlanta",
+        "region": "orange",
+        "build": false
+      },
+      {
+        "id": "26",
+        "generators": [
+          {
+            "name": "White",
+            "cards": [
+              {
+                "minimumBid": 12,
+                "resource": 0,
+                "resourceCost": 2,
+                "generatorsPowered": 2,
+                "loadedResources": []
+              },
+              {
+                "minimumBid": 31,
+                "resource": 4,
+                "resourceCost": 0,
+                "generatorsPowered": 4,
+                "loadedResources": []
+              }
+            ],
+            "money": 44,
+            "resources": {
+              "availableresources": [
+                1,
+                0,
+                0,
+                0
+              ]
+            },
+            "generators": 20
+          }
+        ],
+        "name": "Jacksonville",
+        "region": "orange",
+        "build": false
+      },
+      {
+        "id": "27",
+        "generators": [
+          {
+            "name": "White",
+            "cards": [
+              {
+                "minimumBid": 12,
+                "resource": 0,
+                "resourceCost": 2,
+                "generatorsPowered": 2,
+                "loadedResources": []
+              },
+              {
+                "minimumBid": 31,
+                "resource": 4,
+                "resourceCost": 0,
+                "generatorsPowered": 4,
+                "loadedResources": []
+              }
+            ],
+            "money": 44,
+            "resources": {
+              "availableresources": [
+                1,
+                0,
+                0,
+                0
+              ]
+            },
+            "generators": 20
+          }
+        ],
+        "name": "Miami",
+        "region": "orange",
+        "build": false
+      },
+      {
+        "id": "28",
+        "generators": [],
+        "name": "Charlotte",
+        "region": "red",
+        "build": false
+      },
+      {
+        "id": "29",
+        "generators": [],
+        "name": "Washington",
+        "region": "red",
+        "build": false
+      },
+      {
+        "id": "30",
+        "generators": [],
+        "name": "Nashville",
+        "region": "red",
+        "build": false
+      },
+      {
+        "id": "31",
+        "generators": [],
+        "name": "Columbus",
+        "region": "red",
+        "build": false
+      },
+      {
+        "id": "32",
+        "generators": [],
+        "name": "Pittsburgh",
+        "region": "red",
+        "build": false
+      },
+      {
+        "id": "33",
+        "generators": [],
+        "name": "Detroit",
+        "region": "red",
+        "build": false
+      },
+      {
+        "id": "34",
+        "generators": [],
+        "name": "Toronto",
+        "region": "red",
+        "build": false
+      },
+      {
+        "id": "35",
+        "generators": [],
+        "name": "Philadelphia",
+        "region": "green",
+        "build": false
+      },
+      {
+        "id": "36",
+        "generators": [],
+        "name": "Boston",
+        "region": "green",
+        "build": false
+      },
+      {
+        "id": "37",
+        "generators": [],
+        "name": "Montreal",
+        "region": "green",
+        "build": false
+      },
+      {
+        "id": "38",
+        "generators": [],
+        "name": "Quebec",
+        "region": "green",
+        "build": false
+      },
+      {
+        "id": "39",
+        "generators": [],
+        "name": "Ottawa",
+        "region": "green",
+        "build": false
+      },
+      {
+        "id": "40",
+        "generators": [],
+        "name": "New_York",
+        "region": "green",
+        "build": false
+      },
+      {
+        "id": "41",
+        "generators": [],
+        "name": "New_York_2",
+        "region": "green",
+        "build": false
+      },
+      {
+        "id": "42",
+        "generators": [
+          {
+            "name": "Red",
+            "cards": [
+              {
+                "minimumBid": 5,
+                "resource": 1,
+                "resourceCost": 2,
+                "generatorsPowered": 1,
+                "loadedResources": []
+              },
+              {
+                "minimumBid": 23,
+                "resource": 2,
+                "resourceCost": 2,
+                "generatorsPowered": 4,
+                "loadedResources": []
+              }
+            ],
+            "money": 56,
+            "resources": {
+              "availableresources": [
+                0,
+                0,
+                0,
+                0
+              ]
+            },
+            "generators": 18
+          }
+        ],
+        "name": "Milwaukee",
+        "region": "olive",
+        "build": false
+      },
+      {
+        "id": "43",
+        "generators": [
+          {
+            "name": "Red",
+            "cards": [
+              {
+                "minimumBid": 5,
+                "resource": 1,
+                "resourceCost": 2,
+                "generatorsPowered": 1,
+                "loadedResources": []
+              },
+              {
+                "minimumBid": 23,
+                "resource": 2,
+                "resourceCost": 2,
+                "generatorsPowered": 4,
+                "loadedResources": []
+              }
+            ],
+            "money": 56,
+            "resources": {
+              "availableresources": [
+                0,
+                0,
+                0,
+                0
+              ]
+            },
+            "generators": 18
+          }
+        ],
+        "name": "Chicago",
+        "region": "olive",
+        "build": false
+      },
+      {
+        "id": "44",
+        "generators": [
+          {
+            "name": "Red",
+            "cards": [
+              {
+                "minimumBid": 5,
+                "resource": 1,
+                "resourceCost": 2,
+                "generatorsPowered": 1,
+                "loadedResources": []
+              },
+              {
+                "minimumBid": 23,
+                "resource": 2,
+                "resourceCost": 2,
+                "generatorsPowered": 4,
+                "loadedResources": []
+              }
+            ],
+            "money": 56,
+            "resources": {
+              "availableresources": [
+                0,
+                0,
+                0,
+                0
+              ]
+            },
+            "generators": 18
+          }
+        ],
+        "name": "Indianapolis",
+        "region": "olive",
+        "build": false
+      },
+      {
+        "id": "45",
+        "generators": [
+          {
+            "name": "Purple",
+            "cards": [
+              {
+                "minimumBid": 14,
+                "resource": 1,
+                "resourceCost": 1,
+                "generatorsPowered": 2,
+                "loadedResources": []
+              },
+              {
+                "minimumBid": 11,
+                "resource": 4,
+                "resourceCost": 0,
+                "generatorsPowered": 1,
+                "loadedResources": []
+              },
+              {
+                "minimumBid": 13,
+                "resource": 3,
+                "resourceCost": 1,
+                "generatorsPowered": 2,
+                "loadedResources": []
+              }
+            ],
+            "money": 52,
+            "resources": {
+              "availableresources": [
+                0,
+                0,
+                0,
+                0
+              ]
+            },
+            "generators": 19
+          }
+        ],
+        "name": "St_Louis",
+        "region": "olive",
+        "build": false
+      },
+      {
+        "id": "46",
+        "generators": [
+          {
+            "name": "Purple",
+            "cards": [
+              {
+                "minimumBid": 14,
+                "resource": 1,
+                "resourceCost": 1,
+                "generatorsPowered": 2,
+                "loadedResources": []
+              },
+              {
+                "minimumBid": 11,
+                "resource": 4,
+                "resourceCost": 0,
+                "generatorsPowered": 1,
+                "loadedResources": []
+              },
+              {
+                "minimumBid": 13,
+                "resource": 3,
+                "resourceCost": 1,
+                "generatorsPowered": 2,
+                "loadedResources": []
+              }
+            ],
+            "money": 52,
+            "resources": {
+              "availableresources": [
+                0,
+                0,
+                0,
+                0
+              ]
+            },
+            "generators": 19
+          }
+        ],
+        "name": "Memphis",
+        "region": "olive",
+        "build": false
+      },
+      {
+        "id": "47",
+        "generators": [],
+        "name": "Oklahoma_City",
+        "region": "olive",
+        "build": false
+      },
+      {
+        "id": "48",
+        "generators": [
+          {
+            "name": "Purple",
+            "cards": [
+              {
+                "minimumBid": 14,
+                "resource": 1,
+                "resourceCost": 1,
+                "generatorsPowered": 2,
+                "loadedResources": []
+              },
+              {
+                "minimumBid": 11,
+                "resource": 4,
+                "resourceCost": 0,
+                "generatorsPowered": 1,
+                "loadedResources": []
+              },
+              {
+                "minimumBid": 13,
+                "resource": 3,
+                "resourceCost": 1,
+                "generatorsPowered": 2,
+                "loadedResources": []
+              }
+            ],
+            "money": 52,
+            "resources": {
+              "availableresources": [
+                0,
+                0,
+                0,
+                0
+              ]
+            },
+            "generators": 19
+          }
+        ],
+        "name": "Kansas_City",
+        "region": "olive",
+        "build": false
+      }
+    ],
+    "Grids": {
+      "PowerGrid.Domain.Player": [
+        {
+          "id": "0",
+          "generators": [
+            {
+              "name": "Green",
+              "cards": [
+                {
+                  "minimumBid": 15,
+                  "resource": 0,
+                  "resourceCost": 1,
+                  "generatorsPowered": 2,
+                  "loadedResources": []
+                },
+                {
+                  "minimumBid": 7,
+                  "resource": 0,
+                  "resourceCost": 1,
+                  "generatorsPowered": 1,
+                  "loadedResources": []
+                },
+                {
+                  "minimumBid": 30,
+                  "resource": 2,
+                  "resourceCost": 2,
+                  "generatorsPowered": 5,
+                  "loadedResources": []
+                }
+              ],
+              "money": 45,
+              "resources": {
+                "availableresources": [
+                  1,
+                  0,
+                  0,
+                  0
+                ]
+              },
+              "generators": 19
+            }
+          ],
+          "name": "Vancouver",
+          "region": "yellow",
+          "build": false
+        },
+        {
+          "id": "4",
+          "generators": [
+            {
+              "name": "Green",
+              "cards": [
+                {
+                  "minimumBid": 15,
+                  "resource": 0,
+                  "resourceCost": 1,
+                  "generatorsPowered": 2,
+                  "loadedResources": []
+                },
+                {
+                  "minimumBid": 7,
+                  "resource": 0,
+                  "resourceCost": 1,
+                  "generatorsPowered": 1,
+                  "loadedResources": []
+                },
+                {
+                  "minimumBid": 30,
+                  "resource": 2,
+                  "resourceCost": 2,
+                  "generatorsPowered": 5,
+                  "loadedResources": []
+                }
+              ],
+              "money": 45,
+              "resources": {
+                "availableresources": [
+                  1,
+                  0,
+                  0,
+                  0
+                ]
+              },
+              "generators": 19
+            }
+          ],
+          "name": "Seattle",
+          "region": "yellow",
+          "build": false
+        },
+        {
+          "id": "7",
+          "generators": [
+            {
+              "name": "Green",
+              "cards": [
+                {
+                  "minimumBid": 15,
+                  "resource": 0,
+                  "resourceCost": 1,
+                  "generatorsPowered": 2,
+                  "loadedResources": []
+                },
+                {
+                  "minimumBid": 7,
+                  "resource": 0,
+                  "resourceCost": 1,
+                  "generatorsPowered": 1,
+                  "loadedResources": []
+                },
+                {
+                  "minimumBid": 30,
+                  "resource": 2,
+                  "resourceCost": 2,
+                  "generatorsPowered": 5,
+                  "loadedResources": []
+                }
+              ],
+              "money": 45,
+              "resources": {
+                "availableresources": [
+                  1,
+                  0,
+                  0,
+                  0
+                ]
+              },
+              "generators": 19
+            }
+          ],
+          "name": "Portland",
+          "region": "blue",
+          "build": false
+        }
+      ],
+      "PowerGrid.Domain.Player": [
+        {
+          "id": "6",
+          "generators": [
+            {
+              "name": "Red",
+              "cards": [
+                {
+                  "minimumBid": 5,
+                  "resource": 1,
+                  "resourceCost": 2,
+                  "generatorsPowered": 1,
+                  "loadedResources": []
+                },
+                {
+                  "minimumBid": 23,
+                  "resource": 2,
+                  "resourceCost": 2,
+                  "generatorsPowered": 4,
+                  "loadedResources": []
+                }
+              ],
+              "money": 56,
+              "resources": {
+                "availableresources": [
+                  0,
+                  0,
+                  0,
+                  0
+                ]
+              },
+              "generators": 18
+            }
+          ],
+          "name": "Minneapolis",
+          "region": "yellow",
+          "build": false
+        },
+        {
+          "id": "42",
+          "generators": [
+            {
+              "name": "Red",
+              "cards": [
+                {
+                  "minimumBid": 5,
+                  "resource": 1,
+                  "resourceCost": 2,
+                  "generatorsPowered": 1,
+                  "loadedResources": []
+                },
+                {
+                  "minimumBid": 23,
+                  "resource": 2,
+                  "resourceCost": 2,
+                  "generatorsPowered": 4,
+                  "loadedResources": []
+                }
+              ],
+              "money": 56,
+              "resources": {
+                "availableresources": [
+                  0,
+                  0,
+                  0,
+                  0
+                ]
+              },
+              "generators": 18
+            }
+          ],
+          "name": "Milwaukee",
+          "region": "olive",
+          "build": false
+        },
+        {
+          "id": "43",
+          "generators": [
+            {
+              "name": "Red",
+              "cards": [
+                {
+                  "minimumBid": 5,
+                  "resource": 1,
+                  "resourceCost": 2,
+                  "generatorsPowered": 1,
+                  "loadedResources": []
+                },
+                {
+                  "minimumBid": 23,
+                  "resource": 2,
+                  "resourceCost": 2,
+                  "generatorsPowered": 4,
+                  "loadedResources": []
+                }
+              ],
+              "money": 56,
+              "resources": {
+                "availableresources": [
+                  0,
+                  0,
+                  0,
+                  0
+                ]
+              },
+              "generators": 18
+            }
+          ],
+          "name": "Chicago",
+          "region": "olive",
+          "build": false
+        },
+        {
+          "id": "44",
+          "generators": [
+            {
+              "name": "Red",
+              "cards": [
+                {
+                  "minimumBid": 5,
+                  "resource": 1,
+                  "resourceCost": 2,
+                  "generatorsPowered": 1,
+                  "loadedResources": []
+                },
+                {
+                  "minimumBid": 23,
+                  "resource": 2,
+                  "resourceCost": 2,
+                  "generatorsPowered": 4,
+                  "loadedResources": []
+                }
+              ],
+              "money": 56,
+              "resources": {
+                "availableresources": [
+                  0,
+                  0,
+                  0,
+                  0
+                ]
+              },
+              "generators": 18
+            }
+          ],
+          "name": "Indianapolis",
+          "region": "olive",
+          "build": false
+        }
+      ],
+      "PowerGrid.Domain.Player": [
+        {
+          "id": "8",
+          "generators": [
+            {
+              "name": "Blue",
+              "cards": [
+                {
+                  "minimumBid": 6,
+                  "resource": 2,
+                  "resourceCost": 1,
+                  "generatorsPowered": 1,
+                  "loadedResources": []
+                },
+                {
+                  "minimumBid": 16,
+                  "resource": 1,
+                  "resourceCost": 2,
+                  "generatorsPowered": 3,
+                  "loadedResources": []
+                }
+              ],
+              "money": 68,
+              "resources": {
+                "availableresources": [
+                  0,
+                  0,
+                  0,
+                  0
+                ]
+              },
+              "generators": 18
+            }
+          ],
+          "name": "San_Francisco",
+          "region": "blue",
+          "build": false
+        },
+        {
+          "id": "9",
+          "generators": [
+            {
+              "name": "Blue",
+              "cards": [
+                {
+                  "minimumBid": 6,
+                  "resource": 2,
+                  "resourceCost": 1,
+                  "generatorsPowered": 1,
+                  "loadedResources": []
+                },
+                {
+                  "minimumBid": 16,
+                  "resource": 1,
+                  "resourceCost": 2,
+                  "generatorsPowered": 3,
+                  "loadedResources": []
+                }
+              ],
+              "money": 68,
+              "resources": {
+                "availableresources": [
+                  0,
+                  0,
+                  0,
+                  0
+                ]
+              },
+              "generators": 18
+            }
+          ],
+          "name": "San_Diego",
+          "region": "blue",
+          "build": false
+        },
+        {
+          "id": "10",
+          "generators": [
+            {
+              "name": "Blue",
+              "cards": [
+                {
+                  "minimumBid": 6,
+                  "resource": 2,
+                  "resourceCost": 1,
+                  "generatorsPowered": 1,
+                  "loadedResources": []
+                },
+                {
+                  "minimumBid": 16,
+                  "resource": 1,
+                  "resourceCost": 2,
+                  "generatorsPowered": 3,
+                  "loadedResources": []
+                }
+              ],
+              "money": 68,
+              "resources": {
+                "availableresources": [
+                  0,
+                  0,
+                  0,
+                  0
+                ]
+              },
+              "generators": 18
+            }
+          ],
+          "name": "Los_Angeles",
+          "region": "blue",
+          "build": false
+        },
+        {
+          "id": "11",
+          "generators": [
+            {
+              "name": "Blue",
+              "cards": [
+                {
+                  "minimumBid": 6,
+                  "resource": 2,
+                  "resourceCost": 1,
+                  "generatorsPowered": 1,
+                  "loadedResources": []
+                },
+                {
+                  "minimumBid": 16,
+                  "resource": 1,
+                  "resourceCost": 2,
+                  "generatorsPowered": 3,
+                  "loadedResources": []
+                }
+              ],
+              "money": 68,
+              "resources": {
+                "availableresources": [
+                  0,
+                  0,
+                  0,
+                  0
+                ]
+              },
+              "generators": 18
+            }
+          ],
+          "name": "Las_Vegas",
+          "region": "blue",
+          "build": false
+        }
+      ],
+      "PowerGrid.Domain.Player": [
+        {
+          "id": "19",
+          "generators": [
+            {
+              "name": "Yellow",
+              "cards": [
+                {
+                  "minimumBid": 9,
+                  "resource": 0,
+                  "resourceCost": 3,
+                  "generatorsPowered": 2,
+                  "loadedResources": [
+                    0,
+                    0
+                  ]
+                },
+                {
+                  "minimumBid": 32,
+                  "resource": 3,
+                  "resourceCost": 2,
+                  "generatorsPowered": 5,
+                  "loadedResources": []
+                },
+                {
+                  "minimumBid": 22,
+                  "resource": 5,
+                  "resourceCost": 3,
+                  "generatorsPowered": 5,
+                  "loadedResources": []
+                }
+              ],
+              "money": 14,
+              "resources": {
+                "availableresources": [
+                  0,
+                  0,
+                  0,
+                  0
+                ]
+              },
+              "generators": 21
+            }
+          ],
+          "name": "Mexico_City",
+          "region": "purple",
+          "build": false
+        }
+      ],
+      "PowerGrid.Domain.Player": [
+        {
+          "id": "26",
+          "generators": [
+            {
+              "name": "White",
+              "cards": [
+                {
+                  "minimumBid": 12,
+                  "resource": 0,
+                  "resourceCost": 2,
+                  "generatorsPowered": 2,
+                  "loadedResources": []
+                },
+                {
+                  "minimumBid": 31,
+                  "resource": 4,
+                  "resourceCost": 0,
+                  "generatorsPowered": 4,
+                  "loadedResources": []
+                }
+              ],
+              "money": 44,
+              "resources": {
+                "availableresources": [
+                  1,
+                  0,
+                  0,
+                  0
+                ]
+              },
+              "generators": 20
+            }
+          ],
+          "name": "Jacksonville",
+          "region": "orange",
+          "build": false
+        },
+        {
+          "id": "27",
+          "generators": [
+            {
+              "name": "White",
+              "cards": [
+                {
+                  "minimumBid": 12,
+                  "resource": 0,
+                  "resourceCost": 2,
+                  "generatorsPowered": 2,
+                  "loadedResources": []
+                },
+                {
+                  "minimumBid": 31,
+                  "resource": 4,
+                  "resourceCost": 0,
+                  "generatorsPowered": 4,
+                  "loadedResources": []
+                }
+              ],
+              "money": 44,
+              "resources": {
+                "availableresources": [
+                  1,
+                  0,
+                  0,
+                  0
+                ]
+              },
+              "generators": 20
+            }
+          ],
+          "name": "Miami",
+          "region": "orange",
+          "build": false
+        }
+      ],
+      "PowerGrid.Domain.Player": [
+        {
+          "id": "45",
+          "generators": [
+            {
+              "name": "Purple",
+              "cards": [
+                {
+                  "minimumBid": 14,
+                  "resource": 1,
+                  "resourceCost": 1,
+                  "generatorsPowered": 2,
+                  "loadedResources": []
+                },
+                {
+                  "minimumBid": 11,
+                  "resource": 4,
+                  "resourceCost": 0,
+                  "generatorsPowered": 1,
+                  "loadedResources": []
+                },
+                {
+                  "minimumBid": 13,
+                  "resource": 3,
+                  "resourceCost": 1,
+                  "generatorsPowered": 2,
+                  "loadedResources": []
+                }
+              ],
+              "money": 52,
+              "resources": {
+                "availableresources": [
+                  0,
+                  0,
+                  0,
+                  0
+                ]
+              },
+              "generators": 19
+            }
+          ],
+          "name": "St_Louis",
+          "region": "olive",
+          "build": false
+        },
+        {
+          "id": "46",
+          "generators": [
+            {
+              "name": "Purple",
+              "cards": [
+                {
+                  "minimumBid": 14,
+                  "resource": 1,
+                  "resourceCost": 1,
+                  "generatorsPowered": 2,
+                  "loadedResources": []
+                },
+                {
+                  "minimumBid": 11,
+                  "resource": 4,
+                  "resourceCost": 0,
+                  "generatorsPowered": 1,
+                  "loadedResources": []
+                },
+                {
+                  "minimumBid": 13,
+                  "resource": 3,
+                  "resourceCost": 1,
+                  "generatorsPowered": 2,
+                  "loadedResources": []
+                }
+              ],
+              "money": 52,
+              "resources": {
+                "availableresources": [
+                  0,
+                  0,
+                  0,
+                  0
+                ]
+              },
+              "generators": 19
+            }
+          ],
+          "name": "Memphis",
+          "region": "olive",
+          "build": false
+        },
+        {
+          "id": "48",
+          "generators": [
+            {
+              "name": "Purple",
+              "cards": [
+                {
+                  "minimumBid": 14,
+                  "resource": 1,
+                  "resourceCost": 1,
+                  "generatorsPowered": 2,
+                  "loadedResources": []
+                },
+                {
+                  "minimumBid": 11,
+                  "resource": 4,
+                  "resourceCost": 0,
+                  "generatorsPowered": 1,
+                  "loadedResources": []
+                },
+                {
+                  "minimumBid": 13,
+                  "resource": 3,
+                  "resourceCost": 1,
+                  "generatorsPowered": 2,
+                  "loadedResources": []
+                }
+              ],
+              "money": 52,
+              "resources": {
+                "availableresources": [
+                  0,
+                  0,
+                  0,
+                  0
+                ]
+              },
+              "generators": 19
+            }
+          ],
+          "name": "Kansas_City",
+          "region": "olive",
+          "build": false
+        }
+      ]
+    }
+  },
+  "currentPlayer": {
+    "name": "Blue",
+    "cards": [
+      {
+        "minimumBid": 6,
+        "resource": 2,
+        "resourceCost": 1,
+        "generatorsPowered": 1,
+        "loadedResources": []
+      },
+      {
+        "minimumBid": 16,
+        "resource": 1,
+        "resourceCost": 2,
+        "generatorsPowered": 3,
+        "loadedResources": []
+      }
+    ],
+    "money": 68,
+    "resources": {
+      "availableresources": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "generators": 18
+  },
+  "currentBidder": null,
+  "currentPhase": 0,
+  "currentStep": 0,
+  "remainingTime": 60,
+  "playerOrder": [
+    {
+      "name": "Blue",
+      "cards": [
+        {
+          "minimumBid": 6,
+          "resource": 2,
+          "resourceCost": 1,
+          "generatorsPowered": 1,
+          "loadedResources": []
+        },
+        {
+          "minimumBid": 16,
+          "resource": 1,
+          "resourceCost": 2,
+          "generatorsPowered": 3,
+          "loadedResources": []
+        }
+      ],
+      "money": 68,
+      "resources": {
+        "availableresources": [
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "generators": 18
+    },
+    {
+      "name": "Red",
+      "cards": [
+        {
+          "minimumBid": 5,
+          "resource": 1,
+          "resourceCost": 2,
+          "generatorsPowered": 1,
+          "loadedResources": []
+        },
+        {
+          "minimumBid": 23,
+          "resource": 2,
+          "resourceCost": 2,
+          "generatorsPowered": 4,
+          "loadedResources": []
+        }
+      ],
+      "money": 56,
+      "resources": {
+        "availableresources": [
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "generators": 18
+    },
+    {
+      "name": "Green",
+      "cards": [
+        {
+          "minimumBid": 15,
+          "resource": 0,
+          "resourceCost": 1,
+          "generatorsPowered": 2,
+          "loadedResources": []
+        },
+        {
+          "minimumBid": 7,
+          "resource": 0,
+          "resourceCost": 1,
+          "generatorsPowered": 1,
+          "loadedResources": []
+        },
+        {
+          "minimumBid": 30,
+          "resource": 2,
+          "resourceCost": 2,
+          "generatorsPowered": 5,
+          "loadedResources": []
+        }
+      ],
+      "money": 45,
+      "resources": {
+        "availableresources": [
+          1,
+          0,
+          0,
+          0
+        ]
+      },
+      "generators": 19
+    },
+    {
+      "name": "Purple",
+      "cards": [
+        {
+          "minimumBid": 14,
+          "resource": 1,
+          "resourceCost": 1,
+          "generatorsPowered": 2,
+          "loadedResources": []
+        },
+        {
+          "minimumBid": 11,
+          "resource": 4,
+          "resourceCost": 0,
+          "generatorsPowered": 1,
+          "loadedResources": []
+        },
+        {
+          "minimumBid": 13,
+          "resource": 3,
+          "resourceCost": 1,
+          "generatorsPowered": 2,
+          "loadedResources": []
+        }
+      ],
+      "money": 52,
+      "resources": {
+        "availableresources": [
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "generators": 19
+    },
+    {
+      "name": "Yellow",
+      "cards": [
+        {
+          "minimumBid": 9,
+          "resource": 0,
+          "resourceCost": 3,
+          "generatorsPowered": 2,
+          "loadedResources": [
+            0,
+            0
+          ]
+        },
+        {
+          "minimumBid": 32,
+          "resource": 3,
+          "resourceCost": 2,
+          "generatorsPowered": 5,
+          "loadedResources": []
+        },
+        {
+          "minimumBid": 22,
+          "resource": 5,
+          "resourceCost": 3,
+          "generatorsPowered": 5,
+          "loadedResources": []
+        }
+      ],
+      "money": 14,
+      "resources": {
+        "availableresources": [
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "generators": 21
+    },
+    {
+      "name": "White",
+      "cards": [
+        {
+          "minimumBid": 12,
+          "resource": 0,
+          "resourceCost": 2,
+          "generatorsPowered": 2,
+          "loadedResources": []
+        },
+        {
+          "minimumBid": 31,
+          "resource": 4,
+          "resourceCost": 0,
+          "generatorsPowered": 4,
+          "loadedResources": []
+        }
+      ],
+      "money": 44,
+      "resources": {
+        "availableresources": [
+          1,
+          0,
+          0,
+          0
+        ]
+      },
+      "generators": 20
+    }
+  ]
+}
