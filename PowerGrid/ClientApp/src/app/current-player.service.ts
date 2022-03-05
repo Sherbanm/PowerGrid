@@ -31,6 +31,10 @@ export class CurrentPlayerService {
         return "#e6ccff";
       case "Franz":
         return "#e0e0eb";
+      case "Serban":
+        return "#ffcccc";
+      case "CPU":
+        return "#99ccff";
       default:
         return '#000000';
     }

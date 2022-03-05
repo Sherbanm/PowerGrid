@@ -14,11 +14,48 @@ namespace PowerGrid.Service
 {
     public static class Game
     {
+        public static GameState gameState;
+
         private static List<WebSocket> listeners = new List<WebSocket>();
         private static WebSocketReceiveResult result;
-        public static GameState gameState = MockGameState.GetMockState();
         private static bool firstAuctionPhaseCompleted = false;
         private static Timer timer;
+
+        private static LinkedList<Player> CreatePlayers(IEnumerable<string> playerNames)
+        {
+            List<Player> list = playerNames.Select(x => new Player { Name = x, Money = 50 }).ToList();
+            return new LinkedList<Player>(list);
+        }
+
+        private static ResourceMarket CreateResourceMarket() {
+            return new ResourceMarket
+            {
+                Resources = new Resources
+                {
+                    AvailableResources = new int[] { 23, 18, 14, 1 }
+                }
+            };
+        }
+
+        private static AuctionHouse CreateAuctionHouse(List<Card> cards, IEnumerable<string> playerNames)
+        {
+            var auctionHouse = new AuctionHouse();
+            auctionHouse.Prepare(cards.Where(x => x.MinimumBid <= 15), cards.Where(x => x.MinimumBid > 15), true, playerNames.Count());
+            return auctionHouse;
+        }
+
+        public static void Start(IEnumerable<string> playerNames)
+        {
+            gameState = new GameState
+            {
+                Players = CreatePlayers(playerNames),
+                ResourceMarket = CreateResourceMarket(),
+                AuctionHouse = CreateAuctionHouse(MockGameState.Cards, playerNames),
+                Map = MockGameState.Map,
+                RemainingTime = 10
+            };
+        }
+
         public static void AddListener(WebSocket listener)
         {
             listeners.Add(listener);
@@ -37,7 +74,13 @@ namespace PowerGrid.Service
             SaveResult(result);
             while (!result.CloseStatus.HasValue)
             {
-                var json = Newtonsoft.Json.JsonConvert.SerializeObject(gameState);
+                string message = Encoding.UTF8.GetString(buffer, 0, result.Count);
+                if (message.Equals("start"))
+                {
+                    Start(new List<string> { "Serban", "CPU"} );
+                }
+                AdvanceGame();
+                var json = JsonConvert.SerializeObject(gameState);
                 var bytes = Encoding.GetEncoding(Encoding.UTF8.BodyName).GetBytes(json.ToCharArray());
 
                 await webSocket.SendAsync(new ArraySegment<byte>(bytes, 0, bytes.Length), result.MessageType, result.EndOfMessage, CancellationToken.None);
@@ -478,12 +521,7 @@ namespace PowerGrid.Service
             }
             SendUpdates();
         }
-        
-        public static void Start()
-        {
-            SendUpdates();
-        }
-        
+       
         public static void ExportGameStateToJsonFile(string filePath)
         {
             string json = JsonConvert.SerializeObject(gameState, Formatting.Indented);
@@ -502,7 +540,7 @@ namespace PowerGrid.Service
             timer?.Dispose();
             foreach (WebSocket listener in listeners)
             {
-                var json = Newtonsoft.Json.JsonConvert.SerializeObject(gameState);
+                var json = JsonConvert.SerializeObject(gameState);
                 var bytes = Encoding.GetEncoding(Encoding.UTF8.BodyName).GetBytes(json.ToCharArray());
 
                 listener.SendAsync(new ArraySegment<byte>(bytes, 0, bytes.Length), result.MessageType, result.EndOfMessage, CancellationToken.None);

@@ -33,7 +33,6 @@ export class GamestateComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.socketService.sendMessage("hello");
   }
 
   startTimer() {
@@ -49,8 +48,8 @@ export class GamestateComponent implements OnInit {
     }, 100);
   }
 
-  onClickMe() {
-    this.socketService.sendMessage("hello"); 
+  onStartRestart() {
+    this.socketService.sendMessage("start");
   }
 
   onAdvance() {

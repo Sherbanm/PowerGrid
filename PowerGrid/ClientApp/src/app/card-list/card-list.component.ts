@@ -1,6 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Card} from '../domain/card';
-import { GamestateService } from '../gamestate.service';
 
 @Component({
   selector: 'app-card-list',
@@ -14,7 +13,4 @@ export class CardListComponent implements OnInit {
 
   ngOnInit() {
   }
-
-  
-
 }

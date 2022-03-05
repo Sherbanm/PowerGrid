@@ -1,5 +1,5 @@
 <div>
-  <button (click)="onClickMe()">Click me!</button>
+  <button (click)="onStartRestart()">Start/Restart</button>
   <div *ngIf='gameState'>
     <div container>
       <div class="row">
@@ -9,8 +9,8 @@
             Seconds Left: {{timeLeft | number : '1.1-1'}}<br>
             Phase: {{gameState.currentPhase}}<br>
             Step: {{gameState.currentStep}}<br>
-            CurrentPlayer: {{gameState.currentPlayer.name}}<br>
-            CurrentBidder: {{gameState.currentBidder.name}}<br>
+            CurrentPlayer: <span *ngIf="gameState.currentPlayer !== null">{{gameState.currentPlayer.name}}</span><br>
+            CurrentBidder: <span *ngIf="gameState.currentBidder !== null">{{gameState.currentBidder.name}}</span><br>
             <button (click)="onAdvance()">Advance</button>
             <button (click)="onPassAuction()">Pass Auction</button>
           </div>
