@@ -129,6 +129,21 @@ namespace PowerGrid.Controllers
                 return JsonConvert.SerializeObject(new { success = false, message = e.Message });
             }
         }
+
+        [Route("DiscardCard")]
+        [HttpPost]
+        public string DiscardCard([FromBody] LoadResourceRequest loadResourceRequest)
+        {
+            try
+            {
+                Game.DiscardCard(loadResourceRequest.player, loadResourceRequest.card);
+                return JsonConvert.SerializeObject(new { success = true, message = "no errors." });
+            }
+            catch (Exception e)
+            {
+                return JsonConvert.SerializeObject(new { success = false, message = e.Message });
+            }
+        }
     }
     public class AuctionBidRequest
     {

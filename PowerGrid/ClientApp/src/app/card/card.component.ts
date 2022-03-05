@@ -54,6 +54,12 @@ export class CardComponent implements OnInit {
     });
   }
 
+  public onDiscard(): void {
+    this.gameStateService.discardCard(this.selectedPlayer, this.card).subscribe(data => {
+      this.errorHandlerService.changeCurrentErrorFromResponse(data);
+    });
+  }
+
   public getStyle(): string{
     var style = ""
     if (this.card.resource == 0) {

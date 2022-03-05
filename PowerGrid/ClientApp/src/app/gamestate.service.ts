@@ -66,4 +66,10 @@ export class GamestateService {
     var options = { headers: new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': 'my-auth-token' }) };
     return this.http.post<object>(this.url + "/LoadResource", parameter, options);
   }
+
+  discardCard(player: Player, card: Card): Observable<object> {
+    var parameter = JSON.stringify({ player, card });
+    var options = { headers: new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': 'my-auth-token' }) };
+    return this.http.post<object>(this.url + "/DiscardCard", parameter, options);
+  }
 }

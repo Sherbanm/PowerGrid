@@ -20,6 +20,7 @@ namespace PowerGrid.Service
         private static WebSocketReceiveResult result;
         private static bool firstAuctionPhaseCompleted = false;
         private static Timer timer;
+        private const int MAXCARDS = 1;
 
         private static LinkedList<Player> CreatePlayers(IEnumerable<string> playerNames)
         {
@@ -52,8 +53,9 @@ namespace PowerGrid.Service
                 ResourceMarket = CreateResourceMarket(),
                 AuctionHouse = CreateAuctionHouse(MockGameState.Cards, playerNames),
                 Map = MockGameState.Map,
-                RemainingTime = 10
+                RemainingTime = 3
             };
+            firstAuctionPhaseCompleted = false;
         }
 
         public static void AddListener(WebSocket listener)
@@ -119,28 +121,38 @@ namespace PowerGrid.Service
             {
                 if (!fromClient)
                 {
-                    // check done auctionining
-                    if (gameState.AuctionHouse.PlayersWhoBought.Count + gameState.AuctionHouse.PlayersWhoPassedPhase.Count == gameState.Players.Count)
+                    if (gameState.Players.Where(x => x.Cards.Count == MAXCARDS + 1).Any())
                     {
-                        // reorder first time
-                        if (!firstAuctionPhaseCompleted)
-                        {
-                            var orderedList = gameState.Players.OrderByDescending(x => CountGenerator(gameState, x)).ThenByDescending(x => GetBiggestPowerPlant(x));
-                            gameState.PlayerOrder = new LinkedList<Player>(orderedList);
-                            gameState.CurrentPlayer = gameState.PlayerOrder.Last();
-                            firstAuctionPhaseCompleted = true;
-                        }
-                        // TODO: remove the discounted card if still there
-                        gameState.CurrentPhase = Phase.BuyResources;
-                        gameState.AuctionHouse.PlayersWhoPassedPhase.Clear();
-                        gameState.AuctionHouse.PlayersWhoBought.Clear();
-                        gameState.CurrentBidder = null;
-                        gameState.CurrentPlayer = gameState.PlayerOrder.Last();
-                        return;
+                        gameState.RemainingTime = 60;
                     }
-                    var nextPlayer = GetNextPlayer();
-                    gameState.CurrentPlayer = nextPlayer;
-                    gameState.CurrentBidder = nextPlayer;
+                    else
+                    {
+                        // check done auctionining
+                        if (gameState.AuctionHouse.PlayersWhoBought.Count + gameState.AuctionHouse.PlayersWhoPassedPhase.Count == gameState.Players.Count)
+                        {
+                            // reorder first time
+                            if (!firstAuctionPhaseCompleted)
+                            {
+                                var orderedList = gameState.Players.OrderByDescending(x => CountGenerator(gameState, x)).ThenByDescending(x => GetBiggestPowerPlant(x));
+                                gameState.PlayerOrder = new LinkedList<Player>(orderedList);
+                                gameState.CurrentPlayer = gameState.PlayerOrder.Last();
+                                firstAuctionPhaseCompleted = true;
+                            }
+                            // TODO: remove the discounted card if still there
+                            gameState.CurrentPhase = Phase.BuyResources;
+                            gameState.AuctionHouse.PlayersWhoPassedPhase.Clear();
+                            gameState.AuctionHouse.PlayersWhoBought.Clear();
+                            gameState.CurrentBidder = null;
+                            gameState.CurrentPlayer = gameState.PlayerOrder.Last();
+                        }
+                        else
+                        {
+                            var nextPlayer = GetNextPlayer();
+                            gameState.CurrentPlayer = nextPlayer;
+                            gameState.CurrentBidder = nextPlayer;
+                        }
+                        gameState.RemainingTime = 10;
+                    }
                 }
                 else
                 {
@@ -177,7 +189,8 @@ namespace PowerGrid.Service
             else if (gameState.CurrentPhase == Phase.Bureaucracy)
             {
                 // check step 2
-                var biggestGrid = gameState.Map.Grids.Select(x => x.Value.Count()).Max();
+                var gridSizes = gameState.Map.Grids.Select(x => x.Value.Count());
+                var biggestGrid = gridSizes.Any() ? gridSizes.Max() : 0;
                 if ((gameState.Players.Count() == 6 && biggestGrid >= 6) || biggestGrid >= 7)
                 {
                     if (gameState.CurrentStep == Step.Step1)
@@ -233,15 +246,7 @@ namespace PowerGrid.Service
                 }
                 gameState.CurrentPhase = Phase.DeterminePlayerOrder;
             }
-
-            gameState.RemainingTime = 60;
             SendUpdates();
-            Console.WriteLine(DateTime.Now);
-            // give them 2 seconds for leeway
-            timer = new Timer( (_) => {
-                AutoResolve();
-                AdvanceGame(false);
-            }, null, (gameState.RemainingTime + 2) * 1000, Timeout.Infinite);
         }
 
         private static void AutoResolve()
@@ -257,15 +262,18 @@ namespace PowerGrid.Service
                     {
                         var cheapestCard = gameState.AuctionHouse.Marketplace.First();
                         AuctionSetCard(cheapestCard, gameState.CurrentPlayer);
+                        return;
                     }
                     else
                     {
                         AuctionPassPhase(gameState.CurrentPlayer);
+                        return;
                     }
                 }
                 else
                 {
                     AuctionPassCard(gameState.CurrentBidder);
+                    return;
                 }
             }
             else if (gameState.CurrentPhase == Phase.BuyResources)
@@ -277,6 +285,7 @@ namespace PowerGrid.Service
             else if (gameState.CurrentPhase == Phase.Bureaucracy)
             {
             }
+            AdvanceGame();
         }
         public static void AuctionSetCard(Card card, Player player)
         {
@@ -521,6 +530,38 @@ namespace PowerGrid.Service
             }
             SendUpdates();
         }
+
+        public static void DiscardCard(Player player, Card card)
+        {
+            var validPhase = gameState.CurrentPhase == Phase.AuctionPowerPlants && player.Cards.Count() == MAXCARDS + 1;
+            if (validPhase)
+            {
+                var validPlayer = gameState.CurrentPlayer.Equals(player);
+                if (validPlayer)
+                {
+                    var validCard = player.Cards.Contains(card) && !player.Cards.Last().Equals(card);
+                    if (validCard)
+                    {
+                        var gameStatePlayer = gameState.Players.First(x => x.Cards.Contains(card));
+                        gameStatePlayer.Cards.Remove(card);
+                        AdvanceGame();
+                    }
+                    else
+                    {
+                        throw new Exception("invalid card.");
+                    }
+                }
+                else
+                {
+                    throw new Exception("invalid player.");
+                }
+            }
+            else
+            {
+                throw new Exception("invalid phase.");
+            }
+            SendUpdates();
+        }
        
         public static void ExportGameStateToJsonFile(string filePath)
         {
@@ -545,6 +586,9 @@ namespace PowerGrid.Service
 
                 listener.SendAsync(new ArraySegment<byte>(bytes, 0, bytes.Length), result.MessageType, result.EndOfMessage, CancellationToken.None);
             }
+            timer = new Timer((_) => {
+                AutoResolve();
+            }, null, (gameState.RemainingTime) * 1000, Timeout.Infinite);
         }
 
         private static int CountGenerator(GameState gameState, Player player)

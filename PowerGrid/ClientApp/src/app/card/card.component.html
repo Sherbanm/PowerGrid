@@ -1,12 +1,18 @@
 <div id='rcornerscard' [ngStyle]="{ 'background-color' : getStyle() }">
-  <span>Value: {{card.minimumBid}}</span>
-  <span *ngIf="card.minimumBid == auctionHouse?.currentauctioncard?.minimumBid">({{auctionHouse.currentbid}})</span><br>
-  <span>Resource: {{card.resource}}</span><br>
-  <div>Loaded Resource: 
-     <span *ngFor="let resource of card.loadedResources">1</span>
+  <p class="alignleft">
+    <span>Value: {{card.minimumBid}}</span>
+    <span *ngIf="card.minimumBid == auctionHouse?.currentauctioncard?.minimumBid">({{auctionHouse.currentbid}})</span><br>
+    <span>Resource: {{card.resource}}</span>
+  </p>
+  <p class="alignright">
+    <span>Cost: {{card.resourceCost}}</span><br>
+    <span>Power: {{card.generatorsPowered}}</span>
+  </p>
+  <div style="clear: both;"></div>
+  <div>
+    Loaded Resource:
+    <span *ngFor="let resource of card.loadedResources">1</span>
   </div>
-  <span>Cost: {{card.resourceCost}}</span><br>
-  <span>Power: {{card.generatorsPowered}}</span><br>
   <span *ngIf="card.minimumBid == auctionHouse?.currentauctioncard?.minimumBid ">
     <button (click)="onBid()">Bid</button>
     <button (click)="onPass()">Pass</button>
@@ -14,6 +20,7 @@
   <span *ngIf="owned">
     <button *ngIf="card.resource != 5" (click)="onLoadResource()">LoadResource</button>
     <button *ngIf="card.resource == 5" (click)="onLoadGas()">Load Gas</button>
-    <button *ngIf="card.resource == 5" (click)="onLoadOil()">Load Oil</button>
+    <button *ngIf="card.resource == 5" (click)="onLoadOil()">Load Oil</button><br>
+    <button (click)="onDiscard()">Discard</button>
   </span>
 </div>

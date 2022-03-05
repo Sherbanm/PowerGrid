@@ -5,3 +5,11 @@
   height: 150px;
   margin: 10px;
 }
+
+.alignleft {
+  float: left;
+}
+
+.alignright {
+  float: right;
+}
